@@ -14,6 +14,11 @@
 <meta property="og:type" content="website">
 <link rel="preload" href="assets/fonts/montserrat-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<!-- The scripts sit at the foot of the body and are deferred, so without these
+     hints the browser does not discover them until it has parsed the whole
+     document and queued every image ahead of them. -->
+<link rel="preload" href="js/content.js" as="script">
+<link rel="preload" href="js/app.js" as="script">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -92,9 +97,9 @@
     <li class="tr-item" data-reveal="rise">
       <button class="tr-card has-bg" type="button" data-open-record="education:nyuad" data-cursor="OPEN">
         <span class="tr-bg" aria-hidden="true" data-bg-rotate>
-          <img src="assets/images/education/nyuad/nyuad-01-commencement-2025.jpg" alt="" class="is-active" loading="lazy" decoding="async">
-          <img src="assets/images/education/nyuad/nyuad-02-falcons-field-sunset.jpg" alt="" loading="lazy" decoding="async">
-          <img src="assets/images/education/nyuad/nyuad-03-courtyard-night-event.jpg" alt="" loading="lazy" decoding="async">
+          <img src="assets/images/education/nyuad/nyuad-01-commencement-2025.jpg" alt="" class="is-active" width="1012" height="1800" loading="lazy" decoding="async">
+          <img data-src="assets/images/education/nyuad/nyuad-02-falcons-field-sunset.jpg" alt="" width="1350" height="1800" loading="lazy" decoding="async">
+          <img data-src="assets/images/education/nyuad/nyuad-03-courtyard-night-event.jpg" alt="" width="1800" height="1350" loading="lazy" decoding="async">
         </span>
         <span class="tr-scrim" aria-hidden="true"></span>
         <span class="tr-place">New York University Abu Dhabi</span>
@@ -106,9 +111,9 @@
     <li class="tr-item" data-reveal="rise">
       <button class="tr-card has-bg" type="button" data-open-record="education:nyu-paris" data-cursor="OPEN">
         <span class="tr-bg" aria-hidden="true" data-bg-rotate>
-          <img src="assets/images/education/nyu-paris/paris-01-IMG_7494.jpg" alt="" class="is-active" loading="lazy" decoding="async">
-          <img src="assets/images/education/nyu-paris/paris-02-IMG_7536.jpg" alt="" loading="lazy" decoding="async">
-          <img src="assets/images/education/nyu-paris/paris-06-IMG_7649.jpg" alt="" loading="lazy" decoding="async">
+          <img src="assets/images/education/nyu-paris/paris-01-IMG_7494.jpg" alt="" class="is-active" width="1350" height="1800" loading="lazy" decoding="async">
+          <img data-src="assets/images/education/nyu-paris/paris-02-IMG_7536.jpg" alt="" width="1350" height="1800" loading="lazy" decoding="async">
+          <img data-src="assets/images/education/nyu-paris/paris-06-IMG_7649.jpg" alt="" width="1800" height="1350" loading="lazy" decoding="async">
         </span>
         <span class="tr-scrim" aria-hidden="true"></span>
         <span class="tr-place">New York University Paris</span>
@@ -120,9 +125,9 @@
     <li class="tr-item" data-reveal="rise">
       <button class="tr-card has-bg" type="button" data-open-record="education:nyu-valletta" data-cursor="OPEN">
         <span class="tr-bg" aria-hidden="true" data-bg-rotate>
-          <img src="assets/images/education/nyu-valletta/valletta-06-IMG_3866.jpg" alt="" class="is-active" loading="lazy" decoding="async">
-          <img src="assets/images/education/nyu-valletta/valletta-05-IMG_3837.jpg" alt="" loading="lazy" decoding="async">
-          <img src="assets/images/education/nyu-valletta/valletta-14-IMG_4057.jpg" alt="" loading="lazy" decoding="async">
+          <img src="assets/images/education/nyu-valletta/valletta-06-IMG_3866.jpg" alt="" class="is-active" width="1350" height="1800" loading="lazy" decoding="async">
+          <img data-src="assets/images/education/nyu-valletta/valletta-05-IMG_3837.jpg" alt="" width="1350" height="1800" loading="lazy" decoding="async">
+          <img data-src="assets/images/education/nyu-valletta/valletta-14-IMG_4057.jpg" alt="" width="1350" height="1800" loading="lazy" decoding="async">
         </span>
         <span class="tr-scrim" aria-hidden="true"></span>
         <span class="tr-place">NYU June Term, Valletta, Malta</span>
@@ -734,8 +739,8 @@
   </div>
 </div>
 
-<script src="js/content.js"></script>
-<script src="js/app.js"></script>
+<script defer src="js/content.js"></script>
+<script defer src="js/app.js"></script>
 <script defer src="js/motion.js"></script>
 </body>
 </html>

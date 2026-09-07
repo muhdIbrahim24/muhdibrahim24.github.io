@@ -408,12 +408,20 @@
 
   var mastheadProgress = document.getElementById('mastheadProgress');
 
+  var lastProgress = null;
+
   function updateProgress() {
     if (!mastheadProgress) return;
     var doc = document.documentElement;
     var max = doc.scrollHeight - doc.clientHeight;
     var p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
-    mastheadProgress.style.setProperty('--p', p.toFixed(4));
+    p = p.toFixed(4);
+    /* Skip the write when the bar has not actually moved: at rest, and at
+       either end of the page, this fires every frame otherwise and each
+       write costs a style invalidation for nothing. */
+    if (p === lastProgress) return;
+    lastProgress = p;
+    mastheadProgress.style.setProperty('--p', p);
   }
 
   /* --------------------------------------------------------- hero parallax
@@ -424,10 +432,18 @@
 
   var heroGrid = $('.hero .grid-field');
 
+  var lastParallax = null;
+
   function updateHeroParallax() {
     if (!heroGrid || reduceMotion) return;
     var sy = Math.min(window.scrollY, 900);
-    heroGrid.style.transform = 'translate3d(0,' + (sy * 0.10).toFixed(1) + 'px,0)';
+    var y = (sy * 0.10).toFixed(1);
+    /* Past the 900px cap the value is pinned, so without this the same
+       transform is rewritten on every scroll frame for the whole rest of
+       the page. */
+    if (y === lastParallax) return;
+    lastParallax = y;
+    heroGrid.style.transform = 'translate3d(0,' + y + 'px,0)';
   }
 
   /* ------------------------------------------------------------ scheduler

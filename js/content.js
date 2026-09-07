@@ -846,8 +846,8 @@ window.PORTFOLIO = Object.freeze({
     },
     {
       "src": "assets/images/projects/savonius/prototype-final-test-rig.jpg",
-      "w": 3024,
-      "h": 4032,
+      "w": 1350,
+      "h": 1800,
       "alt": "Photograph of the finished 1:3 scale Savonius turbine mounted on a test stand with its generator and electronics enclosure below the rotor.",
       "caption": "The final 1:3-scale prototype on its test stand with generator, electronics enclosure and vibration-damping mounts, ready for bench and field testing.",
       "cite": "Savonius Capstone · Spring 2025 · Build",

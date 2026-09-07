@@ -1011,14 +1011,41 @@
      single frame. Left alone under reduced motion, where it just shows
      the first photo. */
 
-  $$('.tr-bg[data-bg-rotate]').forEach(function (stack) {
-    var imgs = $$('img', stack);
-    if (imgs.length < 2 || reduceMotion.matches) return;
-    var at = 0;
-    setInterval(function () {
-      imgs[at].classList.remove('is-active');
-      at = (at + 1) % imgs.length;
-      imgs[at].classList.add('is-active');
-    }, 30000);
-  });
+  /* Only the first frame of each stack ships with a real src; the rest carry
+     data-src and are fetched once the page has finished its own loading, so
+     roughly 2.4MB of photographs nobody sees for the first 30 seconds stays
+     off the critical path. Each frame is also hydrated defensively just
+     before it is swapped in, in case the idle pass never ran. */
+  function hydrateFrame(img) {
+    var src = img && img.getAttribute('data-src');
+    if (!src) return;
+    img.removeAttribute('data-src');
+    img.src = src;
+  }
+
+  var bgStacks = $$('.tr-bg[data-bg-rotate]');
+  if (bgStacks.length && !reduceMotion.matches) {
+    bgStacks.forEach(function (stack) {
+      var imgs = $$('img', stack);
+      if (imgs.length < 2) return;
+      var at = 0;
+      setInterval(function () {
+        imgs[at].classList.remove('is-active');
+        at = (at + 1) % imgs.length;
+        hydrateFrame(imgs[at]);
+        imgs[at].classList.add('is-active');
+        hydrateFrame(imgs[(at + 1) % imgs.length]);
+      }, 30000);
+    });
+
+    var warmFrames = function () {
+      bgStacks.forEach(function (stack) { $$('img', stack).forEach(hydrateFrame); });
+    };
+    var whenIdle = function () {
+      if (window.requestIdleCallback) window.requestIdleCallback(warmFrames, { timeout: 4000 });
+      else window.setTimeout(warmFrames, 1200);
+    };
+    if (document.readyState === 'complete') whenIdle();
+    else window.addEventListener('load', whenIdle, { once: true });
+  }
 }());
