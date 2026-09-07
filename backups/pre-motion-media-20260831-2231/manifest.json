@@ -1,0 +1,48 @@
+{
+  "backupPath": "C:\\Users\\anoto\\OneDrive\\Desktop\\portfolio\\backups\\pre-motion-media-20260831-2231",
+  "counts": {
+    "researchEntries": 3,
+    "experienceEntries": 7,
+    "projectTriggers": 22,
+    "featureScenes": 6,
+    "projectRows": 10
+  },
+  "timestamp": "2026-08-31T22:31:26.8622409+04:00",
+  "pageHeightBaselines": {
+    "mobile": "not readily available",
+    "desktop": "not readily available",
+    "tablet": "not readily available"
+  },
+  "files": [
+    {
+      "sha256": "BD8FF36199DC0426F6A7A7168307C488B393F556786040475BC3F5E3D6182476",
+      "bytes": 16948,
+      "path": "index.html",
+      "existed": true
+    },
+    {
+      "sha256": "DAEE2B0AEA3351AC7575355F4B02BB404A07D5C8DC582AB46BD452894C096F4D",
+      "bytes": 24144,
+      "path": "css/styles.css",
+      "existed": true
+    },
+    {
+      "sha256": "A0D665FCF02E1203A93D801CCC06ECD8F5F23A8138AC682BFEA28D225A8EBF75",
+      "bytes": 15395,
+      "path": "js/main.js",
+      "existed": true
+    },
+    {
+      "existed": false,
+      "path": "js/project-media.js"
+    },
+    {
+      "existed": false,
+      "path": "DESIGN.md"
+    },
+    {
+      "existed": false,
+      "path": "assets/images/projects/README.md"
+    }
+  ]
+}

@@ -1,0 +1,1110 @@
+/* Content registry for the portfolio. Plain data only — no runtime
+   dependencies, no network access. Consumed by js/app.js. */
+window.PORTFOLIO = Object.freeze({
+  records: {
+  "project:01": {
+    "kind": "Project 01",
+    "kicker": "Marine systems / simulation",
+    "title": "Advanced Anti-Roll Tank System (ART3S)",
+    "org": "Mubadala Student Research Projects 2024–2025, NYU Abu Dhabi",
+    "summary": "A hydraulically controlled anti-roll tank for large vessels: port and starboard reservoirs whose water shifts out of phase with the ship's roll, evaluated as a passive U-tube tank and then with an actively actuated loop.",
+    "details": [
+      {
+        "label": "Brief",
+        "text": "Cut the roll motion of a large container ship — the cause of passenger discomfort and cargo shifting — with a water-tank system cheaper to maintain than bilge keels, fin stabilisers or ballast keels."
+      },
+      {
+        "label": "Contribution",
+        "text": "Credited as Design on an eight-person team with four supervisors: mechanical design and system integration of the tank structure, including SolidWorks models of tank volumes from 200 to 800 cubic metres, and presenting the design to the Mubadala committee with partner laboratories. Control-law and simulation work was shared across the team."
+      },
+      {
+        "label": "Method",
+        "text": "Modelled a passive U-tube tank and an actively controlled variant against an unstabilised baseline of ±0.075 rad (±4.3°) roll, sizing a Side-Power SMSPS90 hydraulic pump-motor as the actuator and a Dewesoft DS-GYRO3 IMU at up to 1800 Hz for roll feedback. Physical testing used an Eacam WL917 29 cm hull at the Abu Dhabi Maritime Academy and the NYU Abu Dhabi wave tank."
+      },
+      {
+        "label": "Result",
+        "text": "The passive tank cut roll amplitude from ±0.075 rad to about ±0.01 rad — an 85% reduction — settling to steady state after roughly 2,000 seconds. Closing the loop with the hydraulic actuator took roll below 0.0016 rad, a greater than 98% reduction."
+      },
+      {
+        "label": "Limitations",
+        "text": "The 85% and greater-than-98% figures are simulation results for a modelled sea state, not full-scale sea trials. Physical testing was at RC-hull scale, and no fuel, cost or extreme-sea-state claim is attached to either number."
+      }
+    ],
+    "evidence": "mubadala",
+    "videos": [
+      {
+        "src": "assets/videos/mubadala/ship-tank-animation.mp4",
+        "poster": "assets/images/video-posters/mubadala/ship-tank-animation.jpg",
+        "w": 560,
+        "h": 420,
+        "title": "Passive tank response, simulated",
+        "caption": "Ship roll (blue) against tank angle (red) over 3,000 seconds of simulated wave excitation, showing the passive system settling in real time.",
+        "note": "48 s · no audio"
+      },
+      {
+        "src": "assets/videos/mubadala/mubadala-overview.mp4",
+        "poster": "assets/images/video-posters/mubadala/mubadala-overview.jpg",
+        "w": 1280,
+        "h": 960,
+        "title": "U-tube tank walkthrough",
+        "caption": "A 3D walkthrough of the U-tube tank structure from several angles, clarifying the port and starboard geometry.",
+        "note": "1 min 39 s · has audio"
+      },
+      {
+        "src": "assets/videos/mubadala/mubadala-assembly.mp4",
+        "poster": "assets/images/video-posters/mubadala/mubadala-assembly.jpg",
+        "w": 780,
+        "h": 780,
+        "title": "Tank integrated into the hull",
+        "caption": "A cross-sectional CAD animation showing the U-tube tank installed in a container ship's hull below the main deck.",
+        "note": "1 min 39 s · has audio"
+      },
+      {
+        "src": "assets/videos/mubadala/solidworks-clip-1.mp4",
+        "poster": "assets/images/video-posters/mubadala/solidworks-clip-1.jpg",
+        "w": 1076,
+        "h": 940,
+        "title": "Detail: mounting bolts and access ports",
+        "caption": "A CAD close-up of the tank structure's mounting bolts and access ports.",
+        "note": "5 s"
+      },
+      {
+        "src": "assets/videos/mubadala/solidworks-clip-2.mp4",
+        "poster": "assets/images/video-posters/mubadala/solidworks-clip-2.jpg",
+        "w": 1460,
+        "h": 776,
+        "title": "Detail: actuator and connecting lines",
+        "caption": "A close-up of the tank assembly with the actuator and its connecting lines visible.",
+        "note": "5 s"
+      }
+    ]
+  },
+  "project:02": {
+    "kind": "Project 02",
+    "kicker": "Energy systems / CFD / prototyping",
+    "title": "Savonius Turbine for Traffic Wind Energy Harvesting",
+    "org": "",
+    "summary": "A vertical-axis turbine designed to harvest the vortices thrown off traffic moving in opposite directions either side of a central reservation — optimised in ANSYS Fluent, then built and measured at 1:3 scale.",
+    "details": [
+      {
+        "label": "Brief",
+        "text": "Design a vertical-axis turbine for vortices generated by traffic moving in opposite directions on either side of a central reservation."
+      },
+      {
+        "label": "Contribution",
+        "text": "Optimised the turbine geometry and fabricated a 1:3 scale carbon-fibre-reinforced FDM prototype."
+      },
+      {
+        "label": "Method",
+        "text": "Used ANSYS Fluent to study a 45-degree helical twist, a 124-degree blade arc and serrated leading edges inside an 8D domain; separately bench- and road-tested the physical scale prototype."
+      },
+      {
+        "label": "Result",
+        "text": "In CFD the serrated rotor reached a 71.65% higher peak moment and a 56.33% power increase over the non-serrated baseline. On the bench the prototype self-started within 2 to 5 seconds and peaked at 5 to 7 V; roadside it held about 2.67 V with spikes to 10 V as vehicles passed. Full-scale output is projected at 3 to 15 W at 5 to 6 m/s."
+      },
+      {
+        "label": "Limitations",
+        "text": "The CFD percentages and the measured voltages are separate results, and the 3 to 15 W figure is a projection from scale-prototype measurements rather than a measured full-scale output. No power coefficient, torque coefficient, site-wind resource or streetlight-load claim is available."
+      }
+    ],
+    "evidence": "savonius"
+  },
+  "project:03": {
+    "kind": "Project 03",
+    "kicker": "Civil design / BIM coordination",
+    "title": "5th Corner Residential Building",
+    "org": "",
+    "summary": "A graded-A, four-storey residential building model and coordinated drawing package for a hot-arid Abu Dhabi context: architecture, structure, façade and schedules held in one Revit model.",
+    "details": [
+      {
+        "label": "Brief",
+        "text": "Produce an architectural and structural design package for an approximately 928 m² four-storey multifamily residential building."
+      },
+      {
+        "label": "Contribution",
+        "text": "Produced AutoCAD and Revit models, coordinated structural documentation, and automated the structural column schedule into Excel."
+      },
+      {
+        "label": "Method",
+        "text": "Sized members with SAP2000 finite-element analysis to ACI 318, used Dynamo to extract Revit parameters, and ran Revit interference checks."
+      },
+      {
+        "label": "Result",
+        "text": "Automated the schedule and quantity take-off for all 84 columns from over 30 minutes by hand to under one minute; resolved 15 slab-to-beam conflicts for a clash-free BIM model."
+      },
+      {
+        "label": "Limitations",
+        "text": "This was a graded academic design project; the model and member sizing were not a constructed building or site-verified design."
+      }
+    ],
+    "evidence": "civil"
+  },
+  "project:04": {
+    "kind": "Project 04",
+    "kicker": "Personal project / UAV design",
+    "title": "Fixed-Wing UAV for Search-and-Rescue Payload Deployment",
+    "org": "",
+    "summary": "An assembled fixed-wing prototype with a detachable nose, intended to carry and release a smaller multirotor payload. Airframe, structure and materials owned on a two-person project.",
+    "details": [
+      {
+        "label": "Brief",
+        "text": "Develop a 3D-printed fixed-wing UAV with a detachable nose and release concept for a smaller multirotor payload."
+      },
+      {
+        "label": "Contribution",
+        "text": "Owned the airframe, structure and material choices on a two-person project; the collaborator handled electronics."
+      },
+      {
+        "label": "Method",
+        "text": "Reduced mass through lightweight PLA, tuned infill, revised internal geometry and carbon-fibre tubing in the chassis."
+      },
+      {
+        "label": "Result",
+        "text": "Reduced all-up airframe mass from 2,500 g to 1,500 g, a 40% reduction; the completed prototype has a 1,130 mm wingspan."
+      },
+      {
+        "label": "Limitations",
+        "text": "The UAV has not flown. The release mechanism is designed but has not been bench-tested, drop-tested or validated in flight."
+      }
+    ],
+    "evidence": ""
+  },
+  "project:05": {
+    "kind": "Project 05",
+    "kicker": "Thermal systems / instrumentation",
+    "title": "Compressor-Less Multi-Stage TEC Refrigerator",
+    "org": "",
+    "summary": "A compact compressor-less refrigerator built around thermoelectric (Peltier) modules driven in parallel, with Arduino sensing and closed-loop PWM control.",
+    "details": [
+      {
+        "label": "Brief",
+        "text": "Design and prototype a compact compressor-less refrigerator using thermoelectric cooling in place of a vapour-compression cycle."
+      },
+      {
+        "label": "Contribution",
+        "text": "Contributed to the mechanical and electrical cooling architecture, Arduino-based sensing and closed-loop control implementation."
+      },
+      {
+        "label": "Method",
+        "text": "Ran dual TEC modules in parallel from a 12 V supply at approximately 9.7 A, with DS18B20 sensing, PWM-driven MOSFET switching, CPU-cooler heatsink and fan stacks on both faces, and an OLED and rotary-encoder interface for setpoint and duty-cycle adjustment."
+      },
+      {
+        "label": "Result",
+        "text": "Over a 180-minute test the cabin cooled from a 27°C ambient start to a stable 10°C, reaching thermal equilibrium after roughly 120 minutes, with frost forming on the cold-side heatsink throughout."
+      },
+      {
+        "label": "Limitations",
+        "text": "No coefficient of performance, hot-side heat-rejection measurement or comparison against alternative module configurations was calculated."
+      }
+    ],
+    "evidence": "tec"
+  },
+  "project:06": {
+    "kind": "Project 06",
+    "kicker": "Numerical methods / MATLAB",
+    "title": "Indoor Wireless Link Design with Helmholtz PDEs",
+    "org": "",
+    "summary": "A finite-element Helmholtz study of indoor transmitter placement, run at 2.4 GHz under reflective and partially absorbing wall conditions and scored on desk-area coverage.",
+    "details": [
+      {
+        "label": "Brief",
+        "text": "Identify a transmitter position that improves simulated wireless coverage across a target desk area."
+      },
+      {
+        "label": "Contribution",
+        "text": "Developed FEM setup and mesh analysis, numerical and analytical solution work, MATLAB simulations for transmitter positions, and model documentation."
+      },
+      {
+        "label": "Method",
+        "text": "Derived a scalar Helmholtz model from Maxwell's equations and compared 2D source locations under reflective and partially absorbing boundaries."
+      },
+      {
+        "label": "Result",
+        "text": "Across four simulated router locations, the best placement achieved approximately 40% simulated desk coverage, about 13 times the coverage of sub-optimal corner placements."
+      },
+      {
+        "label": "Limitations",
+        "text": "The coverage result is simulated only; no physical router measurement or real-world coverage test was performed."
+      }
+    ],
+    "evidence": "pde"
+  },
+  "project:07": {
+    "kind": "Project 07",
+    "kicker": "Motorsport / SolidWorks FEA",
+    "title": "Formula Student SAE Drivetrain",
+    "org": "",
+    "summary": "A narrowly scoped Formula SAE contribution: rear half-shaft design and structural verification for a rear-engine, rear-wheel-drive car.",
+    "details": [
+      {
+        "label": "Brief",
+        "text": "Design and verify the rear half shafts for a rear-engine, rear-wheel-drive Formula SAE vehicle in a 10-member team."
+      },
+      {
+        "label": "Contribution",
+        "text": "Owned the half-shaft scope rather than the full drivetrain or vehicle build."
+      },
+      {
+        "label": "Method",
+        "text": "Used SolidWorks Simulation FEA against an assumed worst-case shock-load design envelope for clutch-dump and wheel-hop scenarios."
+      },
+      {
+        "label": "Result",
+        "text": "Sized the half shafts to a 1.2 to 1.5 safety factor on the assumed worst-case shock load."
+      },
+      {
+        "label": "Limitations",
+        "text": "The design envelope is assumed, not measured. No dyno torque, measured stress or reliability target belongs to this project."
+      }
+    ],
+    "evidence": ""
+  },
+  "project:08": {
+    "kind": "Project 08",
+    "kicker": "Mobility engineering / FEA",
+    "title": "Advanced Motorised Wheelchair",
+    "org": "",
+    "summary": "A customisable seating-platform concept that widens the accommodated range of user statures on a motorised wheelchair.",
+    "details": [
+      {
+        "label": "Brief",
+        "text": "Improve the adjustability of a motorised-wheelchair seating platform for a wider range of user statures."
+      },
+      {
+        "label": "Contribution",
+        "text": "Conceived the adjustable seating concept and prepared finite-element analysis of the platform."
+      },
+      {
+        "label": "Method",
+        "text": "Widened the seat 150 mm in each direction on a lockable sliding mechanism and analysed a 110 kg seat load."
+      },
+      {
+        "label": "Result",
+        "text": "Raised the accommodated user-stature cap from 5 ft 9 to 6 ft 5 and verified the platform by finite-element analysis to a 110 kg seat load."
+      },
+      {
+        "label": "Limitations",
+        "text": "The 110 kg finding is an analysis result, not a physical test, certification or approval for the full user range."
+      }
+    ],
+    "evidence": ""
+  },
+  "project:09": {
+    "kind": "Project 09",
+    "kicker": "Data analysis / statistics",
+    "title": "PCA Study of Bike Rentals and Temperature",
+    "org": "",
+    "summary": "A principal-component analysis of 731 days of Capital Bikeshare data against daily temperature, including a comparison of covariance estimators.",
+    "details": [
+      {
+        "label": "Brief",
+        "text": "Examine the shared variation between temperature and daily bike-rental demand using a public 731-day Capital Bikeshare dataset."
+      },
+      {
+        "label": "Contribution",
+        "text": "Performed the PCA analysis and the supporting statistical treatment of covariance estimators and resampling evidence."
+      },
+      {
+        "label": "Method",
+        "text": "Cleaned and standardised temperature and rental variables, compared covariance and correlation views, and evaluated PCA outputs and empirical CDF results."
+      },
+      {
+        "label": "Result",
+        "text": "PC1 captured 81% of the variance and the analysis found a strong positive correlation between temperature and rental demand."
+      },
+      {
+        "label": "Limitations",
+        "text": "This is an observational analysis of historical data; it establishes correlation within the dataset rather than a controlled causal effect."
+      }
+    ],
+    "evidence": "pca"
+  },
+  "project:10": {
+    "kind": "Project 10",
+    "kicker": "Advanced computation / feasibility",
+    "title": "Hyundai NGV Quantum Computing Analysis",
+    "org": "",
+    "summary": "A feasibility and implementation assessment of quantum-computing applications for next-generation systems, delivered to the sponsor in South Korea.",
+    "details": [
+      {
+        "label": "Brief",
+        "text": "Assess whether quantum computing could improve the efficiency of next-generation systems through multi-physics computation."
+      },
+      {
+        "label": "Contribution",
+        "text": "Investigated implementation strategies and feasibility, then presented the conclusions to an international Hyundai NGV panel in South Korea."
+      },
+      {
+        "label": "Method",
+        "text": "Synthesised quantum-computing and advanced-computation applications into feasibility and implementation conclusions for the sponsor."
+      },
+      {
+        "label": "Result",
+        "text": "Delivered conclusions to a 25-member international industry panel."
+      },
+      {
+        "label": "Limitations",
+        "text": "No continued engagement or funding outcome is attributed to the presentation; no causal link to later funding is verified."
+      }
+    ],
+    "evidence": ""
+  },
+  "research:site": {
+    "kind": "Research",
+    "kicker": "Apr 2023 – May 2026",
+    "title": "Undergraduate Research Assistant — SITE",
+    "org": "Center for Stability, Instability and Turbulence (SITE), NYU Abu Dhabi",
+    "summary": "Experimental fluid-dynamics research on Rayleigh–Taylor and Richtmyer–Meshkov instability cases.",
+    "details": [
+      {
+        "label": "Scope",
+        "text": "Tested 130+ Rayleigh-Taylor and Richtmyer-Meshkov cases in a two-person team, probing linearity between laminar and turbulent regimes."
+      },
+      {
+        "label": "Method",
+        "text": "Developed water-tunnel models that reliably triggered boundary-layer separation and quantified the response through flow visualisation."
+      },
+      {
+        "label": "Result",
+        "text": "The work produced comparative experimental evidence across the case set; no sole ownership or standalone numerical result is claimed."
+      },
+      {
+        "label": "Limitations",
+        "text": "This was collaborative research. The evidence supports the described experiments and visualisation, not an individual or validated predictive claim."
+      }
+    ],
+    "evidence": ""
+  },
+  "research:energy": {
+    "kind": "Research",
+    "kicker": "Nov 2022 – Nov 2023",
+    "title": "Undergraduate Research Assistant — Energy and Propulsion Lab",
+    "org": "Energy and Propulsion Lab, NYU Abu Dhabi",
+    "summary": "Applied CFD research using Converge and OpenFOAM on high-performance computing clusters.",
+    "details": [
+      {
+        "label": "Scope",
+        "text": "Modelled compressible flow on HPC clusters using Converge and OpenFOAM."
+      },
+      {
+        "label": "Method",
+        "text": "Applied k-epsilon compressible-flow modelling to AeroFarms growing-tower ventilation scenarios."
+      },
+      {
+        "label": "Result",
+        "text": "The model produced a 28% simulated ventilation gain at upper tower levels."
+      },
+      {
+        "label": "Limitations",
+        "text": "The ventilation outcome is simulated only. No crop-yield, crop-quality or compute-overhead claim is made."
+      }
+    ],
+    "evidence": ""
+  },
+  "activity:jiujitsu": {
+    "kind": "Activity",
+    "kicker": "2022–2026",
+    "title": "Varsity Jiu-Jitsu",
+    "org": "NYU Abu Dhabi Athletics",
+    "summary": "Varsity jiu-jitsu participation across four university years.",
+    "details": [
+      {
+        "label": "Context",
+        "text": "Selected for university varsity competition in each of four years."
+      }
+    ],
+    "evidence": ""
+  },
+  "activity:habitat": {
+    "kind": "Activity",
+    "kicker": "Mar–Apr 2025",
+    "title": "Habitat for Humanity Nepal",
+    "org": "Volunteer, Residential Build Programme",
+    "summary": "Residential-build volunteering in Nepal.",
+    "details": [
+      {
+        "label": "Context",
+        "text": "Built a single-storey house from foundation to roof with a volunteer team and checked dimensions and layouts against civil drawings before work began."
+      }
+    ],
+    "evidence": ""
+  },
+  "activity:cricket": {
+    "kind": "Activity",
+    "kicker": "Nov 2023 – Sep 2024",
+    "title": "Cricket Team Media",
+    "org": "NYU Abu Dhabi Cricket Team",
+    "summary": "Team photographer and videographer for the NYU Abu Dhabi Cricket Team.",
+    "details": [
+      {
+        "label": "Context",
+        "text": "Filmed and photographed matches across a season, delivering edited highlights and stills each week."
+      }
+    ],
+    "evidence": ""
+  },
+  "activity:sport": {
+    "kind": "Activity",
+    "kicker": "Throughout university",
+    "title": "Recreational Sport",
+    "org": "Padel, golf, tennis, cricket, volleyball, badminton, football, cycling and wall climbing",
+    "summary": "Regular individual and team sport alongside university.",
+    "details": [
+      {
+        "label": "Context",
+        "text": "Regularly active across padel, golf, tennis, cricket, volleyball, badminton, football, cycling and wall climbing."
+      }
+    ],
+    "evidence": ""
+  },
+  "activity:marshal": {
+    "kind": "Activity",
+    "kicker": "Feb 2019 – Dec 2025",
+    "title": "Chief Track Marshal",
+    "org": "Emirates Motorsports Organization — Yas Marina Circuit and Dubai Autodrome",
+    "summary": "Track-marshalling and safety operations role, concluded in December 2025.",
+    "details": [
+      {
+        "label": "Context",
+        "text": "Supported 15 events by monitoring hazards and regulations and coordinating with race control and incident response. This role ended in December 2025."
+      }
+    ],
+    "evidence": ""
+  },
+  "activity:aiesec": {
+    "kind": "Activity",
+    "kicker": "Sep 2022 – Jan 2023",
+    "title": "Business Development and Engage, AIESEC",
+    "org": "AIESEC Abu Dhabi",
+    "summary": "Business development and engagement activity with AIESEC Abu Dhabi.",
+    "details": [
+      {
+        "label": "Context",
+        "text": "Supported workshops and campaigns, prepared project reports, and coordinated logistics, venue, budget and resources. No additional numerical claims are made."
+      }
+    ],
+    "evidence": ""
+  }
+},
+  figures: [
+    {
+      "src": "assets/images/projects/civil/site-context.jpg",
+      "w": 1625,
+      "h": 794,
+      "alt": "Site view of the four-storey 5th Corner residential building set in landscaped grounds, with planting and paving around its footprint.",
+      "caption": "5th Corner’s 928 m² footprint in its landscape setting — a four-storey residential building designed for the UAE’s hot arid climate, with green space, landscape integration and careful site placement.",
+      "cite": "Civil Engineering Design Project · Fall 2025 · Setup",
+      "group": "civil"
+    },
+    {
+      "src": "assets/images/projects/civil/architectural-floor-plan.png",
+      "w": 1137,
+      "h": 1281,
+      "alt": "Coloured architectural floor plan on a lettered and numbered grid, with bedrooms, reception, dining, kitchen, bathrooms, lobby and maid’s quarters labelled.",
+      "caption": "Architectural floor plan showing the functional layout across the grid (A–D, rows 1–5): master and guest bedrooms, reception, dining, kitchen, bathrooms, entrance lobby and maid’s quarters — coordinated program planning and circulation.",
+      "cite": "Civil Engineering Design Project · Fall 2025 · Method",
+      "group": "civil"
+    },
+    {
+      "src": "assets/images/projects/civil/structural-grid-plan.png",
+      "w": 1138,
+      "h": 1282,
+      "alt": "Structural plan drawing of columns at grid intersections with beams drawn between them, no architectural walls shown.",
+      "caption": "Structural plan showing the column–beam grid — columns at the grid intersections, beams spanning between them — coordinated with the architectural layout as the basis for load distribution across all four storeys.",
+      "cite": "Civil Engineering Design Project · Fall 2025 · Method",
+      "group": "civil"
+    },
+    {
+      "src": "assets/images/projects/civil/sap2000-fe-mesh.png",
+      "w": 596,
+      "h": 840,
+      "alt": "SAP2000 finite-element shell mesh of a floor slab, with column and beam supports marked at the grid points.",
+      "caption": "SAP2000 shell-element mesh of the floor slab with its column and beam supports, used to calculate the design actions: 180 kN maximum column reaction, 63.3 kN·m beam moment and 31.5 kN·m/m slab moment on the main span.",
+      "cite": "Civil Engineering Design Project · Fall 2025 · Evidence",
+      "group": "civil"
+    },
+    {
+      "src": "assets/images/projects/civil/dynamo-bim-automation.png",
+      "w": 3084,
+      "h": 1264,
+      "alt": "Dynamo visual-programming graph of connected nodes reading Revit column parameters and exporting them to an Excel file.",
+      "caption": "Dynamo graph extracting structural column parameters straight from the Revit model and writing them to Excel — automating the schedule and removing manual copy-paste error from the take-off.",
+      "cite": "Civil Engineering Design Project · Fall 2025 · Evidence",
+      "group": "civil"
+    },
+    {
+      "src": "assets/images/projects/civil/embodied-carbon-breakdown.png",
+      "w": 1095,
+      "h": 609,
+      "alt": "Chart breaking embodied carbon down by construction type, with exterior masonry walls the largest share at 46 per cent.",
+      "caption": "Embodied carbon by construction type: 300 mm masonry exterior walls dominate at 46% (about 117 tCO2e), concrete floors and slabs 24%, interior partitions 11% — a total intensity of 273 kgCO2e/m², at the low end of the 300–600 kgCO2e/m² target range.",
+      "cite": "Civil Engineering Design Project · Fall 2025 · Evidence",
+      "group": "civil"
+    },
+    {
+      "src": "assets/images/projects/civil/exterior-elevation-final.jpg",
+      "w": 1425,
+      "h": 1500,
+      "alt": "Exterior render of the finished residential building: light masonry façade, regular windows, balconies with metal railings and a flat parapet roof.",
+      "caption": "The completed exterior elevation: clean façade planes in light masonry, regular window openings, a flat roof with parapet, metal balcony railings and integrated landscaping — a design responsive to desert climate and regional context.",
+      "cite": "Civil Engineering Design Project · Fall 2025 · Result",
+      "group": "civil"
+    },
+    {
+      "src": "assets/images/projects/civil/balcony-interior-detail.jpg",
+      "w": 1800,
+      "h": 1315,
+      "alt": "Render of a balcony with metal railings and a sliding glass door, looking out over planting on the site.",
+      "caption": "A balcony showing the transition from interior to landscape — concrete structure, metal railings, a sliding glass door and a view out to the planted site beyond.",
+      "cite": "Civil Engineering Design Project · Fall 2025 · Result",
+      "group": "civil"
+    },
+    {
+      "src": "assets/images/projects/civil/isometric-site-view.png",
+      "w": 1666,
+      "h": 823,
+      "alt": "Isometric render of the whole building on its landscaped site, seen from above at an angle.",
+      "caption": "Isometric view of the building on its landscape context, confirming the coherence of the architectural, structural and environmental design intent.",
+      "cite": "Civil Engineering Design Project · Fall 2025 · Result",
+      "group": "civil"
+    },
+    {
+      "src": "assets/images/projects/savonius/design-concept-comparison.png",
+      "w": 3111,
+      "h": 1043,
+      "alt": "Comparison table and drawings of five candidate turbine concepts scored against power, noise, efficiency, start-up torque and maintenance.",
+      "caption": "Five turbine design concepts compared on power, noise, efficiency, start-up torque and maintenance — the serrated Savonius was selected for its low-wind performance and self-starting capability.",
+      "cite": "Savonius Capstone · Spring 2025 · Setup",
+      "group": "savonius"
+    },
+    {
+      "src": "assets/images/projects/savonius/final-geometry-multiview.png",
+      "w": 1113,
+      "h": 700,
+      "alt": "Multi-view CAD drawing of the final Savonius rotor showing its helical twist, serrated leading edge, blade arc and end plates with dimensions.",
+      "caption": "The optimised rotor geometry: end plates at 1.1× rotor diameter, a serrated leading edge, a 45° helical twist and a 124° blade arc — 0.741 m diameter, 0.518 m stage height, carbon-fibre blades.",
+      "cite": "Savonius Capstone · Spring 2025 · Setup",
+      "group": "savonius"
+    },
+    {
+      "src": "assets/images/projects/savonius/cfd-serration-mesh.png",
+      "w": 1227,
+      "h": 641,
+      "alt": "ANSYS Fluent computational mesh around the turbine blade, with fine cells concentrated along the serrated leading edge.",
+      "caption": "The ANSYS Fluent mesh, refined around the serrated leading edge inside an 8D × 8D × 8D domain — the computational setup behind every CFD result that follows.",
+      "cite": "Savonius Capstone · Spring 2025 · Method",
+      "group": "savonius"
+    },
+    {
+      "src": "assets/images/projects/savonius/cfd-moment-comparison.png",
+      "w": 2655,
+      "h": 993,
+      "alt": "Line chart of moment against flow time for the serrated and non-serrated rotors, the serrated trace peaking substantially higher.",
+      "caption": "CFD torque over a 25-second simulation: the serrated design reaches a 71.65% higher peak moment than the non-serrated baseline — the evidence that the serrations work.",
+      "cite": "Savonius Capstone · Spring 2025 · Evidence",
+      "group": "savonius"
+    },
+    {
+      "src": "assets/images/projects/savonius/cfd-velocity-comparison.png",
+      "w": 681,
+      "h": 341,
+      "alt": "Line chart of rotor velocity against time for the serrated and non-serrated designs, the two traces almost overlapping.",
+      "caption": "Rotor velocity over time for both designs: near-identical curves confirm the serrations add torque without costing aerodynamic performance.",
+      "cite": "Savonius Capstone · Spring 2025 · Evidence",
+      "group": "savonius"
+    },
+    {
+      "src": "assets/images/projects/savonius/prototype-second-iteration.jpg",
+      "w": 4032,
+      "h": 3024,
+      "alt": "Photograph of the second 3D-printed Savonius rotor prototype in dark carbon-filled filament, held during assembly.",
+      "caption": "The second-generation 3D-printed prototype in carbon-filament PLA, refined after CFD showed the first iteration’s blade walls were 25% too thick.",
+      "cite": "Savonius Capstone · Spring 2025 · Build",
+      "group": "savonius"
+    },
+    {
+      "src": "assets/images/projects/savonius/prototype-final-test-rig.jpg",
+      "w": 4032,
+      "h": 3024,
+      "alt": "Photograph of the finished 1:3 scale Savonius turbine mounted on a test stand with its generator and electronics enclosure below the rotor.",
+      "caption": "The final 1:3-scale prototype on its test stand with generator, electronics enclosure and vibration-damping mounts — ready for bench and field testing.",
+      "cite": "Savonius Capstone · Spring 2025 · Build",
+      "group": "savonius"
+    },
+    {
+      "src": "assets/images/projects/savonius/bench-test-apparatus.jpg",
+      "w": 750,
+      "h": 810,
+      "alt": "Photograph of the bench test rig with a multimeter, anemometer and datalogger wired to the turbine prototype.",
+      "caption": "The bench-test setup: multimeter, anemometer and datalogger measuring electrical output against controlled airflow up to 5–6 m/s.",
+      "cite": "Savonius Capstone · Spring 2025 · Evidence",
+      "group": "savonius"
+    },
+    {
+      "src": "assets/images/projects/savonius/bench-test-voltage-curves.png",
+      "w": 690,
+      "h": 523,
+      "alt": "Chart of nine overlaid voltage-against-time traces from bench testing, each rising sharply within a few seconds to a five to seven volt peak.",
+      "caption": "Nine overlaid bench-test runs: consistent start-up within 2–5 seconds and peak voltages of 5–7 V, confirming repeatable self-starting performance.",
+      "cite": "Savonius Capstone · Spring 2025 · Result",
+      "group": "savonius"
+    },
+    {
+      "src": "assets/images/projects/savonius/road-test-results.png",
+      "w": 962,
+      "h": 333,
+      "alt": "Chart of roadside voltage against time, a low baseline interrupted by sharp spikes each time a vehicle passes.",
+      "caption": "Roadside field data: a baseline of about 2.7 V with spikes to 10 V as vehicles pass, confirming the turbine really does harvest traffic-induced vortices.",
+      "cite": "Savonius Capstone · Spring 2025 · Result",
+      "group": "savonius"
+    },
+    {
+      "src": "assets/images/projects/pde/room-geometry-setup.png",
+      "w": 937,
+      "h": 637,
+      "alt": "Plan of the five by four metre room showing a metal cabinet, the desk target region and four numbered candidate transmitter positions.",
+      "caption": "The 5 m × 4 m room domain, with a metal cabinet, the desk target region and four candidate transmitter positions marked.",
+      "cite": "Partial Differential Equations Project · Fall 2025 · Setup",
+      "group": "pde"
+    },
+    {
+      "src": "assets/images/projects/pde/ideal-free-space-reference.png",
+      "w": 1421,
+      "h": 509,
+      "alt": "Normalised field map for the idealised free-space case, with a smooth radial field and no interference pattern.",
+      "caption": "Idealised free-space reference: with no reflections and no obstacles a router reaches 67.5% desk coverage — the theoretical upper bound.",
+      "cite": "Partial Differential Equations Project · Fall 2025 · Method",
+      "group": "pde"
+    },
+    {
+      "src": "assets/images/projects/pde/reflective-walls-field-maps.png",
+      "w": 1143,
+      "h": 807,
+      "alt": "Grid of four normalised field maps, one per transmitter position, each showing pronounced standing-wave interference from fully reflective walls.",
+      "caption": "Field coverage at all four positions with fully reflective walls: strong standing-wave interference patterns, with every position clustering around 72–76% coverage.",
+      "cite": "Partial Differential Equations Project · Fall 2025 · Evidence",
+      "group": "pde"
+    },
+    {
+      "src": "assets/images/projects/pde/reflective-walls-coverage-chart.png",
+      "w": 762,
+      "h": 487,
+      "alt": "Bar chart of desk coverage for the four transmitter positions under reflective walls, with all four bars at a similar height.",
+      "caption": "Desk coverage under fully reflective walls: all four positions perform almost identically at roughly 72–76% — reflections redistribute energy regardless of placement.",
+      "cite": "Partial Differential Equations Project · Fall 2025 · Evidence",
+      "group": "pde"
+    },
+    {
+      "src": "assets/images/projects/pde/absorbing-walls-field-maps.png",
+      "w": 894,
+      "h": 660,
+      "alt": "Grid of four normalised field maps under partially absorbing walls, smoother than the reflective case and visibly weaker away from the source.",
+      "caption": "Field coverage under partially absorbing, realistic walls: coverage now ranges from 3.1% to 39.8% depending on transmitter position.",
+      "cite": "Partial Differential Equations Project · Fall 2025 · Evidence",
+      "group": "pde"
+    },
+    {
+      "src": "assets/images/projects/pde/absorbing-walls-coverage-chart.png",
+      "w": 853,
+      "h": 532,
+      "alt": "Bar chart of desk coverage for the four transmitter positions under absorbing walls, one bar far taller than the rest.",
+      "caption": "Desk coverage under absorbing walls: the central position (Pos 2) is the clear winner at 39.8%, against as little as 3.1% in a corner.",
+      "cite": "Partial Differential Equations Project · Fall 2025 · Result",
+      "group": "pde"
+    },
+    {
+      "src": "assets/images/projects/pde/threshold-comparison-5pct.png",
+      "w": 718,
+      "h": 410,
+      "alt": "Grouped bar chart comparing absorbing and reflective wall coverage at each transmitter position, using a five per cent field threshold.",
+      "caption": "Coverage compared at a relaxed 5% field threshold: absorbing-wall coverage rises at every position, but reflective walls still dominate.",
+      "cite": "Partial Differential Equations Project · Fall 2025 · Evidence",
+      "group": "pde"
+    },
+    {
+      "src": "assets/images/projects/pde/threshold-comparison-10pct.png",
+      "w": 705,
+      "h": 452,
+      "alt": "Grouped bar chart comparing absorbing and reflective wall coverage at each transmitter position, using a ten per cent field threshold.",
+      "caption": "Coverage compared at the stricter 10% threshold: absorbing walls substantially underperform reflective walls except at the optimal central position.",
+      "cite": "Partial Differential Equations Project · Fall 2025 · Evidence",
+      "group": "pde"
+    },
+    {
+      "src": "assets/images/projects/pde/best-transmitter-position.png",
+      "w": 687,
+      "h": 509,
+      "alt": "Normalised field map for the selected central transmitter position under partially absorbing boundaries, with the strongest field across the desk region.",
+      "caption": "The recommended placement — Position 2 at (2.5 m, 2.0 m) — with its full field map, the best realistic coverage under absorbing-wall conditions.",
+      "cite": "Partial Differential Equations Project · Fall 2025 · Result",
+      "group": "pde"
+    },
+    {
+      "src": "assets/images/projects/pca/raw-distributions.png",
+      "w": 1407,
+      "h": 594,
+      "alt": "Two histograms side by side, one of daily temperature and one of total daily bike rentals, in their original units.",
+      "caption": "Raw distributions of daily temperature, spanning 2.4 to 35.3 degrees Celsius across 731 days, and of total bike rentals (22–8,714 trips), before any transformation.",
+      "cite": "Data Analysis Project · Fall 2025 · Setup",
+      "group": "pca"
+    },
+    {
+      "src": "assets/images/projects/pca/standardized-distributions.png",
+      "w": 1407,
+      "h": 594,
+      "alt": "Two histograms of the same variables after standardisation, both centred on zero with similar spread.",
+      "caption": "Standardised z-score distributions after centering and scaling — both variables now symmetric around zero with comparable spread.",
+      "cite": "Data Analysis Project · Fall 2025 · Method",
+      "group": "pca"
+    },
+    {
+      "src": "assets/images/projects/pca/scatter-raw.png",
+      "w": 1679,
+      "h": 1011,
+      "alt": "Scatter plot of daily temperature against total bike rentals, sloping upward with wide scatter.",
+      "caption": "Raw temperature against total rentals across 731 days: a clear positive trend with substantial day-to-day scatter.",
+      "cite": "Data Analysis Project · Fall 2025 · Evidence",
+      "group": "pca"
+    },
+    {
+      "src": "assets/images/projects/pca/scatter-standardized.png",
+      "w": 1679,
+      "h": 1011,
+      "alt": "Scatter plot of the standardised variables, centred on the origin with an elongated diagonal cloud.",
+      "caption": "Standardised temperature against standardised rentals — the same positive trend, now centred at the origin with a dominant diagonal direction (PC1).",
+      "cite": "Data Analysis Project · Fall 2025 · Evidence",
+      "group": "pca"
+    },
+    {
+      "src": "assets/images/projects/pca/eigenvalue-scree-plot.png",
+      "w": 1485,
+      "h": 657,
+      "alt": "Plot of the two eigenvalues under both covariance estimators, the first far larger than the second.",
+      "caption": "Eigenvalues under the unbiased and biased covariance estimators: λ₁ = 1.6275 (81.37% of variance) and λ₂ = 0.3725 (18.63%) — confirming Bessel’s correction scales eigenvalues uniformly without changing their directions.",
+      "cite": "Data Analysis Project · Fall 2025 · Method",
+      "group": "pca"
+    },
+    {
+      "src": "assets/images/projects/pca/pca-loading-vectors.png",
+      "w": 1250,
+      "h": 657,
+      "alt": "Plot of the principal-component loading vectors for temperature and rentals on the first two components.",
+      "caption": "PC1 and PC2 loadings for temperature and rentals: equal loadings of 0.7071 on PC1 show both variables contribute equally to the dominant mode.",
+      "cite": "Data Analysis Project · Fall 2025 · Method",
+      "group": "pca"
+    },
+    {
+      "src": "assets/images/projects/pca/pca-scores-plot.png",
+      "w": 1679,
+      "h": 1011,
+      "alt": "Scatter plot of principal-component scores for 731 days, stretched out along the first component axis.",
+      "caption": "PCA scores for all 731 days: an elongated scatter along PC1 that cleanly separates warm, high-rental days from cold, low-rental days.",
+      "cite": "Data Analysis Project · Fall 2025 · Result",
+      "group": "pca"
+    },
+    {
+      "src": "assets/images/projects/pca/dimension-choice.png",
+      "w": 3239,
+      "h": 1967,
+      "alt": "Scree plot of explained variance by component, with a threshold line at eighty per cent crossed by the first component alone.",
+      "caption": "Scree plot showing PC1 explains 81.37% of the variance — comfortably past the 80% threshold, justifying a single principal component (k = 1).",
+      "cite": "Data Analysis Project · Fall 2025 · Result",
+      "group": "pca"
+    },
+    {
+      "src": "assets/images/projects/pca/dimension-stability.png",
+      "w": 3135,
+      "h": 1977,
+      "alt": "Line plot of the variance explained by the first principal component against sample size, flattening out after roughly two hundred days.",
+      "caption": "Stability of PC1’s explained variance as the sample grows from 30 to 731 days — the roughly 81% split settles after about 200 days.",
+      "cite": "Data Analysis Project · Fall 2025 · Validation",
+      "group": "pca"
+    },
+    {
+      "src": "assets/images/projects/pca/convergence-experiments.png",
+      "w": 1063,
+      "h": 1171,
+      "alt": "Panel of convergence plots for the sample mean, the covariance entries and the leading eigenvalue against increasing sample size.",
+      "caption": "Convergence of the sample mean, covariance and leading eigenvalue toward their population values as the sample grows — the eigenvalue settles at 1.6275 after about 600 days.",
+      "cite": "Data Analysis Project · Fall 2025 · Validation",
+      "group": "pca"
+    },
+    {
+      "src": "assets/images/projects/tec/system-schematic.png",
+      "w": 2200,
+      "h": 1222,
+      "alt": "Wiring schematic of the refrigerator control system, showing the Arduino, two thermoelectric modules, MOSFET drivers, temperature sensor, encoder and display.",
+      "caption": "The full system schematic: dual TEC modules in parallel, Arduino UNO control, DS18B20 temperature sensing, PWM-driven MOSFET switching and a rotary-encoder and OLED user interface.",
+      "cite": "TEC Refrigerator Project · 2025 · Setup",
+      "group": "tec"
+    },
+    {
+      "src": "assets/images/projects/tec/circuit-implementation.jpg",
+      "w": 1600,
+      "h": 1200,
+      "alt": "Photograph of the assembled control circuit on a breadboard, with an Arduino, two MOSFET driver modules and a wiring harness.",
+      "caption": "The implemented circuit: Arduino, dual MOSFET modules, breadboard and the wiring harness that turns the schematic into a working control system.",
+      "cite": "TEC Refrigerator Project · 2025 · Method",
+      "group": "tec"
+    },
+    {
+      "src": "assets/images/projects/tec/electronics-enclosure.jpeg",
+      "w": 856,
+      "h": 1600,
+      "alt": "Photograph of the electronics enclosure fitted to the top of the refrigerator, with a CPU cooler fan and routed internal wiring.",
+      "caption": "The electronics enclosure mounted on top of the unit, with its own CPU-cooler fan for heat dissipation and organised internal wiring.",
+      "cite": "TEC Refrigerator Project · 2025 · Method",
+      "group": "tec"
+    },
+    {
+      "src": "assets/images/projects/tec/control-interface.png",
+      "w": 488,
+      "h": 371,
+      "alt": "Close-up of the small OLED display showing live temperature, setpoint and duty cycle, with the rotary encoder beside it.",
+      "caption": "The rotary encoder and OLED display working together — live temperature, setpoint and PWM duty cycle, all adjustable by hand.",
+      "cite": "TEC Refrigerator Project · 2025 · Method",
+      "group": "tec"
+    },
+    {
+      "src": "assets/images/projects/tec/power-supply.png",
+      "w": 482,
+      "h": 308,
+      "alt": "Photograph of the bench power supply feeding the unit, its display showing the supply voltage and current.",
+      "caption": "The 12 V bench power supply delivering the current needed to run both TEC modules, the fans and the control electronics.",
+      "cite": "TEC Refrigerator Project · 2025 · Method",
+      "group": "tec"
+    },
+    {
+      "src": "assets/images/projects/tec/tec-module-integration.jpg",
+      "w": 1441,
+      "h": 633,
+      "alt": "Photograph of a square thermoelectric Peltier module with its leads wired into a MOSFET switching module.",
+      "caption": "A thermoelectric (Peltier) module during development, wired directly into its MOSFET switching stage — the solid-state core of the whole system.",
+      "cite": "TEC Refrigerator Project · 2025 · Method",
+      "group": "tec"
+    },
+    {
+      "src": "assets/images/projects/tec/ice-formation-proof.png",
+      "w": 476,
+      "h": 493,
+      "alt": "Photograph of frost and ice built up across the fins of the cold-side heatsink inside the unit.",
+      "caption": "Frost and ice forming on the cold-side heatsink during operation — direct physical proof the TEC stack is pulling the interior well below ambient.",
+      "cite": "TEC Refrigerator Project · 2025 · Evidence",
+      "group": "tec"
+    },
+    {
+      "src": "assets/images/projects/tec/thermal-scan-interior.jpg",
+      "w": 240,
+      "h": 320,
+      "alt": "Thermal camera image of the refrigerator interior, with a colour gradient from the cold heatsink out across the cabin.",
+      "caption": "A thermal-camera scan of the interior showing the cooling gradient across the cabin.",
+      "cite": "TEC Refrigerator Project · 2025 · Evidence",
+      "group": "tec"
+    },
+    {
+      "src": "assets/images/projects/tec/final-assembly.png",
+      "w": 405,
+      "h": 442,
+      "alt": "Photograph of the finished compressor-less refrigerator standing on its legs, with twin fan and heatsink stacks on top.",
+      "caption": "The completed unit: a vertically oriented cabinet, dual fan and heatsink assemblies on top, the rear electronics enclosure and structural legs for airflow clearance.",
+      "cite": "TEC Refrigerator Project · 2025 · Result",
+      "group": "tec"
+    },
+    {
+      "src": "assets/images/projects/tec/temperature-performance-graph.png",
+      "w": 1200,
+      "h": 742,
+      "alt": "Line graph of cabin temperature falling over a 180-minute test from a 27 degree Celsius start to a stable 10 degrees Celsius.",
+      "caption": "Cabin temperature over a 180-minute test, cooling from a 27°C ambient start down to a stable 10°C.",
+      "cite": "TEC Refrigerator Project · 2025 · Result",
+      "group": "tec"
+    },
+    {
+      "src": "assets/images/projects/mubadala/ship-roll-motion-diagram.png",
+      "w": 944,
+      "h": 463,
+      "alt": "Diagram of a ship annotated with its six degrees of freedom, with the roll axis highlighted.",
+      "caption": "Ship motion in six degrees of freedom — roll, the side-to-side tilting, is the motion this project addresses, because it causes passenger discomfort and cargo shifting.",
+      "cite": "Mubadala Student Research Projects · 2024–25 · Setup",
+      "group": "mubadala"
+    },
+    {
+      "src": "assets/images/projects/mubadala/existing-stabilization-methods.png",
+      "w": 561,
+      "h": 323,
+      "alt": "Comparison of existing ship stabilisation methods, showing bilge keels, fin stabilisers and ballast keels.",
+      "caption": "Existing ship stabilisation methods — bilge keels, fin stabilisers and ballast keels — carry high maintenance costs and lose effectiveness in extreme conditions.",
+      "cite": "Mubadala Student Research Projects · 2024–25 · Setup",
+      "group": "mubadala"
+    },
+    {
+      "src": "assets/images/projects/mubadala/uncontrolled-roll-baseline.png",
+      "w": 847,
+      "h": 688,
+      "alt": "Time-history plot of unstabilised ship roll angle oscillating at about plus or minus 0.075 radians.",
+      "caption": "Unstabilised, a large container ship rolls at roughly ±0.075 radians (±4.3°) under typical wave conditions — the baseline this project reduces.",
+      "cite": "Mubadala Student Research Projects · 2024–25 · Setup",
+      "group": "mubadala"
+    },
+    {
+      "src": "assets/images/projects/mubadala/u-tube-tank-schematic.png",
+      "w": 1491,
+      "h": 828,
+      "alt": "Schematic cross-section of a U-tube anti-roll tank, with port and starboard reservoirs joined by a lower duct.",
+      "caption": "The passive U-tube tank: port and starboard reservoirs whose liquid shifts out of phase with the ship’s roll to counteract it.",
+      "cite": "Mubadala Student Research Projects · 2024–25 · Method",
+      "group": "mubadala"
+    },
+    {
+      "src": "assets/images/projects/mubadala/passive-short-term-response.png",
+      "w": 847,
+      "h": 688,
+      "alt": "Plot of ship roll and tank angle over the first seconds of the passive simulation, roll amplitude falling sharply as the tank moves out of phase.",
+      "caption": "The passive tank’s transient response: roll amplitude drops to about ±0.01 radians, an 85% reduction, as the tank settles into counter-phase.",
+      "cite": "Mubadala Student Research Projects · 2024–25 · Evidence",
+      "group": "mubadala"
+    },
+    {
+      "src": "assets/images/projects/mubadala/passive-long-term-settling.png",
+      "w": 847,
+      "h": 688,
+      "alt": "Long-duration plot of ship roll decaying toward steady state over several thousand seconds.",
+      "caption": "Long-term passive performance: roll decays and settles to steady state after roughly 2,000 seconds, with settling time tunable through tank damping.",
+      "cite": "Mubadala Student Research Projects · 2024–25 · Evidence",
+      "group": "mubadala"
+    },
+    {
+      "src": "assets/images/projects/mubadala/system-architecture-flowchart.png",
+      "w": 1280,
+      "h": 1006,
+      "alt": "Flowchart of the active control loop from IMU sensing through the controller to the hydraulic actuator and the tank.",
+      "caption": "The active system’s control loop: an IMU senses roll, a controller computes the correction and a hydraulic actuator pumps water to create a counter-moment.",
+      "cite": "Mubadala Student Research Projects · 2024–25 · Method",
+      "group": "mubadala"
+    },
+    {
+      "src": "assets/images/projects/mubadala/hydraulic-actuator-component.jpg",
+      "w": 1280,
+      "h": 1047,
+      "alt": "Product photograph and specification of the Side-Power SMSPS90 hydraulic pump-motor unit.",
+      "caption": "The Side-Power SMSPS90 hydraulic pump-motor selected as the actuator — over 2,000 tons of force, chosen over pneumatic and electric alternatives for power density and marine reliability.",
+      "cite": "Mubadala Student Research Projects · 2024–25 · Method",
+      "group": "mubadala"
+    },
+    {
+      "src": "assets/images/projects/mubadala/imu-sensor-component.png",
+      "w": 1200,
+      "h": 675,
+      "alt": "Product photograph and specification of the Dewesoft DS-GYRO3 inertial measurement unit.",
+      "caption": "The Dewesoft DS-GYRO3 IMU, providing roll-angle and angular-velocity feedback at up to 1800 Hz for real-time actuator response.",
+      "cite": "Mubadala Student Research Projects · 2024–25 · Method",
+      "group": "mubadala"
+    },
+    {
+      "src": "assets/images/projects/mubadala/active-control-results.png",
+      "w": 489,
+      "h": 411,
+      "alt": "Plot of ship roll under active control, the amplitude flattening to a near-zero trace.",
+      "caption": "With active hydraulic control, roll amplitude drops below 0.0016 radians — a greater than 98% reduction, well beyond what the passive tank alone achieves.",
+      "cite": "Mubadala Student Research Projects · 2024–25 · Result",
+      "group": "mubadala"
+    }
+  ],
+  groups: {
+    "civil": "5th Corner Residential Building",
+    "savonius": "Savonius Turbine",
+    "pde": "Indoor Wireless Link Design",
+    "pca": "PCA Study of Bike Rentals",
+    "tec": "Compressor-Less TEC Refrigerator",
+    "mubadala": "Advanced Anti-Roll Tank System"
+  },
+  /* Fallback plate for records that carry no figures from an original
+     report. One image only, captioned honestly as stock, so the case
+     sheet's figure pane always has something truthful to show. */
+  plates: {
+  "project:04": {
+    "src": "assets/images/placeholders/p04-uav-flight.jpg",
+    "w": 1920, "h": 1080,
+    "alt": "Temporary stock photograph of a quadcopter in flight. It is not evidence of this project.",
+    "caption": "Stock photograph of a quadcopter in flight, standing in for this project.",
+    "cite": "Stock image · not project evidence · no report figures published"
+  },
+  "project:07": {
+    "src": "assets/images/placeholders/p07-racing-engine.jpg",
+    "w": 1920, "h": 1440,
+    "alt": "Temporary stock photograph of a racing engine. It is not evidence of this project.",
+    "caption": "Stock photograph of a racing engine, standing in for this project.",
+    "cite": "Stock image · not project evidence · no report figures published"
+  },
+  "project:08": {
+    "src": "assets/images/placeholders/p08-electric-vehicle.jpg",
+    "w": 1920, "h": 1440,
+    "alt": "Temporary stock photograph of an electric vehicle. It is not evidence of this project.",
+    "caption": "Stock photograph of an electric vehicle, standing in for this project.",
+    "cite": "Stock image · not project evidence · no report figures published"
+  },
+  "project:10": {
+    "src": "assets/images/placeholders/p10-quantum-cryostat.jpg",
+    "w": 960, "h": 1280,
+    "alt": "Temporary stock photograph of laboratory cryostat equipment. It is not evidence of this project.",
+    "caption": "Stock photograph of laboratory cryostat equipment, standing in for this project.",
+    "cite": "Stock image · not project evidence · no report figures published"
+  },
+  "research:site": {
+    "src": "assets/images/placeholders/p02-offshore-wind.jpg",
+    "w": 800, "h": 600,
+    "alt": "Temporary stock photograph of an offshore wind turbine. It is not evidence of this research.",
+    "caption": "Stock photograph of an offshore wind turbine, standing in for this research.",
+    "cite": "Stock image · not research evidence · no report figures published"
+  },
+  "research:energy": {
+    "src": "assets/images/placeholders/p05-thermal-electronics.jpg",
+    "w": 1920, "h": 1285,
+    "alt": "Temporary stock photograph of a circuit board on a thermography display. It is not evidence of this research.",
+    "caption": "Stock photograph of a circuit board on a thermography display, standing in for this research.",
+    "cite": "Stock image · not research evidence · no report figures published"
+  },
+  "activity:jiujitsu": {
+    "src": "assets/images/placeholders/p07-racing-engine.jpg",
+    "w": 1920, "h": 1440,
+    "alt": "Temporary stock photograph of a racing engine. It is not evidence of this activity.",
+    "caption": "Stock photograph standing in for this activity.",
+    "cite": "Stock image · not activity evidence · no photographs published"
+  },
+  "activity:habitat": {
+    "src": "assets/images/placeholders/p03-steel-structure.jpg",
+    "w": 960, "h": 1448,
+    "alt": "Temporary stock photograph of a black-and-white steam locomotive and steel machinery. It is not evidence of this activity.",
+    "caption": "Stock photograph standing in for this activity.",
+    "cite": "Stock image · not activity evidence · no photographs published"
+  },
+  "activity:cricket": {
+    "src": "assets/images/placeholders/p09-data-display.jpg",
+    "w": 1920, "h": 1440,
+    "alt": "Temporary stock photograph of a computer display. It is not evidence of this activity.",
+    "caption": "Stock photograph standing in for this activity.",
+    "cite": "Stock image · not activity evidence · no photographs published"
+  },
+  "activity:sport": {
+    "src": "assets/images/placeholders/p04-uav-flight.jpg",
+    "w": 1920, "h": 1080,
+    "alt": "Temporary stock photograph of a quadcopter in flight. It is not evidence of this activity.",
+    "caption": "Stock photograph standing in for this activity.",
+    "cite": "Stock image · not activity evidence · no photographs published"
+  },
+  "activity:marshal": {
+    "src": "assets/images/placeholders/p06-wireless-antenna.jpg",
+    "w": 960, "h": 1280,
+    "alt": "Temporary stock photograph of a roadside light column above a car park. It is not evidence of this activity.",
+    "caption": "Stock photograph standing in for this activity.",
+    "cite": "Stock image · not activity evidence · no photographs published"
+  },
+  "activity:aiesec": {
+    "src": "assets/images/placeholders/p08-electric-vehicle.jpg",
+    "w": 1920, "h": 1440,
+    "alt": "Temporary stock photograph of an electric vehicle. It is not evidence of this activity.",
+    "caption": "Stock photograph standing in for this activity.",
+    "cite": "Stock image · not activity evidence · no photographs published"
+  }
+}
+});

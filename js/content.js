@@ -1,0 +1,1961 @@
+/* Content registry for the portfolio. Plain data only, no runtime
+   dependencies, no network access. Consumed by js/app.js. */
+window.PORTFOLIO = Object.freeze({
+  records: {
+  "project:01": {
+    "kind": "Project 09",
+    "kicker": "Marine systems / simulation",
+    "title": "Advanced Anti-Roll Tank System (ART3S)",
+    "org": "Mubadala Student Research Projects 2024–2025, NYU Abu Dhabi",
+    "summary": "A hydraulically controlled anti-roll tank for large vessels: port and starboard reservoirs whose water shifts out of phase with the ship's roll, evaluated as a passive U-tube tank and then with an actively actuated loop.",
+    "details": [
+      {
+        "label": "Brief",
+        "text": "Cut the roll motion of a large container ship (the cause of passenger discomfort and cargo shifting) with a water-tank system cheaper to maintain than bilge keels, fin stabilisers or ballast keels."
+      },
+      {
+        "label": "Contribution",
+        "text": "Credited as Design on an eight-person team with four supervisors: mechanical design and system integration of the tank structure, including SolidWorks models of tank volumes from 200 to 800 cubic metres, and presenting the design to the Mubadala committee with partner laboratories. Control-law and simulation work was shared across the team."
+      },
+      {
+        "label": "Approach",
+        "text": "Modelled a passive U-tube tank and an actively controlled variant against an unstabilised baseline of ±0.075 rad (±4.3°) roll, sizing a Side-Power SMSPS90 hydraulic pump-motor as the actuator and a Dewesoft DS-GYRO3 IMU at up to 1800 Hz for roll feedback. Physical testing used an Eacam WL917 29 cm hull at the Abu Dhabi Maritime Academy and the NYU Abu Dhabi wave tank."
+      },
+      {
+        "label": "Outcome",
+        "text": "The passive tank cut roll amplitude from ±0.075 rad to about ±0.01 rad (an 85% reduction), settling to steady state after roughly 2,000 seconds. Closing the loop with the hydraulic actuator took roll below 0.0016 rad, a greater than 98% reduction."
+      },
+      {
+        "label": "Constraints",
+        "text": "These are simulation results for a modelled sea state, not full-scale sea trials. Physical testing was done at RC-hull scale, and fuel use, cost and extreme-sea-state performance weren't part of the study."
+      }
+    ],
+    "evidence": "mubadala",
+    "videos": [
+      {
+        "src": "assets/videos/mubadala/ship-tank-animation.mp4",
+        "poster": "assets/images/video-posters/mubadala/ship-tank-animation.jpg",
+        "w": 560,
+        "h": 420,
+        "title": "Passive tank response, simulated",
+        "caption": "Ship roll (blue) against tank angle (red) over 3,000 seconds of simulated wave excitation, showing the passive system settling in real time.",
+        "note": "48 s · no audio"
+      },
+      {
+        "src": "assets/videos/mubadala/mubadala-overview.mp4",
+        "poster": "assets/images/video-posters/mubadala/mubadala-overview.jpg",
+        "w": 1280,
+        "h": 960,
+        "title": "U-tube tank walkthrough",
+        "caption": "A 3D walkthrough of the U-tube tank structure from several angles, clarifying the port and starboard geometry.",
+        "note": "1 min 39 s · has audio"
+      },
+      {
+        "src": "assets/videos/mubadala/mubadala-assembly.mp4",
+        "poster": "assets/images/video-posters/mubadala/mubadala-assembly.jpg",
+        "w": 780,
+        "h": 780,
+        "title": "Tank integrated into the hull",
+        "caption": "A cross-sectional CAD animation showing the U-tube tank installed in a container ship's hull below the main deck.",
+        "note": "1 min 39 s · has audio"
+      },
+      {
+        "src": "assets/videos/mubadala/solidworks-clip-1.mp4",
+        "poster": "assets/images/video-posters/mubadala/solidworks-clip-1.jpg",
+        "w": 1076,
+        "h": 940,
+        "title": "Detail: mounting bolts and access ports",
+        "caption": "A CAD close-up of the tank structure's mounting bolts and access ports.",
+        "note": "5 s"
+      },
+      {
+        "src": "assets/videos/mubadala/solidworks-clip-2.mp4",
+        "poster": "assets/images/video-posters/mubadala/solidworks-clip-2.jpg",
+        "w": 1460,
+        "h": 776,
+        "title": "Detail: actuator and connecting lines",
+        "caption": "A close-up of the tank assembly with the actuator and its connecting lines visible.",
+        "note": "5 s"
+      }
+    ]
+  },
+  "project:02": {
+    "kind": "Project 11",
+    "kicker": "Energy systems / CFD / prototyping",
+    "title": "Savonius Turbine for Traffic Wind Energy Harvesting",
+    "org": "",
+    "summary": "A vertical-axis turbine designed to harvest the vortices thrown off traffic moving in opposite directions either side of a central reservation. Optimised in ANSYS Fluent, then built and measured at 1:3 scale.",
+    "details": [
+      {
+        "label": "Brief",
+        "text": "Design a vertical-axis turbine for vortices generated by traffic moving in opposite directions on either side of a central reservation."
+      },
+      {
+        "label": "Contribution",
+        "text": "Optimised the turbine geometry and fabricated a 1:3 scale carbon-fibre-reinforced FDM prototype."
+      },
+      {
+        "label": "Approach",
+        "text": "Used ANSYS Fluent to study a 45-degree helical twist, a 124-degree blade arc and serrated leading edges inside an 8D domain, then bench- and road-tested the physical scale prototype separately."
+      },
+      {
+        "label": "Outcome",
+        "text": "In CFD the serrated rotor reached a 71.65% higher peak moment and a 56.33% power increase over the non-serrated baseline. On the bench the prototype self-started within 2 to 5 seconds and peaked at 5 to 7 V. Roadside it held about 2.67 V with spikes to 10 V as vehicles passed. Full-scale output is projected at 3 to 15 W at 5 to 6 m/s."
+      },
+      {
+        "label": "Constraints",
+        "text": "The CFD results and the measured voltages are separate results. The 3 to 15 W full-scale figure is a projection from the scale prototype, not a direct measurement, and power coefficient, torque coefficient, site wind resource and streetlight load weren't calculated."
+      }
+    ],
+    "evidence": "savonius"
+  },
+  "project:03": {
+    "kind": "Project 06",
+    "kicker": "Civil design / BIM coordination",
+    "title": "5th Corner Residential Building",
+    "org": "",
+    "summary": "A graded-A, four-storey residential building model and coordinated drawing package for a hot-arid Abu Dhabi context: architecture, structure, façade and schedules held in one Revit model.",
+    "details": [
+      {
+        "label": "Brief",
+        "text": "Produce an architectural and structural design package for an approximately 928 m² four-storey multifamily residential building."
+      },
+      {
+        "label": "Contribution",
+        "text": "Produced AutoCAD and Revit models, coordinated structural documentation, and automated the structural column schedule into Excel."
+      },
+      {
+        "label": "Approach",
+        "text": "Sized members with SAP2000 finite-element analysis to ACI 318, used Dynamo to extract Revit parameters, and ran Revit interference checks."
+      },
+      {
+        "label": "Outcome",
+        "text": "Automated the schedule and quantity take-off for all 84 columns, cutting the process from over 30 minutes by hand to under one minute, and resolved 15 slab-to-beam conflicts for a clash-free BIM model."
+      },
+      {
+        "label": "Constraints",
+        "text": "This was a graded university design project. The model and member sizing were not a constructed building or a site-verified design."
+      }
+    ],
+    "evidence": "civil",
+    "pdfs": [
+      { "label": "Design report (PDF)", "href": "assets/docs/civil/civil-engineering-design-report.pdf" }
+    ]
+  },
+  "project:04": {
+    "kind": "Project 01",
+    "kicker": "Personal project / UAV design",
+    "title": "Fixed-Wing UAV for Search-and-Rescue Payload Deployment",
+    "org": "",
+    "summary": "An assembled fixed-wing prototype with a detachable nose, intended to carry and release a smaller multirotor payload. Airframe, structure and materials owned on a two-person project.",
+    "details": [
+      {
+        "label": "Brief",
+        "text": "Develop a 3D-printed fixed-wing UAV with a detachable nose and release concept for a smaller multirotor payload."
+      },
+      {
+        "label": "Contribution",
+        "text": "Owned the airframe, structure and material choices on a two-person project. A collaborator handled the electronics."
+      },
+      {
+        "label": "Approach",
+        "text": "Reduced mass through lightweight PLA, tuned infill, revised internal geometry and carbon-fibre tubing in the chassis."
+      },
+      {
+        "label": "Outcome",
+        "text": "Reduced all-up airframe mass from 2,500 g to 1,500 g, a 40% reduction. The completed prototype has a 1,130 mm wingspan."
+      },
+      {
+        "label": "Constraints",
+        "text": "The UAV hasn't flown yet, and the release mechanism hasn't been tested."
+      }
+    ],
+    "evidence": "uav-drone"
+  },
+  "project:05": {
+    "kind": "Project 07",
+    "kicker": "Thermal systems / instrumentation",
+    "title": "Compressor-Less Multi-Stage TEC Refrigerator",
+    "org": "",
+    "summary": "A compact compressor-less refrigerator built around thermoelectric (Peltier) modules driven in parallel, with Arduino sensing and closed-loop PWM control.",
+    "details": [
+      {
+        "label": "Brief",
+        "text": "Design and prototype a compact compressor-less refrigerator using thermoelectric cooling in place of a vapour-compression cycle."
+      },
+      {
+        "label": "Contribution",
+        "text": "Contributed to the mechanical and electrical cooling architecture, Arduino-based sensing and closed-loop control implementation."
+      },
+      {
+        "label": "Approach",
+        "text": "Ran dual TEC modules in parallel from a 12 V supply at approximately 9.7 A, with DS18B20 sensing, PWM-driven MOSFET switching, CPU-cooler heatsink and fan stacks on both faces, and an OLED and rotary-encoder interface for setpoint and duty-cycle adjustment."
+      },
+      {
+        "label": "Outcome",
+        "text": "Over a 180-minute test the cabin cooled from a 27°C ambient start to a stable 10°C, reaching thermal equilibrium after roughly 120 minutes, with frost forming on the cold-side heatsink throughout."
+      },
+      {
+        "label": "Constraints",
+        "text": "We didn't measure coefficient of performance or hot-side heat rejection, and didn't compare other module configurations."
+      }
+    ],
+    "evidence": "tec"
+  },
+  "project:06": {
+    "kind": "Project 04",
+    "kicker": "Numerical methods / MATLAB",
+    "title": "Indoor Wireless Link Design with Helmholtz PDEs",
+    "org": "",
+    "summary": "A finite-element Helmholtz study of indoor transmitter placement, run at 2.4 GHz under reflective and partially absorbing wall conditions and scored on desk-area coverage.",
+    "details": [
+      {
+        "label": "Brief",
+        "text": "Identify a transmitter position that improves simulated wireless coverage across a target desk area."
+      },
+      {
+        "label": "Contribution",
+        "text": "Developed FEM setup and mesh analysis, numerical and analytical solution work, MATLAB simulations for transmitter positions, and model documentation."
+      },
+      {
+        "label": "Approach",
+        "text": "Derived a scalar Helmholtz model from Maxwell's equations and compared 2D source locations under reflective and partially absorbing boundaries."
+      },
+      {
+        "label": "Outcome",
+        "text": "Across four simulated router locations, the best placement achieved approximately 40% simulated desk coverage, about 13 times the coverage of sub-optimal corner placements."
+      },
+      {
+        "label": "Constraints",
+        "text": "The coverage result is simulated only. We didn't test a physical router or measure real-world coverage."
+      }
+    ],
+    "evidence": "pde",
+    "pdfs": [
+      { "label": "Project report (PDF)", "href": "assets/docs/pde/pde-project-report.pdf" }
+    ]
+  },
+  "project:07": {
+    "kind": "Project 10",
+    "kicker": "Motorsport / SolidWorks FEA",
+    "title": "Formula Student SAE Drivetrain",
+    "org": "",
+    "summary": "A narrowly scoped Formula SAE contribution: rear half-shaft design and structural verification for a rear-engine, rear-wheel-drive car.",
+    "details": [
+      {
+        "label": "Brief",
+        "text": "Design and verify the rear half shafts for a rear-engine, rear-wheel-drive Formula SAE vehicle in a 10-member team."
+      },
+      {
+        "label": "Contribution",
+        "text": "Owned the half-shaft scope rather than the full drivetrain or vehicle build."
+      },
+      {
+        "label": "Approach",
+        "text": "Used SolidWorks Simulation FEA against an assumed worst-case shock-load design envelope for clutch-dump and wheel-hop scenarios."
+      },
+      {
+        "label": "Outcome",
+        "text": "Sized the half shafts to a 1.2 to 1.5 safety factor on the assumed worst-case shock load."
+      },
+      {
+        "label": "Constraints",
+        "text": "The design envelope is assumed, not measured, and the project didn't include dyno torque testing, stress measurement or a reliability target."
+      }
+    ],
+    "evidence": ""
+  },
+  "project:08": {
+    "kind": "Project 12",
+    "kicker": "Mobility engineering / FEA",
+    "title": "Advanced Motorised Wheelchair",
+    "org": "",
+    "summary": "A customisable seating-platform concept that widens the accommodated range of user statures on a motorised wheelchair.",
+    "details": [
+      {
+        "label": "Brief",
+        "text": "Improve the adjustability of a motorised-wheelchair seating platform for a wider range of user statures."
+      },
+      {
+        "label": "Contribution",
+        "text": "Conceived the adjustable seating concept and prepared finite-element analysis of the platform."
+      },
+      {
+        "label": "Approach",
+        "text": "Widened the seat 150 mm in each direction on a lockable sliding mechanism and analysed the platform by finite-element analysis under a 750 N (76.5 kg equivalent) applied load, with the seat and pins fixed for the backrest study and the backrest and pin bases fixed for the seat-buckling study."
+      },
+      {
+        "label": "Outcome",
+        "text": "Raised the accommodated user-stature cap from 5 ft 9 to 6 ft 5. Finite-element analysis of the backrest under the 750 N load produced a maximum stress of 0.729 MPa and a maximum displacement of 0.01787 mm. The seat-buckling study produced a maximum stress of 1.257 MPa and a maximum displacement of 0.0009305 mm, both well below the 620.4 MPa yield strength of the Alloy Steel SS used in the model."
+      },
+      {
+        "label": "Constraints",
+        "text": "The finite-element analysis was run at a 750 N (76.5 kg equivalent) test load, below the 110 kg design target. It also used fixed supports rather than the full wheelchair under real-world loading, so this is analysis, not a physical test or certification."
+      }
+    ],
+    "evidence": "wheelchair",
+    "videos": [
+      {
+        "src": "assets/videos/wheelchair/seat-vertical-movement.mp4",
+        "poster": "assets/images/video-posters/wheelchair/seat-vertical-movement.jpg",
+        "w": 1920,
+        "h": 1080,
+        "title": "Vertical adjustment and loaded buckling behaviour",
+        "caption": "A SolidWorks motion study of the seat platform's vertical adjustment and its buckling behaviour under simulated loading.",
+        "note": "3 s · no audio"
+      },
+      {
+        "src": "assets/videos/wheelchair/seat-horizontal-movement.mp4",
+        "poster": "assets/images/video-posters/wheelchair/seat-horizontal-movement.jpg",
+        "w": 1920,
+        "h": 1080,
+        "title": "Horizontal sliding range",
+        "caption": "A SolidWorks motion study showing the seat platform's horizontal sliding range, the mechanism behind the 150 mm lateral adjustment.",
+        "note": "1 s · no audio"
+      },
+      {
+        "src": "assets/videos/wheelchair/assembly-exploded-view.mp4",
+        "poster": "assets/images/video-posters/wheelchair/assembly-exploded-view.jpg",
+        "w": 1920,
+        "h": 1080,
+        "title": "Exploded assembly view",
+        "caption": "An exploded-view animation showing the spatial relationship of the backrest and support-link components.",
+        "note": "1 s · no audio"
+      },
+      {
+        "src": "assets/videos/wheelchair/assembly-collapse-motion.mp4",
+        "poster": "assets/images/video-posters/wheelchair/assembly-collapse-motion.jpg",
+        "w": 1920,
+        "h": 1080,
+        "title": "Backrest assembly folding motion",
+        "caption": "A motion study of the backrest assembly's folding sequence.",
+        "note": "1 s · no audio"
+      }
+    ],
+    "pdfs": [
+      { "label": "Backrest FEA report (PDF)", "href": "assets/docs/wheelchair/backrest-test.pdf" },
+      { "label": "Seat buckling FEA report (PDF)", "href": "assets/docs/wheelchair/seat-buckling.pdf" }
+    ]
+  },
+  "project:09": {
+    "kind": "Project 05",
+    "kicker": "Data analysis / statistics",
+    "title": "PCA Study of Bike Rentals and Temperature",
+    "org": "",
+    "summary": "A principal-component analysis of 731 days of Capital Bikeshare data against daily temperature, including a comparison of covariance estimators.",
+    "details": [
+      {
+        "label": "Brief",
+        "text": "Examine the shared variation between temperature and daily bike-rental demand using a public 731-day Capital Bikeshare dataset."
+      },
+      {
+        "label": "Contribution",
+        "text": "Performed the PCA analysis and the supporting statistical treatment of covariance estimators and resampling evidence."
+      },
+      {
+        "label": "Approach",
+        "text": "Cleaned and standardised temperature and rental variables, compared covariance and correlation views, and evaluated PCA outputs and empirical CDF results."
+      },
+      {
+        "label": "Outcome",
+        "text": "PC1 captured 81% of the variance and the analysis found a strong positive correlation between temperature and rental demand."
+      },
+      {
+        "label": "Constraints",
+        "text": "This is an observational analysis of historical data, so it shows correlation, not a controlled causal effect."
+      }
+    ],
+    "evidence": "pca",
+    "pdfs": [
+      { "label": "Project report (PDF)", "href": "assets/docs/pca/data-analysis-project-report.pdf" }
+    ]
+  },
+  "project:10": {
+    "kind": "Project 13",
+    "kicker": "Advanced computation / feasibility",
+    "title": "Hyundai NGV Quantum Computing Analysis",
+    "org": "",
+    "summary": "A feasibility and implementation assessment of quantum-computing applications for next-generation systems, delivered to the sponsor in South Korea.",
+    "details": [
+      {
+        "label": "Brief",
+        "text": "Assess whether quantum computing could improve the efficiency of next-generation systems through multi-physics computation."
+      },
+      {
+        "label": "Contribution",
+        "text": "Investigated implementation strategies and feasibility, then presented the conclusions to an international Hyundai NGV panel in South Korea."
+      },
+      {
+        "label": "Approach",
+        "text": "Synthesised quantum-computing and advanced-computation applications into feasibility and implementation conclusions for the sponsor."
+      },
+      {
+        "label": "Outcome",
+        "text": "Delivered conclusions to a 25-member international industry panel."
+      },
+      {
+        "label": "Constraints",
+        "text": "No follow-on funding or continued engagement is attributed to this presentation."
+      }
+    ],
+    "evidence": "quantum",
+    "pdfs": [
+      { "label": "Quantum Computing Fundamentals (PDF)", "href": "assets/docs/quantum/quantum-computing-fundamentals.pdf" },
+      { "label": "Building a Quantum Circuit (PDF)", "href": "assets/docs/quantum/building-a-quantum-circuit.pdf" },
+      { "label": "Current Quantum Advancements: IBM and Google (PDF)", "href": "assets/docs/quantum/current-quantum-advancements.pdf" }
+    ]
+  },
+  "project:11": {
+    "kind": "Project 03",
+    "kicker": "Water systems / techno-economic analysis",
+    "title": "Seawater Reverse Osmosis Pretreatment Design in the Arabian Gulf",
+    "org": "",
+    "summary": "A conceptual pretreatment train for a 24,000 m³/day SWRO plant on the Sharjah coast, carried through a 30-year techno-economic lifecycle simulation with equipment-reliability and carbon-footprint modelling.",
+    "details": [
+      {
+        "label": "Brief",
+        "text": "Design a complete pretreatment train for a 24,000 m³/day SWRO desalination plant drawing Arabian Gulf seawater at 44,000 mg/L TDS and up to 35°C, meeting RO membrane feed-water specifications against five categories of fouling agent."
+      },
+      {
+        "label": "Contribution",
+        "text": "Authored the complete 34-page design report: the pretreatment train configuration, mass-balance calculations, equipment specification and sizing, chemical-consumption and cost projections, and a full 30-year dynamic lifecycle simulation with reliability and environmental analysis."
+      },
+      {
+        "label": "Approach",
+        "text": "Modelled a multi-barrier pretreatment sequence (screening, shock chlorination, coagulation and flocculation, dissolved air flotation, dual-media filtration, ultrafiltration, dechlorination, cartridge filtration) in MATLAB at an hourly timestep over a 360-month (30-year) run. Equipment reliability was assessed by Weibull statistics across six asset classes, with energy cost and carbon intensity projected against UAE grid emission factors and all unit operations sized from first-principles hydraulics and published Gulf SWRO plant data."
+      },
+      {
+        "label": "Outcome",
+        "text": "Pretreatment capital cost of 50.6 to 77.0 million USD and annual operating cost of 4.55 to 6.85 million USD/year, a unit cost of 0.52 to 0.78 USD/m³ within the published 0.50 to 0.80 USD/m³ benchmark for Gulf SWRO plants. Feed water reaches SDI below 3 and zero free chlorine residual. Cumulative 30-year cost is approximately 1.1 billion USD nominal, about 450 million USD discounted at 6%. Carbon intensity rises from 8.3 to 9.4 kg CO₂/m³ as equipment ages faster than the grid decarbonises. Ultrafiltration membranes dominate replacement events."
+      },
+      {
+        "label": "Constraints",
+        "text": "The design is conceptual and hasn't been built or field-validated. Reliability figures come from published Weibull parameters rather than site-specific data, and seasonal water quality is modelled as a sine curve from limited monitoring data, so a full-year pilot is recommended before construction. Energy and chemical cost escalation are projected from historical trends, and the lifecycle analysis doesn't include embodied carbon or end-of-life disposal."
+      }
+    ],
+    "evidence": "swro",
+    "pdfs": [
+      { "label": "Full technical report (PDF)", "href": "assets/docs/swro/swro-full-report.pdf" },
+      { "label": "Background reading: RO membrane technologies (PDF)", "href": "assets/docs/swro/ro-membrane-background-reading.pdf" }
+    ]
+  },
+  "project:12": {
+    "kind": "Project 08",
+    "kicker": "Product design / mechanical engineering",
+    "title": "Modular Golf Putter with Magnetic Weight System",
+    "org": "",
+    "summary": "A golf putter with a modular, magnetically attached weight system and a refined centre-of-gravity placement, designed across three iterations to improve stroke control and allow customisation.",
+    "details": [
+      {
+        "label": "Brief",
+        "text": "Design and prototype a golf putter incorporating modular weight distribution to optimise centre-of-gravity placement, face stability and stroke consistency, with geometry designed for rules-conforming dimensions."
+      },
+      {
+        "label": "Contribution",
+        "text": "Led the complete mechanical design across three iterative cycles: conception, midterm refinement and final integration. Carried out design-for-manufacture analysis, material selection, magnet-pocket geometry optimisation and tolerance stack-up analysis, prototyped the head, weights and shaft by FDM 3D printing, and produced fully dimensioned technical drawings for all five components."
+      },
+      {
+        "label": "Approach",
+        "text": "Modelled the assembly in SolidWorks with detailed tolerance callouts, TRUE radius specifications and magnet-pocket geometry. Designed a modular weight system around 22 neodymium magnets (10 mm diameter, 2 mm height), selected aluminium 6061-T6 for the weights in place of the initially specified titanium, and chose Apollo 36-inch steel for the shaft. Refinements included plumber-neck smoothing to remove stress concentrations and alignment grooves in place of full milling to reduce fracture risk."
+      },
+      {
+        "label": "Outcome",
+        "text": "Completed a functional prototype with a central weight of 702.14 g and a toe weight of 695.63 g, a 124.29 mm putter-head face length, and modular weight pockets accepting either weight assembly. A SolidWorks costing pass compared the two production routes it would actually be built under. In a 50-unit lot, the putter head, shaft, 22 magnets and both weight pieces total USD 312.86 in parts. A 20% assembly fee and the USD 51.50 grip bring the final cost to USD 426.93 per unit. Built as a single piece instead, the same parts cost USD 2,715.10, but a USD 2,000 mould charge, a 20% assembly fee, a 12% new-customer fee and a 10% miscellaneous allowance stack on top of it, taking the total to USD 6,970.80 — roughly 16 times the per-unit cost at 50-unit volume, almost entirely because the mould cost has no production run to amortise across."
+      },
+      {
+        "label": "Constraints",
+        "text": "The prototype was 3D-printed, not cast or machined, so the ABS/PETG shaft's stiffness differs from the specified steel. It wasn't tested on a golf course or checked for USGA conformance, so rules compliance isn't certified. Both cost estimates come from SolidWorks costing software, not vendor quotes, so treat them as a rough comparison rather than a quote."
+      }
+    ],
+    "evidence": "golf-putter",
+    "pdfs": [
+      { "label": "Full report (PDF)", "href": "assets/docs/golf-putter/final-report.pdf" },
+      { "label": "Putter head drawing (PDF)", "href": "assets/docs/golf-putter/putter-head.pdf" },
+      { "label": "Shaft drawing (PDF)", "href": "assets/docs/golf-putter/shaft.pdf" },
+      { "label": "Central weight drawing (PDF)", "href": "assets/docs/golf-putter/central-weight.pdf" },
+      { "label": "Toe weight drawing (PDF)", "href": "assets/docs/golf-putter/toe-weight.pdf" },
+      { "label": "Magnet specification (PDF)", "href": "assets/docs/golf-putter/magnet.pdf" },
+      { "label": "Bill of materials (PDF)", "href": "assets/docs/golf-putter/bill-of-materials.pdf" }
+    ]
+  },
+  "project:13": {
+    "kind": "Project 02",
+    "kicker": "Mechanical design / FEA / thermal analysis",
+    "title": "LinkConnect: A Modular Open-Source Cable Management System",
+    "org": "",
+    "summary": "A parametric cable-management system with discrete routing channels for each cable, validated by finite-element and thermal analysis and released open-source with both home-fabrication and industrial material variants.",
+    "details": [
+      {
+        "label": "Brief",
+        "text": "Design a modular, structurally validated cable-management system that routes each cable through its own discrete channel, buildable at home on a consumer 3D printer and scalable to industrial deployments."
+      },
+      {
+        "label": "Contribution",
+        "text": "Solo project: developed the complete seven-part parametric CAD assembly in SolidWorks, performed the structural load analysis and thermal simulation in MATLAB, selected materials for two manufacturing routes, and managed the open-source release and community feedback on GrabCAD."
+      },
+      {
+        "label": "Approach",
+        "text": "Built a parametric CAD assembly with load-dependent geometry, then ran an 80-step finite-element load sweep in MATLAB modelling the clip-pin contact as a plane-strain problem, comparing ABS and Aluminium 6061. Thermal performance was assessed by a lumped-capacitance model of steady-state and transient temperature under a 100 W load, comparing perforated and solid plate configurations."
+      },
+      {
+        "label": "Outcome",
+        "text": "The ABS variant yields at a load factor of 0.70 (peak pin reaction 2,116.4 N). Aluminium stays safe across the full range. Perforating the plate with 493 holes (6 mm diameter, 15 mm depth) cuts steady-state temperature from 95.5°C to 59.5°C under a 100 W load by increasing effective cooling surface by 129%. Single-tile cost is AED 36 at home scale or AED 17 at mass-production scale. Released open-source on GrabCAD, drawing a community proposal for a multi-level stacking extension within a week."
+      },
+      {
+        "label": "Constraints",
+        "text": "The finite-element analysis assumes 100% infill density, so printing at lower infill means fewer cables should be routed through it. The thermal model is steady-state and hasn't been tested experimentally, and the structural sweep is a load study, not a certification (the pin is designed to be the sacrificial part). It hasn't caught on beyond early maker-platform users yet."
+      }
+    ],
+    "evidence": "cable-management",
+    "pdfs": [
+      { "label": "Final report (PDF)", "href": "assets/docs/cable-management/final-report.pdf" }
+    ]
+  },
+  "activity:jiujitsu": {
+    "kind": "Activity",
+    "kicker": "2022–2026",
+    "title": "Varsity Jiu-Jitsu",
+    "org": "NYU Abu Dhabi Athletics",
+    "summary": "Varsity jiu-jitsu participation across four university years.",
+    "details": [
+      {
+        "label": "Context",
+        "text": "Selected for university varsity competition in each of four years."
+      }
+    ],
+    "evidence": ""
+  },
+  "activity:habitat": {
+    "kind": "Activity",
+    "kicker": "Mar–Apr 2025",
+    "title": "Habitat for Humanity Nepal",
+    "org": "Volunteer, Residential Build Programme",
+    "summary": "Residential-build volunteering in Nepal.",
+    "details": [
+      {
+        "label": "Context",
+        "text": "Built a single-storey house from foundation to roof with a volunteer team and checked dimensions and layouts against civil drawings before work began."
+      }
+    ],
+    "evidence": ""
+  },
+  "activity:cricket": {
+    "kind": "Activity",
+    "kicker": "Nov 2023 – Sep 2024",
+    "title": "Cricket Team Media",
+    "org": "NYU Abu Dhabi Cricket Team",
+    "summary": "Team photographer and videographer for the NYU Abu Dhabi Cricket Team.",
+    "details": [
+      {
+        "label": "Context",
+        "text": "Filmed and photographed matches across a season, delivering edited highlights and stills each week."
+      }
+    ],
+    "evidence": ""
+  },
+  "activity:sport": {
+    "kind": "Activity",
+    "kicker": "Ongoing",
+    "title": "Recreational Sport",
+    "org": "Padel, golf, tennis, cricket, kayaking, volleyball, badminton, football, cycling and wall climbing",
+    "summary": "Regularly active across individual and team sports.",
+    "details": [
+      {
+        "label": "Context",
+        "text": "Regularly active across padel, golf, tennis, cricket, volleyball, badminton, football, cycling and wall climbing."
+      }
+    ],
+    "evidence": ""
+  },
+  "activity:marshal": {
+    "kind": "Activity",
+    "kicker": "Feb 2019 – Dec 2025",
+    "title": "Chief Track Marshal",
+    "org": "Emirates Motorsports Organisation, Yas Marina Circuit and Dubai Autodrome",
+    "summary": "Track-marshalling and safety operations role, concluded in December 2025.",
+    "details": [
+      {
+        "label": "Context",
+        "text": "Supported 15 events by monitoring hazards and regulations and coordinating with race control and incident response. This role ended in December 2025."
+      }
+    ],
+    "evidence": ""
+  },
+  "activity:aiesec": {
+    "kind": "Activity",
+    "kicker": "Sep 2022 – Jan 2023",
+    "title": "Business Development and Engage, AIESEC",
+    "org": "AIESEC Abu Dhabi",
+    "summary": "Business development and engagement activity with AIESEC Abu Dhabi.",
+    "details": [
+      {
+        "label": "Context",
+        "text": "Supported workshops and campaigns, prepared project reports, and coordinated logistics, venue, budget and resources. No additional numerical claims are made."
+      }
+    ],
+    "evidence": ""
+  },
+  "experience:graduate-intern": {
+    "kind": "Experience",
+    "kicker": "May 2026 – Jul 2026",
+    "title": "Graduate Intern",
+    "org": "Center for Stability, Instability and Turbulence (SITE), NYU Abu Dhabi",
+    "summary": "Solo 2D free-surface study building a model-training dataset across 60 trials.",
+    "details": [],
+    "evidence": ""
+  },
+  "experience:workshop-technician": {
+    "kind": "Experience",
+    "kicker": "Sep 2025 – May 2026",
+    "title": "Workshop Technician",
+    "org": "Advanced Manufacturing Workshop, NYU Abu Dhabi",
+    "summary": "Manufactured polymer and composite parts and supported capstone teams in the Advanced Manufacturing Workshop.",
+    "details": [],
+    "evidence": ""
+  },
+  "experience:research-assistant-site": {
+    "kind": "Experience",
+    "kicker": "Apr 2023 – May 2026",
+    "title": "Undergraduate Research Assistant, SITE",
+    "org": "Center for Stability, Instability and Turbulence (SITE), NYU Abu Dhabi",
+    "summary": "Tested 130+ Rayleigh–Taylor and Richtmyer–Meshkov cases in a two-person water-tunnel study.",
+    "details": [],
+    "evidence": ""
+  },
+  "experience:research-assistant-propulsion": {
+    "kind": "Experience",
+    "kicker": "Nov 2022 – Nov 2023",
+    "title": "Undergraduate Research Assistant, Energy and Propulsion Lab",
+    "org": "Energy and Propulsion Lab, NYU Abu Dhabi",
+    "summary": "Modelled compressible flow on HPC clusters for AeroFarms growing-tower ventilation scenarios.",
+    "details": [],
+    "evidence": ""
+  },
+  "education:nyuad": {
+    "kind": "Education",
+    "kicker": "Graduating May 2026",
+    "title": "New York University Abu Dhabi",
+    "org": "BSc General Engineering, mechanical and civil focus",
+    "summary": "",
+    "details": [
+      {
+        "label": "Programme",
+        "text": "General Engineering with a mechanical and civil focus, covering design, simulation, fabrication and technical communication."
+      },
+      {
+        "label": "Technical practice",
+        "text": "SolidWorks (CSWA), AutoCAD, Revit, SAP2000, Dynamo, OpenFOAM, Converge CFD, ANSYS Fluent, Simulink, Python, MATLAB, Arduino and FDM prototyping."
+      },
+      {
+        "label": "Result",
+        "text": "Major GPA 3.60 out of 4.00, equivalent to a UK 2:1."
+      }
+    ],
+    "evidence": ""
+  },
+  "education:nyu-paris": {
+    "kind": "Education",
+    "kicker": "Jan 2024 · Study away",
+    "title": "New York University Paris",
+    "org": "Study away term, Immigration and Theatre",
+    "summary": "A January study away term in Paris reading Immigration and Theatre.",
+    "details": [
+      {
+        "label": "Focus",
+        "text": "Analysed migration in French theatre casting and the economics of integration."
+      },
+      {
+        "label": "Result",
+        "text": "Term GPA 3.70 out of 4.00."
+      }
+    ],
+    "evidence": ""
+  },
+  "education:nyu-valletta": {
+    "kind": "Education",
+    "kicker": "Jun 2023 · Study away",
+    "title": "NYU June Term, Valletta, Malta",
+    "org": "Study away term, Architecture and Climate Impact",
+    "summary": "A June study away term in Valletta reading Architecture and Climate Impact.",
+    "details": [
+      {
+        "label": "Focus",
+        "text": "Examined how architectural decisions shape climate outcomes and what purpose-led design asks of a building."
+      },
+      {
+        "label": "Result",
+        "text": "Term GPA 4.00 out of 4.00."
+      }
+    ],
+    "evidence": ""
+  }
+},
+  figures: [
+    {
+      "src": "assets/images/projects/civil/site-context.jpg",
+      "w": 1625,
+      "h": 794,
+      "alt": "Site view of the four-storey 5th Corner residential building set in landscaped grounds, with planting and paving around its footprint.",
+      "caption": "5th Corner’s 928 m² footprint in its landscape setting: a four-storey residential building designed for the UAE’s hot arid climate, with green space, landscape integration and careful site placement.",
+      "cite": "Civil Engineering Design Project · Fall 2025 · Setup",
+      "group": "civil"
+    },
+    {
+      "src": "assets/images/projects/civil/architectural-floor-plan.png",
+      "w": 1137,
+      "h": 1281,
+      "alt": "Coloured architectural floor plan on a lettered and numbered grid, with bedrooms, reception, dining, kitchen, bathrooms, lobby and maid’s quarters labelled.",
+      "caption": "Architectural floor plan showing the functional layout across the grid (A–D, rows 1–5): master and guest bedrooms, reception, dining, kitchen, bathrooms, entrance lobby and maid’s quarters, reflecting coordinated programme planning and circulation.",
+      "cite": "Civil Engineering Design Project · Fall 2025 · Approach",
+      "group": "civil"
+    },
+    {
+      "src": "assets/images/projects/civil/structural-grid-plan.png",
+      "w": 1138,
+      "h": 1282,
+      "alt": "Structural plan drawing of columns at grid intersections with beams drawn between them, no architectural walls shown.",
+      "caption": "Structural plan showing the column–beam grid: columns at the grid intersections, beams spanning between them, coordinated with the architectural layout as the basis for load distribution across all four storeys.",
+      "cite": "Civil Engineering Design Project · Fall 2025 · Approach",
+      "group": "civil"
+    },
+    {
+      "src": "assets/images/projects/civil/sap2000-fe-mesh.png",
+      "w": 596,
+      "h": 840,
+      "alt": "SAP2000 finite-element shell mesh of a floor slab, with column and beam supports marked at the grid points.",
+      "caption": "SAP2000 shell-element mesh of the floor slab with its column and beam supports, used to calculate the design actions: 180 kN maximum column reaction, 63.3 kN·m beam moment and 31.5 kN·m/m slab moment on the main span.",
+      "cite": "Civil Engineering Design Project · Fall 2025",
+      "group": "civil"
+    },
+    {
+      "src": "assets/images/projects/civil/dynamo-bim-automation.png",
+      "w": 3084,
+      "h": 1264,
+      "alt": "Dynamo visual-programming graph of connected nodes reading Revit column parameters and exporting them to an Excel file.",
+      "caption": "Dynamo graph extracting structural column parameters straight from the Revit model and writing them to Excel, automating the schedule and removing manual copy-paste error from the take-off.",
+      "cite": "Civil Engineering Design Project · Fall 2025",
+      "group": "civil"
+    },
+    {
+      "src": "assets/images/projects/civil/embodied-carbon-breakdown.png",
+      "w": 1095,
+      "h": 609,
+      "alt": "Chart breaking embodied carbon down by construction type, with exterior masonry walls the largest share at 46 per cent.",
+      "caption": "Embodied carbon by construction type: 300 mm masonry exterior walls dominate at 46% (about 117 tCO₂e), concrete floors and slabs 24%, interior partitions 11%, for a total intensity of 273 kgCO₂e/m², at the low end of the 300–600 kgCO₂e/m² target range.",
+      "cite": "Civil Engineering Design Project · Fall 2025",
+      "group": "civil"
+    },
+    {
+      "src": "assets/images/projects/civil/exterior-elevation-final.jpg",
+      "w": 1425,
+      "h": 1500,
+      "alt": "Exterior render of the finished residential building: light masonry façade, regular windows, balconies with metal railings and a flat parapet roof.",
+      "caption": "The completed exterior elevation: clean façade planes in light masonry, regular window openings, a flat roof with parapet, metal balcony railings and integrated landscaping, a design responsive to desert climate and regional context.",
+      "cite": "Civil Engineering Design Project · Fall 2025 · Outcome",
+      "group": "civil"
+    },
+    {
+      "src": "assets/images/projects/civil/balcony-interior-detail.jpg",
+      "w": 1800,
+      "h": 1315,
+      "alt": "Render of a balcony with metal railings and a sliding glass door, looking out over planting on the site.",
+      "caption": "A balcony showing the transition from interior to landscape: concrete structure, metal railings, a sliding glass door and a view out to the planted site beyond.",
+      "cite": "Civil Engineering Design Project · Fall 2025 · Outcome",
+      "group": "civil"
+    },
+    {
+      "src": "assets/images/projects/civil/isometric-site-view.png",
+      "w": 1666,
+      "h": 823,
+      "alt": "Isometric render of the whole building on its landscaped site, seen from above at an angle.",
+      "caption": "Isometric view of the building on its landscape context, confirming the coherence of the architectural, structural and environmental design intent.",
+      "cite": "Civil Engineering Design Project · Fall 2025 · Outcome",
+      "group": "civil"
+    },
+    {
+      "src": "assets/images/projects/civil/exterior-corner-dusk-render.jpg",
+      "w": 1800,
+      "h": 1208,
+      "alt": "Dusk exterior render of the building's street-facing corner, with a sweeping timber-slat canopy wrapping the upper balconies above a perforated brick-lattice podium, EV charging bays and cycle parking on the street below.",
+      "caption": "The street-facing corner at dusk: a sweeping timber-slat canopy wraps the upper balconies above a perforated brick-lattice podium, with EV charging bays, cycle parking and ground-floor seating integrated at street level.",
+      "cite": "Civil Engineering Design Project · Fall 2025 · Outcome",
+      "group": "civil"
+    },
+    {
+      "src": "assets/images/projects/civil/aerial-waterfront-render.jpg",
+      "w": 1800,
+      "h": 878,
+      "alt": "Aerial daytime render of the building on its waterfront site, showing the full perforated brick-lattice facade, rooftop terrace and landscaped grounds running down to the water's edge.",
+      "caption": "An aerial view of the building on its waterfront site, showing the perforated brick-lattice facade, rooftop terrace and the landscaped grounds running down to the water's edge.",
+      "cite": "Civil Engineering Design Project · Fall 2025 · Outcome",
+      "group": "civil"
+    },
+    {
+      "src": "assets/images/projects/savonius/design-concept-comparison.png",
+      "w": 3111,
+      "h": 1043,
+      "alt": "Comparison table and drawings of five candidate turbine concepts scored against power, noise, efficiency, start-up torque and maintenance.",
+      "caption": "Five turbine design concepts compared on power, noise, efficiency, start-up torque and maintenance. The serrated Savonius was selected for its low-wind performance and self-starting capability.",
+      "cite": "Savonius Capstone · Spring 2025 · Setup",
+      "group": "savonius"
+    },
+    {
+      "src": "assets/images/projects/savonius/final-geometry-multiview.png",
+      "w": 1113,
+      "h": 700,
+      "alt": "Multi-view CAD drawing of the final Savonius rotor showing its helical twist, serrated leading edge, blade arc and end plates with dimensions.",
+      "caption": "The optimised rotor geometry: end plates at 1.1× rotor diameter, a serrated leading edge, a 45° helical twist and a 124° blade arc, at 0.741 m diameter, 0.518 m stage height, with carbon-fibre blades.",
+      "cite": "Savonius Capstone · Spring 2025 · Setup",
+      "group": "savonius"
+    },
+    {
+      "src": "assets/images/projects/savonius/cfd-serration-mesh.png",
+      "w": 1227,
+      "h": 641,
+      "alt": "ANSYS Fluent computational mesh around the turbine blade, with fine cells concentrated along the serrated leading edge.",
+      "caption": "The ANSYS Fluent mesh, refined around the serrated leading edge inside an 8D × 8D × 8D domain: the computational setup behind every CFD result that follows.",
+      "cite": "Savonius Capstone · Spring 2025 · Approach",
+      "group": "savonius"
+    },
+    {
+      "src": "assets/images/projects/savonius/cfd-moment-comparison.png",
+      "w": 2655,
+      "h": 993,
+      "alt": "Line chart of moment against flow time for the serrated and non-serrated rotors, the serrated trace peaking substantially higher.",
+      "caption": "CFD torque over a 25-second simulation: the serrated design reaches a 71.65% higher peak moment than the non-serrated baseline, the evidence that the serrations work.",
+      "cite": "Savonius Capstone · Spring 2025",
+      "group": "savonius"
+    },
+    {
+      "src": "assets/images/projects/savonius/cfd-velocity-comparison.png",
+      "w": 681,
+      "h": 341,
+      "alt": "Line chart of rotor velocity against time for the serrated and non-serrated designs, the two traces almost overlapping.",
+      "caption": "Rotor velocity over time for both designs: near-identical curves confirm the serrations add torque without costing aerodynamic performance.",
+      "cite": "Savonius Capstone · Spring 2025",
+      "group": "savonius"
+    },
+    {
+      "src": "assets/images/projects/savonius/prototype-second-iteration.jpg",
+      "w": 1350,
+      "h": 1800,
+      "alt": "Photograph of the second 3D-printed Savonius rotor prototype in dark carbon-filled filament, held during assembly.",
+      "caption": "The second-generation 3D-printed prototype in carbon-filament PLA, refined after CFD showed the first iteration’s blade walls were 25% too thick.",
+      "cite": "Savonius Capstone · Spring 2025 · Build",
+      "group": "savonius"
+    },
+    {
+      "src": "assets/images/projects/savonius/prototype-final-test-rig.jpg",
+      "w": 3024,
+      "h": 4032,
+      "alt": "Photograph of the finished 1:3 scale Savonius turbine mounted on a test stand with its generator and electronics enclosure below the rotor.",
+      "caption": "The final 1:3-scale prototype on its test stand with generator, electronics enclosure and vibration-damping mounts, ready for bench and field testing.",
+      "cite": "Savonius Capstone · Spring 2025 · Build",
+      "group": "savonius"
+    },
+    {
+      "src": "assets/images/projects/savonius/bench-test-apparatus.jpg",
+      "w": 750,
+      "h": 810,
+      "alt": "Photograph of the bench test rig with a multimeter, anemometer and datalogger wired to the turbine prototype.",
+      "caption": "The bench-test setup: multimeter, anemometer and datalogger measuring electrical output against controlled airflow up to 5–6 m/s.",
+      "cite": "Savonius Capstone · Spring 2025",
+      "group": "savonius"
+    },
+    {
+      "src": "assets/images/projects/savonius/bench-test-voltage-curves.png",
+      "w": 690,
+      "h": 523,
+      "alt": "Chart of nine overlaid voltage-against-time traces from bench testing, each rising sharply within a few seconds to a five to seven volt peak.",
+      "caption": "Nine overlaid bench-test runs: consistent start-up within 2–5 seconds and peak voltages of 5–7 V, confirming repeatable self-starting performance.",
+      "cite": "Savonius Capstone · Spring 2025 · Outcome",
+      "group": "savonius"
+    },
+    {
+      "src": "assets/images/projects/savonius/road-test-results.png",
+      "w": 962,
+      "h": 333,
+      "alt": "Chart of roadside voltage against time, a low baseline interrupted by sharp spikes each time a vehicle passes.",
+      "caption": "Roadside field data: a baseline of about 2.7 V with spikes to 10 V as vehicles pass, confirming the turbine really does harvest traffic-induced vortices.",
+      "cite": "Savonius Capstone · Spring 2025 · Outcome",
+      "group": "savonius"
+    },
+    {
+      "src": "assets/images/projects/pde/room-geometry-setup.png",
+      "w": 937,
+      "h": 637,
+      "alt": "Plan of the five by four metre room showing a metal cabinet, the desk target region and four numbered candidate transmitter positions.",
+      "caption": "The 5 m × 4 m room domain, with a metal cabinet, the desk target region and four candidate transmitter positions marked.",
+      "cite": "Partial Differential Equations Project · Fall 2025 · Setup",
+      "group": "pde"
+    },
+    {
+      "src": "assets/images/projects/pde/ideal-free-space-reference.png",
+      "w": 1421,
+      "h": 509,
+      "alt": "Normalised field map for the idealised free-space case, with a smooth radial field and no interference pattern.",
+      "caption": "Idealised free-space reference: with no reflections and no obstacles a router reaches 67.5% desk coverage, the theoretical upper bound.",
+      "cite": "Partial Differential Equations Project · Fall 2025 · Approach",
+      "group": "pde"
+    },
+    {
+      "src": "assets/images/projects/pde/reflective-walls-field-maps.png",
+      "w": 1143,
+      "h": 807,
+      "alt": "Grid of four normalised field maps, one per transmitter position, each showing pronounced standing-wave interference from fully reflective walls.",
+      "caption": "Field coverage at all four positions with fully reflective walls: strong standing-wave interference patterns, with every position clustering around 72–76% coverage.",
+      "cite": "Partial Differential Equations Project · Fall 2025",
+      "group": "pde"
+    },
+    {
+      "src": "assets/images/projects/pde/reflective-walls-coverage-chart.png",
+      "w": 762,
+      "h": 487,
+      "alt": "Bar chart of desk coverage for the four transmitter positions under reflective walls, with all four bars at a similar height.",
+      "caption": "Desk coverage under fully reflective walls: all four positions perform almost identically at roughly 72–76%, since reflections redistribute energy regardless of placement.",
+      "cite": "Partial Differential Equations Project · Fall 2025",
+      "group": "pde"
+    },
+    {
+      "src": "assets/images/projects/pde/absorbing-walls-field-maps.png",
+      "w": 894,
+      "h": 660,
+      "alt": "Grid of four normalised field maps under partially absorbing walls, smoother than the reflective case and visibly weaker away from the source.",
+      "caption": "Field coverage under partially absorbing, realistic walls: coverage now ranges from 3.1% to 39.8% depending on transmitter position.",
+      "cite": "Partial Differential Equations Project · Fall 2025",
+      "group": "pde"
+    },
+    {
+      "src": "assets/images/projects/pde/absorbing-walls-coverage-chart.png",
+      "w": 853,
+      "h": 532,
+      "alt": "Bar chart of desk coverage for the four transmitter positions under absorbing walls, one bar far taller than the rest.",
+      "caption": "Desk coverage under absorbing walls: the central position (Pos 2) is the clear winner at 39.8%, against as little as 3.1% in a corner.",
+      "cite": "Partial Differential Equations Project · Fall 2025 · Outcome",
+      "group": "pde"
+    },
+    {
+      "src": "assets/images/projects/pde/threshold-comparison-5pct.png",
+      "w": 718,
+      "h": 410,
+      "alt": "Grouped bar chart comparing absorbing and reflective wall coverage at each transmitter position, using a five per cent field threshold.",
+      "caption": "Coverage compared at a relaxed 5% field threshold: absorbing-wall coverage rises at every position, but reflective walls still dominate.",
+      "cite": "Partial Differential Equations Project · Fall 2025",
+      "group": "pde"
+    },
+    {
+      "src": "assets/images/projects/pde/threshold-comparison-10pct.png",
+      "w": 705,
+      "h": 452,
+      "alt": "Grouped bar chart comparing absorbing and reflective wall coverage at each transmitter position, using a ten per cent field threshold.",
+      "caption": "Coverage compared at the stricter 10% threshold: absorbing walls substantially underperform reflective walls except at the optimal central position.",
+      "cite": "Partial Differential Equations Project · Fall 2025",
+      "group": "pde"
+    },
+    {
+      "src": "assets/images/projects/pde/best-transmitter-position.png",
+      "w": 687,
+      "h": 509,
+      "alt": "Normalised field map for the selected central transmitter position under partially absorbing boundaries, with the strongest field across the desk region.",
+      "caption": "The recommended placement, Position 2 at (2.5 m, 2.0 m), with its full field map: the best realistic coverage under absorbing-wall conditions.",
+      "cite": "Partial Differential Equations Project · Fall 2025 · Outcome",
+      "group": "pde"
+    },
+    {
+      "src": "assets/images/projects/pca/raw-distributions.png",
+      "w": 1407,
+      "h": 594,
+      "alt": "Two histograms side by side, one of daily temperature and one of total daily bike rentals, in their original units.",
+      "caption": "Raw distributions of daily temperature, spanning 2.4 to 35.3 degrees Celsius across 731 days, and of total bike rentals (22–8,714 trips), before any transformation.",
+      "cite": "Data Analysis Project · Fall 2025 · Setup",
+      "group": "pca"
+    },
+    {
+      "src": "assets/images/projects/pca/standardized-distributions.png",
+      "w": 1407,
+      "h": 594,
+      "alt": "Two histograms of the same variables after standardisation, both centred on zero with similar spread.",
+      "caption": "Standardised z-score distributions after centring and scaling: both variables now symmetric around zero with comparable spread.",
+      "cite": "Data Analysis Project · Fall 2025 · Approach",
+      "group": "pca"
+    },
+    {
+      "src": "assets/images/projects/pca/scatter-raw.png",
+      "w": 1679,
+      "h": 1011,
+      "alt": "Scatter plot of daily temperature against total bike rentals, sloping upward with wide scatter.",
+      "caption": "Raw temperature against total rentals across 731 days: a clear positive trend with substantial day-to-day scatter.",
+      "cite": "Data Analysis Project · Fall 2025",
+      "group": "pca"
+    },
+    {
+      "src": "assets/images/projects/pca/scatter-standardized.png",
+      "w": 1679,
+      "h": 1011,
+      "alt": "Scatter plot of the standardised variables, centred on the origin with an elongated diagonal cloud.",
+      "caption": "Standardised temperature against standardised rentals: the same positive trend, now centred at the origin with a dominant diagonal direction (PC1).",
+      "cite": "Data Analysis Project · Fall 2025",
+      "group": "pca"
+    },
+    {
+      "src": "assets/images/projects/pca/eigenvalue-scree-plot.png",
+      "w": 1485,
+      "h": 657,
+      "alt": "Plot of the two eigenvalues under both covariance estimators, the first far larger than the second.",
+      "caption": "Eigenvalues under the unbiased and biased covariance estimators: λ₁ = 1.6275 (81.37% of variance) and λ₂ = 0.3725 (18.63%), confirming Bessel’s correction scales eigenvalues uniformly without changing their directions.",
+      "cite": "Data Analysis Project · Fall 2025 · Approach",
+      "group": "pca"
+    },
+    {
+      "src": "assets/images/projects/pca/pca-loading-vectors.png",
+      "w": 1250,
+      "h": 657,
+      "alt": "Plot of the principal-component loading vectors for temperature and rentals on the first two components.",
+      "caption": "PC1 and PC2 loadings for temperature and rentals: equal loadings of 0.7071 on PC1 show both variables contribute equally to the dominant mode.",
+      "cite": "Data Analysis Project · Fall 2025 · Approach",
+      "group": "pca"
+    },
+    {
+      "src": "assets/images/projects/pca/pca-scores-plot.png",
+      "w": 1679,
+      "h": 1011,
+      "alt": "Scatter plot of principal-component scores for 731 days, stretched out along the first component axis.",
+      "caption": "PCA scores for all 731 days: an elongated scatter along PC1 that cleanly separates warm, high-rental days from cold, low-rental days.",
+      "cite": "Data Analysis Project · Fall 2025 · Outcome",
+      "group": "pca"
+    },
+    {
+      "src": "assets/images/projects/pca/dimension-choice.png",
+      "w": 3239,
+      "h": 1967,
+      "alt": "Scree plot of explained variance by component, with a threshold line at eighty per cent crossed by the first component alone.",
+      "caption": "Scree plot showing PC1 explains 81.37% of the variance, comfortably past the 80% threshold and justifying a single principal component (k = 1).",
+      "cite": "Data Analysis Project · Fall 2025 · Outcome",
+      "group": "pca"
+    },
+    {
+      "src": "assets/images/projects/pca/dimension-stability.png",
+      "w": 3135,
+      "h": 1977,
+      "alt": "Line plot of the variance explained by the first principal component against sample size, flattening out after roughly two hundred days.",
+      "caption": "Stability of PC1’s explained variance as the sample grows from 30 to 731 days: the roughly 81% split settles after about 200 days.",
+      "cite": "Data Analysis Project · Fall 2025 · Validation",
+      "group": "pca"
+    },
+    {
+      "src": "assets/images/projects/pca/convergence-experiments.png",
+      "w": 1063,
+      "h": 1171,
+      "alt": "Panel of convergence plots for the sample mean, the covariance entries and the leading eigenvalue against increasing sample size.",
+      "caption": "Convergence of the sample mean, covariance and leading eigenvalue toward their population values as the sample grows: the eigenvalue settles at 1.6275 after about 600 days.",
+      "cite": "Data Analysis Project · Fall 2025 · Validation",
+      "group": "pca"
+    },
+    {
+      "src": "assets/images/projects/tec/system-schematic.png",
+      "w": 2200,
+      "h": 1222,
+      "alt": "Wiring schematic of the refrigerator control system, showing the Arduino, two thermoelectric modules, MOSFET drivers, temperature sensor, encoder and display.",
+      "caption": "The full system schematic: dual TEC modules in parallel, Arduino UNO control, DS18B20 temperature sensing, PWM-driven MOSFET switching and a rotary-encoder and OLED user interface.",
+      "cite": "TEC Refrigerator Project · 2025 · Setup",
+      "group": "tec"
+    },
+    {
+      "src": "assets/images/projects/tec/circuit-implementation.jpg",
+      "w": 1600,
+      "h": 1200,
+      "alt": "Photograph of the assembled control circuit on a breadboard, with an Arduino, two MOSFET driver modules and a wiring harness.",
+      "caption": "The implemented circuit: Arduino, dual MOSFET modules, breadboard and the wiring harness that turns the schematic into a working control system.",
+      "cite": "TEC Refrigerator Project · 2025 · Approach",
+      "group": "tec"
+    },
+    {
+      "src": "assets/images/projects/tec/electronics-enclosure.jpeg",
+      "w": 856,
+      "h": 1600,
+      "alt": "Photograph of the electronics enclosure fitted to the top of the refrigerator, with a CPU cooler fan and routed internal wiring.",
+      "caption": "The electronics enclosure mounted on top of the unit, with its own CPU-cooler fan for heat dissipation and organised internal wiring.",
+      "cite": "TEC Refrigerator Project · 2025 · Approach",
+      "group": "tec"
+    },
+    {
+      "src": "assets/images/projects/tec/control-interface.png",
+      "w": 488,
+      "h": 371,
+      "alt": "Close-up of the small OLED display showing live temperature, setpoint and duty cycle, with the rotary encoder beside it.",
+      "caption": "The rotary encoder and OLED display working together: live temperature, setpoint and PWM duty cycle, all adjustable by hand.",
+      "cite": "TEC Refrigerator Project · 2025 · Approach",
+      "group": "tec"
+    },
+    {
+      "src": "assets/images/projects/tec/power-supply.png",
+      "w": 482,
+      "h": 308,
+      "alt": "Photograph of the bench power supply feeding the unit, its display showing the supply voltage and current.",
+      "caption": "The 12 V bench power supply delivering the current needed to run both TEC modules, the fans and the control electronics.",
+      "cite": "TEC Refrigerator Project · 2025 · Approach",
+      "group": "tec"
+    },
+    {
+      "src": "assets/images/projects/tec/tec-module-integration.jpg",
+      "w": 1441,
+      "h": 633,
+      "alt": "Photograph of a square thermoelectric Peltier module with its leads wired into a MOSFET switching module.",
+      "caption": "A thermoelectric (Peltier) module during development, wired directly into its MOSFET switching stage: the solid-state core of the whole system.",
+      "cite": "TEC Refrigerator Project · 2025 · Approach",
+      "group": "tec"
+    },
+    {
+      "src": "assets/images/projects/tec/ice-formation-proof.png",
+      "w": 476,
+      "h": 493,
+      "alt": "Photograph of frost and ice built up across the fins of the cold-side heatsink inside the unit.",
+      "caption": "Frost and ice forming on the cold-side heatsink during operation: direct physical proof the TEC stack is pulling the interior well below ambient.",
+      "cite": "TEC Refrigerator Project · 2025",
+      "group": "tec"
+    },
+    {
+      "src": "assets/images/projects/tec/thermal-scan-interior.jpg",
+      "w": 240,
+      "h": 320,
+      "alt": "Thermal camera image of the refrigerator interior, with a colour gradient from the cold heatsink out across the cabin.",
+      "caption": "A thermal-camera scan of the interior showing the cooling gradient across the cabin.",
+      "cite": "TEC Refrigerator Project · 2025",
+      "group": "tec"
+    },
+    {
+      "src": "assets/images/projects/tec/final-assembly.png",
+      "w": 405,
+      "h": 442,
+      "alt": "Photograph of the finished compressor-less refrigerator standing on its legs, with twin fan and heatsink stacks on top.",
+      "caption": "The completed unit: a vertically oriented cabinet, dual fan and heatsink assemblies on top, the rear electronics enclosure and structural legs for airflow clearance.",
+      "cite": "TEC Refrigerator Project · 2025 · Outcome",
+      "group": "tec"
+    },
+    {
+      "src": "assets/images/projects/mubadala/ship-roll-motion-diagram.png",
+      "w": 944,
+      "h": 463,
+      "alt": "Diagram of a ship annotated with its six degrees of freedom, with the roll axis highlighted.",
+      "caption": "Ship motion in six degrees of freedom. Roll, the side-to-side tilting, is the motion this project addresses, because it causes passenger discomfort and cargo shifting.",
+      "cite": "Mubadala Student Research Projects · 2024–25 · Setup",
+      "group": "mubadala"
+    },
+    {
+      "src": "assets/images/projects/mubadala/existing-stabilization-methods.png",
+      "w": 561,
+      "h": 323,
+      "alt": "Comparison of existing ship stabilisation methods, showing bilge keels, fin stabilisers and ballast keels.",
+      "caption": "Existing ship stabilisation methods, bilge keels, fin stabilisers and ballast keels, carry high maintenance costs and lose effectiveness in extreme conditions.",
+      "cite": "Mubadala Student Research Projects · 2024–25 · Setup",
+      "group": "mubadala"
+    },
+    {
+      "src": "assets/images/projects/mubadala/uncontrolled-roll-baseline.png",
+      "w": 847,
+      "h": 688,
+      "alt": "Time-history plot of unstabilised ship roll angle oscillating at about plus or minus 0.075 radians.",
+      "caption": "Unstabilised, a large container ship rolls at roughly ±0.075 radians (±4.3°) under typical wave conditions: the baseline this project reduces.",
+      "cite": "Mubadala Student Research Projects · 2024–25 · Setup",
+      "group": "mubadala"
+    },
+    {
+      "src": "assets/images/projects/mubadala/u-tube-tank-schematic.png",
+      "w": 1491,
+      "h": 828,
+      "alt": "Schematic cross-section of a U-tube anti-roll tank, with port and starboard reservoirs joined by a lower duct.",
+      "caption": "The passive U-tube tank: port and starboard reservoirs whose liquid shifts out of phase with the ship’s roll to counteract it.",
+      "cite": "Mubadala Student Research Projects · 2024–25 · Approach",
+      "group": "mubadala"
+    },
+    {
+      "src": "assets/images/projects/mubadala/passive-short-term-response.png",
+      "w": 847,
+      "h": 688,
+      "alt": "Plot of ship roll and tank angle over the first seconds of the passive simulation, roll amplitude falling sharply as the tank moves out of phase.",
+      "caption": "The passive tank’s transient response: roll amplitude drops to about ±0.01 radians, an 85% reduction, as the tank settles into counter-phase.",
+      "cite": "Mubadala Student Research Projects · 2024–25",
+      "group": "mubadala"
+    },
+    {
+      "src": "assets/images/projects/mubadala/passive-long-term-settling.png",
+      "w": 847,
+      "h": 688,
+      "alt": "Long-duration plot of ship roll decaying toward steady state over several thousand seconds.",
+      "caption": "Long-term passive performance: roll decays and settles to steady state after roughly 2,000 seconds, with settling time tunable through tank damping.",
+      "cite": "Mubadala Student Research Projects · 2024–25",
+      "group": "mubadala"
+    },
+    {
+      "src": "assets/images/projects/mubadala/system-architecture-flowchart.png",
+      "w": 1280,
+      "h": 1006,
+      "alt": "Flowchart of the active control loop from IMU sensing through the controller to the hydraulic actuator and the tank.",
+      "caption": "The active system’s control loop: an IMU senses roll, a controller computes the correction and a hydraulic actuator pumps water to create a counter-moment.",
+      "cite": "Mubadala Student Research Projects · 2024–25 · Approach",
+      "group": "mubadala"
+    },
+    {
+      "src": "assets/images/projects/mubadala/hydraulic-actuator-component.jpg",
+      "w": 1280,
+      "h": 1047,
+      "alt": "Product photograph and specification of the Side-Power SMSPS90 hydraulic pump-motor unit.",
+      "caption": "The Side-Power SMSPS90 hydraulic pump-motor selected as the actuator: over 2,000 tons of force, chosen over pneumatic and electric alternatives for power density and marine reliability.",
+      "cite": "Mubadala Student Research Projects · 2024–25 · Approach",
+      "group": "mubadala"
+    },
+    {
+      "src": "assets/images/projects/mubadala/imu-sensor-component.png",
+      "w": 1200,
+      "h": 675,
+      "alt": "Product photograph and specification of the Dewesoft DS-GYRO3 inertial measurement unit.",
+      "caption": "The Dewesoft DS-GYRO3 IMU, providing roll-angle and angular-velocity feedback at up to 1800 Hz for real-time actuator response.",
+      "cite": "Mubadala Student Research Projects · 2024–25 · Approach",
+      "group": "mubadala"
+    },
+    {
+      "src": "assets/images/projects/mubadala/active-control-results.png",
+      "w": 489,
+      "h": 411,
+      "alt": "Plot of ship roll under active control, the amplitude flattening to a near-zero trace.",
+      "caption": "With active hydraulic control, roll amplitude drops below 0.0016 radians, a greater than 98% reduction well beyond what the passive tank alone achieves.",
+      "cite": "Mubadala Student Research Projects · 2024–25 · Outcome",
+      "group": "mubadala"
+    }
+,
+    {
+      "src": "assets/images/projects/swro/pretreatment-flow-diagram.png",
+      "w": 874,
+      "h": 420,
+      "alt": "Process flow diagram with blocks and arrows. A box labelled Arabian Gulf connects to coarse and fine screens. Red ovals show chemical injection points for sodium hypochlorite, ferric chloride, polymer and sodium bisulphite. Blue process boxes run rapid mix, flocculation, DAF, dual-media filter, ultrafiltration, dechlorination and cartridge filtration in sequence, with dashed brown recycle and backwash arrows, ending at a box labelled To RO membranes.",
+      "caption": "The nine-stage pretreatment train from Arabian Gulf intake to the RO membranes: screening, shock chlorination, coagulation and flocculation, dissolved air flotation, dual-media filtration, ultrafiltration, dechlorination and cartridge filtration, with chemical dosing and backwash recycle loops marked at each stage.",
+      "cite": "SWRO Pretreatment Design · Spring 2026 · Approach",
+      "group": "swro"
+    },
+    {
+      "src": "assets/images/projects/swro/water-quality-progression.png",
+      "w": 1800,
+      "h": 1328,
+      "alt": "Three stacked bar charts tracking turbidity, total suspended solids and silt density index reduction across intake screening, shock chlorination, coagulation and flocculation, DAF, dual-media filtration, ultrafiltration, dechlorination and cartridge filtration stages, with red dashed lines marking design targets.",
+      "caption": "Three-stage water-quality progression through the pretreatment train: turbidity, total suspended solids and silt density index at each unit operation. Raw-water SDI of 15 to 20 is reduced to below 3 at the RO feed, within the membrane manufacturer's specification.",
+      "cite": "SWRO Pretreatment Design · Spring 2026",
+      "group": "swro"
+    },
+    {
+      "src": "assets/images/projects/swro/uf-membrane-fouling-trend.png",
+      "w": 1800,
+      "h": 910,
+      "alt": "Time-series plot with transmembrane pressure hovering around 60 to 70 bar in a saw-tooth pattern from routine backwashing, and permeate SDI fluctuating between 1.0 and 2.8 against a 3.0 limit line, with four vertical dashed lines at years 7, 14, 21 and 28 marking module replacements.",
+      "caption": "Predicted ultrafiltration transmembrane pressure and permeate SDI over 30 years. Scheduled UF module replacements at years 7, 14, 21 and 28 reset both traces; permeate SDI stays below the manufacturer's limit of 3.0 throughout.",
+      "cite": "SWRO Pretreatment Design · Spring 2026",
+      "group": "swro"
+    },
+    {
+      "src": "assets/images/projects/swro/seasonal-water-quality-dynamics.png",
+      "w": 1800,
+      "h": 1037,
+      "alt": "Three stacked time-series plots over five years: temperature swinging from 18 to 35 degrees C, raw turbidity peaking at 18 NTU in summer with storm spikes, and ferric chloride dose rising to about 12 mg per litre in summer from 6 to 7 mg per litre in winter.",
+      "caption": "Seasonal variation in Arabian Gulf seawater conditions over the first five years, and the pretreatment train's adaptive response: coagulant dose adjusts 6 to 12 mg per litre with temperature and turbidity, while ultrafiltration polishes effluent turbidity to about 0.1 to 1 NTU regardless of raw-water swings.",
+      "cite": "SWRO Pretreatment Design · Spring 2026",
+      "group": "swro"
+    },
+    {
+      "src": "assets/images/projects/swro/monthly-opex-components.png",
+      "w": 1800,
+      "h": 1371,
+      "alt": "Four stacked area charts over ten years: energy cost dominating at 1,200 to 2,000 USD per month with seasonal swings, chemical cost flat at 34 to 42 USD per month, fixed cost stepping up from 150 USD per month, and failure and repair cost as thin erratic spikes.",
+      "caption": "Monthly operating expenditure by category over the first ten years. Energy dominates the operating budget, driven by higher pump duty in summer; chemical, fixed and failure costs are comparatively small and stable.",
+      "cite": "SWRO Pretreatment Design · Spring 2026",
+      "group": "swro"
+    },
+    {
+      "src": "assets/images/projects/swro/cumulative-pretreatment-cost.png",
+      "w": 1800,
+      "h": 1100,
+      "alt": "Two curves on one plot: a solid nominal-cost curve reaching about 1.1 billion USD by year 30, and a dashed curve discounted at 6 percent per year reaching about 450 million USD, both accelerating at years 7, 14, 21 and 28.",
+      "caption": "Cumulative pretreatment system cost over the 30-year plant life. The nominal curve reaches roughly 1.1 billion USD by year 30; discounted at a 6% real rate, the same cost stream is worth about 450 million USD in present terms.",
+      "cite": "SWRO Pretreatment Design · Spring 2026 · Outcome",
+      "group": "swro"
+    },
+    {
+      "src": "assets/images/projects/swro/equipment-reliability-weibull.png",
+      "w": 1800,
+      "h": 856,
+      "alt": "Left panel: logarithmic plot of cumulative failure counts over 30 years for six equipment classes, ultrafiltration modules climbing highest. Right panel: Weibull survival curves showing percent of equipment still operating over time, DAF saturators declining slowest and UF modules declining sharpest after year 7.",
+      "caption": "Equipment reliability modelled by Weibull statistics for six asset classes. Ultrafiltration modules accumulate the most failure events (a large installed population of 640 elements, not 640 failed units) and show the sharpest reliability decline; DAF saturators last longest, with a median life near 15 years.",
+      "cite": "SWRO Pretreatment Design · Spring 2026 · Outcome",
+      "group": "swro"
+    },
+    {
+      "src": "assets/images/projects/swro/energy-demand-and-price-trend.png",
+      "w": 1800,
+      "h": 894,
+      "alt": "Dual-axis time series over 30 years: energy consumption rising from about 1.5 to 2.3 MWh per month with strong seasonal swings, and electricity price rising from about 8 to 19 cents per kWh with 3 percent annual escalation assumed.",
+      "caption": "Monthly energy consumption and electricity price over 30 years. Consumption rises with progressive pump wear and fouling; combined with a modelled 3% annual price escalation, annual energy cost grows roughly threefold over the plant's life.",
+      "cite": "SWRO Pretreatment Design · Spring 2026 · Outcome",
+      "group": "swro"
+    },
+    {
+      "src": "assets/images/projects/swro/carbon-intensity-evolution.png",
+      "w": 1800,
+      "h": 1107,
+      "alt": "Scatter plot of about 30 yearly data points trending upward from roughly 8.3 to 9.4 kilograms of CO₂ per cubic metre, with a dashed linear regression line and episodic dips at equipment-replacement years.",
+      "caption": "Carbon intensity of the pretreatment process over 30 years, rising from about 8.3 to 9.4 kg CO₂-equivalent per cubic metre despite an assumed decline in UAE grid emission factor, because energy demand from equipment wear and fouling grows faster than the grid decarbonises.",
+      "cite": "SWRO Pretreatment Design · Spring 2026 · Outcome",
+      "group": "swro"
+    },
+    {
+      "src": "assets/images/projects/swro/annual-opex-and-replacements-stacked.png",
+      "w": 1800,
+      "h": 936,
+      "alt": "Stacked bar chart of 30 annual bars: energy as the largest component, with purple spikes at years 7, 14, 21 and 28 from major ultrafiltration membrane replacements and at years 10 and 20 from dual-media filter media replacement.",
+      "caption": "Annual operating and capital-replacement cost over 30 years. Baseline years run roughly 20,000 to 23,000 USD per year; replacement years spike to 40,000 to 62,000 USD per year for UF membrane and DMF media replacement.",
+      "cite": "SWRO Pretreatment Design · Spring 2026 · Outcome",
+      "group": "swro"
+    },
+    {
+      "src": "assets/images/projects/swro/membrane-separation-size-spectrum.png",
+      "w": 922,
+      "h": 315,
+      "alt": "Horizontal logarithmic particle-size scale from 0.0001 to over 100 microns, with stacked coloured boxes for reverse osmosis, nanofiltration, ultrafiltration, microfiltration and granular media filtration showing the size range each targets.",
+      "caption": "The multi-barrier logic behind the pretreatment train: each unit operation targets progressively finer particles, from granular media filtration at the coarse end down to reverse osmosis at 0.0001 micron, with ultrafiltration forming the absolute barrier before the RO stage.",
+      "cite": "SWRO Pretreatment Design · Spring 2026 · Approach",
+      "group": "swro"
+    },
+    {
+      "src": "assets/images/projects/swro/global-water-stress-2030.png",
+      "w": 853,
+      "h": 381,
+      "alt": "World map showing projected water stress by 2030 on a colour scale from blue for low stress to red for extremely high stress, with large parts of the Middle East and North Africa shown in red.",
+      "caption": "Projected global water stress by 2030. Regions of extreme water vulnerability, including the Arabian Gulf, are where desalination infrastructure is expected to expand most, motivating this pretreatment design.",
+      "cite": "SWRO Pretreatment Design · Spring 2026 · Setup",
+      "group": "swro"
+    },
+    {
+      "src": "assets/images/projects/swro/membrane-fouling-mechanisms.png",
+      "w": 717,
+      "h": 324,
+      "alt": "Four-panel schematic showing complete external pore blocking, internal pore blocking, internal pore blocking with multiple deposits, and cake-layer formation on a membrane surface.",
+      "caption": "The membrane fouling mechanisms the pretreatment train is designed against: pore blocking in its various forms and cake-layer formation, drawn from background reading on reverse-osmosis membrane technology.",
+      "cite": "SWRO Pretreatment Design · Spring 2026 · Approach",
+      "group": "swro"
+    },
+    {
+      "src": "assets/images/projects/golf-putter/putter-head-drawing.png",
+      "w": 1800,
+      "h": 1273,
+      "alt": "Detailed engineering drawing of the putter head from front, side and top views with dimensioned magnet-pocket locations, plumber-neck profile and sole details, alongside two shaded isometric renders.",
+      "caption": "Putter head detail drawing with full orthographic tolerancing: a 124.29 mm face length with TRUE radius callouts (R3.00, R7.51, R5.51, R7.94, R4.83), the plumber-neck profile and the integrated magnet-pocket geometry.",
+      "cite": "Golf Putter Design Project · Spring 2025 · Approach",
+      "group": "golf-putter"
+    },
+    {
+      "src": "assets/images/projects/golf-putter/bill-of-materials.png",
+      "w": 1800,
+      "h": 1273,
+      "alt": "Technical assembly drawing with isometric views of the putter head, shaft, two weight assemblies and magnets, plus a parts table listing quantities and part numbers.",
+      "caption": "Assembly drawing and parts list identifying the five major components: putter head, shaft (Apollo 36-inch steel), central weight, toe weight and 22 neodymium magnets (10 mm diameter, 2 mm height).",
+      "cite": "Golf Putter Design Project · Spring 2025 · Setup",
+      "group": "golf-putter"
+    },
+    {
+      "src": "assets/images/projects/golf-putter/central-weight-drawing.png",
+      "w": 1800,
+      "h": 1273,
+      "alt": "Technical drawing of the central weight showing a top view with magnet-pocket dimensions, a side profile view, and detailed magnet-pocket geometry with radius callouts.",
+      "caption": "Central weight assembly: an aluminium body 121.25 mm long with a symmetrical curved underside, magnet pockets on the mounting surface, and a 15.24 mm foot radius.",
+      "cite": "Golf Putter Design Project · Spring 2025 · Approach",
+      "group": "golf-putter"
+    },
+    {
+      "src": "assets/images/projects/golf-putter/toe-weight-drawing.png",
+      "w": 1800,
+      "h": 1273,
+      "alt": "Engineering drawing of the toe weight with multiple views including a top profile showing the curved shape, a side view with edge-radius callouts, and magnet-pocket detail.",
+      "caption": "Toe weight assembly: a curved aluminium design 121.25 mm long with angled edges (R2.6268, R2.1322) and magnet pockets positioned symmetrically for magnetic retention against the putter head.",
+      "cite": "Golf Putter Design Project · Spring 2025 · Approach",
+      "group": "golf-putter"
+    },
+    {
+      "src": "assets/images/projects/golf-putter/design-1-prototype.jpg",
+      "w": 1350,
+      "h": 1060,
+      "alt": "Photograph of a white 3D-printed golf putter head next to a coin for scale, showing a compact blade design and a circular toe-weight attachment stamped with the number 10.",
+      "caption": "First iteration prototype: a compact 3D-printed blade with a slim plumber neck and a screw-in circular toe weight, photographed next to a coin for scale.",
+      "cite": "Golf Putter Design Project · Spring 2025 · Setup",
+      "group": "golf-putter"
+    },
+    {
+      "src": "assets/images/projects/golf-putter/design-2-prototype.jpg",
+      "w": 1500,
+      "h": 880,
+      "alt": "Photograph of a black 3D-printed putter head and shaft on a cardboard surface, with Bogey King engraved on the sole.",
+      "caption": "Second iteration, submitted at the midterm: an enlarged head (1.1x scale-up from Design 1) with a more robust plumber neck and a smooth sole, introducing a magnetic weight-attachment system in place of the screw-in toe weight.",
+      "cite": "Golf Putter Design Project · Spring 2025 · Approach",
+      "group": "golf-putter"
+    },
+    {
+      "src": "assets/images/projects/golf-putter/design-3-prototype.jpg",
+      "w": 1650,
+      "h": 1250,
+      "alt": "Photograph of a black putter head on a cardboard surface with two silver magnets visible on its underside, one toward the heel and one toward the toe.",
+      "caption": "Final putter head with the dual-magnet retention system: pockets on both the heel and toe sides hold the modular weight assemblies in reliable alignment during the stroke.",
+      "cite": "Golf Putter Design Project · Spring 2025 · Approach",
+      "group": "golf-putter"
+    },
+    {
+      "src": "assets/images/projects/golf-putter/weight-assemblies-with-magnets.jpg",
+      "w": 1800,
+      "h": 750,
+      "alt": "Photograph of two curved aluminium weight pieces, one white and one red, each with circular magnet pockets and mounting holes visible on a cardboard surface.",
+      "caption": "The interchangeable weight assemblies: white and red aluminium pieces with embedded neodymium magnets, swapped in and out of the putter head to retune centre-of-gravity placement.",
+      "cite": "Golf Putter Design Project · Spring 2025 · Approach",
+      "group": "golf-putter"
+    },
+    {
+      "src": "assets/images/projects/golf-putter/final-prototype-head-white.jpg",
+      "w": 1051,
+      "h": 1800,
+      "alt": "Photograph of the completed white-and-black 3D-printed putter head, marked Bogey King, mounted on the black shaft, resting against a cardboard box next to a green cutting mat.",
+      "caption": "The completed prototype head with the white-and-black finish, its central magnet pockets and the plumber-neck-to-shaft joint visible from above.",
+      "cite": "Golf Putter Design Project · Spring 2025 · Outcome",
+      "group": "golf-putter"
+    },
+    {
+      "src": "assets/images/projects/golf-putter/final-prototype-head-red.jpg",
+      "w": 1382,
+      "h": 1800,
+      "alt": "Photograph of a second completed putter head finished in red and black, marked Bogey King, resting on a cardboard box beside the white toe-weight component.",
+      "caption": "A second completed head finished in red and black, shown alongside the white toe-weight piece, illustrating the colour-coded weight-swap system.",
+      "cite": "Golf Putter Design Project · Spring 2025 · Outcome",
+      "group": "golf-putter"
+    },
+    {
+      "src": "assets/images/projects/golf-putter/final-prototype-assembled-club.jpg",
+      "w": 1034,
+      "h": 1800,
+      "alt": "Photograph of the fully assembled putter held upright by its grip, shown at full length from grip to head in a workshop setting.",
+      "caption": "The fully assembled club, held at full length from grip to head, in the manufacturing workshop where it was built and tested.",
+      "cite": "Golf Putter Design Project · Spring 2025 · Outcome",
+      "group": "golf-putter"
+    },
+    {
+      "src": "assets/images/projects/cable-management/linkconnect-assembled-system.png",
+      "w": 1020,
+      "h": 1009,
+      "alt": "Isometric view of an assembled cable-management system with multiple tiles, white mounting rails and three-hole clips positioned at various grid intersections.",
+      "caption": "The complete LinkConnect assembly: a six-by-two tile grid with clips positioned in a waffle-pattern grid and secured by perimeter rails. Each 18 cm by 30 cm tile is a building block for indefinite horizontal or vertical expansion.",
+      "cite": "LinkConnect Cable Management System · Spring 2026",
+      "group": "cable-management"
+    },
+    {
+      "src": "assets/images/projects/cable-management/linkconnect-workspace-integration.png",
+      "w": 1440,
+      "h": 706,
+      "alt": "Three-dimensional render of the cable-management system installed as overhead cable management above a desk workspace, with a mounted monitor and visible cable paths through the system.",
+      "caption": "LinkConnect mounted overhead above a desk, showing practical deployment context: a perforated cover plate enables passive convective airflow across the cables and equipment it carries.",
+      "cite": "LinkConnect Cable Management System · Spring 2026",
+      "group": "cable-management"
+    },
+    {
+      "src": "assets/images/projects/cable-management/linkconnect-modular-expansion.png",
+      "w": 1734,
+      "h": 838,
+      "alt": "Top-down view of multiple tiles joined together by corner backclips, showing the modular interlocking rail geometry that enables horizontal expansion.",
+      "caption": "Modular assembly showing scalability: corner backclips connect plates, and interlocking rail slots lock clips in position along tile edges, permitting expansion in any direction without fasteners or adhesive.",
+      "cite": "LinkConnect Cable Management System · Spring 2026",
+      "group": "cable-management"
+    },
+    {
+      "src": "assets/images/projects/cable-management/linkconnect-discrete-pathing-detail.png",
+      "w": 1540,
+      "h": 796,
+      "alt": "Magnified view of the waffle-pattern grid showing a single clip with three cable holes and multiple surrounding grid positions with various populated and empty clip locations.",
+      "caption": "Discrete cable pathing in close-up: each three-hole clip (13 mm, 11 mm and 7 mm diameters) occupies an independent grid position, so individual cables can be added or removed without disturbing their neighbours.",
+      "cite": "LinkConnect Cable Management System · Spring 2026",
+      "group": "cable-management"
+    },
+    {
+      "src": "assets/images/projects/cable-management/linkconnect-vertical-mounting.png",
+      "w": 1381,
+      "h": 1095,
+      "alt": "Isometric rendering of the system arranged in a vertical mounting configuration with four tiles densely populated with three-hole clips carrying cables.",
+      "caption": "A four-tile assembly in a vertical wall-mount configuration, demonstrating scalability to high-density cable routing while the perforations continue to promote passive airflow.",
+      "cite": "LinkConnect Cable Management System · Spring 2026",
+      "group": "cable-management"
+    },
+    {
+      "src": "assets/images/projects/cable-management/linkconnect-fea-load-sweep.png",
+      "w": 1336,
+      "h": 825,
+      "alt": "Line graph with two curves showing von Mises stress increasing with load factor. The ABS curve crosses a 44 MPa dashed threshold at a load factor of 0.70, while the aluminium curve remains below the safety threshold across the full range.",
+      "caption": "An 80-step finite-element load sweep comparing ABS and Aluminium 1060: the ABS pin yields first, at a load factor of 0.70, confirming it as an intentional sacrificial component; the aluminium rail stays within safe limits across the full range.",
+      "cite": "LinkConnect Cable Management System · Spring 2026 · Outcome",
+      "group": "cable-management"
+    },
+    {
+      "src": "assets/images/projects/cable-management/linkconnect-thermal-heatmap.png",
+      "w": 1168,
+      "h": 612,
+      "alt": "Two colour-mapped thermal results side by side: the ABS plate on the left shows a sharp central hotspot from 30 to 120 degrees C, while the aluminium plate on the right shows a flatter distribution from 25 to 70 degrees C.",
+      "caption": "Spatial temperature distribution under a 100 W steady-state load. Perforations reduce the ABS plate's peak temperature from 95.5°C to 59.5°C by increasing effective cooling surface by 129%; aluminium's higher conductivity gives an even flatter profile.",
+      "cite": "LinkConnect Cable Management System · Spring 2026 · Outcome",
+      "group": "cable-management"
+    },
+    {
+      "src": "assets/images/projects/cable-management/linkconnect-grabcad-distribution.png",
+      "w": 765,
+      "h": 849,
+      "alt": "Screenshot of a GrabCAD project page showing the LinkConnect Cable Management Solutions title, a 3D viewer preview of the system, a downloadable file list and a community comments section.",
+      "caption": "LinkConnect released open-source on GrabCAD with the complete parametric assembly, STEP files and documentation. The first community comment, proposing a multi-level stacking extension, arrived within a week of release.",
+      "cite": "LinkConnect Cable Management System · Spring 2026",
+      "group": "cable-management"
+    },
+    {
+      "src": "assets/images/projects/wheelchair/backrest-stress-and-displacement-results.png",
+      "w": 1053,
+      "h": 885,
+      "alt": "Wireframe and colour-mapped finite-element model showing stress concentration at the base connection points, with a stress legend from 9.156e-05 to 7.291e+05 N per square metre and supporting data tables.",
+      "caption": "Von Mises stress across the backrest and support assembly under a 750 N applied load: a maximum stress of 0.729 MPa and a resulting maximum displacement of 0.01787 mm, both far below the material's yield point.",
+      "cite": "Advanced Motorised Wheelchair FEA · Fall 2023",
+      "group": "wheelchair"
+    },
+    {
+      "src": "assets/images/projects/wheelchair/backrest-displacement-fea.png",
+      "w": 1069,
+      "h": 811,
+      "alt": "Colour-mapped 3D model of the backrest structure showing displacement magnitude from blue at no deformation to red at maximum deformation near the top.",
+      "caption": "Backrest displacement under the 750 N test load: maximum displacement of 0.01787 mm, concentrated at the top of the backrest structure.",
+      "cite": "Advanced Motorised Wheelchair FEA · Fall 2023",
+      "group": "wheelchair"
+    },
+    {
+      "src": "assets/images/projects/wheelchair/backrest-strain-fea.png",
+      "w": 1057,
+      "h": 690,
+      "alt": "Colour-mapped backrest model showing equivalent strain magnitude from blue at minimum strain to red at maximum strain, with a legend ranging from 1.539e-10 to 2.019e-06.",
+      "caption": "Equivalent strain distribution on the backrest under the 750 N load, concentrated in the support regions and well within the elastic range of Alloy Steel SS.",
+      "cite": "Advanced Motorised Wheelchair FEA · Fall 2023",
+      "group": "wheelchair"
+    },
+    {
+      "src": "assets/images/projects/wheelchair/backrest-mesh-properties.png",
+      "w": 1108,
+      "h": 693,
+      "alt": "Table showing mesh information for the backrest finite-element study, including mesh type, element sizes, quality metrics and aspect-ratio statistics.",
+      "caption": "The backrest finite-element mesh: a blended curvature-based solid mesh with 32,155 nodes and 17,660 elements, high quality throughout with 0% distorted elements.",
+      "cite": "Advanced Motorised Wheelchair FEA · Fall 2023 · Approach",
+      "group": "wheelchair"
+    },
+    {
+      "src": "assets/images/projects/wheelchair/backrest-loads-and-fixtures.png",
+      "w": 1113,
+      "h": 415,
+      "alt": "Table and 3D model images showing load-application points highlighted in blue and fixed-geometry constraint points on the backrest and linking structure.",
+      "caption": "Boundary conditions for the backrest study: gravity plus a 750 N normal force applied across 148 faces, reacted through a fixed constraint at the pin locations.",
+      "cite": "Advanced Motorised Wheelchair FEA · Fall 2023 · Approach",
+      "group": "wheelchair"
+    },
+    {
+      "src": "assets/images/projects/wheelchair/backrest-applied-loads.png",
+      "w": 1110,
+      "h": 466,
+      "alt": "3D model showing load-application areas highlighted in magenta for gravity and cyan for the normal force on the backrest faces.",
+      "caption": "Applied loads for the backrest analysis: gravity and a 750 N normal force distributed across the backrest's contact surface.",
+      "cite": "Advanced Motorised Wheelchair FEA · Fall 2023 · Approach",
+      "group": "wheelchair"
+    },
+    {
+      "src": "assets/images/projects/wheelchair/seat-displacement-fea.png",
+      "w": 1059,
+      "h": 633,
+      "alt": "Colour-mapped 3D model of the seat structure showing displacement magnitude from blue at fixed regions to red at maximum deformation near the seat edges.",
+      "caption": "Seat-buckling displacement under the 750 N load: a maximum displacement of 0.0009305 mm, concentrated at the seat-platform edges.",
+      "cite": "Advanced Motorised Wheelchair FEA · Fall 2023",
+      "group": "wheelchair"
+    },
+    {
+      "src": "assets/images/projects/wheelchair/seat-load-fixture.png",
+      "w": 1110,
+      "h": 265,
+      "alt": "3D model with the load-application area highlighted in cyan on the seat's top surface, showing a 750 N normal-force vector.",
+      "caption": "Applied load for the seat-buckling analysis: a 750 N normal force distributed across the seat platform's top surface.",
+      "cite": "Advanced Motorised Wheelchair FEA · Fall 2023 · Approach",
+      "group": "wheelchair"
+    },
+    {
+      "src": "assets/images/projects/wheelchair/seat-fixtures-and-reactions.png",
+      "w": 1117,
+      "h": 1027,
+      "alt": "Table showing multiple fixture constraints on the seat-assembly model and the resulting reaction-force magnitudes at each constraint point.",
+      "caption": "Boundary conditions and reaction forces for the seat-buckling study: three fixed constraints distribute the 750 N load, with the largest reaction (594.8 N) at the backrest attachment.",
+      "cite": "Advanced Motorised Wheelchair FEA · Fall 2023 · Approach",
+      "group": "wheelchair"
+    },
+    {
+      "src": "assets/images/projects/quantum/qubit-superposition-states.png",
+      "w": 1100,
+      "h": 619,
+      "alt": "Diagram of qubit states with a nucleus and valence electron shown in three configurations: qubit equals 0, qubit equals 1, and qubit equals a superposition of both.",
+      "caption": "Qubit superposition states: ground state, excited state, and a superposition of both, the physical basis for a quantum computer's ability to explore multiple possibilities simultaneously.",
+      "cite": "Hyundai NGV Quantum Briefing · 2022 · Setup",
+      "group": "quantum"
+    },
+    {
+      "src": "assets/images/projects/quantum/ibm-quantum-roadmap.png",
+      "w": 1100,
+      "h": 619,
+      "alt": "Timeline chart showing IBM quantum-processor evolution from the 27-qubit Falcon to future scaling beyond 4,000 qubits, with parallel development tracks for models, algorithms, kernels and system architecture.",
+      "caption": "IBM's quantum-hardware roadmap from 2019 to 2026 and beyond, tracking qubit count from the 27-qubit Falcon processor through to systems planned to exceed 4,000 qubits.",
+      "cite": "Hyundai NGV Quantum Briefing · 2022",
+      "group": "quantum"
+    },
+    {
+      "src": "assets/images/projects/quantum/ibm-quantum-composer-interface.png",
+      "w": 1100,
+      "h": 619,
+      "alt": "Screenshot of the IBM Quantum Composer software with coloured operation blocks on the left, a circuit-drawing area in the centre, a code window on the right, and probability and Bloch-sphere visualisations at the bottom.",
+      "caption": "The IBM Quantum Composer interface used for the hands-on circuit-building portion of the briefing: a graphical circuit editor synchronised with generated code and live probability measurement.",
+      "cite": "Hyundai NGV Quantum Briefing · 2022 · Approach",
+      "group": "quantum"
+    },
+    {
+      "src": "assets/images/projects/quantum/quantum-scaling-timeline.png",
+      "w": 1100,
+      "h": 619,
+      "alt": "Text and chart showing the 2021 milestone of the 127-qubit Eagle processor arriving two years after the 27-qubit Falcon, and the 2022 milestone of the 433-qubit Osprey processor.",
+      "caption": "Quantum-hardware scaling milestones cited in the briefing: the 100-qubit barrier broken by the 127-qubit Eagle processor in 2021, and the 433-qubit Osprey delivered the following year.",
+      "cite": "Hyundai NGV Quantum Briefing · 2022",
+      "group": "quantum"
+    },
+    {
+      "src": "assets/images/projects/quantum/not-gate-quantum-operation.png",
+      "w": 1100,
+      "h": 619,
+      "alt": "Diagram with a blue circle containing a black cross labelled NOT Gate, alongside text explaining that the gate flips the zero state to one and vice versa.",
+      "caption": "The quantum NOT gate: the fundamental single-qubit operation that flips a qubit's state, introduced as part of the hands-on circuit-building material.",
+      "cite": "Hyundai NGV Quantum Briefing · 2022 · Approach",
+      "group": "quantum"
+    },
+    {
+      "src": "assets/images/projects/uav-drone/uav-airframe-complete-display.jpg",
+      "w": 960,
+      "h": 1280,
+      "alt": "White 3D-printed fixed-wing UAV fuselage with dual black engine mounts, viewed horizontally on a test stand in a lab setting.",
+      "caption": "The complete fixed-wing airframe assembly on a table stand, showing the integrated structure with dual motor-mounting bays and the lightweight PLA fuselage.",
+      "cite": "Search-and-Rescue UAV · 2026",
+      "group": "uav-drone"
+    },
+    {
+      "src": "assets/images/projects/uav-drone/uav-interior-electronics-overhead.jpg",
+      "w": 720,
+      "h": 1280,
+      "alt": "Overhead view of an open fuselage showing two motor bays with wiring, internal electronics and control surfaces mounted inside a white 3D-printed airframe.",
+      "caption": "Overhead view of the fuselage interior: the detachable nose section, dual motor-mounting bays, servo control surfaces and the electronics-integration bay.",
+      "cite": "Search-and-Rescue UAV · 2026 · Approach",
+      "group": "uav-drone"
+    },
+    {
+      "src": "assets/images/projects/uav-drone/uav-nose-section-detail.jpg",
+      "w": 720,
+      "h": 1280,
+      "alt": "Detailed close-up of a grey 3D-printed nose cone showing a smooth exterior finish, internal ribbed structure and ventilation ports, with a paintbrush placed for scale.",
+      "caption": "Close-up of the nose section: the aerodynamic profile, ventilation louvers and internal structural ribbing that supports the payload-release mechanism.",
+      "cite": "Search-and-Rescue UAV · 2026 · Setup",
+      "group": "uav-drone"
+    },
+    {
+      "src": "assets/images/projects/uav-drone/uav-components-layout.jpg",
+      "w": 720,
+      "h": 1280,
+      "alt": "Disassembled UAV components laid out showing dark carbon-fibre tubes, white 3D-printed fuselage sections and blue internal bracing components.",
+      "caption": "Disassembled fuselage components on the workbench: carbon-fibre tubing, 3D-printed PLA sections at variable infill, and blue reinforcement blocks, showing the mass-reduction strategy piece by piece.",
+      "cite": "Search-and-Rescue UAV · 2026 · Approach",
+      "group": "uav-drone"
+    },
+    {
+      "src": "assets/images/projects/uav-drone/uav-full-profile-side.jpg",
+      "w": 960,
+      "h": 1280,
+      "alt": "Side view of a complete white fixed-wing UAV showing the full fuselage profile, wing attachment and aerodynamic shape.",
+      "caption": "Full aircraft profile, showing the tapered fuselage, the wing-root attachment and the proportions of the 1,130 mm wingspan design.",
+      "cite": "Search-and-Rescue UAV · 2026",
+      "group": "uav-drone"
+    },
+    {
+      "src": "assets/images/projects/uav-drone/uav-bambu-lab-printing.jpg",
+      "w": 1280,
+      "h": 591,
+      "alt": "Interior of a Bambu Lab 3D printer showing an active print chamber with a partially completed 3D-printed component and temperature monitoring.",
+      "caption": "The Bambu Lab 3D printer mid-print: the key manufacturing method behind the lightweight PLA fuselage.",
+      "cite": "Search-and-Rescue UAV · 2026 · Approach",
+      "group": "uav-drone"
+    },
+    {
+      "src": "assets/images/projects/uav-drone/uav-nose-overhead-structure.jpg",
+      "w": 960,
+      "h": 1280,
+      "alt": "Overhead view of a white nose cone showing internal structure with two large openings and brass mounting inserts, with yellow tape markings.",
+      "caption": "Overhead view of the nose cone: the payload-access openings and mounting structure designed to interface with the release mechanism.",
+      "cite": "Search-and-Rescue UAV · 2026 · Setup",
+      "group": "uav-drone"
+    },
+    {
+      "src": "assets/images/projects/uav-drone/uav-wing-aerodynamic-profile.jpg",
+      "w": 720,
+      "h": 1280,
+      "alt": "Detailed close-up of a white 3D-printed aerodynamic component showing a smooth surface profile and structural design.",
+      "caption": "Close-up of the wing section, showing the smooth aerodynamic surface finish achieved through the tuned 3D-print settings described in the project's method.",
+      "cite": "Search-and-Rescue UAV · 2026 · Approach",
+      "group": "uav-drone"
+    },
+    {
+      "src": "assets/images/projects/uav-drone/uav-fuselage-internal-motors.jpg",
+      "w": 1280,
+      "h": 960,
+      "alt": "Overhead view of the fuselage interior showing two black motor mounts with visible wiring harnesses and an internal electronics bay.",
+      "caption": "Assembled fuselage showing the dual motor mounts and electronics integration: the internal bay that houses flight-control electronics and the release-mechanism components.",
+      "cite": "Search-and-Rescue UAV · 2026",
+      "group": "uav-drone"
+    }
+  ],
+  groups: {
+    "civil": "5th Corner Residential Building",
+    "savonius": "Savonius Turbine",
+    "pde": "Indoor Wireless Link Design",
+    "pca": "PCA Study of Bike Rentals",
+    "tec": "Compressor-Less TEC Refrigerator",
+    "mubadala": "Advanced Anti-Roll Tank System",
+    "uav-drone": "Search-and-Rescue UAV",
+    "wheelchair": "Advanced Motorised Wheelchair",
+    "swro": "SWRO Pretreatment Design",
+    "golf-putter": "Modular Golf Putter",
+    "cable-management": "LinkConnect Cable Management",
+    "quantum": "Hyundai NGV Quantum Analysis"
+  },
+  /* Photographs and clips for each activity, split into the two lanes the
+     activity sheet renders: a mixed gallery in the middle and an images-only
+     rail down the left. Every path is a real file on disk; every clip keeps
+     its audio track. */
+  activityMedia: {
+    /* Experience photo galleries: infrastructure only for now. Each key
+       exists so its "View photos" card opens correctly; the arrays fill in
+       once photographs from that role are supplied. */
+    "experience:graduate-intern": {
+      gallery: [
+        { "kind": "video", "src": "assets/videos/experience/graduate-intern/graduate-intern-01.mp4", "poster": "assets/images/video-posters/experience/graduate-intern/graduate-intern-01.jpg", "w": 1280, "h": 720, "caption": "A trial run in the water channel: the body mounted on the angle-of-attack scale, wake forming across the free surface downstream.", "note": "11 s · has audio" },
+        { "kind": "video", "src": "assets/videos/experience/graduate-intern/graduate-intern-02.mp4", "poster": "assets/images/video-posters/experience/graduate-intern/graduate-intern-02.jpg", "w": 1280, "h": 720, "caption": "A second trial at the same flow speed, the free-surface wake reshaping as the angle setting changes.", "note": "11 s · has audio" },
+        { "kind": "image", "src": "assets/images/experience/graduate-intern/graduate-intern-01-foil-mount.jpg", "w": 1800, "h": 1350, "caption": "The test body mounted on the protractor scale inside the channel, instrumentation leads running to the data-acquisition rig." },
+        { "kind": "image", "src": "assets/images/experience/graduate-intern/graduate-intern-02-tunnel-wide.jpg", "w": 1800, "h": 1350, "caption": "The full water-channel rig: variable-frequency drive, test section and downstream tubing feeding the recirculation tank." },
+        { "kind": "video", "src": "assets/videos/experience/graduate-intern/graduate-intern-03.mp4", "poster": "assets/images/video-posters/experience/graduate-intern/graduate-intern-03.jpg", "w": 1280, "h": 854, "caption": "Dye streaklines released into a second channel for flow visualisation, tracing the developing flow structure.", "note": "3 s · has audio" }
+      ],
+      rail: []
+    },
+    "experience:workshop-technician": {
+      gallery: [
+        { "kind": "image", "src": "assets/images/experience/workshop-technician/workshop-02-composite-part-demold.jpg", "w": 900, "h": 1600, "caption": "A large composite layup fresh off the mould, chopped-strand fibres still visible at the trimmed edge." },
+        { "kind": "image", "src": "assets/images/experience/workshop-technician/workshop-03-bambu-h2d-printing.jpg", "w": 900, "h": 1600, "caption": "A dual-part print running on the workshop's Bambu Lab H2D, one of the machines used to cut print failure rates across the year." },
+        { "kind": "image", "src": "assets/images/experience/workshop-technician/workshop-01-elegoo-printer-screen.jpg", "w": 1012, "h": 1800, "caption": "The control panel of the workshop's large-format printer, mid-job." },
+        { "kind": "image", "src": "assets/images/experience/workshop-technician/workshop-04-shop-interior.jpg", "w": 1012, "h": 1800, "caption": "The Advanced Manufacturing Workshop floor: drill press, benches and tool storage." },
+        { "kind": "image", "src": "assets/images/experience/workshop-technician/workshop-05-shop-interior-2.jpg", "w": 1012, "h": 1800, "caption": "A second view of the shop floor, material racks and cutting tools laid out beside the workbenches." }
+      ],
+      rail: []
+    },
+    "experience:research-assistant-site": {
+      gallery: [
+        { "kind": "image", "src": "assets/images/experience/site-research/site-02-water-tunnel-rig.jpg", "w": 1024, "h": 768, "caption": "A hydrofoil mounted on the angle-of-attack scale inside the water-tunnel test section, wired for the boundary-layer separation cases." },
+        { "kind": "image", "src": "assets/images/experience/site-research/site-01-research-team.jpg", "w": 1800, "h": 1013, "caption": "The SITE research team in the lab, the water-tunnel rig and 3D printers visible on the bench behind them." },
+        { "kind": "image", "src": "assets/images/experience/site-research/site-03-optics-bench.jpg", "w": 1600, "h": 1200, "caption": "Precision optics mounts and 3D-printed test discs laid out on the lab's optical bench." },
+        { "kind": "image", "src": "assets/images/experience/site-research/site-04-thermal-camera-readout.jpg", "w": 1350, "h": 1800, "caption": "A thermal-imaging readout used for flow visualisation, capturing the temperature gradient of a heated flask on screen." }
+      ],
+      rail: []
+    },
+    "experience:research-assistant-propulsion": {
+      gallery: [
+        { "kind": "image", "src": "assets/images/experience/propulsion/aerofarms-duct-model-zones.png", "w": 1510, "h": 1000, "fit": "contain", "caption": "The AeroFarms growing-tower model split into Zone A, B and C along the plant rack, the geometry meshed in Gmsh and carried into the OpenFOAM and Converge airflow cases." },
+        { "kind": "image", "src": "assets/images/experience/propulsion/aerofarms-annotated-perforated-duct.png", "w": 1910, "h": 1040, "fit": "contain", "caption": "Working through the outlet geometry: hand annotations marking which cases were still outstanding, alongside the perforated duct model those cases were run on." },
+        { "kind": "image", "src": "assets/images/experience/propulsion/uam-digital-twin-multiphysics.png", "w": 965, "h": 845, "fit": "contain", "caption": "The multiphysics stack behind the Urban Air Mobility propulsion assessment: electrical, structural, acoustic, fluid, heat and chemical solvers feeding one coupled model, credited to COMSOL." },
+        { "kind": "image", "src": "assets/images/experience/propulsion/hyundai-qc-project-infographics.png", "w": 1600, "h": 1132, "fit": "contain", "caption": "The completion report's final deliverable, presented to the Hyundai NGV panel: three infographic panels covering fundamentals, applicable algorithms and a short-to-long-term technology roadmap." }
+      ],
+      rail: []
+    },
+    "education:nyuad": {
+      gallery: [
+        { "kind": "image", "src": "assets/images/education/nyuad/nyuad-01-commencement-2025.jpg", "w": 1012, "h": 1800, "caption": "NYU Abu Dhabi's 2025 Commencement, watched from the audience as the graduating class crossed the stage." },
+        { "kind": "image", "src": "assets/images/education/nyuad/nyuad-02-falcons-field-sunset.jpg", "w": 1350, "h": 1800, "caption": "The athletics field at sunset, home of the NYUAD Falcons, with the residential halls behind it." },
+        { "kind": "image", "src": "assets/images/education/nyuad/nyuad-03-courtyard-night-event.jpg", "w": 1800, "h": 1350, "caption": "The main campus courtyard lit for a university event, palm trees washed in blue and violet light." }
+      ],
+      rail: []
+    },
+    "education:nyu-paris": {
+      gallery: [
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-02-IMG_7536.jpg", "w": 1350, "h": 1800, "caption": "The Eiffel Tower seen from street level on an overcast winter afternoon." },
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-05-IMG_7620.jpg", "w": 1350, "h": 1800, "caption": "The Louvre Pyramid illuminated at night." },
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-06-IMG_7649.jpg", "w": 1800, "h": 1350, "caption": "A display of theatrical puppets and masks, part of coursework on immigration themes in French theatre." },
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-07-IMG_7655.jpg", "w": 1800, "h": 1350, "caption": "An exhibit connecting the French national football team to immigration and integration, a course case study." },
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-09-IMG_7909.jpg", "w": 1350, "h": 1800, "caption": "An ornately painted gallery ceiling inside the Louvre." },
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-12-IMG_7915.jpg", "w": 1350, "h": 1800, "caption": "A gilded state room with red silk walls in one of the city's historic palaces." }
+      ],
+      rail: [
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-01-IMG_7494.jpg", "w": 1350, "h": 1800, "caption": "A gilded monument in a Parisian square, viewed across the rooftops on a grey winter day." },
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-03-IMG_7598.jpg", "w": 1350, "h": 1800, "caption": "A portrait study on display in a red-walled museum gallery." },
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-04-IMG_7599.jpg", "w": 1350, "h": 1800, "caption": "A seated portrait in a bonnet, displayed in the same gallery." },
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-08-IMG_7662.jpg", "w": 1350, "h": 1800, "caption": "A snow-dusted Parisian park with a church spire on the skyline." },
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-10-IMG_7910.jpg", "w": 1350, "h": 1800, "caption": "The formal gardens of the Palais-Royal courtyard, seen from an upper floor." },
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-11-IMG_7912.jpg", "w": 1350, "h": 1800, "caption": "A large history painting on display in a Paris museum gallery." }
+      ]
+    },
+    "education:nyu-valletta": {
+      gallery: [
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-05-IMG_3837.jpg", "w": 1350, "h": 1800, "caption": "The Oratory of St John's Co-Cathedral, with Caravaggio's The Beheading of Saint John the Baptist above the altar." },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-06-IMG_3866.jpg", "w": 1350, "h": 1800, "caption": "Renzo Piano's Parliament House in Valletta, its perforated stone façade filtering daylight." },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-07-IMG_3867.jpg", "w": 1350, "h": 1800, "caption": "A closer view of the Parliament House's cantilevered stone volumes." },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-16-IMG_4064.jpg", "w": 1350, "h": 1800, "caption": "The megalithic temple complex at Ħaġar Qim, sheltered beneath its protective canopy." },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-17-IMG_4076.jpg", "w": 1350, "h": 1800, "caption": "Interior passages of the Ħaġar Qim temples, among the oldest free-standing structures in the world." },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-14-IMG_4057.jpg", "w": 1350, "h": 1800, "caption": "Limestone cliffs above the Mediterranean, near the Blue Grotto." },
+        { "kind": "video", "src": "assets/videos/education/nyu-valletta/valletta-01.mp4", "poster": "assets/images/video-posters/education/nyu-valletta/valletta-01.jpg", "w": 1080, "h": 1920, "caption": "A quick clip from a countryside excursion during the term.", "note": "3 s · has audio" }
+      ],
+      rail: [
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-01-IMG_3807.jpg", "w": 1342, "h": 1800, "caption": "The Msida yacht marina framed through a stone archway." },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-02-IMG_3814.jpg", "w": 1350, "h": 1800, "caption": "The baroque façade of Auberge de Castille in Valletta." },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-03-IMG_3828.jpg", "w": 1350, "h": 1800, "caption": "A colonnaded civic building on a Valletta square." },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-04-IMG_3834.jpg", "w": 1350, "h": 1800, "caption": "The gilded baroque interior of a Valletta church." },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-08-IMG_3884.jpg", "w": 1350, "h": 1800, "caption": "A quiet harbour promenade in Sliema, fishing boats moored along the waterfront." },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-09-IMG_3890.jpg", "w": 1800, "h": 628, "caption": "A panoramic view of the Sliema waterfront and harbour." },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-10-IMG_3906.jpg", "w": 1350, "h": 1800, "caption": "A lone yacht on open water off the Maltese coast." },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-11-IMG_3929.jpg", "w": 1350, "h": 1800, "caption": "A ferry docked at a Valletta harbour crossing point." },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-12-IMG_4032.jpg", "w": 1350, "h": 1800, "caption": "A coastal view of Malta seen through a ferry window." },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-13-IMG_4042.jpg", "w": 1350, "h": 1800, "caption": "A cliffside promenade overlooking the Mediterranean." },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-15-IMG_4059.jpg", "w": 1012, "h": 1800, "caption": "Open water off the southern coast of Malta." }
+      ]
+    },
+    "activity:sport": {
+      gallery: [
+        { "kind": "image", "src": "assets/images/activities/sport/sport-03-IMG_1618.jpg", "w": 1013, "h": 1800, "caption": "Nighttime football match in action, several players on a floodlit pitch." },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-06-IMG_2527.jpg", "w": 1013, "h": 1800, "caption": "First-person kayaking at golden hour on a calm river lined with mangroves." },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-09-IMG_2910.jpg", "w": 1013, "h": 1800, "caption": "On the golf course fairway near a bunker, daytime." },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-10-IMG_2911.jpg", "w": 1013, "h": 1800, "caption": "Golf fairway overlooking the Dubai skyline, reflected in still water." },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-12-IMG_3048.jpg", "w": 1013, "h": 1800, "caption": "Padel court net detail with World Padel Tour signage." },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-13-IMG_3051.jpg", "w": 1013, "h": 1800, "caption": "Four players on a padel court, casual group shot." },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-16-IMG_9985.jpg", "w": 1350, "h": 1800, "caption": "Golf course landscape with a water hazard." },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-17-3d99fe67-232c-4584-8278-697a01a7071b.jpg", "w": 1013, "h": 1800, "caption": "Two cyclists at night with the illuminated Burj Al Arab in the background." },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-18-IMG_0384.jpg", "w": 1350, "h": 1800, "caption": "Large floodlit football stadium at night." },
+        { "kind": "video", "src": "assets/videos/activities/sport/sport-01.mp4", "poster": "assets/images/video-posters/activities/sport/sport-01.jpg", "w": 1280, "h": 2276, "caption": "First-person golf swing, ball rolling down a lit fairway.", "note": "4 s · has audio" },
+        { "kind": "video", "src": "assets/videos/activities/sport/sport-02.mp4", "poster": "assets/images/video-posters/activities/sport/sport-02.jpg", "w": 1280, "h": 2276, "caption": "Night golf swing mid-backswing, cart and caddy visible.", "note": "2 s · has audio" },
+        { "kind": "video", "src": "assets/videos/activities/sport/sport-03.mp4", "poster": "assets/images/video-posters/activities/sport/sport-03.jpg", "w": 1280, "h": 2276, "caption": "Daytime Dubai waterfront skyline reflected in calm water.", "note": "4 s · has audio" },
+        { "kind": "video", "src": "assets/videos/activities/sport/sport-04.mp4", "poster": "assets/images/video-posters/activities/sport/sport-04.jpg", "w": 1080, "h": 1920, "caption": "Close-up night golf swing with city lights in the background.", "note": "8 s · has audio" },
+        { "kind": "video", "src": "assets/videos/activities/sport/sport-05.mp4", "poster": "assets/images/video-posters/activities/sport/sport-05.jpg", "w": 720, "h": 1280, "caption": "Night putting stroke near a water hazard and palm tree.", "note": "19 s · has audio" },
+        { "kind": "video", "src": "assets/videos/activities/sport/sport-06.mp4", "poster": "assets/images/video-posters/activities/sport/sport-06.jpg", "w": 1080, "h": 1920, "caption": "First-person kayaking approaching a houseboat through mangroves.", "note": "7 s · has audio" }
+      ],
+      rail: [
+        { "kind": "image", "src": "assets/images/activities/sport/sport-02-IMG_0094.jpg", "w": 1172, "h": 1800, "caption": "Golf course at sunset, tents and palms silhouetted." },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-04-IMG_2141.jpg", "w": 1013, "h": 1800, "caption": "Close-up of a padel court net and blue playing surface at night." },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-07-IMG_2574.jpg", "w": 1013, "h": 1800, "caption": "Bicycle parked at the beach beside a palm tree." },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-19-cycling-burj-khalifa.jpg", "w": 1350, "h": 1800, "caption": "Cycling along the Downtown Dubai waterfront, with the Burj Khalifa rising above the skyline." },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-14-IMG_9798.jpg", "w": 1350, "h": 1800, "caption": "Golf clubs laid out on the fairway." }
+      ]
+    },
+    "activity:cricket": {
+      layout: "video-forward",
+      gallery: [
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-07-IMG_7980.jpg", "w": 1800, "h": 1200, "caption": "A player in team kit on the outfield, a teammate fielding beyond." },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-01-IMG_0380.jpg", "w": 1800, "h": 1200, "caption": "A teammate holding the ball during a practice setup." },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-06-IMG_7944.jpg", "w": 1800, "h": 1200, "caption": "Two players ready at the crease during a match." },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-10-IMG_8336.jpg", "w": 1800, "h": 1200, "caption": "Teammates on the sideline watching play." },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-14-IMG_8502.jpg", "w": 1800, "h": 1200, "caption": "Players celebrating together at the end of a match." },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-18-IMG_8872.jpg", "w": 1800, "h": 1200, "caption": "Full team photo after an evening match under floodlights." },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-19-IMG_9525.jpg", "w": 1800, "h": 1200, "caption": "Players during a night match." },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-20-IMG_9772.jpg", "w": 1800, "h": 1200, "caption": "A batter under floodlights during a night match." },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-05-IMG_0498.jpg", "w": 1800, "h": 1200, "caption": "Filming match footage with a camera from the sideline." },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-17-IMG_8681.jpg", "w": 1800, "h": 1200, "caption": "On the field during an evening match." },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-02-IMG_0385.jpg", "w": 1800, "h": 1200, "caption": "Silhouette portrait through the boundary fence netting." },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-08-IMG_8236.jpg", "w": 1800, "h": 1200, "caption": "The team spread across the field during a practice session." },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-11-IMG_8338.jpg", "w": 1800, "h": 1200, "caption": "Teammates on a sideline bench watching the match in progress." },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-13-IMG_8357.jpg", "w": 1800, "h": 1200, "caption": "A wide view of the ground mid-match, players spread across the field." },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-15-IMG_8613.jpg", "w": 1800, "h": 1200, "caption": "A player in silhouette against the evening sky." },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-16-IMG_8645.jpg", "w": 1800, "h": 1200, "caption": "A portrait in silhouette at sunset." },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-23-IMG_9839.jpg", "w": 1800, "h": 1200, "caption": "A floodlit ground at night, stumps set and the field empty before play." },
+        { "kind": "video", "src": "assets/videos/activities/cricket/cricket-01-practice.mp4", "poster": "assets/images/video-posters/activities/cricket/cricket-01-practice.jpg", "w": 1280, "h": 720, "caption": "Fast-paced practice drills and fielding work during a training session.", "note": "2 min 7 s · has audio" },
+        { "kind": "video", "src": "assets/videos/activities/cricket/cricket-02-match.mp4", "poster": "assets/images/video-posters/activities/cricket/cricket-02-match.jpg", "w": 1280, "h": 720, "caption": "Team discussion at a tournament venue.", "note": "3 min 32 s · has audio" },
+        { "kind": "video", "src": "assets/videos/activities/cricket/cricket-03-highlights.mp4", "poster": "assets/images/video-posters/activities/cricket/cricket-03-highlights.jpg", "w": 1280, "h": 720, "caption": "Compiled highlights from a night match with close-in shots.", "note": "1 min 45 s · has audio" }
+      ],
+      rail: [
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-03-IMG_0390.jpg", "w": 1800, "h": 1200, "caption": "A player watching from the sideline." },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-09-IMG_8312.jpg", "w": 1800, "h": 1200, "caption": "A quiet moment during an evening match." },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-04-IMG_0396.jpg", "w": 1800, "h": 1200, "caption": "NYUAD Cricket coaching staff." },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-12-IMG_8342.jpg", "w": 1800, "h": 1200, "caption": "Coach portrait on match day." },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-21-IMG_9774.jpg", "w": 1800, "h": 1200, "caption": "Holding up the team badge inside the facility." },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-22-IMG_9786.jpg", "w": 1800, "h": 1200, "caption": "Players laughing together, a behind-the-scenes moment." }
+      ]
+    },
+    "activity:habitat": {
+      gallery: [
+        { "kind": "image", "src": "assets/images/activities/nepal/nepal-04-IMG_0658.jpg", "w": 1013, "h": 1800, "caption": "Excavated strip foundations with reinforcement bars and plumb lines set out, before the walls went up." },
+        { "kind": "image", "src": "assets/images/activities/nepal/nepal-08-IMG_0657.jpg", "w": 1013, "h": 1800, "caption": "The Global Village Program plaque from the Panchkhal build, carrying the team photographs taken on site." },
+        { "kind": "image", "src": "assets/images/activities/nepal/nepal-02-IMG_0639.jpg", "w": 1013, "h": 1800, "caption": "Volunteers and community members gathered under a large tree." },
+        { "kind": "image", "src": "assets/images/activities/nepal/nepal-03-IMG_0654.jpg", "w": 1013, "h": 1800, "caption": "Construction materials and tools arranged on site." },
+        { "kind": "image", "src": "assets/images/activities/nepal/nepal-01-IMG_0546.jpg", "w": 1350, "h": 1800, "caption": "The rural site landscape." },
+        { "kind": "video", "src": "assets/videos/activities/nepal/nepal-01.mp4", "poster": "assets/images/video-posters/activities/nepal/nepal-01.jpg", "w": 1280, "h": 2276, "caption": "A short clip of the village landscape where the build took place.", "note": "5 s · has audio" }
+      ],
+      rail: [
+        { "kind": "image", "src": "assets/images/activities/nepal/nepal-07-IMG_0773.jpg", "w": 1350, "h": 1800, "caption": "Local pottery and clay vessels on site." }
+      ]
+    },
+    "activity:jiujitsu": {
+      gallery: [
+        { "kind": "image", "src": "assets/images/activities/jiujitsu/jiujitsu-01-E0086526-05B7-4190-ABFE-BFB72100A482.jpg", "w": 828, "h": 620, "caption": "The full varsity team on the mat, fifteen or more athletes in gis." },
+        { "kind": "image", "src": "assets/images/activities/jiujitsu/jiujitsu-03-IMG_0743.jpg", "w": 1800, "h": 1350, "caption": "A seven-person team group shot, arms linked." },
+        { "kind": "image", "src": "assets/images/activities/jiujitsu/jiujitsu-02-IMG_0737.jpg", "w": 1350, "h": 1800, "caption": "Two athletes training together on the mat." }
+      ],
+      rail: [
+        { "kind": "image", "src": "assets/images/activities/jiujitsu/jiujitsu-04-IMG_2595.jpg", "w": 1346, "h": 1800, "caption": "Training one-on-one with a black-belt partner." },
+        { "kind": "image", "src": "assets/images/activities/jiujitsu/jiujitsu-05-Screenshot 2026-09-05 040350.jpg", "w": 1204, "h": 1383, "caption": "A belt-promotion moment with two teammates." }
+      ]
+    },
+    "activity:marshal": {
+      gallery: [
+        { "kind": "image", "src": "assets/images/activities/marshal/marshal-02-IMG_3099.jpg", "w": 1350, "h": 1800, "caption": "Circuit overview with marshals visible on track and paddock tents behind." },
+        { "kind": "image", "src": "assets/images/activities/marshal/marshal-03-IMG_3105.jpg", "w": 1350, "h": 1800, "caption": "An elevated marshal post overlooking the track, safety barriers and equipment visible." },
+        { "kind": "image", "src": "assets/images/activities/marshal/marshal-04-IMG_3106.jpg", "w": 1800, "h": 1350, "caption": "Yas Marina Circuit’s distinctive white tented roof structure." },
+        { "kind": "image", "src": "assets/images/activities/marshal/marshal-06-IMG_3145.jpg", "w": 1350, "h": 1800, "caption": "A floodlit night circuit shot with dramatic lighting." },
+        { "kind": "image", "src": "assets/images/activities/marshal/marshal-07-IMG_3164.jpg", "w": 1350, "h": 1800, "caption": "Sunrise from an elevated marshal area overlooking the track." },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-01.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-01.jpg", "w": 1280, "h": 720, "caption": "A racing car passing at speed during a night session, shot from trackside.", "note": "5 s · has audio" },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-02.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-02.jpg", "w": 1280, "h": 1706, "caption": "A daytime circuit overview during a quiet moment between sessions.", "note": "2 s · has audio" },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-03.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-03.jpg", "w": 1280, "h": 1708, "caption": "A daytime facility view during an event weekend.", "note": "2 s · has audio" },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-04.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-04.jpg", "w": 1280, "h": 2276, "caption": "The circuit’s pavilion building overlooking the marshal operations area.", "note": "4 s · has audio" },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-05.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-05.jpg", "w": 1280, "h": 2276, "caption": "A track curve in daylight with sponsor branding visible.", "note": "4 s · has audio" },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-06.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-06.jpg", "w": 1280, "h": 2276, "caption": "A car cornering at speed during a night session, from a marshal post vantage point.", "note": "12 s · has audio" },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-07.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-07.jpg", "w": 1280, "h": 720, "caption": "A night-time track overview from an elevated marshal station.", "note": "8 s · has audio" },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-08.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-08.jpg", "w": 1280, "h": 2276, "caption": "An empty floodlit track segment during a quiet period.", "note": "13 s · has audio" },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-09.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-09.jpg", "w": 1280, "h": 2276, "caption": "Multiple cars in motion during a night race, from a trackside marshal post.", "note": "3 s · has audio" },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-10.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-10.jpg", "w": 1280, "h": 2276, "caption": "A night facility overview with the track fully floodlit.", "note": "4 s · has audio" },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-11.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-11.jpg", "w": 1280, "h": 2276, "caption": "A night marshal post with equipment and safety barriers visible.", "note": "5 s · has audio" },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-12.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-12.jpg", "w": 1280, "h": 2276, "caption": "An illuminated empty track during a practice session.", "note": "11 s · has audio" },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-13.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-13.jpg", "w": 1280, "h": 2276, "caption": "A close trackside marshal post view at night.", "note": "5 s · has audio" }
+      ],
+      rail: [
+        { "kind": "image", "src": "assets/images/activities/marshal/marshal-01-IMG_3095.jpg", "w": 1350, "h": 1800, "caption": "A wide establishing shot of the circuit complex." },
+        { "kind": "image", "src": "assets/images/activities/marshal/marshal-05-IMG_3107.jpg", "w": 1800, "h": 743, "caption": "Track-level view of the safety barriers and facility infrastructure." },
+        { "kind": "image", "src": "assets/images/activities/marshal/marshal-09-IMG_3166.jpg", "w": 1350, "h": 1800, "caption": "Ground-level view of the track markings and circuit facilities." }
+      ]
+    },
+    "activity:aiesec": {
+      gallery: [
+        { "kind": "image", "src": "assets/images/activities/aiesec/aiesec-01-certificate.jpg", "w": 1800, "h": 1273, "fit": "contain", "caption": "Certificate of completion, AIESEC Membership Program." }
+      ],
+      rail: []
+    }
+  },
+  /* Fallback plate for records that carry no figures from an original
+     report. One image only, captioned honestly as stock, so the case
+     sheet's figure pane always has something truthful to show. */
+  plates: {
+  "project:07": {
+    "src": "assets/images/placeholders/p07-racing-engine.jpg",
+    "w": 1920, "h": 1440,
+    "alt": "Stock photograph of a racing engine, standing in for this project.",
+    "caption": "Stock photograph of a racing engine, standing in for this project.",
+    "cite": "Stock image · no report figures published"
+  }
+}
+});

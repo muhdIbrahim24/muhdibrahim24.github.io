@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Your Name] — Engineering Portfolio</title>
+<meta name="description" content="Engineering portfolio of [Your Name]. Mechanical and civil engineering, experimental fluid dynamics research, design and build projects.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  /* Paper tones */
+  --bone: #F4EFE5;
+  --bone-deep: #EBE3D5;
+  --paper: #FBF8F1;
+  --sand: #DCD1BC;
+  --sand-line: #CDBFA6;
+
+  /* Ink tones */
+  --espresso: #241C16;
+  --espresso-deep: #17110D;
+  --umber: #453629;
+  --ink: #2C231C;
+  --ink-mid: #6E5D4D;
+  --ink-dim: #937F6A;
+
+  /* Accent: aged brass */
+  --brass: #9A6E2A;
+  --brass-lift: #B8853A;
+  --brass-wash: rgba(154, 110, 42, 0.10);
+
+  /* On dark hero */
+  --hero-text: #F6F1E7;
+  --hero-mid: #B4A493;
+  --hero-line: rgba(246, 241, 231, 0.18);
+  --hero-brass: #D8A24E;
+
+  /* NYU designates Montserrat as the free stand-in for Gotham,
+     then Helvetica, then Arial. Frank Ruhl Libre stands in for
+     Mercury Text, then Georgia, then Times New Roman. */
+  --font-display: 'Montserrat', Helvetica, Arial, sans-serif;
+  --font-body: 'Montserrat', Helvetica, Arial, sans-serif;
+  --font-serif: 'Frank Ruhl Libre', Georgia, 'Times New Roman', serif;
+  --font-mono: 'Montserrat', Helvetica, Arial, sans-serif;
+  --wrap: 1200px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bone);
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img, video { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; border-radius: 3px; }
+
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 28px; }
+
+h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.01em; line-height: 1.14; font-weight: 700; }
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.eyebrow { color: var(--brass); }
+.eyebrow-amber { color: var(--umber); }
+
+
+/* ---- Serif (Mercury Text stand-in) in its supporting role only:
+   lead-ins, pull quotes, and long-form body copy. Never used alone
+   across a whole page, per NYU's guidance that the primary sans
+   should always be present. Frank Ruhl Libre has no true italics,
+   so italics are avoided on these elements. ---- */
+.chapter p,
+.section-head p,
+.about-copy p,
+.contact-panel > p,
+.modal-content p,
+.research-body p {
+  font-family: var(--font-serif);
+  letter-spacing: 0;
+  line-height: 1.62;
+}
+
+.chapter p { font-size: 1.14rem; }
+.section-head p { font-size: 1.1rem; }
+.about-copy p { font-size: 1.08rem; }
+.contact-panel > p { font-size: 1.1rem; }
+
+/* ============ STATUS PILL ============ */
+
+.status-pill {
+  display: inline-flex; align-items: center; gap: 9px;
+  border: 1px solid rgba(154, 110, 42, 0.42);
+  background: var(--brass-wash);
+  color: var(--brass);
+  border-radius: 999px;
+  padding: 7px 15px 7px 13px;
+}
+
+.stage .status-pill { border-color: rgba(216, 162, 78, 0.5); background: rgba(216, 162, 78, 0.12); color: var(--hero-brass); }
+
+.status-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; position: relative; flex: none; }
+.status-dot::after {
+  content: ""; position: absolute; inset: -4px; border-radius: 50%;
+  border: 1px solid currentColor; opacity: 0.6;
+  animation: ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes ping { 0% { transform: scale(0.6); opacity: 0.8; } 80%, 100% { transform: scale(1.5); opacity: 0; } }
+
+/* ============ BUTTONS ============ */
+
+.btn {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-weight: 550; font-size: 0.93rem;
+  padding: 13px 24px; border-radius: 10px;
+  border: 1px solid transparent;
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+.btn svg { width: 15px; height: 15px; }
+
+.btn-primary { background: var(--espresso); color: var(--bone); font-weight: 600; }
+.btn-primary:hover { background: var(--brass); color: #FFF8EC; transform: translateY(-2px); }
+
+.btn-line { border-color: var(--sand-line); color: var(--ink); }
+.btn-line:hover { border-color: var(--brass); color: var(--brass); transform: translateY(-2px); }
+
+/* Buttons sitting on the dark hero */
+.stage .btn-primary { background: var(--hero-brass); color: #241703; }
+.stage .btn-primary:hover { background: #EBB864; color: #241703; }
+.stage .btn-line { border-color: var(--hero-line); color: var(--hero-text); }
+.stage .btn-line:hover { border-color: var(--hero-brass); color: var(--hero-brass); }
+
+/* ============ HEADER ============ */
+
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 400;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  border-bottom: 1px solid transparent;
+  color: var(--hero-text);
+}
+.site-header.docked {
+  background: rgba(244, 239, 229, 0.88);
+  backdrop-filter: blur(14px);
+  border-bottom-color: var(--sand);
+  color: var(--ink);
+}
+.header-row { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 20px; }
+
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 600; font-size: 0.98rem; color: inherit; }
+.brand-glyph { width: 26px; height: 26px; flex: none; }
+.brand-ring { stroke: var(--hero-brass); }
+.brand-wave { stroke: var(--hero-brass); }
+.brand-core { fill: var(--hero-text); }
+.site-header.docked .brand-ring, .site-header.docked .brand-wave { stroke: var(--brass); }
+.site-header.docked .brand-core { fill: var(--espresso); }
+
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a { font-size: 0.9rem; color: inherit; opacity: 0.75; font-weight: 450; transition: opacity 0.18s ease, color 0.18s ease; }
+.nav-links a:hover { opacity: 1; color: var(--brass); }
+.site-header:not(.docked) .nav-links a:hover { color: var(--hero-brass); }
+
+.header-cta .btn-line { border-color: var(--hero-line); color: var(--hero-text); }
+.header-cta .btn-line:hover { border-color: var(--hero-brass); color: var(--hero-brass); }
+.site-header.docked .header-cta .btn-line { border-color: var(--sand-line); color: var(--ink); }
+.site-header.docked .header-cta .btn-line:hover { border-color: var(--brass); color: var(--brass); }
+
+.nav-toggle-input { display: none; }
+.nav-toggle-label { display: none; }
+
+/* ============ HERO / SCROLL STAGE ============ */
+
+.stage {
+  position: relative;
+  background: linear-gradient(172deg, var(--espresso) 0%, var(--espresso-deep) 62%, #120D09 100%);
+  color: var(--hero-text);
+}
+.js .stage { height: 300vh; }
+
+.stage-pin { display: flex; align-items: center; min-height: 100vh; padding: 110px 0 70px; }
+.js .stage-pin { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+
+.stage-inner { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 60px; align-items: center; width: 100%; }
+
+.stage-copy { position: relative; }
+.js .stage-copy { min-height: 340px; }
+
+.chapter { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
+.js .chapter { position: absolute; inset: 0; opacity: 0; pointer-events: none; will-change: opacity, transform; }
+
+.chapter h1 { font-size: clamp(2.3rem, 5vw, 3.75rem); font-weight: 650; }
+.chapter h2 { font-size: clamp(1.6rem, 3.6vw, 2.6rem); font-weight: 500; color: var(--hero-text); max-width: 17ch; }
+.chapter p { color: var(--hero-mid); font-size: 1.05rem; max-width: 46ch; }
+.chapter .name-line { color: var(--hero-text); }
+.chapter .role-line { color: var(--hero-brass); }
+.stage .eyebrow { color: var(--hero-brass); }
+.hero-actions { display: flex; gap: 13px; flex-wrap: wrap; margin-top: 6px; }
+.js .chapter .hero-actions { pointer-events: auto; }
+
+.stage-visual { display: flex; align-items: center; justify-content: center; }
+.stage-visual svg { width: 100%; max-width: 340px; height: auto; overflow: visible; }
+
+.part-line { stroke: var(--hero-brass); stroke-width: 1.5; fill: none; }
+.part-line-dim { stroke: rgba(216, 162, 78, 0.45); stroke-width: 1.2; fill: none; }
+.lead-line { stroke: rgba(246, 241, 231, 0.35); stroke-width: 1; stroke-dasharray: 3 4; opacity: 0; }
+.part-tag { font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.1em; fill: var(--hero-mid); opacity: 0; }
+.centreline { stroke: rgba(246, 241, 231, 0.2); stroke-width: 1; stroke-dasharray: 8 4 2 4; }
+
+.stage-readout {
+  position: absolute; left: 28px; right: 28px; bottom: 34px;
+  display: flex; align-items: center; gap: 16px;
+  max-width: var(--wrap); margin: 0 auto;
+}
+.readout-track { flex: 1; height: 1px; background: var(--hero-line); position: relative; }
+.readout-fill { position: absolute; left: 0; top: 0; height: 1px; width: 0%; background: var(--hero-brass); }
+.readout-label { color: var(--hero-mid); white-space: nowrap; }
+
+/* ============ SECTIONS ============ */
+
+.section { padding: 120px 0; position: relative; }
+.section-alt { background: var(--bone-deep); }
+
+.section-head { max-width: 660px; margin-bottom: 64px; }
+.section-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-top: 16px; }
+.section-head p { color: var(--ink-mid); margin-top: 18px; font-size: 1.04rem; }
+
+.reveal { transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1); }
+.js .reveal { opacity: 0; transform: translateY(26px); }
+.js .reveal.shown { opacity: 1; transform: translateY(0); }
+
+/* ============ WAVE DIVIDER (signature) ============ */
+
+.wave-divider { height: 90px; width: 100%; display: block; background: var(--bone); }
+.wave-divider path { fill: none; stroke: var(--brass); stroke-width: 1.4; opacity: 0.5; }
+.wave-divider path.echo { stroke: var(--umber); opacity: 0.22; }
+
+/* ============ CARD GRID ============ */
+
+.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.card-grid.two-up { grid-template-columns: repeat(2, 1fr); }
+
+.card {
+  background: var(--paper);
+  border: 1px solid var(--sand);
+  border-radius: 16px;
+  overflow: hidden;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+  display: flex; flex-direction: column;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.card:hover { border-color: var(--sand-line); box-shadow: 0 14px 30px rgba(36, 28, 22, 0.10); }
+
+/* --- Unfolding sheet --- */
+.sheet {
+  --lift: 0px;
+  --unfold-opacity: 1;
+  --unfold-clip: none;
+  --unfold-filter: none;
+  --unfold-scale: 1;
+  --unfold-rot: 0deg;
+  --unfold-skew: 0deg;
+  --crease: 0;
+  transform:
+    translateY(var(--lift))
+    rotate(var(--unfold-rot))
+    skewX(var(--unfold-skew))
+    scale(var(--unfold-scale));
+  transform-origin: 50% 45%;
+  will-change: transform, clip-path, filter;
+}
+.sheet:hover { --lift: -4px; }
+.js .sheet { opacity: var(--unfold-opacity, 1); clip-path: var(--unfold-clip, none); filter: var(--unfold-filter, none); }
+
+/* Crease shadows: two sets of folds, cross-hatched, fading as the sheet flattens */
+.sheet::after {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  opacity: var(--crease);
+  border-radius: 16px;
+  background:
+    repeating-linear-gradient(68deg,
+      rgba(60, 44, 30, 0.22) 0px, rgba(60, 44, 30, 0.22) 1px,
+      rgba(255, 252, 244, 0.30) 1px, rgba(255, 252, 244, 0.30) 3px,
+      transparent 3px, transparent 34px),
+    repeating-linear-gradient(-41deg,
+      rgba(60, 44, 30, 0.16) 0px, rgba(60, 44, 30, 0.16) 1px,
+      rgba(255, 252, 244, 0.24) 1px, rgba(255, 252, 244, 0.24) 2px,
+      transparent 2px, transparent 47px),
+    radial-gradient(80% 60% at 50% 45%, rgba(60, 44, 30, 0.18), transparent 70%);
+  mix-blend-mode: multiply;
+  transition: opacity 0.15s linear;
+  z-index: 3;
+}
+
+.card-media {
+  aspect-ratio: 16 / 10;
+  position: relative;
+  background: linear-gradient(140deg, #EFE7D8, #E2D7C2);
+  border-bottom: 1px solid var(--sand);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  color: var(--ink-dim);
+  overflow: hidden;
+}
+.card-media img, .card-media video { width: 100%; height: 100%; object-fit: cover; }
+.card-media svg.slot-icon { width: 26px; height: 26px; opacity: 0.55; }
+.card-media .slot-note { font-family: var(--font-mono); font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+.card-index {
+  position: absolute; top: 12px; left: 13px;
+  font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.1em;
+  color: var(--umber);
+  background: rgba(251, 248, 241, 0.85);
+  border: 1px solid var(--sand-line);
+  padding: 3px 8px; border-radius: 5px;
+}
+
+.card-body { padding: 20px 21px 22px; display: flex; flex-direction: column; flex: 1; }
+.card-kicker { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brass); }
+.card-body h3 { font-size: 1.14rem; margin-top: 9px; }
+.card-body > p { color: var(--ink-mid); font-size: 0.92rem; margin-top: 9px; flex: 1; }
+
+.tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.tag-row span {
+  font-family: var(--font-mono); font-size: 0.63rem; letter-spacing: 0.06em; text-transform: uppercase;
+  border: 1px solid var(--sand); color: var(--ink-mid);
+  padding: 4px 9px; border-radius: 6px;
+}
+
+.card-open {
+  margin-top: 18px; display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--brass);
+}
+.card-open svg { width: 13px; height: 13px; transition: transform 0.2s ease; }
+.card:hover .card-open svg { transform: translateX(3px); }
+
+.detail-source { display: none; }
+
+/* ============ RESEARCH ============ */
+
+.research-item {
+  display: grid; grid-template-columns: 130px 1fr auto; gap: 28px;
+  padding: 30px 0; border-top: 1px solid var(--sand);
+  align-items: start; text-align: left; width: 100%;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.research-item:last-of-type { border-bottom: 1px solid var(--sand); }
+.research-item:hover { background: rgba(154, 110, 42, 0.05); }
+.research-when { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--ink-dim); padding-top: 4px; }
+.research-body h3 { font-size: 1.24rem; }
+.research-body .where { color: var(--brass); font-size: 0.88rem; margin-top: 5px; font-weight: 500; }
+.research-body p { color: var(--ink-mid); font-size: 0.95rem; margin-top: 11px; max-width: 60ch; }
+.research-go { align-self: center; color: var(--ink-dim); }
+.research-go svg { width: 19px; height: 19px; }
+.research-item:hover .research-go { color: var(--brass); }
+
+/* ============ ABOUT ============ */
+
+.about-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 60px; align-items: start; }
+
+.portrait-frame { position: relative; }
+.portrait-slot {
+  aspect-ratio: 4 / 5; border-radius: 18px;
+  border: 1px solid var(--sand);
+  background: linear-gradient(150deg, #EFE7D8, #E0D4BE);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  color: var(--ink-dim); overflow: hidden;
+}
+.portrait-slot img { width: 100%; height: 100%; object-fit: cover; }
+.portrait-slot svg { width: 30px; height: 30px; opacity: 0.55; }
+.portrait-slot .slot-note { font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+.portrait-caption {
+  position: absolute; left: 16px; bottom: 16px; right: 16px;
+  background: rgba(251, 248, 241, 0.92); backdrop-filter: blur(8px);
+  border: 1px solid var(--sand-line); border-radius: 11px;
+  padding: 11px 14px;
+  font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.07em; color: var(--ink-mid);
+}
+
+.about-copy p { color: var(--ink-mid); font-size: 1.04rem; margin-top: 18px; }
+.about-copy p strong { color: var(--ink); font-weight: 600; }
+
+.fact-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 34px; }
+.fact { border: 1px solid var(--sand); border-radius: 13px; padding: 17px 16px; background: var(--paper); }
+.fact .fact-value { font-family: var(--font-display); font-size: 1.5rem; font-weight: 650; color: var(--brass); }
+.fact .fact-label { font-family: var(--font-mono); font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); margin-top: 6px; }
+
+/* ============ BEYOND ============ */
+
+.beyond-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+.beyond-card {
+  border: 1px solid var(--sand); border-radius: 16px; overflow: hidden;
+  background: var(--paper); display: flex; flex-direction: column;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.beyond-card:hover { border-color: var(--brass); transform: translateY(-3px); box-shadow: 0 12px 26px rgba(36, 28, 22, 0.09); }
+
+.beyond-media {
+  aspect-ratio: 3 / 2; border-bottom: 1px solid var(--sand);
+  background: linear-gradient(140deg, #EDE4D2, #DFD3BC);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px; color: var(--ink-dim);
+  overflow: hidden;
+}
+.beyond-media img, .beyond-media video { width: 100%; height: 100%; object-fit: cover; }
+.beyond-media svg { width: 23px; height: 23px; opacity: 0.55; }
+.beyond-media .slot-note { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+.beyond-body { padding: 19px 20px 21px; }
+.beyond-body .beyond-kicker { font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--umber); }
+.beyond-body h3 { font-size: 1.08rem; margin-top: 9px; }
+.beyond-body p { color: var(--ink-mid); font-size: 0.9rem; margin-top: 9px; }
+
+/* ============ CONTACT ============ */
+
+.contact-panel {
+  border: 1px solid var(--sand-line); border-radius: 24px;
+  background:
+    radial-gradient(120% 130% at 15% 0%, rgba(154, 110, 42, 0.10) 0%, transparent 55%),
+    radial-gradient(100% 120% at 90% 100%, rgba(69, 54, 41, 0.07) 0%, transparent 55%),
+    var(--paper);
+  padding: 62px 52px;
+  text-align: center;
+}
+.contact-panel h2 { font-size: clamp(1.9rem, 3.6vw, 2.7rem); margin-top: 18px; max-width: 20ch; margin-left: auto; margin-right: auto; }
+.contact-panel > p { color: var(--ink-mid); margin-top: 18px; font-size: 1.05rem; max-width: 52ch; margin-left: auto; margin-right: auto; }
+.contact-actions { display: flex; gap: 13px; justify-content: center; flex-wrap: wrap; margin-top: 34px; }
+.contact-meta { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-top: 34px; padding-top: 28px; border-top: 1px solid var(--sand); }
+.contact-meta a { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.06em; color: var(--ink-mid); transition: color 0.18s ease; }
+.contact-meta a:hover { color: var(--brass); }
+
+/* ============ FOOTER ============ */
+
+footer { border-top: 1px solid var(--sand); padding: 30px 0; background: var(--bone); }
+.footer-row { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.05em; color: var(--ink-dim); }
+
+/* ============ MODAL ============ */
+
+.modal-backdrop {
+  position: fixed; inset: 0; z-index: 500;
+  background: rgba(36, 28, 22, 0.55);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 40px 20px;
+  overflow-y: auto;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+.modal-backdrop.open { opacity: 1; visibility: visible; }
+
+.modal-shell {
+  width: 100%; max-width: 860px;
+  background: var(--paper);
+  border: 1px solid var(--sand-line);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(23, 17, 13, 0.28);
+  transform: translateY(18px) scale(0.99);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.modal-backdrop.open .modal-shell { transform: translateY(0) scale(1); }
+
+.modal-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 16px 20px; border-bottom: 1px solid var(--sand);
+  position: sticky; top: 0; background: var(--paper); z-index: 2;
+}
+.modal-bar .modal-tag { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brass); }
+.modal-close { width: 34px; height: 34px; border-radius: 9px; border: 1px solid var(--sand-line); display: flex; align-items: center; justify-content: center; color: var(--ink-mid); transition: border-color 0.2s ease, color 0.2s ease; }
+.modal-close:hover { border-color: var(--brass); color: var(--brass); }
+.modal-close svg { width: 15px; height: 15px; }
+
+.modal-content { padding: 30px 34px 40px; }
+.modal-content h3 { font-size: 1.75rem; }
+.modal-content .modal-sub { color: var(--brass); font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.08em; margin-top: 9px; }
+.modal-content p { color: var(--ink-mid); margin-top: 16px; font-size: 1rem; }
+.modal-content h4 { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim); margin-top: 30px; }
+
+.media-slot {
+  margin-top: 14px; border-radius: 13px; border: 1px dashed var(--sand-line);
+  background: linear-gradient(140deg, #EFE7D8, #E2D7C2);
+  aspect-ratio: 16 / 9;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  color: var(--ink-dim); overflow: hidden;
+}
+.media-slot img, .media-slot video { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+.media-slot svg { width: 26px; height: 26px; opacity: 0.55; }
+.media-slot .slot-note { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.09em; text-transform: uppercase; text-align: center; padding: 0 16px; }
+
+.media-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-top: 14px; }
+.media-pair .media-slot { margin-top: 0; aspect-ratio: 4 / 3; }
+
+.spec-list { margin-top: 14px; border: 1px solid var(--sand); border-radius: 13px; overflow: hidden; }
+.spec-line { display: grid; grid-template-columns: 190px 1fr; border-bottom: 1px solid var(--sand); }
+.spec-line:last-child { border-bottom: none; }
+.spec-line dt { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-dim); padding: 14px 16px; border-right: 1px solid var(--sand); background: var(--bone-deep); }
+.spec-line dd { padding: 14px 16px; font-size: 0.93rem; color: var(--ink); }
+
+/* ============ RESPONSIVE ============ */
+
+@media (max-width: 1000px) {
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .beyond-grid { grid-template-columns: repeat(2, 1fr); }
+  .stage-inner { grid-template-columns: 1fr; gap: 34px; }
+  .stage-visual { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 38px; }
+}
+
+@media (max-width: 720px) {
+  .card-grid, .card-grid.two-up, .beyond-grid { grid-template-columns: 1fr; }
+  .research-item { grid-template-columns: 1fr; gap: 12px; }
+  .research-go { display: none; }
+  .fact-strip { grid-template-columns: 1fr 1fr; }
+  .contact-panel { padding: 44px 24px; }
+  .modal-content { padding: 24px 20px 32px; }
+  .spec-line { grid-template-columns: 1fr; }
+  .spec-line dt { border-right: none; border-bottom: 1px solid var(--sand); }
+  .media-pair { grid-template-columns: 1fr; }
+
+  .nav-links {
+    position: fixed; top: 72px; left: 0; right: 0;
+    flex-direction: column; align-items: flex-start; gap: 0;
+    background: var(--bone); border-bottom: 1px solid var(--sand);
+    padding: 6px 28px 18px;
+    transform: translateY(-135%); transition: transform 0.22s ease;
+  }
+  .nav-links a { width: 100%; padding: 13px 0; border-bottom: 1px solid var(--sand); color: var(--ink); opacity: 1; }
+  .nav-toggle-input:checked ~ .nav-links { transform: translateY(0); }
+  .nav-toggle-label {
+    display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+    font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid var(--hero-line); border-radius: 8px; padding: 9px 13px; color: var(--hero-text);
+  }
+  .site-header.docked .nav-toggle-label { border-color: var(--sand-line); color: var(--ink); }
+  .header-cta { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .sheet { clip-path: none !important; filter: none !important; opacity: 1 !important; transform: none !important; }
+  .sheet::after { opacity: 0 !important; }
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+
+<svg class="filter-defs" width="0" height="0" aria-hidden="true" focusable="false"
+     style="position:absolute;pointer-events:none;">
+  <defs>
+    <filter id="crumple-1" x="-15%" y="-15%" width="130%" height="130%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.021" numOctaves="3" seed="7" result="n"/>
+      <feDisplacementMap class="crumple-map" in="SourceGraphic" in2="n" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="crumple-2" x="-15%" y="-15%" width="130%" height="130%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.017 0.013" numOctaves="3" seed="23" result="n"/>
+      <feDisplacementMap class="crumple-map" in="SourceGraphic" in2="n" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="crumple-3" x="-15%" y="-15%" width="130%" height="130%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.014 0.018" numOctaves="3" seed="41" result="n"/>
+      <feDisplacementMap class="crumple-map" in="SourceGraphic" in2="n" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
+
+<header class="site-header" id="site-header">
+  <div class="wrap header-row">
+    <a href="#top" class="brand">
+      <svg class="brand-glyph" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle class="brand-ring" cx="16" cy="16" r="14" stroke-width="1.3"/>
+        <path class="brand-wave" d="M4 19c4 0 4-6 8-6s4 6 8 6 4-6 8-6" stroke-width="1.5" fill="none"/>
+        <circle class="brand-core" cx="16" cy="16" r="2"/>
+      </svg>
+      [Your Name]
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle-label">Menu</label>
+
+    <nav class="nav-links">
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#beyond">Beyond</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-cta">
+      <a href="#" class="btn btn-line" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v13M7 12l5 5 5-5M4 21h16"/></svg>
+        CV
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="stage" id="top">
+  <div class="stage-pin">
+    <div class="wrap stage-inner">
+
+      <div class="stage-copy">
+        <div class="chapter" data-index="0">
+          <p class="mono eyebrow">Engineering Portfolio</p>
+          <h2>Every problem arrives as a set of constraints and an unknown.</h2>
+        </div>
+
+        <div class="chapter" data-index="1">
+          <p class="mono eyebrow">Method</p>
+          <h2>It becomes a model, a rig, a run, and then a result.</h2>
+        </div>
+
+        <div class="chapter" data-index="2">
+          <div class="status-pill mono"><span class="status-dot"></span> Available for work</div>
+          <h1><span class="name-line">[Your Name]</span><br><span class="role-line">Engineer</span></h1>
+          <p>Replace this with two sentences on what you build, what you research, and the kind of role you are looking for. Keep it plain and specific.</p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              View work
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#contact" class="btn btn-line">Get in touch</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage-visual" aria-hidden="true">
+        <svg viewBox="0 0 340 400">
+          <line class="centreline" x1="170" y1="20" x2="170" y2="380"/>
+          <line class="lead-line" x1="205" y1="86" x2="258" y2="86"/>
+          <line class="lead-line" x1="212" y1="170" x2="258" y2="170"/>
+          <line class="lead-line" x1="208" y1="258" x2="258" y2="258"/>
+          <line class="lead-line" x1="200" y1="326" x2="258" y2="326"/>
+
+          <g class="part" data-shift="-78">
+            <rect class="part-line" x="128" y="68" width="84" height="36" rx="9"/>
+            <line class="part-line-dim" x1="145" y1="68" x2="145" y2="104"/>
+            <line class="part-line-dim" x1="195" y1="68" x2="195" y2="104"/>
+          </g>
+          <text class="part-tag" data-shift="-78" x="264" y="90">HOUSING</text>
+
+          <g class="part" data-shift="-26">
+            <circle class="part-line" cx="170" cy="170" r="38"/>
+            <circle class="part-line-dim" cx="170" cy="170" r="24"/>
+            <circle class="part-line-dim" cx="170" cy="170" r="9"/>
+          </g>
+          <text class="part-tag" data-shift="-26" x="264" y="174">ROTOR</text>
+
+          <rect class="part-line-dim part" data-shift="0" x="163" y="60" width="14" height="290" rx="4"/>
+
+          <g class="part" data-shift="30">
+            <rect class="part-line" x="136" y="250" width="68" height="14" rx="4"/>
+          </g>
+          <text class="part-tag" data-shift="30" x="264" y="262">SPACER</text>
+
+          <g class="part" data-shift="76">
+            <polygon class="part-line" points="170,300 194,314 194,342 170,356 146,342 146,314"/>
+          </g>
+          <text class="part-tag" data-shift="76" x="264" y="330">FASTENER</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="stage-readout">
+      <span class="mono readout-label">Assembly</span>
+      <div class="readout-track"><div class="readout-fill" id="readout-fill"></div></div>
+      <span class="mono readout-label" id="readout-value">000%</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESEARCH ============ -->
+<section class="section section-alt" id="research">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="mono eyebrow">01 / Research</p>
+      <h2>Experimental and computational research work.</h2>
+      <p>Positions and research programmes, with the methods and scale of each. Click any entry to open the full write-up, images, and video.</p>
+    </div>
+
+    <!-- RESEARCH 01 -->
+    <div class="research-item reveal" tabindex="0" role="button" data-modal="res-1">
+      <span class="research-when">Position dates</span>
+      <div class="research-body">
+        <h3>Research Position Title</h3>
+        <p class="where">Lab or Centre Name</p>
+        <p>One or two sentences on the research question, your method, and the scale of what you ran. Replace with your own detail.</p>
+      </div>
+      <span class="research-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </div>
+
+    <div class="detail-source" id="res-1-detail">
+      <p class="modal-sub">Lab or Centre Name &middot; Position dates</p>
+      <p>Open with a short paragraph on what the research was investigating and why it matters. Say what was unknown at the start.</p>
+      <h4>Method</h4>
+      <p>Describe the rig, the instrumentation, the number of runs, and the variables you swept. Numbers are the most convincing thing you can put here.</p>
+      <h4>Experimental footage</h4>
+      <div class="media-slot">
+        <!-- VIDEO: replace this whole block with:
+             <video src="media/research-1.mp4" controls muted loop playsinline></video> -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 10l5-3v10l-5-3z"/><rect x="3" y="6" width="12" height="12" rx="2"/></svg>
+        <span class="slot-note">Video slot &middot; see comment in code</span>
+      </div>
+      <h4>Results and figures</h4>
+      <div class="media-pair">
+        <div class="media-slot">
+          <!-- IMAGE: replace with <img src="images/research-1a.jpg" alt="Describe the figure"> -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="slot-note">Figure slot</span>
+        </div>
+        <div class="media-slot">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="slot-note">Figure slot</span>
+        </div>
+      </div>
+      <h4>At a glance</h4>
+      <dl class="spec-list">
+        <div class="spec-line"><dt>Focus</dt><dd>What the study measured</dd></div>
+        <div class="spec-line"><dt>Runs</dt><dd>Number of trials or cases</dd></div>
+        <div class="spec-line"><dt>Tools</dt><dd>Software and instrumentation used</dd></div>
+        <div class="spec-line"><dt>Status</dt><dd>Ongoing, complete, or written up</dd></div>
+      </dl>
+    </div>
+
+    <!-- RESEARCH 02 -->
+    <div class="research-item reveal" tabindex="0" role="button" data-modal="res-2">
+      <span class="research-when">Position dates</span>
+      <div class="research-body">
+        <h3>Research Position Title</h3>
+        <p class="where">Lab or Centre Name</p>
+        <p>One or two sentences on the research question, your method, and the scale of what you ran. Replace with your own detail.</p>
+      </div>
+      <span class="research-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </div>
+
+    <div class="detail-source" id="res-2-detail">
+      <p class="modal-sub">Lab or Centre Name &middot; Position dates</p>
+      <p>Open with a short paragraph on what the research was investigating and why it matters.</p>
+      <h4>Method</h4>
+      <p>Describe the rig, the instrumentation, the number of runs, and the variables you swept.</p>
+      <h4>Experimental footage</h4>
+      <div class="media-slot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 10l5-3v10l-5-3z"/><rect x="3" y="6" width="12" height="12" rx="2"/></svg>
+        <span class="slot-note">Video slot</span>
+      </div>
+      <h4>At a glance</h4>
+      <dl class="spec-list">
+        <div class="spec-line"><dt>Focus</dt><dd>What the study measured</dd></div>
+        <div class="spec-line"><dt>Runs</dt><dd>Number of trials or cases</dd></div>
+        <div class="spec-line"><dt>Tools</dt><dd>Software and instrumentation used</dd></div>
+      </dl>
+    </div>
+
+    <!-- RESEARCH 03 -->
+    <div class="research-item reveal" tabindex="0" role="button" data-modal="res-3">
+      <span class="research-when">Position dates</span>
+      <div class="research-body">
+        <h3>Research Position Title</h3>
+        <p class="where">Lab or Centre Name</p>
+        <p>One or two sentences on the research question, your method, and the scale of what you ran.</p>
+      </div>
+      <span class="research-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </div>
+
+    <div class="detail-source" id="res-3-detail">
+      <p class="modal-sub">Lab or Centre Name &middot; Position dates</p>
+      <p>Open with a short paragraph on what the research was investigating and why it matters.</p>
+      <h4>Method</h4>
+      <p>Describe the rig, the instrumentation, and the scale of the work.</p>
+      <h4>Images</h4>
+      <div class="media-slot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span class="slot-note">Image slot</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="wave-divider" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true">
+  <path class="echo" id="wave-echo" d="M0,45 C150,20 250,70 400,45 C550,20 650,70 800,45 C950,20 1050,70 1200,45"/>
+  <path id="wave-main" d="M0,45 C150,20 250,70 400,45 C550,20 650,70 800,45 C950,20 1050,70 1200,45"/>
+</svg>
+
+<!-- ============ PROJECTS ============ -->
+<section class="section" id="projects">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="mono eyebrow">02 / Projects</p>
+      <h2>Design, analysis, and build projects.</h2>
+      <p>Six slots to start. Each card opens a full page with images, video, a written breakdown, and a specification table. Duplicate a card block in the code to add more.</p>
+    </div>
+
+    <div class="card-grid">
+
+      <!-- PROJECT 01 -->
+      <div class="card sheet" tabindex="0" role="button" data-modal="proj-1" data-seed="1">
+        <div class="card-media">
+          <!-- IMAGE: replace the icon and note below with:
+               <img src="images/project-1.jpg" alt="Describe the project photo"> -->
+          <span class="card-index">P-01</span>
+          <svg class="slot-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="slot-note">Project image</span>
+        </div>
+        <div class="card-body">
+          <span class="card-kicker">Discipline</span>
+          <h3>Project Title</h3>
+          <p>One short sentence on what it is and what the outcome was.</p>
+          <div class="tag-row"><span>Tool</span><span>Tool</span><span>Tool</span></div>
+          <span class="card-open">Open project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </div>
+
+      <div class="detail-source" id="proj-1-detail">
+        <p class="modal-sub">Discipline &middot; Year</p>
+        <p>Open with the brief: what the project had to achieve, and under what constraints. Two or three sentences.</p>
+        <h4>Gallery</h4>
+        <div class="media-pair">
+          <div class="media-slot">
+            <!-- IMAGE: replace with <img src="images/project-1a.jpg" alt="Describe this photo"> -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span class="slot-note">Image slot</span>
+          </div>
+          <div class="media-slot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span class="slot-note">Image slot</span>
+          </div>
+        </div>
+        <h4>Video</h4>
+        <div class="media-slot">
+          <!-- VIDEO: replace with
+               <video src="media/project-1.mp4" controls muted loop playsinline></video> -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 10l5-3v10l-5-3z"/><rect x="3" y="6" width="12" height="12" rx="2"/></svg>
+          <span class="slot-note">Video slot &middot; delete this block if unused</span>
+        </div>
+        <h4>Approach</h4>
+        <p>How you went about it: the analysis, the iterations, what failed first, and what you changed. This is the part that shows engineering judgement, so give it real detail.</p>
+        <h4>Outcome</h4>
+        <p>What the result was, with numbers wherever you have them.</p>
+        <h4>Specification</h4>
+        <dl class="spec-list">
+          <div class="spec-line"><dt>Role</dt><dd>What you personally did</dd></div>
+          <div class="spec-line"><dt>Team</dt><dd>Solo, or team size</dd></div>
+          <div class="spec-line"><dt>Tools</dt><dd>Software and equipment</dd></div>
+          <div class="spec-line"><dt>Timeline</dt><dd>Duration or dates</dd></div>
+        </dl>
+      </div>
+
+      <!-- PROJECT 02 -->
+      <div class="card sheet" tabindex="0" role="button" data-modal="proj-2" data-seed="2">
+        <div class="card-media">
+          <span class="card-index">P-02</span>
+          <svg class="slot-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="slot-note">Project image</span>
+        </div>
+        <div class="card-body">
+          <span class="card-kicker">Discipline</span>
+          <h3>Project Title</h3>
+          <p>One short sentence on what it is and what the outcome was.</p>
+          <div class="tag-row"><span>Tool</span><span>Tool</span><span>Tool</span></div>
+          <span class="card-open">Open project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </div>
+
+      <div class="detail-source" id="proj-2-detail">
+        <p class="modal-sub">Discipline &middot; Year</p>
+        <p>Open with the brief and the constraints.</p>
+        <h4>Gallery</h4>
+        <div class="media-pair">
+          <div class="media-slot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span class="slot-note">Image slot</span>
+          </div>
+          <div class="media-slot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span class="slot-note">Image slot</span>
+          </div>
+        </div>
+        <h4>Approach</h4>
+        <p>How you went about it, what failed first, and what you changed.</p>
+        <h4>Outcome</h4>
+        <p>What the result was, with numbers wherever you have them.</p>
+        <h4>Specification</h4>
+        <dl class="spec-list">
+          <div class="spec-line"><dt>Role</dt><dd>What you personally did</dd></div>
+          <div class="spec-line"><dt>Team</dt><dd>Solo, or team size</dd></div>
+          <div class="spec-line"><dt>Tools</dt><dd>Software and equipment</dd></div>
+        </dl>
+      </div>
+
+      <!-- PROJECT 03 -->
+      <div class="card sheet" tabindex="0" role="button" data-modal="proj-3" data-seed="3">
+        <div class="card-media">
+          <span class="card-index">P-03</span>
+          <svg class="slot-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="slot-note">Project image</span>
+        </div>
+        <div class="card-body">
+          <span class="card-kicker">Discipline</span>
+          <h3>Project Title</h3>
+          <p>One short sentence on what it is and what the outcome was.</p>
+          <div class="tag-row"><span>Tool</span><span>Tool</span><span>Tool</span></div>
+          <span class="card-open">Open project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </div>
+
+      <div class="detail-source" id="proj-3-detail">
+        <p class="modal-sub">Discipline &middot; Year</p>
+        <p>Open with the brief and the constraints.</p>
+        <h4>Gallery</h4>
+        <div class="media-pair">
+          <div class="media-slot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span class="slot-note">Image slot</span>
+          </div>
+          <div class="media-slot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span class="slot-note">Image slot</span>
+          </div>
+        </div>
+        <h4>Approach</h4>
+        <p>How you went about it, what failed first, and what you changed.</p>
+        <h4>Outcome</h4>
+        <p>What the result was, with numbers wherever you have them.</p>
+        <h4>Specification</h4>
+        <dl class="spec-list">
+          <div class="spec-line"><dt>Role</dt><dd>What you personally did</dd></div>
+          <div class="spec-line"><dt>Tools</dt><dd>Software and equipment</dd></div>
+        </dl>
+      </div>
+
+      <!-- PROJECT 04 -->
+      <div class="card sheet" tabindex="0" role="button" data-modal="proj-4" data-seed="4">
+        <div class="card-media">
+          <span class="card-index">P-04</span>
+          <svg class="slot-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="slot-note">Project image</span>
+        </div>
+        <div class="card-body">
+          <span class="card-kicker">Discipline</span>
+          <h3>Project Title</h3>
+          <p>One short sentence on what it is and what the outcome was.</p>
+          <div class="tag-row"><span>Tool</span><span>Tool</span><span>Tool</span></div>
+          <span class="card-open">Open project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </div>
+
+      <div class="detail-source" id="proj-4-detail">
+        <p class="modal-sub">Discipline &middot; Year</p>
+        <p>Open with the brief and the constraints.</p>
+        <h4>Gallery</h4>
+        <div class="media-pair">
+          <div class="media-slot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span class="slot-note">Image slot</span>
+          </div>
+          <div class="media-slot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span class="slot-note">Image slot</span>
+          </div>
+        </div>
+        <h4>Approach</h4>
+        <p>How you went about it, what failed first, and what you changed.</p>
+        <h4>Outcome</h4>
+        <p>What the result was, with numbers wherever you have them.</p>
+        <h4>Specification</h4>
+        <dl class="spec-list">
+          <div class="spec-line"><dt>Role</dt><dd>What you personally did</dd></div>
+          <div class="spec-line"><dt>Tools</dt><dd>Software and equipment</dd></div>
+        </dl>
+      </div>
+
+      <!-- PROJECT 05 -->
+      <div class="card sheet" tabindex="0" role="button" data-modal="proj-5" data-seed="5">
+        <div class="card-media">
+          <span class="card-index">P-05</span>
+          <svg class="slot-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="slot-note">Project image</span>
+        </div>
+        <div class="card-body">
+          <span class="card-kicker">Discipline</span>
+          <h3>Project Title</h3>
+          <p>One short sentence on what it is and what the outcome was.</p>
+          <div class="tag-row"><span>Tool</span><span>Tool</span><span>Tool</span></div>
+          <span class="card-open">Open project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </div>
+
+      <div class="detail-source" id="proj-5-detail">
+        <p class="modal-sub">Discipline &middot; Year</p>
+        <p>Open with the brief and the constraints.</p>
+        <h4>Gallery</h4>
+        <div class="media-pair">
+          <div class="media-slot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span class="slot-note">Image slot</span>
+          </div>
+          <div class="media-slot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span class="slot-note">Image slot</span>
+          </div>
+        </div>
+        <h4>Approach</h4>
+        <p>How you went about it, what failed first, and what you changed.</p>
+        <h4>Outcome</h4>
+        <p>What the result was, with numbers wherever you have them.</p>
+        <h4>Specification</h4>
+        <dl class="spec-list">
+          <div class="spec-line"><dt>Role</dt><dd>What you personally did</dd></div>
+          <div class="spec-line"><dt>Tools</dt><dd>Software and equipment</dd></div>
+        </dl>
+      </div>
+
+      <!-- PROJECT 06 -->
+      <div class="card sheet" tabindex="0" role="button" data-modal="proj-6" data-seed="6">
+        <div class="card-media">
+          <span class="card-index">P-06</span>
+          <svg class="slot-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="slot-note">Project image</span>
+        </div>
+        <div class="card-body">
+          <span class="card-kicker">Discipline</span>
+          <h3>Project Title</h3>
+          <p>One short sentence on what it is and what the outcome was.</p>
+          <div class="tag-row"><span>Tool</span><span>Tool</span><span>Tool</span></div>
+          <span class="card-open">Open project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </div>
+
+      <div class="detail-source" id="proj-6-detail">
+        <p class="modal-sub">Discipline &middot; Year</p>
+        <p>Open with the brief and the constraints.</p>
+        <h4>Gallery</h4>
+        <div class="media-pair">
+          <div class="media-slot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span class="slot-note">Image slot</span>
+          </div>
+          <div class="media-slot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span class="slot-note">Image slot</span>
+          </div>
+        </div>
+        <h4>Approach</h4>
+        <p>How you went about it, what failed first, and what you changed.</p>
+        <h4>Outcome</h4>
+        <p>What the result was, with numbers wherever you have them.</p>
+        <h4>Specification</h4>
+        <dl class="spec-list">
+          <div class="spec-line"><dt>Role</dt><dd>What you personally did</dd></div>
+          <div class="spec-line"><dt>Tools</dt><dd>Software and equipment</dd></div>
+        </dl>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section section-alt" id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="mono eyebrow">03 / About</p>
+      <h2>The person behind the drawings.</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="portrait-frame reveal">
+        <div class="portrait-slot">
+          <!-- PORTRAIT: replace the icon and note with:
+               <img src="images/portrait.jpg" alt="Photo of [Your Name]"> -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+          <span class="slot-note">Your photo</span>
+        </div>
+        <div class="portrait-caption">Caption: where the photo was taken, or what you were working on.</div>
+      </div>
+
+      <div class="about-copy reveal">
+        <p><strong>Open with one line about who you are and what you do.</strong> Then two or three sentences on your background, the kind of engineering you gravitate toward, and what you are looking for next. Write it the way you would say it out loud rather than the way a CV reads.</p>
+        <p>Use the second paragraph for the working style: whether you prefer hands-on experimental work, computational modelling, or design, and what you have actually spent the most hours doing. Being specific here is what separates this from every other portfolio page.</p>
+        <p>Close with what you want next. Since you are actively looking, say so plainly and say what kind of role, so that anyone reading knows exactly what to offer you.</p>
+
+        <div class="fact-strip">
+          <div class="fact"><div class="fact-value">00+</div><div class="fact-label">Edit this stat</div></div>
+          <div class="fact"><div class="fact-value">00</div><div class="fact-label">Edit this stat</div></div>
+          <div class="fact"><div class="fact-value">00</div><div class="fact-label">Edit this stat</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BEYOND ============ -->
+<section class="section" id="beyond">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="mono eyebrow-amber">04 / Beyond the lab</p>
+      <h2>Sport, motorsport, and the things built for no reason but curiosity.</h2>
+      <p>The parts of a person that never fit on a CV but tend to be what an interviewer actually remembers.</p>
+    </div>
+
+    <div class="beyond-grid">
+
+      <div class="beyond-card reveal">
+        <div class="beyond-media">
+          <!-- IMAGE: replace with <img src="images/beyond-1.jpg" alt="Describe this photo"> -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="slot-note">Photo slot</span>
+        </div>
+        <div class="beyond-body">
+          <p class="beyond-kicker">Interest</p>
+          <h3>Title</h3>
+          <p>Two lines on what it is and how long you have been doing it.</p>
+        </div>
+      </div>
+
+      <div class="beyond-card reveal">
+        <div class="beyond-media">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="slot-note">Photo slot</span>
+        </div>
+        <div class="beyond-body">
+          <p class="beyond-kicker">Interest</p>
+          <h3>Title</h3>
+          <p>Two lines on what it is and how long you have been doing it.</p>
+        </div>
+      </div>
+
+      <div class="beyond-card reveal">
+        <div class="beyond-media">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="slot-note">Photo slot</span>
+        </div>
+        <div class="beyond-body">
+          <p class="beyond-kicker">Interest</p>
+          <h3>Title</h3>
+          <p>Two lines on what it is and how long you have been doing it.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section section-alt" id="contact">
+  <div class="wrap">
+    <div class="contact-panel reveal">
+      <div class="status-pill mono"><span class="status-dot"></span> Available for work</div>
+      <h2>Looking for my next engineering role.</h2>
+      <p>Replace this with a plain sentence on the kind of role and sector you are targeting, and where you can work. Direct is better than polished here.</p>
+      <div class="contact-actions">
+        <a href="mailto:you@example.com" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          Email me
+        </a>
+        <a href="#" class="btn btn-line" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v13M7 12l5 5 5-5M4 21h16"/></svg>
+          Download CV
+        </a>
+      </div>
+      <div class="contact-meta">
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+        <a href="mailto:you@example.com">you@example.com</a>
+        <span class="mono" style="color: var(--ink-dim);">City, Country</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>&copy; 2026 [Your Name]</span>
+    <span>All images and drawings are original work</span>
+  </div>
+</footer>
+
+<!-- ============ MODAL ============ -->
+<div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
+  <div class="modal-shell">
+    <div class="modal-bar">
+      <span class="modal-tag" id="modal-tag">Detail</span>
+      <button class="modal-close" id="modal-close" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal-content">
+      <h3 id="modal-title">Title</h3>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var reduceMotion = false;
+  try { reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+
+  /* ---------- Mobile nav ---------- */
+  try {
+    document.querySelectorAll('.nav-links a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        var t = document.getElementById('nav-toggle');
+        if (t) t.checked = false;
+      });
+    });
+  } catch (e) { console.warn('nav:', e); }
+
+  /* ---------- Reveal on scroll ---------- */
+  try {
+    var revealEls = document.querySelectorAll('.reveal');
+    if (!reduceMotion && 'IntersectionObserver' in window) {
+      var ro = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('shown'); ro.unobserve(en.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach(function (el) { ro.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add('shown'); });
+    }
+  } catch (e) {
+    console.warn('reveal:', e);
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('shown'); });
+  }
+
+  /* ---------- Modal ---------- */
+  try {
+    var modal = document.getElementById('modal');
+    var modalBody = document.getElementById('modal-body');
+    var modalTitle = document.getElementById('modal-title');
+    var modalTag = document.getElementById('modal-tag');
+    var closeBtn = document.getElementById('modal-close');
+    var lastFocus = null;
+
+    function openModal(key, title, tag) {
+      var src = document.getElementById(key + '-detail');
+      if (!src || !modal) return;
+      lastFocus = document.activeElement;
+      modalBody.innerHTML = src.innerHTML;
+      modalTitle.textContent = title || 'Detail';
+      modalTag.textContent = tag || 'Detail';
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function closeModal() {
+      if (!modal) return;
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      modalBody.innerHTML = '';
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    document.querySelectorAll('[data-modal]').forEach(function (trigger) {
+      function fire() {
+        var key = trigger.getAttribute('data-modal');
+        var h = trigger.querySelector('h3');
+        var k = trigger.querySelector('.card-kicker, .where');
+        openModal(key, h ? h.textContent : '', k ? k.textContent : 'Detail');
+      }
+      trigger.addEventListener('click', fire);
+      trigger.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Enter' || ev.key === ' ' || ev.key === 'Spacebar') {
+          ev.preventDefault();
+          fire();
+        }
+      });
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (modal) modal.addEventListener('click', function (ev) { if (ev.target === modal) closeModal(); });
+    document.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Escape' && modal && modal.classList.contains('open')) closeModal();
+    });
+  } catch (e) { console.warn('modal:', e); }
+
+  /* ---------- Unfolding paper sheets (projects) ---------- */
+  try {
+    var sheets = Array.prototype.slice.call(document.querySelectorAll('.sheet'));
+
+    // Heavy SVG displacement is only worth running on roomy, non-touch-first screens.
+    var allowWarp = !reduceMotion
+      && window.innerWidth > 760
+      && (navigator.hardwareConcurrency === undefined || navigator.hardwareConcurrency > 4);
+
+    var maps = document.querySelectorAll('.crumple-map');
+
+    // Deterministic jitter so each sheet crumples differently but identically on every load.
+    function rnd(seed, i) {
+      var x = Math.sin(seed * 999 + i * 137.13) * 43758.5453;
+      return x - Math.floor(x);
+    }
+
+    // Interpolate a jagged polygon toward a clean rectangle.
+    function clipFor(seed, k) {
+      if (k <= 0.001) return 'none';
+      var pts = [];
+      var n = 7; // points per edge
+      var amp = 13 * k;
+      for (var e = 0; e < 4; e++) {
+        for (var i = 0; i < n; i++) {
+          var t = i / n;
+          var jx = (rnd(seed, e * 20 + i) - 0.5) * amp;
+          var jy = (rnd(seed, e * 20 + i + 200) - 0.5) * amp;
+          var x, y;
+          if (e === 0) { x = t * 100; y = 0; }
+          else if (e === 1) { x = 100; y = t * 100; }
+          else if (e === 2) { x = 100 - t * 100; y = 100; }
+          else { x = 0; y = 100 - t * 100; }
+          x = Math.min(Math.max(x + jx, 0), 100);
+          y = Math.min(Math.max(y + jy, 0), 100);
+          pts.push(x.toFixed(2) + '% ' + y.toFixed(2) + '%');
+        }
+      }
+      return 'polygon(' + pts.join(', ') + ')';
+    }
+
+    function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+    function paintSheets() {
+      var vh = window.innerHeight;
+
+      sheets.forEach(function (el, idx) {
+        var r = el.getBoundingClientRect();
+
+        // Unfold runs while the card travels from low in the viewport to comfortably in view.
+        var startAt = vh * 0.96;
+        var endAt = vh * 0.36;
+        var raw = (startAt - r.top) / (startAt - endAt);
+        var p = Math.min(Math.max(raw, 0), 1);
+        var e = easeOut(p);
+        var k = 1 - e; // 1 = fully crumpled, 0 = flat
+
+        var seed = parseFloat(el.getAttribute('data-seed')) || (idx + 1);
+
+        el.style.setProperty('--unfold-opacity', (0.25 + 0.75 * e).toFixed(3));
+        el.style.setProperty('--unfold-scale', (0.86 + 0.14 * e).toFixed(4));
+        el.style.setProperty('--unfold-rot', ((rnd(seed, 1) - 0.5) * 7 * k).toFixed(2) + 'deg');
+        el.style.setProperty('--unfold-skew', ((rnd(seed, 2) - 0.5) * 9 * k).toFixed(2) + 'deg');
+        el.style.setProperty('--crease', (k * 0.85).toFixed(3));
+        el.style.setProperty('--unfold-clip', clipFor(seed, k));
+
+        if (allowWarp) {
+          // Drop the filter entirely once flat: keeps scrolling cheap after the reveal.
+          if (k < 0.02) {
+            el.style.setProperty('--unfold-filter', 'none');
+          } else {
+            el.style.setProperty('--unfold-filter', 'url(#crumple-' + ((idx % 3) + 1) + ')');
+          }
+        }
+      });
+
+      if (allowWarp && maps.length) {
+        // Shared warp strength driven by whichever sheet is mid-unfold.
+        var strongest = 0;
+        sheets.forEach(function (el) {
+          var c = parseFloat(el.style.getPropertyValue('--crease')) || 0;
+          if (c > strongest) strongest = c;
+        });
+        var scale = (strongest / 0.85) * 26;
+        for (var m = 0; m < maps.length; m++) {
+          maps[m].setAttribute('scale', scale.toFixed(2));
+        }
+      }
+    }
+
+    if (reduceMotion) {
+      sheets.forEach(function (el) {
+        el.style.setProperty('--unfold-opacity', '1');
+        el.style.setProperty('--unfold-scale', '1');
+        el.style.setProperty('--crease', '0');
+        el.style.setProperty('--unfold-clip', 'none');
+        el.style.setProperty('--unfold-filter', 'none');
+      });
+    } else {
+      var sheetQueued = false;
+      var sheetDead = false;
+      function onSheetScroll() {
+        if (sheetQueued || sheetDead) return;
+        sheetQueued = true;
+        requestAnimationFrame(function () {
+          try { paintSheets(); }
+          catch (err) {
+            sheetDead = true;
+            console.warn('sheet unfold stopped, flattening:', err);
+            sheets.forEach(function (el) {
+              el.style.setProperty('--unfold-opacity', '1');
+              el.style.setProperty('--unfold-scale', '1');
+              el.style.setProperty('--unfold-rot', '0deg');
+              el.style.setProperty('--unfold-skew', '0deg');
+              el.style.setProperty('--crease', '0');
+              el.style.setProperty('--unfold-clip', 'none');
+              el.style.setProperty('--unfold-filter', 'none');
+            });
+          }
+          finally { sheetQueued = false; }
+        });
+      }
+      window.addEventListener('scroll', onSheetScroll, { passive: true });
+      window.addEventListener('resize', onSheetScroll);
+      paintSheets();
+    }
+  } catch (e) {
+    console.warn('sheets:', e);
+    document.querySelectorAll('.sheet').forEach(function (el) {
+      el.style.setProperty('--unfold-opacity', '1');
+      el.style.setProperty('--unfold-clip', 'none');
+      el.style.setProperty('--unfold-filter', 'none');
+      el.style.setProperty('--crease', '0');
+    });
+  }
+
+  /* ---------- Hero scroll sequence ---------- */
+  try {
+    var header = document.getElementById('site-header');
+    var stage = document.querySelector('.stage');
+    var fill = document.getElementById('readout-fill');
+    var readoutValue = document.getElementById('readout-value');
+    var chapters = document.querySelectorAll('.chapter');
+    var parts = document.querySelectorAll('.part, .part-tag');
+    var tags = document.querySelectorAll('.part-tag');
+    var leads = document.querySelectorAll('.lead-line');
+    var waveMain = document.getElementById('wave-main');
+    var waveEcho = document.getElementById('wave-echo');
+
+    function shiftOf(el) {
+      var n = parseFloat(el.getAttribute('data-shift'));
+      return isNaN(n) ? 0 : n;
+    }
+
+    function step(x, a, b) {
+      var t = Math.min(Math.max((x - a) / (b - a), 0), 1);
+      return t * t * (3 - 2 * t);
+    }
+
+    function chapterAlpha(i, p) {
+      if (i === 0) return 1 - step(p, 0.16, 0.30);
+      if (i === 1) return Math.min(step(p, 0.26, 0.38), 1 - step(p, 0.58, 0.70));
+      return step(p, 0.64, 0.78);
+    }
+
+    function paint() {
+      if (stage) {
+        var r = stage.getBoundingClientRect();
+        var span = r.height - window.innerHeight;
+        var p = span > 0 ? Math.min(Math.max(-r.top / span, 0), 1) : 1;
+
+        if (fill) fill.style.width = (p * 100) + '%';
+        if (readoutValue) readoutValue.textContent = ('00' + Math.round(p * 100)).slice(-3) + '%';
+
+        chapters.forEach(function (ch) {
+          var i = parseInt(ch.getAttribute('data-index'), 10);
+          var a = chapterAlpha(i, p);
+          ch.style.opacity = a;
+          ch.style.transform = 'translateY(' + (1 - a) * 16 + 'px)';
+          ch.style.pointerEvents = a > 0.6 ? 'auto' : 'none';
+        });
+
+        parts.forEach(function (el) {
+          el.style.transform = 'translateY(' + (shiftOf(el) * p) + 'px)';
+        });
+
+        var tagAlpha = step(p, 0.5, 0.82);
+        tags.forEach(function (el) { el.style.opacity = tagAlpha; });
+        leads.forEach(function (el) { el.style.opacity = tagAlpha * 0.9; });
+
+        if (header) header.classList.toggle('docked', p > 0.02 || window.scrollY > 40);
+      } else if (header) {
+        header.classList.toggle('docked', window.scrollY > 40);
+      }
+
+      if (waveMain) {
+        var wp = window.scrollY * 0.06;
+        waveMain.style.transform = 'translateX(' + (-wp % 400) + 'px)';
+        if (waveEcho) waveEcho.style.transform = 'translateX(' + (wp % 400) + 'px)';
+      }
+    }
+
+    if (reduceMotion) {
+      chapters.forEach(function (ch) {
+        var i = parseInt(ch.getAttribute('data-index'), 10);
+        ch.style.opacity = i === chapters.length - 1 ? 1 : 0;
+      });
+      parts.forEach(function (el) { el.style.transform = 'translateY(' + shiftOf(el) + 'px)'; });
+      tags.forEach(function (el) { el.style.opacity = 1; });
+      leads.forEach(function (el) { el.style.opacity = 0.9; });
+      if (fill) fill.style.width = '100%';
+      if (readoutValue) readoutValue.textContent = '100%';
+      if (header) header.classList.add('docked');
+    } else {
+      var queued = false;
+      var dead = false;
+      window.addEventListener('scroll', function () {
+        if (queued || dead) return;
+        queued = true;
+        requestAnimationFrame(function () {
+          try { paint(); }
+          catch (err) { dead = true; console.warn('hero paint stopped:', err); }
+          finally { queued = false; }
+        });
+      }, { passive: true });
+      window.addEventListener('resize', function () {
+        try { paint(); } catch (err) { console.warn('resize:', err); }
+      });
+      paint();
+    }
+  } catch (e) {
+    console.warn('hero:', e);
+    var chs = document.querySelectorAll('.chapter');
+    chs.forEach(function (ch, i) { ch.style.opacity = i === chs.length - 1 ? 1 : 0; });
+  }
+})();
+</script>
+
+</body>
+</html>
