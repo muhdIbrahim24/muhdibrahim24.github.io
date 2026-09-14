@@ -777,8 +777,8 @@
     var items = media.rail || [];
     aRailItems.textContent = '';
     aRailItems.style.removeProperty('--rail-duration');
-    /* No rail rather than an empty one: AIESEC has a single document and
-       nothing to put alongside it. */
+    /* No rail rather than an empty one: some records carry a single
+       document and nothing to put alongside it. */
     aRail.hidden = !items.length;
     if (asheetStage) asheetStage.classList.toggle('no-rail', !items.length);
     if (!items.length) return;
@@ -1074,8 +1074,16 @@
       }, 30000);
     });
 
+    /* Only the frame that comes up next is warmed. Warming every frame in
+       every stack pulled roughly 1.2 MB of photographs that most visitors
+       never see: the rotation only advances every 30s, and each tick already
+       hydrates the frame after the one it is switching to, so from the first
+       tick onwards the stack stays one image ahead on its own. */
     var warmFrames = function () {
-      bgStacks.forEach(function (stack) { $$('img', stack).forEach(hydrateFrame); });
+      bgStacks.forEach(function (stack) {
+        var imgs = $$('img', stack);
+        if (imgs.length > 1) hydrateFrame(imgs[1]);
+      });
     };
     var whenIdle = function () {
       if (window.requestIdleCallback) window.requestIdleCallback(warmFrames, { timeout: 4000 });

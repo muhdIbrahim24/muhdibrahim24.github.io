@@ -173,7 +173,6 @@ h1, h2, h3 { text-wrap: balance; font-family: var(--f-display); }
 .mono, .qty { font-variant-numeric: tabular-nums; }
 :focus { outline: none; }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
-.on-paper :focus-visible, .on-paper:focus-visible { outline-color: var(--focus-ink); }
 
 body::after {
   content: ""; position: fixed; inset: 0; z-index: 9998; pointer-events: none;
@@ -214,10 +213,6 @@ body::after {
 .qty { color: var(--amber); font-family: var(--f-mono); font-weight: 600; letter-spacing: .02em; white-space: nowrap; }
 .on-paper .qty { color: var(--amber-ink); }
 
-.chip {
-  display: inline-block; border: 1px solid var(--line-2); border-radius: var(--r-control);
-  padding: 4px 10px; font: 500 var(--fs-mono) var(--f-mono); color: var(--tx-2);
-}
 
 .section-head { display: grid; gap: var(--s2); padding-bottom: clamp(18px, 2.4vw, 34px); }
 .section-head h2 { font-size: var(--fs-3xl); font-weight: 660; letter-spacing: -.032em; line-height: .98; max-width: 16ch; }
@@ -240,13 +235,6 @@ body::after {
 .btn:hover::before, .btn:focus-visible::before { transform: scaleY(1); }
 .btn:hover::after, .btn:focus-visible::after { transform: translateX(6px); }
 
-.link-quiet {
-  display: inline-flex; align-items: center; gap: 6px;
-  font: 500 var(--fs-sm) var(--f-mono); color: var(--violet);
-  border-bottom: 1px solid currentColor; padding-bottom: 2px;
-  transition: color var(--t-2), border-color var(--t-2);
-}
-.link-quiet:hover, .link-quiet:focus-visible { color: var(--violet); border-color: var(--violet); }
 
 .pill {
   display: inline-flex; align-items: center; gap: 8px;
@@ -378,7 +366,16 @@ body::after {
      which costs memory and slows scrolling long after the animation is done.
      The reveal is one-shot (.is-in is added once, then unobserved), so this
      releases each layer as soon as its frame has played. */
-  .has-js [data-reveal] { will-change: opacity, transform, clip-path; }
+  /* will-change is armed by motion.js a few hundred pixels before a frame
+     scrolls in and cleared once it has played, so only the handful of frames
+     near the viewport ever hold a compositor layer. Applied to every
+     [data-reveal] instead, as it was, this pinned 43 layers for the life of
+     the page: memory spent on frames the visitor may never reach. */
+  .has-js [data-reveal].is-armed { will-change: opacity, transform, clip-path; }
+  /* Set by motion.js on frames that are already on screen at first paint:
+     they take their revealed state directly instead of transitioning into
+     it, so above-the-fold content is not held behind a fade. */
+  .has-js [data-reveal].reveal-now { transition: none !important; }
   .has-js [data-reveal="rise"] {
     opacity: 0; transform: translate3d(0, 26px, 0);
     transition: opacity var(--t-4) var(--e-out), transform var(--t-4) var(--e-out);
@@ -529,7 +526,7 @@ html.has-js:not(.is-booting) .hero-name .line-2 .line-in {
    column is too narrow to carry them. Equal columns so neither card reads
    as the lesser of the two. */
 .hero-actions {
-  margin-top: clamp(20px, 2.4vw, 30px);
+  margin-top: clamp(26px, 3vw, 38px);
   display: grid; gap: clamp(10px, 1.2vw, 16px);
   /* min() lets the track collapse below its floor on narrow screens. A bare
      minmax(190px,1fr) cannot shrink, so the pair forced a 390px min-content
@@ -550,7 +547,6 @@ html.has-js:not(.is-booting) .hero-name .line-2 .line-in {
   font: 700 var(--fs-mono) var(--f-mark); letter-spacing: .14em;
   text-transform: uppercase; color: var(--violet);
 }
-.hero-contact-lead { font-size: var(--fs-sm); line-height: 1.55; color: var(--tx-1); }
 .hero-contact:hover .card-cue::after, .hero-contact:focus-visible .card-cue::after { transform: translateX(5px); }
 
 .hero-body {
@@ -561,7 +557,6 @@ html.has-js:not(.is-booting) .hero-name .line-2 .line-in {
   font-family: var(--f-display); font-size: var(--fs-xl); font-weight: 500;
   line-height: 1.3; letter-spacing: -.015em; max-width: 24ch; color: var(--tx-1);
 }
-.hero-sub { margin-top: 13px; max-width: 56ch; color: var(--tx-2); font-size: var(--fs-base); line-height: 1.62; }
 
 .hero-aside { display: grid; gap: clamp(22px, 2.8vw, 34px); align-content: start; justify-items: stretch; }
 /* Anchors the right column rather than sitting in it. Sized up, lifted off
@@ -828,11 +823,6 @@ html.has-js:not(.is-booting) .hero-name .line-2 .line-in {
   opacity: 0; transform: translateY(8px); transition: opacity 320ms var(--e-out), transform 320ms var(--e-out);
 }
 .act-tile:hover .act-sum, .act-tile:focus-visible .act-sum { opacity: 1; transform: none; }
-.act-badge {
-  position: absolute; top: 14px; right: 14px; z-index: 2;
-  font: 600 var(--fs-mono) var(--f-mono); letter-spacing: .06em; color: var(--tx-ink);
-  background: var(--amber-pop); padding: 3px 8px;
-}
 .act-corner { position: absolute; z-index: 2; width: 18px; height: 18px; border-color: var(--amber-pop); opacity: 0; transform: scale(0); transition: transform 320ms var(--e-out), opacity 320ms var(--e-out); }
 .act-corner.tl { top: 12px; left: 12px; border-top: 2px solid; border-left: 2px solid; }
 .act-corner.tr { top: 12px; right: 12px; border-top: 2px solid; border-right: 2px solid; }
@@ -848,7 +838,6 @@ html.has-js:not(.is-booting) .hero-name .line-2 .line-in {
 .act-tile:nth-child(3) { grid-column: span 2; --ar: 4/5; }
 .act-tile:nth-child(4) { grid-column: span 2; --ar: 4/5; }
 .act-tile:nth-child(5) { grid-column: span 2; --ar: 4/5; }
-.act-tile:nth-child(6) { grid-column: span 6; --ar: 21/6; }
 
 @media (max-width: 1279px) {
   .act-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
@@ -947,7 +936,6 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
 .figures-arrow.is-next { right: clamp(4px, 1vw, 14px); }
 @media (max-width: 700px) { .figures-arrow { display: none; } }
 
-.figures-rail { display: none; }
 .figures-strip { display: flex; gap: 8px; overflow-x: auto; padding: 0 var(--s6) var(--s4); scrollbar-width: thin; }
 .figures-strip button {
   flex: none; width: 64px; height: 48px; border: 1px solid var(--line-ink-2); overflow: hidden; opacity: .45;
@@ -977,7 +965,10 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
 .sheet-close:hover, .sheet-close:focus-visible { background: var(--tx-1); border-color: var(--tx-1); color: #FFFFFF; }
 .sheet-close:hover::before, .sheet-close:focus-visible::before { transform: translateX(-4px); }
 
-.sheet-body { grid-area: body; overflow-y: auto; padding: 0 var(--s6) var(--s7); min-height: 0; min-width: 0; }
+/* Top padding matches the bar's own padding above the rule, so the kicker
+   sits the same distance below the dividing line as the "Project NN"
+   label sits above it. Zero here let the kicker crowd the rule. */
+.sheet-body { grid-area: body; overflow-y: auto; padding: var(--s5) var(--s6) var(--s7); min-height: 0; min-width: 0; }
 @media (max-width: 1023px) { .sheet-body { overflow-y: visible; } }
 .sheet-kicker { margin-bottom: 10px; }
 .sheet-body h2 { font-size: var(--fs-2xl); font-weight: 640; letter-spacing: -.018em; line-height: 1.05; }
@@ -1017,9 +1008,6 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
   content: ""; position: absolute; left: 0; top: .52em;
   width: 6px; height: 6px; background: var(--violet);
 }
-.sheet-block[data-label="Constraints"] .sheet-points li::before { background: var(--tx-3); }
-.sheet-block[data-label="Constraints"] h3 { color: var(--tx-3); }
-.sheet-block[data-label="Constraints"] { border-left: 2px solid var(--line-2); padding-left: 14px; }
 @media (min-width: 1280px) {
   .sheet-block { grid-template-columns: 130px minmax(0,1fr); gap: 16px; }
 }

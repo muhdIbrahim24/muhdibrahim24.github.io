@@ -23,10 +23,11 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
      document and queued every image ahead of them. -->
 <link rel="preload" href="js/content.js" as="script">
 <link rel="preload" href="js/app.js" as="script">
+<link rel="preload" href="js/motion.js" as="script">
 <!-- The portrait is the largest thing painted on first screen, so it is the
      element that decides perceived load time. Without this it is not fetched
      until the parser reaches the hero. -->
-<link rel="preload" href="assets/images/portrait/muhammad-ibrahim.jpg" as="image" fetchpriority="high">
+<link rel="preload" href="assets/images/thumbs/portrait/muhammad-ibrahim.jpg" as="image" fetchpriority="high">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -75,8 +76,6 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
       <div class="hero-statement">
         <p class="hero-lead" data-reveal="rise">Mechanical and civil engineering, from fluid dynamics and structural
           analysis through to built and tested hardware.</p>
-        <p class="hero-sub" data-reveal="rise">Simulation on HPC clusters, coordinated design packages, and prototypes
-          fabricated in the workshop.</p>
         <div class="hero-actions" data-stagger>
           <a class="hero-contact" href="#contact" data-reveal="rise" data-cursor="CONTACT">
             <span class="hero-contact-kicker">Contact</span>
@@ -91,7 +90,7 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
       </div>
       <aside class="hero-aside">
         <figure class="hero-portrait plate" data-fit="cover" data-duo style="--ar:4/5;--pos:50% 38%">
-          <img src="assets/images/portrait/muhammad-ibrahim.jpg" alt="Muhammad Ibrahim, studio portrait." width="1160" height="1450" decoding="async" fetchpriority="high">
+          <img src="assets/images/thumbs/portrait/muhammad-ibrahim.jpg" alt="Muhammad Ibrahim, studio portrait." width="684" height="855" decoding="async" fetchpriority="high">
         </figure>
         <dl class="hero-facts">
           <div data-reveal="rise"><dt>Discipline</dt><dd>Engineering</dd></div>
@@ -115,9 +114,9 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
     <li class="tr-item" data-reveal="rise">
       <button class="tr-card has-bg" type="button" data-open-record="education:nyuad" data-cursor="OPEN">
         <span class="tr-bg" aria-hidden="true" data-bg-rotate>
-          <img src="assets/images/education/nyuad/nyuad-01-commencement-2025.jpg" alt="" class="is-active" width="1012" height="1800" loading="lazy" decoding="async">
-          <img data-src="assets/images/education/nyuad/nyuad-02-falcons-field-sunset.jpg" alt="" width="1350" height="1800" loading="lazy" decoding="async">
-          <img data-src="assets/images/education/nyuad/nyuad-03-courtyard-night-event.jpg" alt="" width="1800" height="1350" loading="lazy" decoding="async">
+          <img src="assets/images/thumbs/education/nyuad/nyuad-01-commencement-2025.jpg" alt="" class="is-active" width="1012" height="1800" loading="lazy" decoding="async">
+          <img data-src="assets/images/thumbs/education/nyuad/nyuad-02-falcons-field-sunset.jpg" alt="" width="1094" height="1459" loading="lazy" decoding="async">
+          <img data-src="assets/images/thumbs/education/nyuad/nyuad-03-courtyard-night-event.jpg" alt="" width="1094" height="820" loading="lazy" decoding="async">
         </span>
         <span class="tr-scrim" aria-hidden="true"></span>
         <span class="tr-place">New York University Abu Dhabi</span>
@@ -129,9 +128,9 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
     <li class="tr-item" data-reveal="rise">
       <button class="tr-card has-bg" type="button" data-open-record="education:nyu-paris" data-cursor="OPEN">
         <span class="tr-bg" aria-hidden="true" data-bg-rotate>
-          <img src="assets/images/education/nyu-paris/paris-01-IMG_7494.jpg" alt="" class="is-active" width="1350" height="1800" loading="lazy" decoding="async">
-          <img data-src="assets/images/education/nyu-paris/paris-02-IMG_7536.jpg" alt="" width="1350" height="1800" loading="lazy" decoding="async">
-          <img data-src="assets/images/education/nyu-paris/paris-06-IMG_7649.jpg" alt="" width="1800" height="1350" loading="lazy" decoding="async">
+          <img src="assets/images/thumbs/education/nyu-paris/paris-01-IMG_7494.jpg" alt="" class="is-active" width="1094" height="1459" loading="lazy" decoding="async">
+          <img data-src="assets/images/thumbs/education/nyu-paris/paris-02-IMG_7536.jpg" alt="" width="1094" height="1459" loading="lazy" decoding="async">
+          <img data-src="assets/images/thumbs/education/nyu-paris/paris-06-IMG_7649.jpg" alt="" width="1094" height="820" loading="lazy" decoding="async">
         </span>
         <span class="tr-scrim" aria-hidden="true"></span>
         <span class="tr-place">New York University Paris</span>
@@ -143,9 +142,9 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
     <li class="tr-item" data-reveal="rise">
       <button class="tr-card has-bg" type="button" data-open-record="education:nyu-valletta" data-cursor="OPEN">
         <span class="tr-bg" aria-hidden="true" data-bg-rotate>
-          <img src="assets/images/education/nyu-valletta/valletta-06-IMG_3866.jpg" alt="" class="is-active" width="1350" height="1800" loading="lazy" decoding="async">
-          <img data-src="assets/images/education/nyu-valletta/valletta-05-IMG_3837.jpg" alt="" width="1350" height="1800" loading="lazy" decoding="async">
-          <img data-src="assets/images/education/nyu-valletta/valletta-14-IMG_4057.jpg" alt="" width="1350" height="1800" loading="lazy" decoding="async">
+          <img src="assets/images/thumbs/education/nyu-valletta/valletta-06-IMG_3866.jpg" alt="" class="is-active" width="1094" height="1459" loading="lazy" decoding="async">
+          <img data-src="assets/images/thumbs/education/nyu-valletta/valletta-05-IMG_3837.jpg" alt="" width="1094" height="1459" loading="lazy" decoding="async">
+          <img data-src="assets/images/thumbs/education/nyu-valletta/valletta-14-IMG_4057.jpg" alt="" width="1094" height="1459" loading="lazy" decoding="async">
         </span>
         <span class="tr-scrim" aria-hidden="true"></span>
         <span class="tr-place">NYU June Term, Valletta, Malta</span>
@@ -168,13 +167,13 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
     <div class="bench-stage" aria-hidden="true">
       <div class="bench-frame">
         <figure class="plate bench-plate is-live" data-plate="01" data-fit="contain" style="--ar:1491/828">
-          <img src="assets/images/projects/mubadala/u-tube-tank-schematic.png" alt="Schematic cross-section of a U-tube anti-roll tank, with port and starboard reservoirs joined by a lower duct." width="1491" height="828" loading="eager" fetchpriority="high" decoding="async">
+          <img src="assets/images/thumbs/projects/mubadala/u-tube-tank-schematic.png" alt="Schematic cross-section of a U-tube anti-roll tank, with port and starboard reservoirs joined by a lower duct." width="1372" height="762" loading="eager" fetchpriority="low" decoding="async">
         </figure>
         <figure class="plate bench-plate" data-plate="02" data-fit="cover" data-duo style="--ar:3/4;--pos:50% 46%">
-          <img src="assets/images/projects/savonius/prototype-final-test-rig.jpg" alt="Photograph of the finished 1:3 scale Savonius turbine mounted on a test stand with its generator and electronics enclosure below the rotor." width="1350" height="1800" loading="lazy" decoding="async">
+          <img src="assets/images/thumbs/projects/savonius/prototype-final-test-rig.jpg" alt="Photograph of the finished 1:3 scale Savonius turbine mounted on a test stand with its generator and electronics enclosure below the rotor." width="1350" height="1800" loading="lazy" decoding="async">
         </figure>
         <figure class="plate bench-plate" data-plate="03" data-fit="cover" data-duo style="--ar:4/3;--pos:50% 52%">
-          <img src="assets/images/projects/civil/exterior-corner-dusk-render.jpg" alt="Dusk exterior render of the building's street-facing corner, with a sweeping timber-slat canopy wrapping the upper balconies above a perforated brick-lattice podium, EV charging bays and cycle parking on the street below." width="1800" height="1208" loading="lazy" decoding="async">
+          <img src="assets/images/thumbs/projects/civil/exterior-corner-dusk-render.jpg" alt="Dusk exterior render of the building's street-facing corner, with a sweeping timber-slat canopy wrapping the upper balconies above a perforated brick-lattice podium, EV charging bays and cycle parking on the street below." width="1406" height="944" loading="lazy" decoding="async">
         </figure>
         <figure class="plate bench-plate" data-plate="04" data-fit="cover" data-duo style="--ar:4/5;--pos:50% 40%">
           <img src="assets/images/projects/uav-drone/uav-airframe-complete-display.jpg" alt="White 3D-printed fixed-wing UAV fuselage with dual black engine mounts, viewed horizontally on a test stand in a lab setting." width="960" height="1280" loading="lazy" decoding="async">
@@ -183,7 +182,7 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
           <img src="assets/images/projects/tec/circuit-implementation.jpg" alt="Photograph of the assembled control circuit on a breadboard, with an Arduino, two MOSFET driver modules and a wiring harness." width="1600" height="1200" loading="lazy" decoding="async">
         </figure>
         <figure class="plate bench-plate" data-plate="06" data-fit="contain" style="--ar:874/420">
-          <img src="assets/images/projects/swro/pretreatment-flow-diagram.png" alt="Process flow diagram with blocks and arrows. A box labelled Arabian Gulf connects to coarse and fine screens. Red ovals show chemical injection points for sodium hypochlorite, ferric chloride, polymer and sodium bisulphite. Blue process boxes run rapid mix, flocculation, DAF, dual-media filter, ultrafiltration, dechlorination and cartridge filtration in sequence, with dashed brown recycle and backwash arrows, ending at a box labelled To RO membranes." width="874" height="420" loading="lazy" decoding="async">
+          <img src="assets/images/thumbs/projects/swro/pretreatment-flow-diagram.png" alt="Process flow diagram with blocks and arrows. A box labelled Arabian Gulf connects to coarse and fine screens. Red ovals show chemical injection points for sodium hypochlorite, ferric chloride, polymer and sodium bisulphite. Blue process boxes run rapid mix, flocculation, DAF, dual-media filter, ultrafiltration, dechlorination and cartridge filtration in sequence, with dashed brown recycle and backwash arrows, ending at a box labelled To RO membranes." width="874" height="420" loading="lazy" decoding="async">
         </figure>
       </div>
       <p class="bench-stage-meta mono"><span id="benchPos">01 / 06</span></p>
@@ -195,7 +194,7 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
         <h3 class="bench-title">Advanced Anti-Roll Tank System</h3>
         <p class="bench-lead">A hydraulically controlled anti-roll tank for large vessels: port and starboard reservoirs whose water shifts out of phase with the ship&rsquo;s roll, evaluated as a passive U-tube tank and then with an actively actuated loop.</p>
         <p class="bench-headline">The passive tank cut roll amplitude by <span class="qty">85%</span>; closing the loop with a hydraulic actuator took the reduction past <span class="qty">98%</span>.</p>
-        <div class="bench-media"><div class="plate" data-fit="cover" data-duo style="--ar:4/3;--pos:50% 50%"><img src="assets/images/projects/mubadala/u-tube-tank-schematic.png" alt="Schematic cross-section of a U-tube anti-roll tank, with port and starboard reservoirs joined by a lower duct." width="1491" height="828" loading="lazy" decoding="async"></div></div>
+        <div class="bench-media"><div class="plate" data-fit="cover" data-duo style="--ar:4/3;--pos:50% 50%"><img src="assets/images/thumbs/projects/mubadala/u-tube-tank-schematic.png" alt="Schematic cross-section of a U-tube anti-roll tank, with port and starboard reservoirs joined by a lower duct." width="1372" height="762" loading="lazy" decoding="async"></div></div>
         <div class="bench-actions">
           <button class="btn magnetic" type="button" data-open-record="project:01" data-cursor="VIEW">Case notes</button>
         </div>
@@ -206,7 +205,7 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
         <h3 class="bench-title">Savonius Turbine</h3>
         <p class="bench-lead">A vertical-axis turbine designed to harvest the vortices thrown off traffic moving in opposite directions either side of a central reservation. Optimised in ANSYS Fluent, then built and measured at 1:3 scale.</p>
         <p class="bench-headline">Serrations raised peak CFD moment by <span class="qty">71.65%</span> and power by <span class="qty">56.33%</span>; the <span class="qty">1:3</span> prototype peaked at <span class="qty">5–7 V</span> on the bench.</p>
-        <div class="bench-media"><div class="plate" data-fit="cover" data-duo style="--ar:3/4;--pos:50% 46%"><img src="assets/images/projects/savonius/prototype-final-test-rig.jpg" alt="Photograph of the finished 1:3 scale Savonius turbine mounted on a test stand with its generator and electronics enclosure below the rotor." width="1350" height="1800" loading="lazy" decoding="async"></div></div>
+        <div class="bench-media"><div class="plate" data-fit="cover" data-duo style="--ar:3/4;--pos:50% 46%"><img src="assets/images/thumbs/projects/savonius/prototype-final-test-rig.jpg" alt="Photograph of the finished 1:3 scale Savonius turbine mounted on a test stand with its generator and electronics enclosure below the rotor." width="1350" height="1800" loading="lazy" decoding="async"></div></div>
         <div class="bench-actions">
           <button class="btn magnetic" type="button" data-open-record="project:02" data-cursor="VIEW">Case notes</button>
         </div>
@@ -217,7 +216,7 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
         <h3 class="bench-title">5th Corner Residential Building</h3>
         <p class="bench-lead">A four-storey residential building model and coordinated drawing package for a hot-arid Abu Dhabi context: architecture, structure, façade and schedules held in one Revit model.</p>
         <p class="bench-headline">Column schedules and take-off automated from over <span class="qty">30 minutes</span> to under <span class="qty">one minute</span> across all <span class="qty">84 columns</span>.</p>
-        <div class="bench-media"><div class="plate" data-fit="cover" data-duo style="--ar:4/3;--pos:50% 52%"><img src="assets/images/projects/civil/exterior-corner-dusk-render.jpg" alt="Dusk exterior render of the building's street-facing corner, with a sweeping timber-slat canopy wrapping the upper balconies above a perforated brick-lattice podium, EV charging bays and cycle parking on the street below." width="1800" height="1208" loading="lazy" decoding="async"></div></div>
+        <div class="bench-media"><div class="plate" data-fit="cover" data-duo style="--ar:4/3;--pos:50% 52%"><img src="assets/images/thumbs/projects/civil/exterior-corner-dusk-render.jpg" alt="Dusk exterior render of the building's street-facing corner, with a sweeping timber-slat canopy wrapping the upper balconies above a perforated brick-lattice podium, EV charging bays and cycle parking on the street below." width="1406" height="944" loading="lazy" decoding="async"></div></div>
         <div class="bench-actions">
           <button class="btn magnetic" type="button" data-open-record="project:03" data-cursor="VIEW">Case notes</button>
         </div>
@@ -250,7 +249,7 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
         <h3 class="bench-title">SWRO Pretreatment Design, Arabian Gulf</h3>
         <p class="bench-lead">A conceptual pretreatment train for a 24,000 m³/day seawater reverse osmosis plant on the Sharjah coast, carried through a 30-year techno-economic lifecycle simulation with equipment-reliability and carbon-footprint modelling.</p>
         <p class="bench-headline">A <span class="qty">30-year</span> lifecycle simulation projects a cumulative pretreatment cost near <span class="qty">450 million USD</span>, discounted at <span class="qty">6%</span>, at a <span class="qty">0.52–0.78 USD/m³</span> unit cost.</p>
-        <div class="bench-media"><div class="plate" data-fit="contain" style="--ar:874/420"><img src="assets/images/projects/swro/pretreatment-flow-diagram.png" alt="Process flow diagram with blocks and arrows. A box labelled Arabian Gulf connects to coarse and fine screens. Red ovals show chemical injection points for sodium hypochlorite, ferric chloride, polymer and sodium bisulphite. Blue process boxes run rapid mix, flocculation, DAF, dual-media filter, ultrafiltration, dechlorination and cartridge filtration in sequence, with dashed brown recycle and backwash arrows, ending at a box labelled To RO membranes." width="874" height="420" loading="lazy" decoding="async"></div></div>
+        <div class="bench-media"><div class="plate" data-fit="contain" style="--ar:874/420"><img src="assets/images/thumbs/projects/swro/pretreatment-flow-diagram.png" alt="Process flow diagram with blocks and arrows. A box labelled Arabian Gulf connects to coarse and fine screens. Red ovals show chemical injection points for sodium hypochlorite, ferric chloride, polymer and sodium bisulphite. Blue process boxes run rapid mix, flocculation, DAF, dual-media filter, ultrafiltration, dechlorination and cartridge filtration in sequence, with dashed brown recycle and backwash arrows, ending at a box labelled To RO membranes." width="874" height="420" loading="lazy" decoding="async"></div></div>
         <div class="bench-actions">
           <button class="btn magnetic" type="button" data-open-record="project:11" data-cursor="VIEW">Case notes</button>
         </div>
@@ -278,122 +277,122 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
       </li>
       <li class="cat-row" data-reveal="rise">
         <button class="cat-link magnetic" type="button" data-open-record="project:13" data-cursor="OPEN"
-          data-preview="assets/images/projects/cable-management/linkconnect-assembled-system.png" data-preview-w="1020" data-preview-h="1009" data-preview-fit="contain">
+          data-preview="assets/images/thumbs/projects/cable-management/linkconnect-assembled-system.png" data-preview-w="636" data-preview-h="629" data-preview-fit="contain">
           <span class="cat-num mono">P02</span>
           <span class="cat-title">LinkConnect Cable Management</span>
           <span class="cat-field mono">Mechanical design</span>
           <span class="cat-year mono">2026</span>
-          <span class="cat-thumb plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/projects/cable-management/linkconnect-assembled-system.png" alt="Isometric view of the assembled LinkConnect cable-management system with multiple tiles, white mounting rails and three-hole clips." width="1020" height="1009" loading="lazy" decoding="async"></span>
+          <span class="cat-thumb plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/thumbs/projects/cable-management/linkconnect-assembled-system.png" alt="Isometric view of the assembled LinkConnect cable-management system with multiple tiles, white mounting rails and three-hole clips." width="636" height="629" loading="lazy" decoding="async"></span>
         </button>
       </li>
       <li class="cat-row" data-reveal="rise">
         <button class="cat-link magnetic" type="button" data-open-record="project:11" data-cursor="OPEN"
-          data-preview="assets/images/projects/swro/pretreatment-flow-diagram.png" data-preview-w="874" data-preview-h="420" data-preview-fit="contain">
+          data-preview="assets/images/thumbs/projects/swro/pretreatment-flow-diagram.png" data-preview-w="874" data-preview-h="420" data-preview-fit="contain">
           <span class="cat-num mono">P03</span>
           <span class="cat-title">SWRO Pretreatment Design</span>
           <span class="cat-field mono">Water systems</span>
           <span class="cat-year mono">2026</span>
-          <span class="cat-thumb plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/projects/swro/pretreatment-flow-diagram.png" alt="Process flow diagram with blocks and arrows showing the nine-stage seawater pretreatment train from Arabian Gulf intake to the RO membranes." width="874" height="420" loading="lazy" decoding="async"></span>
+          <span class="cat-thumb plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/thumbs/projects/swro/pretreatment-flow-diagram.png" alt="Process flow diagram with blocks and arrows showing the nine-stage seawater pretreatment train from Arabian Gulf intake to the RO membranes." width="874" height="420" loading="lazy" decoding="async"></span>
         </button>
       </li>
       <li class="cat-row" data-reveal="rise">
         <button class="cat-link magnetic" type="button" data-open-record="project:06" data-cursor="OPEN"
-          data-preview="assets/images/projects/pde/best-transmitter-position.png" data-preview-w="687" data-preview-h="509" data-preview-fit="contain">
+          data-preview="assets/images/thumbs/projects/pde/best-transmitter-position.jpg" data-preview-w="687" data-preview-h="509" data-preview-fit="contain">
           <span class="cat-num mono">P04</span>
           <span class="cat-title">Indoor Wireless Link Design</span>
           <span class="cat-field mono">Numerical PDEs</span>
           <span class="cat-year mono">2025</span>
-          <span class="cat-thumb plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/projects/pde/best-transmitter-position.png" alt="Normalised field map for the selected central transmitter position under partially absorbing boundaries." width="687" height="509" loading="lazy" decoding="async"></span>
+          <span class="cat-thumb plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/thumbs/projects/pde/best-transmitter-position.jpg" alt="Normalised field map for the selected central transmitter position under partially absorbing boundaries." width="687" height="509" loading="lazy" decoding="async"></span>
         </button>
       </li>
       <li class="cat-row" data-reveal="rise">
         <button class="cat-link magnetic" type="button" data-open-record="project:09" data-cursor="OPEN"
-          data-preview="assets/images/projects/pca/pca-scores-plot.png" data-preview-w="1679" data-preview-h="1011" data-preview-fit="contain">
+          data-preview="assets/images/thumbs/projects/pca/pca-scores-plot.png" data-preview-w="636" data-preview-h="383" data-preview-fit="contain">
           <span class="cat-num mono">P05</span>
           <span class="cat-title">PCA Study of Bike Rentals</span>
           <span class="cat-field mono">Data analysis</span>
           <span class="cat-year mono">2025</span>
-          <span class="cat-thumb plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/projects/pca/pca-scores-plot.png" alt="Scatter plot of principal-component scores for 731 days, stretched out along the first component axis." width="1679" height="1011" loading="lazy" decoding="async"></span>
+          <span class="cat-thumb plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/thumbs/projects/pca/pca-scores-plot.png" alt="Scatter plot of principal-component scores for 731 days, stretched out along the first component axis." width="636" height="383" loading="lazy" decoding="async"></span>
         </button>
       </li>
       <li class="cat-row" data-reveal="rise">
         <button class="cat-link magnetic" type="button" data-open-record="project:03" data-cursor="OPEN"
-          data-preview="assets/images/projects/civil/exterior-elevation-final.jpg" data-preview-w="1425" data-preview-h="1500" data-preview-fit="cover">
+          data-preview="assets/images/thumbs/projects/civil/exterior-elevation-final.jpg" data-preview-w="636" data-preview-h="669" data-preview-fit="cover">
           <span class="cat-num mono">P06</span>
           <span class="cat-title">5th Corner Residential Building</span>
           <span class="cat-field mono">Civil design</span>
           <span class="cat-year mono">2025</span>
-          <span class="cat-thumb plate" data-fit="cover" style="--ar:4/3;--pos:50% 46%"><img src="assets/images/projects/civil/exterior-elevation-final.jpg" alt="Exterior render of the finished residential building: light masonry façade, regular windows, balconies with metal railings and a flat parapet roof." width="1425" height="1500" loading="lazy" decoding="async"></span>
+          <span class="cat-thumb plate" data-fit="cover" style="--ar:4/3;--pos:50% 46%"><img src="assets/images/thumbs/projects/civil/exterior-elevation-final.jpg" alt="Exterior render of the finished residential building: light masonry façade, regular windows, balconies with metal railings and a flat parapet roof." width="636" height="669" loading="lazy" decoding="async"></span>
         </button>
       </li>
       <li class="cat-row" data-reveal="rise">
         <button class="cat-link magnetic" type="button" data-open-record="project:05" data-cursor="OPEN"
-          data-preview="assets/images/projects/tec/final-assembly.png" data-preview-w="405" data-preview-h="442" data-preview-fit="cover">
+          data-preview="assets/images/thumbs/projects/tec/final-assembly.jpg" data-preview-w="405" data-preview-h="442" data-preview-fit="cover">
           <span class="cat-num mono">P07</span>
           <span class="cat-title">TEC Refrigerator</span>
           <span class="cat-field mono">Thermal systems</span>
           <span class="cat-year mono">2025</span>
-          <span class="cat-thumb plate" data-fit="cover" style="--ar:4/3;--pos:52% 42%"><img src="assets/images/projects/tec/final-assembly.png" alt="The finished compressor-less refrigerator standing on its legs, with twin fan and heatsink stacks on top." width="405" height="442" loading="lazy" decoding="async"></span>
+          <span class="cat-thumb plate" data-fit="cover" style="--ar:4/3;--pos:52% 42%"><img src="assets/images/thumbs/projects/tec/final-assembly.jpg" alt="The finished compressor-less refrigerator standing on its legs, with twin fan and heatsink stacks on top." width="405" height="442" loading="lazy" decoding="async"></span>
         </button>
       </li>
       <li class="cat-row" data-reveal="rise">
         <button class="cat-link magnetic" type="button" data-open-record="project:12" data-cursor="OPEN"
-          data-preview="assets/images/projects/golf-putter/cover-putter-head-render.png" data-preview-w="1800" data-preview-h="1583" data-preview-fit="cover">
+          data-preview="assets/images/thumbs/projects/golf-putter/cover-putter-head-render.jpg" data-preview-w="636" data-preview-h="559" data-preview-fit="cover">
           <span class="cat-num mono">P08</span>
           <span class="cat-title">Modular Golf Putter</span>
           <span class="cat-field mono">Product design</span>
           <span class="cat-year mono">2025</span>
-          <span class="cat-thumb plate" data-fit="cover" style="--ar:4/3;--pos:50% 40%"><img src="assets/images/projects/golf-putter/cover-putter-head-render.png" alt="Shaded isometric CAD render of the putter head, shown in profile against a plain white background." width="1800" height="1583" loading="lazy" decoding="async"></span>
+          <span class="cat-thumb plate" data-fit="cover" style="--ar:4/3;--pos:50% 40%"><img src="assets/images/thumbs/projects/golf-putter/cover-putter-head-render.jpg" alt="Shaded isometric CAD render of the putter head, shown in profile against a plain white background." width="636" height="559" loading="lazy" decoding="async"></span>
         </button>
       </li>
       <li class="cat-row" data-reveal="rise">
         <button class="cat-link magnetic" type="button" data-open-record="project:01" data-cursor="OPEN"
-          data-preview="assets/images/projects/mubadala/u-tube-tank-schematic.png" data-preview-w="1491" data-preview-h="828" data-preview-fit="contain">
+          data-preview="assets/images/thumbs/projects/mubadala/u-tube-tank-schematic.png" data-preview-w="1372" data-preview-h="762" data-preview-fit="contain">
           <span class="cat-num mono">P09</span>
           <span class="cat-title">Advanced Anti-Roll Tank System</span>
           <span class="cat-field mono">Marine simulation</span>
           <span class="cat-year mono">2024–25</span>
-          <span class="cat-thumb plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/projects/mubadala/u-tube-tank-schematic.png" alt="Schematic cross-section of a U-tube anti-roll tank, with port and starboard reservoirs joined by a lower duct." width="1491" height="828" loading="lazy" decoding="async"></span>
+          <span class="cat-thumb plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/thumbs/projects/mubadala/u-tube-tank-schematic.png" alt="Schematic cross-section of a U-tube anti-roll tank, with port and starboard reservoirs joined by a lower duct." width="1372" height="762" loading="lazy" decoding="async"></span>
         </button>
       </li>
       <li class="cat-row" data-reveal="rise">
         <button class="cat-link magnetic" type="button" data-open-record="project:07" data-cursor="OPEN"
-          data-preview="assets/images/placeholders/p07-racing-engine.jpg" data-preview-w="1920" data-preview-h="1440" data-preview-fit="cover">
+          data-preview="assets/images/thumbs/placeholders/p07-racing-engine.jpg" data-preview-w="636" data-preview-h="477" data-preview-fit="cover">
           <span class="cat-num mono">P10</span>
           <span class="cat-title">Formula Student SAE Drivetrain</span>
           <span class="cat-field mono">SolidWorks FEA</span>
           <span class="cat-year mono">2024–25</span>
-          <span class="cat-thumb plate" data-fit="cover" style="--ar:4/3;--pos:50% 50%"><img src="assets/images/placeholders/p07-racing-engine.jpg" alt="Stock photograph of a racing engine." width="1920" height="1440" loading="lazy" decoding="async"></span>
+          <span class="cat-thumb plate" data-fit="cover" style="--ar:4/3;--pos:50% 50%"><img src="assets/images/thumbs/placeholders/p07-racing-engine.jpg" alt="Stock photograph of a racing engine." width="636" height="477" loading="lazy" decoding="async"></span>
         </button>
       </li>
       <li class="cat-row" data-reveal="rise">
         <button class="cat-link magnetic" type="button" data-open-record="project:02" data-cursor="OPEN"
-          data-preview="assets/images/projects/savonius/prototype-third-iteration.jpg" data-preview-w="1350" data-preview-h="1800" data-preview-fit="cover">
+          data-preview="assets/images/thumbs/projects/savonius/prototype-third-iteration.jpg" data-preview-w="636" data-preview-h="848" data-preview-fit="cover">
           <span class="cat-num mono">P11</span>
           <span class="cat-title">Savonius Turbine</span>
           <span class="cat-field mono">Energy systems</span>
           <span class="cat-year mono">2024–25</span>
-          <span class="cat-thumb plate" data-fit="cover" style="--ar:4/3;--pos:50% 55%"><img src="assets/images/projects/savonius/prototype-third-iteration.jpg" alt="A dark blue 3D-printed Savonius rotor prototype mounted on a white support post on the workshop bench, with a second prototype visible behind it." width="1350" height="1800" loading="lazy" decoding="async"></span>
+          <span class="cat-thumb plate" data-fit="cover" style="--ar:4/3;--pos:50% 55%"><img src="assets/images/thumbs/projects/savonius/prototype-third-iteration.jpg" alt="A dark blue 3D-printed Savonius rotor prototype mounted on a white support post on the workshop bench, with a second prototype visible behind it." width="636" height="848" loading="lazy" decoding="async"></span>
         </button>
       </li>
       <li class="cat-row" data-reveal="rise">
         <button class="cat-link magnetic" type="button" data-open-record="project:08" data-cursor="OPEN"
-          data-preview="assets/images/projects/wheelchair/backrest-stress-and-displacement-results.png" data-preview-w="1053" data-preview-h="885" data-preview-fit="contain">
+          data-preview="assets/images/thumbs/projects/wheelchair/backrest-stress-and-displacement-results.png" data-preview-w="636" data-preview-h="535" data-preview-fit="contain">
           <span class="cat-num mono">P12</span>
           <span class="cat-title">Advanced Motorised Wheelchair</span>
           <span class="cat-field mono">Mobility</span>
           <span class="cat-year mono">2023</span>
-          <span class="cat-thumb plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/projects/wheelchair/backrest-stress-and-displacement-results.png" alt="Wireframe and colour-mapped finite-element model showing stress concentration at the base connection points, with a stress legend and supporting data tables." width="1053" height="885" loading="lazy" decoding="async"></span>
+          <span class="cat-thumb plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/thumbs/projects/wheelchair/backrest-stress-and-displacement-results.png" alt="Wireframe and colour-mapped finite-element model showing stress concentration at the base connection points, with a stress legend and supporting data tables." width="636" height="535" loading="lazy" decoding="async"></span>
         </button>
       </li>
       <li class="cat-row" data-reveal="rise">
         <button class="cat-link magnetic" type="button" data-open-record="project:10" data-cursor="OPEN"
-          data-preview="assets/images/projects/quantum/ibm-quantum-composer-interface.png" data-preview-w="1100" data-preview-h="619" data-preview-fit="contain">
+          data-preview="assets/images/thumbs/projects/quantum/ibm-quantum-composer-interface.png" data-preview-w="636" data-preview-h="358" data-preview-fit="contain">
           <span class="cat-num mono">P13</span>
           <span class="cat-title">Hyundai NGV Quantum Analysis</span>
           <span class="cat-field mono">Advanced computation</span>
           <span class="cat-year mono">2022</span>
-          <span class="cat-thumb plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/projects/quantum/ibm-quantum-composer-interface.png" alt="Screenshot of the IBM Quantum Composer software with coloured operation blocks on the left, a circuit-drawing area in the centre, a code window on the right, and probability and Bloch-sphere visualisations at the bottom." width="1100" height="619" loading="lazy" decoding="async"></span>
+          <span class="cat-thumb plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/thumbs/projects/quantum/ibm-quantum-composer-interface.png" alt="Screenshot of the IBM Quantum Composer software with coloured operation blocks on the left, a circuit-drawing area in the centre, a code window on the right, and probability and Bloch-sphere visualisations at the bottom." width="636" height="358" loading="lazy" decoding="async"></span>
         </button>
       </li>
     </ol>
@@ -480,7 +479,7 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
     </header>
     <div class="act-grid" data-stagger>
       <button class="act-tile magnetic" type="button" data-reveal="rise" data-open-record="activity:jiujitsu" data-cursor="VIEW">
-        <div class="plate" data-fit="cover" data-duo style="--pos:50% 46%"><img src="assets/images/activities/jiujitsu/jiujitsu-01-E0086526-05B7-4190-ABFE-BFB72100A482.jpg" alt="The NYU Abu Dhabi varsity jiu-jitsu squad grouped on the mat in gis after a training session." width="828" height="620" loading="lazy" decoding="async"></div>
+        <div class="plate" data-fit="cover" data-duo style="--pos:50% 46%"><img src="assets/images/thumbs/activities/jiujitsu/jiujitsu-01-E0086526-05B7-4190-ABFE-BFB72100A482.jpg" alt="The NYU Abu Dhabi varsity jiu-jitsu squad grouped on the mat in gis after a training session." width="828" height="620" loading="lazy" decoding="async"></div>
         <span class="act-corner tl" aria-hidden="true"></span><span class="act-corner tr" aria-hidden="true"></span><span class="act-corner bl" aria-hidden="true"></span><span class="act-corner br" aria-hidden="true"></span>
         <span class="act-copy">
           <span class="act-title">Varsity Jiu-Jitsu</span>
@@ -490,7 +489,7 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
         </span>
       </button>
       <button class="act-tile magnetic" type="button" data-reveal="rise" data-open-record="activity:cricket" data-cursor="VIEW">
-        <div class="plate" data-fit="cover" data-duo style="--pos:50% 50%"><img src="assets/images/activities/cricket/cricket-18-IMG_8872.jpg" alt="The NYU Abu Dhabi cricket team photographed together on the outfield after an evening match under floodlights." width="1800" height="1200" loading="lazy" decoding="async"></div>
+        <div class="plate" data-fit="cover" data-duo style="--pos:50% 50%"><img src="assets/images/thumbs/activities/cricket/cricket-18-IMG_8872.jpg" alt="The NYU Abu Dhabi cricket team photographed together on the outfield after an evening match under floodlights." width="1038" height="692" loading="lazy" decoding="async"></div>
         <span class="act-corner tl" aria-hidden="true"></span><span class="act-corner tr" aria-hidden="true"></span><span class="act-corner bl" aria-hidden="true"></span><span class="act-corner br" aria-hidden="true"></span>
         <span class="act-copy">
           <span class="act-title">Cricket Team Media</span>
@@ -500,7 +499,7 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
         </span>
       </button>
       <button class="act-tile magnetic" type="button" data-reveal="rise" data-open-record="activity:habitat" data-cursor="VIEW">
-        <div class="plate" data-fit="cover" data-duo style="--pos:50% 52%"><img src="assets/images/activities/nepal/nepal-04-IMG_0658.jpg" alt="Excavated strip foundations on the Nepal build site, with reinforcement bars standing in the poured footings." width="1013" height="1800" loading="lazy" decoding="async"></div>
+        <div class="plate" data-fit="cover" data-duo style="--pos:50% 52%"><img src="assets/images/thumbs/activities/nepal/nepal-04-IMG_0658.jpg" alt="Excavated strip foundations on the Nepal build site, with reinforcement bars standing in the poured footings." width="682" height="1212" loading="lazy" decoding="async"></div>
         <span class="act-corner tl" aria-hidden="true"></span><span class="act-corner tr" aria-hidden="true"></span><span class="act-corner bl" aria-hidden="true"></span><span class="act-corner br" aria-hidden="true"></span>
         <span class="act-copy">
           <span class="act-title">Habitat for Humanity Nepal</span>
@@ -510,7 +509,7 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
         </span>
       </button>
       <button class="act-tile magnetic" type="button" data-reveal="rise" data-open-record="activity:sport" data-cursor="VIEW">
-        <div class="plate" data-fit="cover" data-duo style="--pos:50% 62%"><img src="assets/images/activities/sport/sport-10-IMG_2911.jpg" alt="A golf fairway running down to still water, with the Dubai skyline rising beyond it." width="1013" height="1800" loading="lazy" decoding="async"></div>
+        <div class="plate" data-fit="cover" data-duo style="--pos:50% 62%"><img src="assets/images/thumbs/activities/sport/sport-10-IMG_2911.jpg" alt="A golf fairway running down to still water, with the Dubai skyline rising beyond it." width="682" height="1212" loading="lazy" decoding="async"></div>
         <span class="act-corner tl" aria-hidden="true"></span><span class="act-corner tr" aria-hidden="true"></span><span class="act-corner bl" aria-hidden="true"></span><span class="act-corner br" aria-hidden="true"></span>
         <span class="act-copy">
           <span class="act-title">Recreational Sport</span>
@@ -520,23 +519,13 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
         </span>
       </button>
       <button class="act-tile magnetic" type="button" data-reveal="rise" data-open-record="activity:marshal" data-cursor="VIEW">
-        <div class="plate" data-fit="cover" data-duo style="--pos:50% 54%"><img src="assets/images/activities/marshal/marshal-04-IMG_3106.jpg" alt="The tented grandstand roof of Yas Marina Circuit above the turquoise run-off area beside the track." width="1800" height="1350" loading="lazy" decoding="async"></div>
+        <div class="plate" data-fit="cover" data-duo style="--pos:50% 54%"><img src="assets/images/thumbs/activities/marshal/marshal-04-IMG_3106.jpg" alt="The tented grandstand roof of Yas Marina Circuit above the turquoise run-off area beside the track." width="682" height="512" loading="lazy" decoding="async"></div>
         <span class="act-corner tl" aria-hidden="true"></span><span class="act-corner tr" aria-hidden="true"></span><span class="act-corner bl" aria-hidden="true"></span><span class="act-corner br" aria-hidden="true"></span>
         <span class="act-copy">
           <span class="act-title">Chief Track Marshal</span>
           <span class="act-org">Emirates Motorsports Organisation, Yas Marina Circuit and Dubai Autodrome</span>
           <span class="act-date">Feb 2019 – Dec 2025</span>
           <span class="act-sum">Safety and track-operations role across 15 events; the role ended in December 2025.</span>
-        </span>
-      </button>
-      <button class="act-tile magnetic" type="button" data-reveal="rise" data-open-record="activity:aiesec" data-cursor="VIEW">
-        <div class="plate" data-fit="contain"><img src="assets/images/activities/aiesec/aiesec-01-certificate.jpg" alt="Certificate of completion for the AIESEC Membership Programme." width="1800" height="1273" loading="lazy" decoding="async"></div>
-        <span class="act-corner tl" aria-hidden="true"></span><span class="act-corner tr" aria-hidden="true"></span><span class="act-corner bl" aria-hidden="true"></span><span class="act-corner br" aria-hidden="true"></span>
-        <span class="act-copy">
-          <span class="act-title">Business Development and Engage, AIESEC</span>
-          <span class="act-org">AIESEC Abu Dhabi</span>
-          <span class="act-date">Sep 2022 – Jan 2023</span>
-          <span class="act-sum">Supported workshops, campaigns, reporting and event logistics.</span>
         </span>
       </button>
     </div>
@@ -573,7 +562,6 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
     <h2 id="contact-title" data-reveal="mask">Open to engineering, design and simulation opportunities.</h2>
     <a class="mailto" href="mailto:mi2171@nyu.edu" data-cursor="EMAIL">mi2171@nyu.edu</a>
     <div class="contact-rows">
-      <div class="contact-row"><span class="contact-label">Email</span><a class="contact-value" href="mailto:mi2171@nyu.edu">mi2171@nyu.edu</a></div>
       <div class="contact-row"><span class="contact-label">LinkedIn</span><a class="contact-value" href="https://www.linkedin.com/in/ibrahim2411/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ibrahim2411</a></div>
       <div class="contact-row"><span class="contact-label">Base</span><span class="contact-value">London, United Kingdom</span></div>
     </div>

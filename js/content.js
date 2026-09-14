@@ -39,14 +39,6 @@ window.PORTFOLIO = Object.freeze({
                       "Steady state was reached after approximately [[2,000 seconds]].",
                       "Closing the loop with the hydraulic actuator reduced roll below [[0.0016 rad]], exceeding a [[98%]] reduction."
                 ]
-          },
-          {
-                "label": "Constraints",
-                "text": [
-                      "The reductions are simulation results for a modelled sea state, not full-scale sea trials.",
-                      "Physical testing was conducted at RC-hull scale.",
-                      "Fuel consumption, cost and extreme-sea-state performance fell outside the scope of the study."
-                ]
           }
     ],
     "evidence": "mubadala",
@@ -133,14 +125,6 @@ window.PORTFOLIO = Object.freeze({
                       "On the bench the prototype self-started within [[2 to 5 seconds]] and peaked at [[5 to 7 V]]. Roadside it held approximately [[2.67 V]] with spikes to [[10 V]] as vehicles passed.",
                       "Full-scale output is projected at [[3 to 15 W]] at [[5 to 6 m/s]]."
                 ]
-          },
-          {
-                "label": "Constraints",
-                "text": [
-                      "The CFD percentages and the measured voltages are independent results.",
-                      "The [[3 to 15 W]] figure is a projection from scale-prototype data rather than a direct measurement.",
-                      "Power coefficient, torque coefficient, site wind resource and streetlight load were not determined."
-                ]
           }
     ],
     "evidence": "savonius"
@@ -178,13 +162,6 @@ window.PORTFOLIO = Object.freeze({
                 "text": [
                       "Automated the schedule and quantity take-off for all [[84 columns]], reducing the process from over [[30 minutes]] by hand to under [[one minute]].",
                       "Resolved [[15]] slab-to-beam conflicts to produce a clash-free BIM model."
-                ]
-          },
-          {
-                "label": "Constraints",
-                "text": [
-                      "The work was a university design project.",
-                      "The model and member sizing represent neither a constructed building nor a site-verified design."
                 ]
           }
     ],
@@ -227,13 +204,6 @@ window.PORTFOLIO = Object.freeze({
                       "Reduced all-up airframe mass from [[2,500 g]] to [[1,500 g]], a [[40%]] reduction.",
                       "The completed prototype has a [[1,130 mm]] wingspan."
                 ]
-          },
-          {
-                "label": "Constraints",
-                "text": [
-                      "The aircraft has not flown.",
-                      "The release mechanism has not been tested."
-                ]
           }
     ],
     "evidence": "uav-drone"
@@ -274,13 +244,6 @@ window.PORTFOLIO = Object.freeze({
                       "Thermal equilibrium was reached after approximately [[120 minutes]].",
                       "Frost formed on the cold-side heatsink throughout the test."
                 ]
-          },
-          {
-                "label": "Constraints",
-                "text": [
-                      "Coefficient of performance and hot-side heat rejection were not measured.",
-                      "Alternative module configurations were not compared."
-                ]
           }
     ],
     "evidence": "tec"
@@ -318,13 +281,6 @@ window.PORTFOLIO = Object.freeze({
                 "text": [
                       "Across [[four]] simulated router locations the best placement achieved approximately [[40%]] desk coverage.",
                       "That result is approximately [[13 times]] the coverage of sub-optimal corner placements."
-                ]
-          },
-          {
-                "label": "Constraints",
-                "text": [
-                      "The coverage result is simulated only.",
-                      "No physical router was tested and no real-world coverage was measured."
                 ]
           }
     ],
@@ -367,13 +323,6 @@ window.PORTFOLIO = Object.freeze({
                       "Sized the rear half shafts against the assumed worst-case shock load.",
                       "Achieved a safety factor of [[1.2 to 1.5]]."
                 ]
-          },
-          {
-                "label": "Constraints",
-                "text": [
-                      "The design envelope is assumed rather than measured.",
-                      "Dyno torque testing, stress measurement and reliability targets fell outside the project scope."
-                ]
           }
     ],
     "evidence": ""
@@ -413,14 +362,6 @@ window.PORTFOLIO = Object.freeze({
                       "Raised the accommodated user-stature cap from [[5 ft 9]] to [[6 ft 5]].",
                       "Backrest study returned a maximum stress of [[0.729 MPa]] and a maximum displacement of [[0.01787 mm]].",
                       "Seat-buckling study returned a maximum stress of [[1.257 MPa]] and a maximum displacement of [[0.0009305 mm]], both well below the [[620.4 MPa]] yield strength of the Alloy Steel SS modelled."
-                ]
-          },
-          {
-                "label": "Constraints",
-                "text": [
-                      "The analysis was run at [[750 N]] ([[76.5 kg]] equivalent), below the [[110 kg]] design target.",
-                      "Fixed supports were assumed rather than the full wheelchair under service loading.",
-                      "The results are analytical and constitute neither a physical test nor a certification."
                 ]
           }
     ],
@@ -502,13 +443,6 @@ window.PORTFOLIO = Object.freeze({
                       "PC1 captured [[81%]] of the variance.",
                       "The analysis identified a strong positive correlation between temperature and rental demand."
                 ]
-          },
-          {
-                "label": "Constraints",
-                "text": [
-                      "The study is an observational analysis of historical data.",
-                      "It establishes correlation within the dataset rather than a controlled causal effect."
-                ]
           }
     ],
     "evidence": "pca",
@@ -549,13 +483,6 @@ window.PORTFOLIO = Object.freeze({
                 "text": [
                       "Delivered the conclusions to a [[25-member]] international industry panel.",
                       "The output was an assessment document rather than an experimental result."
-                ]
-          },
-          {
-                "label": "Constraints",
-                "text": [
-                      "No follow-on funding or continued engagement is attributed to the presentation.",
-                      "The work is a feasibility assessment and includes no experimental validation."
                 ]
           }
     ],
@@ -604,14 +531,6 @@ window.PORTFOLIO = Object.freeze({
                       "Feed water reaches SDI below [[3]] with zero free chlorine residual.",
                       "Cumulative [[30-year]] cost is approximately [[1.1 billion USD]] nominal, or [[450 million USD]] discounted at [[6%]], with carbon intensity rising from [[8.3]] to [[9.4 kg CO₂/m³]]."
                 ]
-          },
-          {
-                "label": "Constraints",
-                "text": [
-                      "The design is conceptual and has not been built or field-validated.",
-                      "Reliability figures derive from published Weibull parameters rather than site-specific data, and seasonal water quality is modelled as a sine curve from limited monitoring. A full-year pilot is recommended before construction.",
-                      "The lifecycle analysis excludes embodied carbon and end-of-life disposal."
-                ]
           }
     ],
     "evidence": "swro",
@@ -657,14 +576,6 @@ window.PORTFOLIO = Object.freeze({
                       "Produced a functional prototype with a [[702.14 g]] central weight, a [[695.63 g]] toe weight and a [[124.29 mm]] face length.",
                       "At [[50-unit]] volume the parts total [[USD 312.86]], reaching [[USD 426.93]] per unit after a [[20%]] assembly fee and the [[USD 51.50]] grip.",
                       "Built as a single piece the same assembly reaches [[USD 6,970.80]], approximately [[16 times]] the per-unit cost, largely because the [[USD 2,000]] mould charge has no production run to amortise across."
-                ]
-          },
-          {
-                "label": "Constraints",
-                "text": [
-                      "The prototype was 3D-printed rather than cast or machined, so the ABS/PETG shaft stiffness differs from the specified steel.",
-                      "It was not tested on a golf course and USGA conformance is not certified.",
-                      "Both cost figures derive from SolidWorks costing software rather than vendor quotes."
                 ]
           }
     ],
@@ -715,14 +626,6 @@ window.PORTFOLIO = Object.freeze({
                       "The ABS variant yields at a load factor of [[0.70]] with a peak pin reaction of [[2,116.4 N]]. Aluminium remains safe across the full range.",
                       "Perforating the plate with [[493]] holes ([[6 mm]] diameter, [[15 mm]] depth) reduces steady-state temperature from [[95.5°C]] to [[59.5°C]] under a [[100 W]] load by increasing effective cooling surface [[129%]].",
                       "Single-tile cost is [[AED 36]] at home scale or [[AED 17]] at mass-production scale."
-                ]
-          },
-          {
-                "label": "Constraints",
-                "text": [
-                      "The finite-element analysis assumes [[100%]] infill density, so printing at lower infill requires a reduced cable count.",
-                      "The thermal model is steady-state and has not been experimentally validated.",
-                      "The structural sweep is a load study rather than a certification. The pin is designed as the sacrificial element."
                 ]
           }
     ],
@@ -797,20 +700,6 @@ window.PORTFOLIO = Object.freeze({
       {
         "label": "Context",
         "text": "Supported 15 events by monitoring hazards and regulations and coordinating with race control and incident response. This role ended in December 2025."
-      }
-    ],
-    "evidence": ""
-  },
-  "activity:aiesec": {
-    "kind": "Activity",
-    "kicker": "Sep 2022 – Jan 2023",
-    "title": "Business Development and Engage, AIESEC",
-    "org": "AIESEC Abu Dhabi",
-    "summary": "Business development and engagement activity with AIESEC Abu Dhabi.",
-    "details": [
-      {
-        "label": "Context",
-        "text": "Supported workshops and campaigns, prepared project reports, and coordinated logistics, venue, budget and resources. No additional numerical claims are made."
       }
     ],
     "evidence": ""
@@ -2158,12 +2047,6 @@ window.PORTFOLIO = Object.freeze({
         { "kind": "image", "src": "assets/images/activities/marshal/marshal-05-IMG_3107.jpg", "w": 1800, "h": 743, "caption": "Track-level view of the safety barriers and facility infrastructure." },
         { "kind": "image", "src": "assets/images/activities/marshal/marshal-09-IMG_3166.jpg", "w": 1350, "h": 1800, "caption": "Ground-level view of the track markings and circuit facilities." }
       ]
-    },
-    "activity:aiesec": {
-      gallery: [
-        { "kind": "image", "src": "assets/images/activities/aiesec/aiesec-01-certificate.jpg", "w": 1800, "h": 1273, "fit": "contain", "caption": "Certificate of completion, AIESEC Membership Program." }
-      ],
-      rail: []
     }
   },
   /* Fallback plate for records that carry no figures from an original
