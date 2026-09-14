@@ -219,6 +219,7 @@
 
   var sheetFigures = [];   /* the open record's own plate set */
   var figIndex = 0;
+  var figCounted = false;  /* whether the head shows a running NN / NN */
   var figLayer = 0;        /* which of the two layers is currently showing */
   var figToken = 0;        /* guards against out-of-order image loads */
 
@@ -268,6 +269,12 @@
       figPos.textContent = total > 1 ? 'Figure ' + (figIndex + 1) + ' of ' + total : '';
       figPos.hidden = total < 2;
     }
+    /* "Figure 3 of 13" used to sit under the plate as a third line of text
+       while the head said "13 figures" a few centimetres above it. One
+       running counter in the head says both things in one place. */
+    if (figSource && figCounted) {
+      figSource.textContent = pad2(figIndex + 1) + ' / ' + pad2(total);
+    }
     if (figCaption) figCaption.textContent = fig.caption || '';
     if (figCite) figCite.textContent = fig.cite || '';
     if (figDesc) figDesc.textContent = fig.alt || '';
@@ -291,6 +298,8 @@
     paintFigure(delta > 0 ? 1 : -1);
   }
 
+  function pad2(n) { return (n < 10 ? '0' : '') + n; }
+
   function loadFigures(key, record) {
     sheetFigures = figuresFor(key, record);
     figIndex = 0;
@@ -299,9 +308,11 @@
     var many = total > 1;
 
     if (figLabel) figLabel.textContent = total ? (record.evidence ? 'Project figures' : 'Reference image') : 'Figures';
+    figCounted = !!(record.evidence && total > 1);
     if (figSource) {
       figSource.textContent = !total ? ''
-        : record.evidence ? (total + (total === 1 ? ' figure' : ' figures'))
+        : figCounted ? (pad2(1) + ' / ' + pad2(total))
+        : record.evidence ? ''
         : 'No project figures';
     }
     if (figStage) figStage.hidden = !total;

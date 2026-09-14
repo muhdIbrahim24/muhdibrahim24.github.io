@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Curriculum Vitae: Muhammad Ibrahim</title>
+<meta name="description" content="Curriculum vitae of Muhammad Ibrahim: mechanical and civil engineering, NYU Abu Dhabi.">
+<meta name="theme-color" content="#FAFAF8">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FAFAF8'/%3E%3Ctext x='16' y='22' font-family='Helvetica,Arial' font-size='16' font-weight='700' fill='%234B22C7' text-anchor='middle'%3EMI%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/images/cv/muhammad-ibrahim-cv-page-1.png" as="image" fetchpriority="high">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+/* The CV used to be a bare link to the PDF, which left the browser's own
+   viewer to decide whether anything appeared at all. On several of them it
+   paints its dark ground and never draws the page. This page shows the
+   document itself as an image, so it is always visible, and keeps the PDF
+   one click away for anyone who wants the real file. */
+.cv-page { min-height: 100vh; display: flex; flex-direction: column; background: var(--void); }
+
+.cv-bar {
+  position: sticky; top: 0; z-index: 5;
+  display: flex; align-items: center; gap: var(--s4); flex-wrap: wrap;
+  padding: var(--s4) var(--gutter);
+  background: var(--void); border-bottom: 1px solid var(--line);
+}
+.cv-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  font: 600 var(--fs-mono) var(--f-mark); letter-spacing: .13em; text-transform: uppercase;
+  color: #FFFFFF; background: var(--violet); border: 1px solid var(--violet);
+  padding: 10px 18px; border-radius: var(--r-control);
+  transition: background var(--t-2) var(--e-out), border-color var(--t-2) var(--e-out);
+}
+.cv-back::before { content: "\2190"; transition: transform var(--t-3) var(--e-out); }
+.cv-back:hover, .cv-back:focus-visible { background: var(--tx-1); border-color: var(--tx-1); }
+.cv-back:hover::before, .cv-back:focus-visible::before { transform: translateX(-4px); }
+
+.cv-bar-label {
+  font: 600 var(--fs-mono) var(--f-mark); letter-spacing: .13em;
+  text-transform: uppercase; color: var(--tx-3);
+}
+.cv-actions { margin-left: auto; display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; }
+.cv-action {
+  display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px;
+  font: 600 var(--fs-mono) var(--f-mark); letter-spacing: .13em; text-transform: uppercase;
+  color: var(--violet); background: var(--tint);
+  border: 1px solid var(--line-2); border-radius: var(--r-control);
+  transition: background var(--t-2) var(--e-out), border-color var(--t-2) var(--e-out);
+}
+.cv-action:hover, .cv-action:focus-visible { background: var(--tint-2); border-color: var(--violet); }
+
+.cv-stage { flex: 1; padding: clamp(20px, 3.4vw, 56px) var(--gutter) var(--s9); }
+.cv-sheet {
+  max-width: 1080px; margin-inline: auto;
+  background: var(--paper); border: 1px solid var(--line-ink);
+  border-radius: var(--r-card); overflow: hidden;
+}
+.cv-sheet img { display: block; width: 100%; height: auto; }
+
+.cv-note {
+  max-width: 1080px; margin: var(--s5) auto 0;
+  font-size: var(--fs-sm); line-height: 1.6; color: var(--tx-3);
+}
+.cv-note a { color: var(--violet); border-bottom: 1px solid var(--line-2); }
+.cv-note a:hover, .cv-note a:focus-visible { border-bottom-color: var(--violet); }
+
+@media (max-width: 640px) {
+  .cv-bar { gap: var(--s3); }
+  .cv-actions { margin-left: 0; width: 100%; }
+}
+@media print {
+  .cv-bar, .cv-note { display: none; }
+  .cv-stage { padding: 0; }
+  .cv-sheet { border: 0; border-radius: 0; max-width: none; }
+}
+</style>
+</head>
+<body class="cv-page">
+
+<header class="cv-bar">
+  <a class="cv-back" href="index.html">Portfolio</a>
+  <p class="cv-bar-label">Curriculum vitae &middot; Muhammad Ibrahim</p>
+  <div class="cv-actions">
+    <a class="cv-action" href="assets/docs/cv/muhammad-ibrahim-cv.pdf" download>Download PDF</a>
+    <a class="cv-action" href="assets/docs/cv/muhammad-ibrahim-cv.pdf" target="_blank" rel="noopener">Open PDF</a>
+  </div>
+</header>
+
+<main class="cv-stage">
+  <div class="cv-sheet">
+    <img src="assets/images/cv/muhammad-ibrahim-cv-page-1.png"
+         width="1241" height="1754" decoding="async" fetchpriority="high"
+         alt="Curriculum vitae of Muhammad Ibrahim, one page. Education at New York University Abu Dhabi, a Bachelor of Science in General Engineering with a mechanical and civil focus, graduating May 2026 with a 3.60 major GPA. Research and engineering experience at the Center for Stability, Instability and Turbulence, an advanced manufacturing workshop, and the Energy and Propulsion Lab. Projects covering a search-and-rescue UAV, an anti-roll tank system, a Savonius wind turbine, a compressor-less thermoelectric refrigerator and a Formula Student drivetrain. Awards, extracurricular activities, and skills in CAD, simulation, manufacturing and programming.">
+  </div>
+  <p class="cv-note">
+    This is the CV as a single page. The original file is available above as a
+    <a href="assets/docs/cv/muhammad-ibrahim-cv.pdf" download>PDF download</a>.
+  </p>
+</main>
+
+</body>
+</html>
