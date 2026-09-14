@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Document: Muhammad Ibrahim</title>
+<meta name="description" content="Source documents from the engineering portfolio of Muhammad Ibrahim.">
+<meta name="theme-color" content="#FAFAF8">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FAFAF8'/%3E%3Ctext x='16' y='22' font-family='Helvetica,Arial' font-size='16' font-weight='700' fill='%234B22C7' text-anchor='middle'%3EMI%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/styles.css">
+<style>
+/* A report opened straight from a link was handed to whatever PDF viewer the
+   browser happened to have. Some paint a dark ground and never draw the
+   page, and most phones download the file instead of showing it. The pages
+   are drawn here instead, on the site, in the site's own chrome. */
+.doc-page { min-height: 100vh; display: flex; flex-direction: column; background: var(--void); }
+
+.doc-bar {
+  position: sticky; top: 0; z-index: 5;
+  display: flex; align-items: center; gap: var(--s4); flex-wrap: wrap;
+  padding: var(--s4) var(--gutter);
+  background: var(--void); border-bottom: 1px solid var(--line);
+}
+.doc-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  font: 600 var(--fs-mono) var(--f-mark); letter-spacing: .13em; text-transform: uppercase;
+  color: #FFFFFF; background: var(--violet); border: 1px solid var(--violet);
+  padding: 10px 18px; border-radius: var(--r-control);
+  transition: background var(--t-2) var(--e-out), border-color var(--t-2) var(--e-out);
+}
+.doc-back::before { content: "\2190"; transition: transform var(--t-3) var(--e-out); }
+.doc-back:hover, .doc-back:focus-visible { background: var(--tx-1); border-color: var(--tx-1); }
+.doc-back:hover::before, .doc-back:focus-visible::before { transform: translateX(-4px); }
+
+.doc-title {
+  font: 600 var(--fs-mono) var(--f-mark); letter-spacing: .13em;
+  text-transform: uppercase; color: var(--tx-3);
+  min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.doc-count {
+  font-variant-numeric: tabular-nums;
+  font: 600 var(--fs-mono) var(--f-mono); letter-spacing: .13em;
+  text-transform: uppercase; color: var(--tx-3);
+}
+.doc-actions { margin-left: auto; display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; }
+.doc-action {
+  display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px;
+  font: 600 var(--fs-mono) var(--f-mark); letter-spacing: .13em; text-transform: uppercase;
+  color: var(--violet); background: var(--tint);
+  border: 1px solid var(--line-2); border-radius: var(--r-control);
+  transition: background var(--t-2) var(--e-out), border-color var(--t-2) var(--e-out);
+}
+.doc-action:hover, .doc-action:focus-visible { background: var(--tint-2); border-color: var(--violet); }
+
+.doc-stage { flex: 1; padding: clamp(18px, 3vw, 44px) var(--gutter) var(--s9); }
+.doc-pages { max-width: 1080px; margin-inline: auto; display: grid; gap: clamp(14px, 2vw, 26px); }
+.doc-sheet {
+  position: relative; background: var(--paper);
+  border: 1px solid var(--line-ink); border-radius: var(--r-2); overflow: hidden;
+}
+.doc-sheet canvas { display: block; width: 100%; height: auto; }
+.doc-folio {
+  position: absolute; right: 10px; bottom: 8px;
+  font-variant-numeric: tabular-nums; font: 600 var(--fs-mono) var(--f-mono);
+  letter-spacing: .1em; color: var(--tx-ink-3);
+}
+
+.doc-status {
+  max-width: 1080px; margin-inline: auto;
+  font-size: var(--fs-sm); line-height: 1.6; color: var(--tx-3);
+}
+.doc-status a { color: var(--violet); border-bottom: 1px solid var(--line-2); }
+.doc-status a:hover, .doc-status a:focus-visible { border-bottom-color: var(--violet); }
+
+@media (max-width: 720px) {
+  .doc-bar { gap: var(--s3); }
+  .doc-actions { margin-left: 0; width: 100%; }
+  .doc-title { width: 100%; white-space: normal; }
+}
+@media print { .doc-bar, .doc-status, .doc-folio { display: none; } .doc-stage { padding: 0; } .doc-sheet { border: 0; } }
+</style>
+</head>
+<body class="doc-page">
+
+<header class="doc-bar">
+  <a class="doc-back" href="index.html" id="doc-back">Portfolio</a>
+  <p class="doc-title" id="doc-title">Document</p>
+  <p class="doc-count" id="doc-count"></p>
+  <div class="doc-actions">
+    <a class="doc-action" id="doc-download" href="#" download>Download PDF</a>
+  </div>
+</header>
+
+<main class="doc-stage">
+  <p class="doc-status" id="doc-status">Loading the document.</p>
+  <div class="doc-pages" id="doc-pages"></div>
+</main>
+
+<script type="module">
+/* The file to show is named in the query string, and is only ever allowed to
+   be a PDF inside this site's own assets/docs tree. Nothing else loads. */
+const params = new URLSearchParams(location.search);
+const rawSrc = params.get('src') || '';
+const label  = (params.get('title') || '').slice(0, 120);
+
+const SAFE = /^assets\/docs\/[A-Za-z0-9][A-Za-z0-9._\/-]*\.pdf$/;
+const src = SAFE.test(rawSrc) && !rawSrc.includes('..') ? rawSrc : '';
+
+const elTitle  = document.getElementById('doc-title');
+const elCount  = document.getElementById('doc-count');
+const elPages  = document.getElementById('doc-pages');
+const elStatus = document.getElementById('doc-status');
+const elDl     = document.getElementById('doc-download');
+
+const name = label || (src ? src.split('/').pop().replace(/\.pdf$/i, '').replace(/[-_]+/g, ' ') : 'Document');
+elTitle.textContent = name;
+document.title = name + ': Muhammad Ibrahim';
+
+function fail(message) {
+  elStatus.innerHTML = '';
+  elStatus.append(message + ' ');
+  if (src) {
+    const a = document.createElement('a');
+    a.href = src; a.textContent = 'Download the PDF instead'; a.setAttribute('download', '');
+    elStatus.append(a); elStatus.append('.');
+  }
+}
+
+if (!src) {
+  elDl.remove();
+  fail('That document link is not valid.');
+} else {
+  elDl.href = src;
+  start();
+}
+
+async function start() {
+  let pdfjs;
+  try {
+    pdfjs = await import('./assets/vendor/pdfjs/pdf.min.mjs');
+  } catch (e) {
+    return fail('This browser could not load the document viewer.');
+  }
+  pdfjs.GlobalWorkerOptions.workerSrc = 'assets/vendor/pdfjs/pdf.worker.min.mjs';
+
+  const task = pdfjs.getDocument({
+    url: src,
+    standardFontDataUrl: 'assets/vendor/pdfjs/standard_fonts/'
+  });
+  task.onProgress = ({ loaded, total }) => {
+    if (!total) return;
+    elStatus.textContent = 'Loading the document, ' + Math.round((loaded / total) * 100) + ' per cent.';
+  };
+
+  let pdf;
+  try {
+    pdf = await task.promise;
+  } catch (e) {
+    return fail('The document could not be opened.');
+  }
+
+  elStatus.hidden = true;
+  const total = pdf.numPages;
+  const pad = n => (n < 10 ? '0' : '') + n;
+  elCount.textContent = total > 1 ? pad(1) + ' / ' + pad(total) : pad(1) + ' page';
+
+  /* A page is measured first and drawn later: the sheet claims its exact
+     height straight away, so the scrollbar is honest and nothing jumps as
+     pages arrive. */
+  const sheets = [];
+  for (let n = 1; n <= total; n++) {
+    const page = await pdf.getPage(n);
+    const v = page.getViewport({ scale: 1 });
+    const sheet = document.createElement('div');
+    sheet.className = 'doc-sheet';
+    sheet.style.aspectRatio = v.width + ' / ' + v.height;
+    if (total > 1) {
+      const folio = document.createElement('p');
+      folio.className = 'doc-folio';
+      folio.textContent = pad(n) + ' / ' + pad(total);
+      sheet.appendChild(folio);
+    }
+    elPages.appendChild(sheet);
+    sheets.push({ n, page, sheet, drawn: false });
+  }
+
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  async function draw(entry) {
+    if (entry.drawn) return;
+    entry.drawn = true;
+    const css = entry.sheet.clientWidth;
+    if (!css) { entry.drawn = false; return; }
+    const base = entry.page.getViewport({ scale: 1 });
+    const viewport = entry.page.getViewport({ scale: (css / base.width) * dpr });
+    const canvas = document.createElement('canvas');
+    canvas.width = Math.round(viewport.width);
+    canvas.height = Math.round(viewport.height);
+    entry.sheet.insertBefore(canvas, entry.sheet.firstChild);
+    try {
+      await entry.page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+    } catch (e) {
+      entry.drawn = false;
+    }
+  }
+
+  /* Only the pages near the viewport are rasterised. A thirty-page report
+     would otherwise hold thirty full-resolution bitmaps at once. */
+  const near = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const match = sheets.find(s => s.sheet === e.target);
+      if (match) draw(match);
+    });
+  }, { rootMargin: '150% 0px' });
+
+  const current = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting || total < 2) return;
+      const match = sheets.find(s => s.sheet === e.target);
+      if (match) elCount.textContent = pad(match.n) + ' / ' + pad(total);
+    });
+  }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+
+  sheets.forEach(s => { near.observe(s.sheet); current.observe(s.sheet); });
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(() => {
+      sheets.forEach(s => {
+        if (!s.drawn) return;
+        const canvas = s.sheet.querySelector('canvas');
+        if (canvas) canvas.remove();
+        s.drawn = false;
+      });
+      sheets.forEach(s => {
+        const r = s.sheet.getBoundingClientRect();
+        if (r.bottom > -innerHeight && r.top < innerHeight * 2) draw(s);
+      });
+    }, 250);
+  }, { passive: true });
+}
+</script>
+
+</body>
+</html>

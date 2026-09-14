@@ -971,43 +971,43 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
    label sits above it. Zero here let the kicker crowd the rule. */
 .sheet-body { grid-area: body; overflow-y: auto; padding: var(--s5) var(--s6) var(--s7); min-height: 0; min-width: 0; }
 @media (max-width: 1023px) { .sheet-body { overflow-y: visible; } }
-.sheet-kicker { margin-bottom: 10px; }
-.sheet-body h2 { font-size: clamp(1.5rem, 1.12rem + 1.05vw, 2.125rem); font-weight: 720; letter-spacing: -.028em; line-height: 1.1; max-width: 22ch; }
+.sheet-kicker { margin-bottom: 8px; }
+.sheet-body h2 { font-size: clamp(1.4rem, 1.09rem + 0.86vw, 1.875rem); font-weight: 720; letter-spacing: -.026em; line-height: 1.12; max-width: 20ch; }
 .sheet-org { margin-top: 8px; font: 500 var(--fs-xs) var(--f-mono); color: var(--tx-3); }
-.sheet-summary { margin-top: 16px; font-family: var(--f-display); font-size: var(--fs-lg); font-weight: 400; line-height: 1.5; color: var(--tx-1); max-width: 56ch; }
+.sheet-summary { margin-top: 12px; font-family: var(--f-display); font-size: var(--fs-base); font-weight: 400; line-height: 1.55; color: var(--tx-2); max-width: 60ch; }
 
-.sheet-pdf-list { margin-top: 18px; display: grid; gap: 6px; }
+.sheet-pdf-list { margin-top: 16px; display: grid; gap: 0; border-top: 1px solid var(--line); }
 .sheet-pdf-link {
-  display: flex; align-items: center; gap: 10px; padding: 10px 13px;
-  background: var(--tint); border: 1px solid var(--line-2); border-radius: var(--r-control);
-  color: var(--violet); font-size: var(--fs-sm); font-weight: 600;
-  transition: background var(--t-2) var(--e-out), border-color var(--t-2) var(--e-out);
+  display: flex; align-items: center; gap: 10px; width: 100%; padding: 9px 2px;
+  border-bottom: 1px solid var(--line);
+  color: var(--violet); font-size: var(--fs-sm); font-weight: 550; line-height: 1.4;
+  transition: color var(--t-2) var(--e-out);
 }
-.sheet-pdf-link:hover, .sheet-pdf-link:focus-visible { background: var(--tint-2); border-color: var(--violet); }
+.sheet-pdf-link:hover, .sheet-pdf-link:focus-visible { color: var(--tx-1); }
 .sheet-pdf-link::before {
-  content: "PDF"; flex: none; font: 700 var(--fs-mono) var(--f-mono); color: var(--amber);
-  background: rgba(122,72,0,.08); border: 1px solid rgba(122,72,0,.30);
+  content: "PDF"; flex: none; font: 600 var(--fs-mono) var(--f-mono); letter-spacing: .1em;
+  color: var(--amber); background: rgba(122,72,0,.07); border: 1px solid rgba(122,72,0,.26);
   border-radius: var(--r-2); padding: 2px 6px;
 }
 .sheet-pdf-link::after { content: "\2197"; margin-left: auto; color: var(--violet); transition: transform var(--t-2) var(--e-out); }
 .sheet-pdf-link:hover::after, .sheet-pdf-link:focus-visible::after { transform: translate(3px,-3px); }
 .sheet-video-notice { margin-top: 14px; font-size: var(--fs-sm); color: var(--tx-3); }
 
-.sheet-details { margin-top: 24px; display: grid; gap: 0; }
-.sheet-block { padding-block: 20px; border-top: 1px solid var(--line); display: grid; gap: 10px; }
+.sheet-details { margin-top: 22px; display: grid; gap: 0; }
+.sheet-block { padding-block: 17px; border-top: 1px solid var(--line); display: grid; gap: 8px; }
 .sheet-block:first-child { border-top: 0; padding-top: 0; }
 .sheet-block h3 { font: 600 var(--fs-mono) var(--f-mark); line-height: 1.4; letter-spacing: .13em; text-transform: uppercase; color: var(--tx-3); }
 .sheet-block p { font-size: var(--fs-sm); line-height: 1.66; color: var(--tx-2); max-width: 68ch; }
 /* Project records carry short points rather than a paragraph. Same bullet
    idiom as the experience timeline, so the two read as one system. */
-.sheet-points { display: grid; gap: 10px; max-width: 68ch; }
+.sheet-points { display: grid; gap: 8px; max-width: 68ch; }
 .sheet-points li {
-  position: relative; padding-left: 17px;
-  font-size: var(--fs-sm); line-height: 1.62; color: var(--tx-2);
+  position: relative; padding-left: 16px;
+  font-size: var(--fs-sm); line-height: 1.6; color: var(--tx-2);
 }
 .sheet-points li::before {
-  content: ""; position: absolute; left: 0; top: .56em;
-  width: 5px; height: 5px; background: var(--violet);
+  content: ""; position: absolute; left: 0; top: .6em;
+  width: 4px; height: 4px; background: var(--violet);
 }
 .sheet-videos { margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--line); display: grid; gap: 20px; }
 .sheet-videos-head { font: 600 var(--fs-mono) var(--f-mark); letter-spacing: .13em; text-transform: uppercase; color: var(--violet); margin-bottom: 4px; }
@@ -1044,29 +1044,20 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
 @media (min-width: 900px) { .asheet-head-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
 
 .asheet-stage { flex: 1; display: flex; min-height: 0; overflow: hidden; }
-.asheet-rail { width: min(320px, 42vw); flex: none; overflow: hidden; border-right: 1px solid var(--line); background: var(--slab); }
-.asheet-stage.no-rail .asheet-rail { display: none; }
-.asheet-rail-items { display: flex; flex-direction: column; gap: 1px; }
-.asheet-rail-items.is-looping { animation: rail-loop var(--rail-duration, 20s) linear infinite; }
-.asheet-rail:hover .asheet-rail-items, .asheet-rail:focus-within .asheet-rail-items { animation-play-state: paused; }
-@keyframes rail-loop { from { transform: translateY(0); } to { transform: translateY(-50%); } }
-.asheet-rail-items button { display: block; width: 100%; aspect-ratio: var(--tar, 3/4); overflow: hidden; }
-.asheet-rail-items img { width: 100%; height: 100%; object-fit: cover; }
-
-.asheet-gallery { flex: 1; overflow-y: auto; padding: var(--s5); min-width: 0; }
+.asheet-gallery { flex: 1; overflow-y: auto; padding: var(--s5) var(--s5) var(--s7); min-width: 0; }
 .asheet-lane-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; }
 .asheet-count { font: 500 var(--fs-xs) var(--f-mono); color: var(--tx-3); }
-.asheet-grid { display: grid; grid-auto-flow: dense; align-items: start; grid-template-columns: repeat(var(--acols, 4), minmax(0,1fr)); gap: 6px; }
+.asheet-grid { display: grid; grid-template-columns: repeat(var(--acols, 4), minmax(0,1fr)); gap: 10px; }
 .asheet-grid.is-solo { grid-template-columns: minmax(0, 560px); }
 .asheet-tile {
-  position: relative; grid-column: span var(--span, 1); aspect-ratio: var(--tar, 4/5);
-  overflow: hidden; border: 1px solid var(--line); background: var(--mat);
+  position: relative; aspect-ratio: var(--tar, 1/1);
+  overflow: hidden; border: 1px solid var(--line); border-radius: var(--r-2);
+  background: var(--mat);
 }
 .asheet-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform 700ms var(--e-out); }
 .asheet-tile:hover img, .asheet-tile:focus-visible img { transform: scale(1.045); }
 .asheet-tile[data-fit="contain"] img { object-fit: contain; padding: 10px; }
 .tile-play { position: absolute; left: 10px; bottom: 10px; font: 600 var(--fs-mono) var(--f-mono); background: rgba(8,8,11,.72); color: #F4F3F7; padding: 4px 10px; letter-spacing: .04em; }
-.asheet-grid.is-video-forward .asheet-tile.is-video { min-height: clamp(190px, 21vw, 320px); border-color: rgba(182,155,255,.42); }
 .asheet-empty { padding: clamp(28px, 5vw, 52px) 0; font-size: var(--fs-sm); color: var(--tx-3); }
 
 /* -- mediabox: near-fullscreen viewer for activity photographs and clips */
@@ -1098,7 +1089,6 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
   .has-js [data-reveal] { opacity: 1 !important; transform: none !important; clip-path: none !important; }
   .has-js .plate img { clip-path: none !important; transform: none !important; filter: none !important; }
   .plate[data-duo]::after { opacity: 0 !important; }
-  .asheet-rail-items.is-looping { animation: none; }
   #flowfield, #catPreview { display: none !important; }
   .bench-plate { transition: none; }
   body.is-locked #main { transform: none !important; filter: none !important; }

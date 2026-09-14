@@ -639,11 +639,11 @@ window.PORTFOLIO = Object.freeze({
     "kicker": "2022–2026",
     "title": "Varsity Jiu-Jitsu",
     "org": "NYU Abu Dhabi Athletics",
-    "summary": "Varsity jiu-jitsu participation across four university years.",
+    "summary": "Selected for the varsity squad in each of four university years.",
     "details": [
       {
         "label": "Context",
-        "text": "Selected for university varsity competition in each of four years."
+        "text": "Trained and competed with the squad across the university season."
       }
     ],
     "evidence": ""
@@ -653,11 +653,11 @@ window.PORTFOLIO = Object.freeze({
     "kicker": "Mar–Apr 2025",
     "title": "Habitat for Humanity Nepal",
     "org": "Volunteer, Residential Build Programme",
-    "summary": "Residential-build volunteering in Nepal.",
+    "summary": "A single-storey family home built by hand, foundation to roof.",
     "details": [
       {
         "label": "Context",
-        "text": "Built a single-storey house from foundation to roof with a volunteer team and checked dimensions and layouts against civil drawings before work began."
+        "text": "Worked the full build with the team, and checked dimensions and layouts against the civil drawings before anything went up."
       }
     ],
     "evidence": ""
@@ -667,11 +667,11 @@ window.PORTFOLIO = Object.freeze({
     "kicker": "Nov 2023 – Sep 2024",
     "title": "Cricket Team Media",
     "org": "NYU Abu Dhabi Cricket Team",
-    "summary": "Team photographer and videographer for the NYU Abu Dhabi Cricket Team.",
+    "summary": "Match photography and video across a full season.",
     "details": [
       {
         "label": "Context",
-        "text": "Filmed and photographed matches across a season, delivering edited highlights and stills each week."
+        "text": "Delivered edited highlight reels and a set of stills to the team each week."
       }
     ],
     "evidence": ""
@@ -685,7 +685,7 @@ window.PORTFOLIO = Object.freeze({
     "details": [
       {
         "label": "Context",
-        "text": "Regularly active across padel, golf, tennis, cricket, volleyball, badminton, football, cycling and wall climbing."
+        "text": "A weekly habit rather than a season, on court, on the water and outdoors, played for its own sake."
       }
     ],
     "evidence": ""
@@ -695,11 +695,11 @@ window.PORTFOLIO = Object.freeze({
     "kicker": "Feb 2019 – Dec 2025",
     "title": "Chief Track Marshal",
     "org": "Emirates Motorsports Organisation, Yas Marina Circuit and Dubai Autodrome",
-    "summary": "Track-marshalling and safety operations role, concluded in December 2025.",
+    "summary": "Trackside safety operations at motorsport events.",
     "details": [
       {
         "label": "Context",
-        "text": "Supported 15 events by monitoring hazards and regulations and coordinating with race control and incident response. This role ended in December 2025."
+        "text": "Supported 15 events by monitoring hazards and regulations and coordinating with race control and incident response."
       }
     ],
     "evidence": ""
@@ -767,7 +767,7 @@ window.PORTFOLIO = Object.freeze({
     "kicker": "Jan 2024 · Study away",
     "title": "New York University Paris",
     "org": "Study away term, Immigration and Theatre",
-    "summary": "A January study away term in Paris reading Immigration and Theatre.",
+    "summary": "",
     "details": [
       {
         "label": "Focus",
@@ -785,7 +785,7 @@ window.PORTFOLIO = Object.freeze({
     "kicker": "Jun 2023 · Study away",
     "title": "NYU June Term, Valletta, Malta",
     "org": "Study away term, Architecture and Climate Impact",
-    "summary": "A June study away term in Valletta reading Architecture and Climate Impact.",
+    "summary": "",
     "details": [
       {
         "label": "Focus",

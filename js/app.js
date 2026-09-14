@@ -420,8 +420,10 @@
   /* ------------------------------------------- source document links
 
      A short list of the original PDFs behind a record (reports, drawing
-     sheets, technical decks). Every link opens the file itself, in a new
-     tab, never a download prompt the visitor didn't ask for. Sits near the
+     sheets, technical decks). Each one opens in the site's own document
+     viewer, which draws the pages on the page itself. Handing the file
+     straight to the browser meant a dark, empty viewer on some desktops and
+     a download the visitor never asked for on most phones. Sits near the
      top of the case sheet so it is the first thing offered. */
 
   var pdfHost = $('#record-pdfs');
@@ -439,10 +441,12 @@
       var li = document.createElement('li');
       var a = document.createElement('a');
       a.className = 'sheet-pdf-link';
-      a.href = item.href;
+      var label = (item.label || 'Document').replace(/\s*\(PDF\)\s*$/i, '');
+      a.href = 'doc.html?src=' + encodeURIComponent(item.href) +
+               '&title=' + encodeURIComponent(label);
       a.target = '_blank';
       a.rel = 'noopener';
-      a.textContent = (item.label || 'Document').replace(/\s*\(PDF\)\s*$/i, '');
+      a.textContent = label;
       li.appendChild(a);
       ul.appendChild(li);
     });
@@ -596,7 +600,6 @@
     lightboxImage.width = fig.w;
     lightboxImage.height = fig.h;
     $('#lightbox-caption').textContent = fig.caption;
-    $('#lightbox-cite').textContent = fig.cite;
     $('#lightbox-count').textContent =
       'Figure ' + (cursor + 1) + ' of ' + sequence.length +
       (DATA.groups[fig.group] ? ' · ' + DATA.groups[fig.group] : '');
@@ -667,8 +670,6 @@
   var asheetPanel = asheet ? $('.asheet-panel', asheet) : null;
   var asheetStage = asheet ? $('.asheet-stage', asheet) : null;
   var asheetGal   = asheet ? $('.asheet-gallery', asheet) : null;
-  var aRail       = $('#asheet-rail');
-  var aRailItems  = $('#asheet-rail-items');
   var aGrid       = $('#asheet-grid');
   var aCount      = $('#asheet-count');
   var aReturn     = null;
@@ -686,42 +687,11 @@
     return 4;
   }
 
-  /* Tile shapes are decided here rather than measured: a landscape frame
-     takes two columns, an upright one takes a single column, and each tile
-     carries the ratio that keeps the row heights close to even. A tile is
-     only ever narrowed to fit the space left in its row, so the gallery
-     keeps the manifest's order exactly. */
-  function planTile(item, index, remaining, cols, solo, videoForward) {
-    var wide = item.h ? (item.w / item.h) >= 1.15 : true;
-    var natural = item.fit === 'contain';
-    if (solo) {
-      return { span: 1, ratio: natural ? (item.w + ' / ' + item.h) : (wide ? '3 / 2' : '4 / 5') };
-    }
-    /* Opt-in per activity: the clips are the record here, so they take a wide
-       tile at their own 16/9 rather than the shared letterbox strip. */
-    if (videoForward && item.kind === 'video') {
-      var vspan = cols >= 4 ? 2 : cols;
-      if (vspan > remaining) vspan = remaining;
-      return { span: vspan, ratio: vspan > 1 ? '16 / 9' : '4 / 3' };
-    }
-    var span = natural ? Math.min(2, cols) : (wide ? 2 : 1);
-    /* A set that is all landscape would otherwise come out as identical
-       two-up rows, so every fifth frame drops to a single square column and
-       the rhythm breaks up. */
-    if (span === 2 && !natural && index % 5 === 4) span = 1;
-    if (span > remaining) span = remaining;
-    var ratio;
-    if (natural) ratio = item.w + ' / ' + item.h;
-    /* A 2-up tile is already wide enough to read as a feature frame, so it
-       keeps the photograph's own proportions rather than a fixed panoramic
-       ratio -- forcing every landscape frame into the same wide strip was
-       cropping the top and bottom off ordinary 4:3/3:2 photographs and
-       leaving the shorter tile stranded above dead space in its row. */
-    else if (span > 1 && item.h) ratio = item.w + ' / ' + item.h;
-    else if (span > 1) ratio = (span * 8) + ' / 5';
-    else ratio = wide ? '1 / 1' : '4 / 5';
-    return { span: span, ratio: ratio };
-  }
+  /* Every frame is the same size. The old planner gave each tile its own
+     column span and its own aspect ratio, which produced ragged rows with
+     the shorter tile stranded above dead space. A photograph that wants its
+     full frame gets it in the viewer, one tap away. */
+  var TILE_RATIO = '1 / 1';
 
   function mediaTile(item, index, shape) {
     var tile = document.createElement('button');
@@ -729,10 +699,7 @@
     tile.className = 'asheet-tile' + (item.kind === 'video' ? ' is-video' : '');
     tile.setAttribute('data-media-index', String(index));
     if (item.fit) tile.setAttribute('data-fit', item.fit);
-    if (shape) {
-      tile.style.setProperty('--span', String(shape.span));
-      tile.style.setProperty('--tar', shape.ratio);
-    }
+    if (shape && shape.ratio) tile.style.setProperty('--tar', shape.ratio);
     tile.setAttribute('aria-label',
       (item.kind === 'video' ? 'Play clip: ' : 'Enlarge photograph: ') + (item.caption || ''));
     tile.setAttribute('data-cursor', item.kind === 'video' ? 'PLAY' : 'ENLARGE');
@@ -756,61 +723,22 @@
 
   function paintGallery(media) {
     if (!aGrid) return;
-    var items = media.gallery || [];
+    /* One list in the order the viewer walks it, so a tile's position is
+       its index. The looping rail that used to hold the second half of
+       these photographs is gone: it showed them again, cropped, moving. */
+    var items = (media.gallery || []).concat(media.rail || []);
     var cols = columnCount();
     var solo = items.length === 1;
-    var vf = media.layout === 'video-forward';
     mediaCols = cols;
 
     aGrid.textContent = '';
     aGrid.classList.toggle('is-solo', solo);
-    aGrid.classList.toggle('is-video-forward', vf);
     aGrid.style.setProperty('--acols', String(cols));
 
-    var remaining = cols;
     items.forEach(function (item, i) {
-      var shape = planTile(item, i, remaining, cols, solo, vf);
-      aGrid.appendChild(mediaTile(item, i, shape));
-      if (!solo) {
-        remaining -= shape.span;
-        if (remaining <= 0) remaining = cols;
-      }
+      var ratio = solo && item.w && item.h ? (item.w + ' / ' + item.h) : TILE_RATIO;
+      aGrid.appendChild(mediaTile(item, i, { ratio: ratio }));
     });
-  }
-
-  /* The rail auto-scrolls in a slow, seamless loop rather than sitting
-     there waiting to be scrolled by hand: the item list is painted twice
-     back to back and the CSS animation moves exactly one copy's length, so
-     the join between the end and the restart is invisible. A single item
-     has nothing to loop past, so it just sits still. */
-  function paintRail(media) {
-    if (!aRail || !aRailItems) return;
-    var items = media.rail || [];
-    aRailItems.textContent = '';
-    aRailItems.style.removeProperty('--rail-duration');
-    /* No rail rather than an empty one: some records carry a single
-       document and nothing to put alongside it. */
-    aRail.hidden = !items.length;
-    if (asheetStage) asheetStage.classList.toggle('no-rail', !items.length);
-    if (!items.length) return;
-
-    var offset = (media.gallery || []).length;
-    var loop = items.length > 1;
-    aRailItems.classList.toggle('is-looping', loop);
-    if (loop) aRailItems.style.setProperty('--rail-duration', Math.max(items.length * 5, 16) + 's');
-
-    var passes = loop ? 2 : 1;
-    for (var pass = 0; pass < passes; pass++) {
-      items.forEach(function (item, i) {
-        var tile = mediaTile(item, offset + i, { span: 1, ratio: '3 / 4' });
-        if (pass > 0) {
-          /* The second copy is purely visual continuation of the loop. */
-          tile.setAttribute('aria-hidden', 'true');
-          tile.tabIndex = -1;
-        }
-        aRailItems.appendChild(tile);
-      });
-    }
   }
 
   function countLine(media) {
@@ -838,7 +766,9 @@
     var org = $('#asheet-org');
     org.textContent = record.org || '';
     org.hidden = !record.org;
-    $('#asheet-summary').textContent = record.summary || '';
+    var asum = $('#asheet-summary');
+    asum.textContent = record.summary || '';
+    asum.hidden = !record.summary;
 
     var notes = $('#asheet-notes');
     notes.textContent = '';
@@ -854,7 +784,6 @@
       notes.appendChild(wrap);
     });
 
-    paintRail(media);
     paintGallery(media);
     if (aCount) aCount.textContent = countLine(media);
     var empty = $('#asheet-empty');
@@ -867,7 +796,6 @@
     asheet.hidden = false;
     lockScroll();
     if (asheetGal) asheetGal.scrollTop = 0;
-    if (aRail) aRail.scrollTop = 0;
     var close = $('.sheet-close', asheet);
     if (close) close.focus();
   }
@@ -954,9 +882,6 @@
     }
 
     if (mboxCap) mboxCap.textContent = item.caption || '';
-    if (mboxCite) {
-      mboxCite.textContent = item.kind === 'video' ? 'Clip' : (item.fit === 'contain' ? 'Document' : 'Photograph');
-    }
     if (mboxCount) mboxCount.textContent = (mboxAt + 1) + ' of ' + total;
 
     $('#mediabox-prev').hidden = !many;

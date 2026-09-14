@@ -59,19 +59,13 @@
 }
 .cv-sheet img { display: block; width: 100%; height: auto; }
 
-.cv-note {
-  max-width: 1080px; margin: var(--s5) auto 0;
-  font-size: var(--fs-sm); line-height: 1.6; color: var(--tx-3);
-}
-.cv-note a { color: var(--violet); border-bottom: 1px solid var(--line-2); }
-.cv-note a:hover, .cv-note a:focus-visible { border-bottom-color: var(--violet); }
 
 @media (max-width: 640px) {
   .cv-bar { gap: var(--s3); }
   .cv-actions { margin-left: 0; width: 100%; }
 }
 @media print {
-  .cv-bar, .cv-note { display: none; }
+  .cv-bar { display: none; }
   .cv-stage { padding: 0; }
   .cv-sheet { border: 0; border-radius: 0; max-width: none; }
 }
@@ -84,7 +78,7 @@
   <p class="cv-bar-label">Curriculum vitae &middot; Muhammad Ibrahim</p>
   <div class="cv-actions">
     <a class="cv-action" href="assets/docs/cv/muhammad-ibrahim-cv.pdf" download>Download PDF</a>
-    <a class="cv-action" href="assets/docs/cv/muhammad-ibrahim-cv.pdf" target="_blank" rel="noopener">Open PDF</a>
+    <a class="cv-action" href="doc.html?src=assets%2Fdocs%2Fcv%2Fmuhammad-ibrahim-cv.pdf&amp;title=Curriculum%20vitae" target="_blank" rel="noopener">Open full size</a>
   </div>
 </header>
 
@@ -94,10 +88,6 @@
          width="1241" height="1754" decoding="async" fetchpriority="high"
          alt="Curriculum vitae of Muhammad Ibrahim, one page. Education at New York University Abu Dhabi, a Bachelor of Science in General Engineering with a mechanical and civil focus, graduating May 2026 with a 3.60 major GPA. Research and engineering experience at the Center for Stability, Instability and Turbulence, an advanced manufacturing workshop, and the Energy and Propulsion Lab. Projects covering a search-and-rescue UAV, an anti-roll tank system, a Savonius wind turbine, a compressor-less thermoelectric refrigerator and a Formula Student drivetrain. Awards, extracurricular activities, and skills in CAD, simulation, manufacturing and programming.">
   </div>
-  <p class="cv-note">
-    This is the CV as a single page. The original file is available above as a
-    <a href="assets/docs/cv/muhammad-ibrahim-cv.pdf" download>PDF download</a>.
-  </p>
 </main>
 
 </body>

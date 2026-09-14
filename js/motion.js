@@ -351,11 +351,18 @@
     });
   }
 
-  /* -------------------------------------------------------------- flowfield
+  /* ------------------------------------------------------------- contour
 
-     Particle-advection field behind the hero name. Gated off entirely
-     (canvas never created) under reduced motion, on narrow viewports, on
-     low-core-count devices, or if a 2d context is unavailable; paused via
+     A slowly breathing contour field behind the hero name: isolines of a
+     scalar function, drawn with marching squares, the way a pressure or a
+     stress plot is drawn. It replaces a particle-advection field whose
+     trails smeared across the ground and needed a translucent repaint of
+     the whole canvas every frame to fade them.
+
+     Cost per frame is one clearRect, about 1,400 field evaluations and one
+     stroke call per level, which is seven. Gated off entirely (canvas never
+     created) under reduced motion, on narrow viewports, on low-core-count
+     devices, or if a 2d context is unavailable; paused via
      IntersectionObserver and visibilitychange. */
 
   function flowfield() {
@@ -368,89 +375,95 @@
     if (!ctx) return;
 
     var DPR = Math.min(window.devicePixelRatio || 1, 1.5);
-    var w = 0, h = 0, N = 0, particles = [];
-    var running = false;
-    var raf = null;
-    var t = 0;
+    var CELL = 26;
+    var LEVELS = [-2.4, -1.6, -0.8, 0, 0.8, 1.6, 2.4];
+    var INK = [
+      'rgba(20,20,26,0.085)', 'rgba(20,20,26,0.115)', 'rgba(75,34,199,0.135)',
+      'rgba(75,34,199,0.20)',  'rgba(75,34,199,0.135)', 'rgba(20,20,26,0.115)',
+      'rgba(20,20,26,0.085)'
+    ];
 
-    function field(x, y, time) {
-      return (Math.sin(x * 0.0016 + time * 0.00016) + Math.cos(y * 0.0019 - time * 0.00013)) * Math.PI;
-    }
+    /* Which cell edges each of the sixteen corner patterns cuts.
+       Edge 0 is the top of the cell, then right, bottom, left. */
+    var CUTS = [
+      [], [3, 2], [2, 1], [3, 1], [0, 1], [0, 3, 2, 1], [0, 2], [0, 3],
+      [0, 3], [0, 2], [0, 1, 3, 2], [0, 1], [3, 1], [2, 1], [3, 2], []
+    ];
 
-    function spawn(p) {
-      p.x = p.px = Math.random() * w;
-      p.y = p.py = Math.random() * h;
-      p.vx = 0; p.vy = 0;
-      p.life = 120 + Math.random() * 180;
-      return p;
-    }
+    var w = 0, h = 0, cols = 0, rows = 0, vals = null;
+    var running = false, raf = null, t = 0;
 
     function seed() {
       w = canvas.clientWidth; h = canvas.clientHeight;
       canvas.width = Math.max(1, Math.round(w * DPR));
       canvas.height = Math.max(1, Math.round(h * DPR));
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-      N = Math.max(60, Math.min(180, Math.floor((w * h) / 14000)));
-      particles = [];
-      for (var i = 0; i < N; i++) particles.push(spawn({}));
-      ctx.fillStyle = 'rgba(250,250,248,1)';
-      ctx.fillRect(0, 0, w, h);
+      ctx.lineWidth = 1;
+      ctx.lineJoin = 'round';
+      cols = Math.ceil(w / CELL) + 1;
+      rows = Math.ceil(h / CELL) + 1;
+      vals = new Float32Array(cols * rows);
     }
 
-    /* Every particle used to get its own beginPath/strokeStyle/stroke, so a
-       full field cost up to 180 separate stroke calls per frame, ~10,800 a
-       second. The only thing that varied between them was the alpha, which
-       tracks speed. Quantising speed into a handful of steps lets every
-       particle at the same step share one sub-path and one stroke: 5 stroke
-       calls a frame instead of 180, for a difference no eye can see.
-       Math.hypot is also replaced with a plain sqrt, which is far quicker in
-       V8 and is called once per particle per frame. */
-    var STEPS = 5;
-    var lanes = [];
-    var laneInk = [];
-    for (var si = 0; si < STEPS; si++) {
-      lanes.push([]);
-      laneInk.push('rgba(107,59,245,' + (0.10 + 0.16 * ((si + 0.5) / STEPS)).toFixed(3) + ')');
+    /* Three drifting plane waves and one ring, which is enough to keep the
+       lines from ever settling into a pattern the eye can predict. */
+    function sample(x, y, time) {
+      return Math.sin(x * 0.0042 + time * 0.00019)
+           + Math.sin(y * 0.0051 - time * 0.00014)
+           + Math.sin((x + y) * 0.0026 + time * 0.00011)
+           + 0.75 * Math.sin(Math.sqrt((x - w * 0.62) * (x - w * 0.62) +
+                                       (y - h * 0.30) * (y - h * 0.30)) * 0.0055 - time * 0.00021);
     }
 
     function frame() {
       if (!running) return;
       t += 16;
-      ctx.fillStyle = 'rgba(250,250,248,0.055)';
-      ctx.fillRect(0, 0, w, h);
 
-      for (var L = 0; L < STEPS; L++) lanes[L].length = 0;
-
-      for (var i = 0; i < particles.length; i++) {
-        var p = particles[i];
-        var a = field(p.x, p.y, t);
-        p.vx = (p.vx + Math.cos(a) * 0.055) * 0.94;
-        p.vy = (p.vy + Math.sin(a) * 0.055) * 0.94;
-        p.px = p.x; p.py = p.y;
-        p.x += p.vx; p.y += p.vy;
-        var sp = Math.sqrt(p.vx * p.vx + p.vy * p.vy) / 1.4;
-        if (sp > 1) sp = 1;
-        var lane = (sp * STEPS) | 0;
-        if (lane >= STEPS) lane = STEPS - 1;
-        lanes[lane].push(p.px, p.py, p.x, p.y);
-        p.life -= 1;
-        if (p.life <= 0 || p.x < -20 || p.x > w + 20 || p.y < -20 || p.y > h + 20) spawn(p);
+      var r, c, i = 0;
+      for (r = 0; r < rows; r++) {
+        for (c = 0; c < cols; c++) vals[i++] = sample(c * CELL, r * CELL, t);
       }
 
-      ctx.lineWidth = 1;
-      for (var L2 = 0; L2 < STEPS; L2++) {
-        var q = lanes[L2];
-        if (!q.length) continue;
-        ctx.strokeStyle = laneInk[L2];
+      ctx.clearRect(0, 0, w, h);
+
+      for (var L = 0; L < LEVELS.length; L++) {
+        var lv = LEVELS[L];
+        ctx.strokeStyle = INK[L];
         ctx.beginPath();
-        for (var k = 0; k < q.length; k += 4) {
-          ctx.moveTo(q[k], q[k + 1]);
-          ctx.lineTo(q[k + 2], q[k + 3]);
+        for (r = 0; r < rows - 1; r++) {
+          var row0 = r * cols, row1 = row0 + cols;
+          var y0 = r * CELL;
+          for (c = 0; c < cols - 1; c++) {
+            var va = vals[row0 + c], vb = vals[row0 + c + 1];
+            var vc = vals[row1 + c + 1], vd = vals[row1 + c];
+            var key = (va > lv ? 8 : 0) | (vb > lv ? 4 : 0) | (vc > lv ? 2 : 0) | (vd > lv ? 1 : 0);
+            var cut = CUTS[key];
+            if (!cut.length) continue;
+            var x0 = c * CELL;
+            for (var e = 0; e < cut.length; e += 2) {
+              edgePoint(cut[e], x0, y0, va, vb, vc, vd, lv, P);
+              ctx.moveTo(P[0], P[1]);
+              edgePoint(cut[e + 1], x0, y0, va, vb, vc, vd, lv, P);
+              ctx.lineTo(P[0], P[1]);
+            }
+          }
         }
         ctx.stroke();
       }
 
       raf = window.requestAnimationFrame(frame);
+    }
+
+    var P = [0, 0];
+
+    /* Where the level crosses one edge, found by linear interpolation
+       between that edge's two corner values. */
+    function edgePoint(edge, x0, y0, va, vb, vc, vd, lv, out) {
+      var f;
+      if (edge === 0)      { f = (lv - va) / (vb - va); out[0] = x0 + f * CELL; out[1] = y0; }
+      else if (edge === 1) { f = (lv - vb) / (vc - vb); out[0] = x0 + CELL;     out[1] = y0 + f * CELL; }
+      else if (edge === 2) { f = (lv - vd) / (vc - vd); out[0] = x0 + f * CELL; out[1] = y0 + CELL; }
+      else                 { f = (lv - va) / (vd - va); out[0] = x0;            out[1] = y0 + f * CELL; }
     }
 
     function start() {

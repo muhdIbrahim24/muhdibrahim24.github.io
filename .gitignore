@@ -1,6 +1,25 @@
+# Working notes and local tooling. These stay on this machine and are never
+# part of the published site.
 backups/
 _phase-c-backup/
 DESIGN.md
 MEDIA_GUIDE.md
 PRODUCT.md
 deploy.bat
+assets/docs/*.md
+
+# Anything a tool drops in the folder
+node_modules/
+.vscode/
+.idea/
+*.log
+*.tmp
+
+# Windows, OneDrive and macOS clutter
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+~$*
+.DS_Store
+._*

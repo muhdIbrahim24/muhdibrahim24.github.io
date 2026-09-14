@@ -474,7 +474,6 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
     <header class="section-head">
       <p class="eyebrow"><span class="section-num">05</span>Beyond the University</p>
       <h2 id="activities-title" data-reveal="mask">Activities</h2>
-      <p class="section-note" data-reveal="rise">A hands-on, team-oriented life alongside the drawing board: sport, volunteering, media work and track safety.</p>
     </header>
     <div class="act-grid" data-stagger>
       <button class="act-tile magnetic" type="button" data-reveal="rise" data-open-record="activity:jiujitsu" data-cursor="VIEW">
@@ -606,7 +605,6 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
       <div class="figures-meta" id="figures-live" aria-live="polite" aria-atomic="true">
         <p class="figures-pos visually-hidden" id="figures-pos"></p>
         <p class="figure-caption" id="figures-caption"></p>
-        <p class="figure-cite" id="figures-cite"></p>
       </div>
 
       <p class="visually-hidden" id="figures-desc"></p>
@@ -645,14 +643,13 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
     <div class="lightbox-stage"><img id="lightbox-image" alt=""></div>
     <div class="lightbox-meta">
       <p class="figure-caption" id="lightbox-caption"></p>
-      <p class="figure-cite" id="lightbox-cite"></p>
     </div>
   </div>
 </div>
 
 <!-- Activity sheet. A different animal from the case sheet above: the written
-     record sits in a header strip, an images-only contact rail runs down the
-     left, and a mixed gallery of photographs and clips fills the middle. The
+     record sits in a header strip and a contact sheet of photographs and
+     clips fills the body. The
      project case sheet is untouched and still handles every project record. -->
 <div class="asheet" id="activity-sheet" role="dialog" aria-modal="true" aria-labelledby="asheet-title" hidden>
   <div class="sheet-scrim" data-close-activity></div>
@@ -677,12 +674,9 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
     </header>
 
     <div class="asheet-stage">
-      <!-- Left: images only, never a clip, a slim rail beside the story. -->
-      <aside class="asheet-rail" id="asheet-rail" aria-label="Photographs" data-cursor="DRAG">
-        <div class="asheet-rail-items" id="asheet-rail-items"></div>
-      </aside>
-
-      <!-- Middle: the showcase, photographs and clips together. -->
+      <!-- One contact sheet, every frame the same size. The looping rail that
+           used to run down the left showed the same photographs again, cut
+           off top and bottom, and moved on its own. -->
       <section class="asheet-gallery" aria-labelledby="asheet-gallery-label">
         <div class="asheet-lane-head">
           <p class="eyebrow asheet-lane-label" id="asheet-gallery-label">Gallery</p>
@@ -718,7 +712,6 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
     </div>
     <div class="mediabox-meta">
       <p class="figure-caption" id="mediabox-caption"></p>
-      <p class="figure-cite" id="mediabox-cite"></p>
     </div>
   </div>
 </div>
