@@ -116,14 +116,13 @@
 
      One IntersectionObserver over .bench-record: whichever record is
      nearest centre moves .is-live to the matching [data-plate], and
-     #benchPos / #benchCount are read straight off that record's own
-     data-pos / data-count attributes, so no project strings live in JS. */
+     #benchPos is read straight off that record's own data-pos attribute,
+     so no project strings live in JS. */
 
   function benchDriver() {
     var records = $$('.bench-record');
     var plates = $$('.bench-plate');
     var posEl = document.getElementById('benchPos');
-    var countEl = document.getElementById('benchCount');
     if (!records.length || !plates.length || !('IntersectionObserver' in window)) return;
 
     var io = new IntersectionObserver(function (entries) {
@@ -134,7 +133,6 @@
           p.classList.toggle('is-live', p.getAttribute('data-plate') === id);
         });
         if (posEl) posEl.textContent = entry.target.getAttribute('data-pos') || '';
-        if (countEl) countEl.textContent = entry.target.getAttribute('data-count') || '';
       });
     }, { rootMargin: '-46% 0px -46% 0px', threshold: 0 });
 

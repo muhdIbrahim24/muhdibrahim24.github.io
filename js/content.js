@@ -150,7 +150,7 @@ window.PORTFOLIO = Object.freeze({
     "kicker": "Civil design",
     "title": "5th Corner Residential Building",
     "org": "",
-    "summary": "A graded-A, four-storey residential building model and coordinated drawing package for a hot-arid Abu Dhabi context: architecture, structure, façade and schedules held in one Revit model.",
+    "summary": "A four-storey residential building model and coordinated drawing package for a hot-arid Abu Dhabi context: architecture, structure, façade and schedules held in one Revit model.",
     "details": [
           {
                 "label": "Brief",
@@ -183,7 +183,7 @@ window.PORTFOLIO = Object.freeze({
           {
                 "label": "Constraints",
                 "text": [
-                      "The work was a graded university design project.",
+                      "The work was a university design project.",
                       "The model and member sizing represent neither a constructed building nor a site-verified design."
                 ]
           }
@@ -819,7 +819,7 @@ window.PORTFOLIO = Object.freeze({
     "kind": "Experience",
     "kicker": "May 2026 – Jul 2026",
     "title": "Graduate Intern",
-    "org": "Center for Stability, Instability and Turbulence (SITE), NYU Abu Dhabi",
+    "org": "Center for Stability, Instability and Turbulence (SITE)",
     "summary": "Solo 2D free-surface study building a model-training dataset across 60 trials.",
     "details": [],
     "evidence": ""
@@ -828,7 +828,7 @@ window.PORTFOLIO = Object.freeze({
     "kind": "Experience",
     "kicker": "Sep 2025 – May 2026",
     "title": "Workshop Technician",
-    "org": "Advanced Manufacturing Workshop, NYU Abu Dhabi",
+    "org": "Advanced Manufacturing Workshop",
     "summary": "Manufactured polymer and composite parts and supported capstone teams in the Advanced Manufacturing Workshop.",
     "details": [],
     "evidence": ""
@@ -836,8 +836,8 @@ window.PORTFOLIO = Object.freeze({
   "experience:research-assistant-site": {
     "kind": "Experience",
     "kicker": "Apr 2023 – May 2026",
-    "title": "Undergraduate Research Assistant, SITE",
-    "org": "Center for Stability, Instability and Turbulence (SITE), NYU Abu Dhabi",
+    "title": "Research Assistant",
+    "org": "Center for Stability, Instability and Turbulence (SITE)",
     "summary": "Tested 130+ Rayleigh–Taylor and Richtmyer–Meshkov cases in a two-person water-tunnel study.",
     "details": [],
     "evidence": ""
@@ -845,8 +845,8 @@ window.PORTFOLIO = Object.freeze({
   "experience:research-assistant-propulsion": {
     "kind": "Experience",
     "kicker": "Nov 2022 – Nov 2023",
-    "title": "Undergraduate Research Assistant, Energy and Propulsion Lab",
-    "org": "Energy and Propulsion Lab, NYU Abu Dhabi",
+    "title": "Research Assistant",
+    "org": "Energy and Propulsion Lab",
     "summary": "Modelled compressible flow on HPC clusters for AeroFarms growing-tower ventilation scenarios.",
     "details": [],
     "evidence": ""
