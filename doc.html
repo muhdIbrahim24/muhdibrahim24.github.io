@@ -138,11 +138,17 @@ if (!src) {
 }
 
 async function start() {
+  /* Opened by double-clicking the file rather than through a web address,
+     the browser blocks the module import this viewer is built on. Say so
+     plainly instead of reporting a broken document. */
+  if (location.protocol === 'file:') {
+    return fail('Open this page through a web address rather than from the folder: the browser blocks the viewer on file:// pages.');
+  }
   let pdfjs;
   try {
     pdfjs = await import('./assets/vendor/pdfjs/pdf.min.mjs');
   } catch (e) {
-    return fail('This browser could not load the document viewer.');
+    return fail('The document viewer could not load. It may not have finished uploading yet.');
   }
   pdfjs.GlobalWorkerOptions.workerSrc = 'assets/vendor/pdfjs/pdf.worker.min.mjs';
 
@@ -159,7 +165,7 @@ async function start() {
   try {
     pdf = await task.promise;
   } catch (e) {
-    return fail('The document could not be opened.');
+    return fail('The document could not be opened. It may not have finished uploading yet.');
   }
 
   elStatus.hidden = true;

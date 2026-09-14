@@ -670,6 +670,8 @@
   var asheetPanel = asheet ? $('.asheet-panel', asheet) : null;
   var asheetStage = asheet ? $('.asheet-stage', asheet) : null;
   var asheetGal   = asheet ? $('.asheet-gallery', asheet) : null;
+  var aRail       = $('#asheet-rail');
+  var aRailItems  = $('#asheet-rail-items');
   var aGrid       = $('#asheet-grid');
   var aCount      = $('#asheet-count');
   var aReturn     = null;
@@ -723,10 +725,7 @@
 
   function paintGallery(media) {
     if (!aGrid) return;
-    /* One list in the order the viewer walks it, so a tile's position is
-       its index. The looping rail that used to hold the second half of
-       these photographs is gone: it showed them again, cropped, moving. */
-    var items = (media.gallery || []).concat(media.rail || []);
+    var items = media.gallery || [];
     var cols = columnCount();
     var solo = items.length === 1;
     mediaCols = cols;
@@ -739,6 +738,43 @@
       var ratio = solo && item.w && item.h ? (item.w + ' / ' + item.h) : TILE_RATIO;
       aGrid.appendChild(mediaTile(item, i, { ratio: ratio }));
     });
+  }
+
+  /* The rail auto-scrolls in a slow, seamless loop rather than sitting
+     there waiting to be scrolled by hand: the item list is painted twice
+     back to back and the CSS animation moves exactly one copy's length, so
+     the join between the end and the restart is invisible. A single item
+     has nothing to loop past, so it just sits still. The stylesheet fades
+     both ends of the rail, which is what stops the frames at the top and
+     bottom reading as cut in half. */
+  function paintRail(media) {
+    if (!aRail || !aRailItems) return;
+    var items = media.rail || [];
+    aRailItems.textContent = '';
+    aRailItems.style.removeProperty('--rail-duration');
+    /* No rail rather than an empty one: some records carry a single
+       document and nothing to put alongside it. */
+    aRail.hidden = !items.length;
+    if (asheetStage) asheetStage.classList.toggle('no-rail', !items.length);
+    if (!items.length) return;
+
+    var offset = (media.gallery || []).length;
+    var loop = items.length > 1;
+    aRailItems.classList.toggle('is-looping', loop);
+    if (loop) aRailItems.style.setProperty('--rail-duration', Math.max(items.length * 5, 16) + 's');
+
+    var passes = loop ? 2 : 1;
+    for (var pass = 0; pass < passes; pass++) {
+      items.forEach(function (item, i) {
+        var tile = mediaTile(item, offset + i, { ratio: '3 / 4' });
+        if (pass > 0) {
+          /* The second copy is purely visual continuation of the loop. */
+          tile.setAttribute('aria-hidden', 'true');
+          tile.tabIndex = -1;
+        }
+        aRailItems.appendChild(tile);
+      });
+    }
   }
 
   function countLine(media) {
@@ -784,6 +820,7 @@
       notes.appendChild(wrap);
     });
 
+    paintRail(media);
     paintGallery(media);
     if (aCount) aCount.textContent = countLine(media);
     var empty = $('#asheet-empty');

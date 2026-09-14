@@ -1,14 +1,23 @@
-# Working notes and local tooling. These stay on this machine and are never
-# part of the published site.
+# ---------------------------------------------------------------------------
+# Everything in this file stays on this computer and never reaches GitHub.
+# Everything NOT listed here is part of the published site and does get pushed.
+# ---------------------------------------------------------------------------
+
+# Old design snapshots, about 25 MB of files the site no longer uses
 backups/
 _phase-c-backup/
+
+# Screenshots and working output
+Claude outputs/
+
+# Working notes, not part of the site
 DESIGN.md
 MEDIA_GUIDE.md
 PRODUCT.md
-deploy.bat
 assets/docs/*.md
 
-# Anything a tool drops in the folder
+# The deploy script itself, and anything a tool drops in the folder
+deploy.bat
 node_modules/
 .vscode/
 .idea/

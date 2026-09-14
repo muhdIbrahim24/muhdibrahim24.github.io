@@ -1044,6 +1044,25 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
 @media (min-width: 900px) { .asheet-head-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
 
 .asheet-stage { flex: 1; display: flex; min-height: 0; overflow: hidden; }
+/* The rail: a slow, seamless loop of this record's photographs beside the
+   contact sheet. Both ends are masked to transparent, so a frame entering or
+   leaving reads as passing through rather than sliced in half, which is what
+   made the strip look broken against the header. */
+.asheet-rail {
+  width: min(300px, 40vw); flex: none; overflow: hidden;
+  border-right: 1px solid var(--line); background: var(--slab);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 7%, #000 93%, transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 7%, #000 93%, transparent 100%);
+}
+.asheet-stage.no-rail .asheet-rail { display: none; }
+.asheet-rail-items { display: flex; flex-direction: column; gap: 1px; }
+.asheet-rail-items.is-looping { animation: rail-loop var(--rail-duration, 20s) linear infinite; }
+.asheet-rail:hover .asheet-rail-items, .asheet-rail:focus-within .asheet-rail-items { animation-play-state: paused; }
+@keyframes rail-loop { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+.asheet-rail-items .asheet-tile { border: 0; border-radius: 0; width: 100%; }
+.asheet-rail-items img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 900px) { .asheet-rail { display: none; } }
+
 .asheet-gallery { flex: 1; overflow-y: auto; padding: var(--s5) var(--s5) var(--s7); min-width: 0; }
 .asheet-lane-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; }
 .asheet-count { font: 500 var(--fs-xs) var(--f-mono); color: var(--tx-3); }
@@ -1090,6 +1109,7 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
   .has-js .plate img { clip-path: none !important; transform: none !important; filter: none !important; }
   .plate[data-duo]::after { opacity: 0 !important; }
   #flowfield, #catPreview { display: none !important; }
+  .asheet-rail-items.is-looping { animation: none; }
   .bench-plate { transition: none; }
   body.is-locked #main { transform: none !important; filter: none !important; }
   html.has-js .hero-name .line-in {

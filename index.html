@@ -648,8 +648,8 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
 </div>
 
 <!-- Activity sheet. A different animal from the case sheet above: the written
-     record sits in a header strip and a contact sheet of photographs and
-     clips fills the body. The
+     record sits in a header strip, an images-only rail runs down the left,
+     and a contact sheet of photographs and clips fills the middle. The
      project case sheet is untouched and still handles every project record. -->
 <div class="asheet" id="activity-sheet" role="dialog" aria-modal="true" aria-labelledby="asheet-title" hidden>
   <div class="sheet-scrim" data-close-activity></div>
@@ -674,9 +674,14 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
     </header>
 
     <div class="asheet-stage">
-      <!-- One contact sheet, every frame the same size. The looping rail that
-           used to run down the left showed the same photographs again, cut
-           off top and bottom, and moved on its own. -->
+      <!-- Left: images only, never a clip, a slim rail beside the story. It
+           loops on its own, and fades out at both ends so the frames at the
+           top and bottom read as passing through rather than cut off. -->
+      <aside class="asheet-rail" id="asheet-rail" aria-label="Photographs" data-cursor="DRAG">
+        <div class="asheet-rail-items" id="asheet-rail-items"></div>
+      </aside>
+
+      <!-- Middle: the contact sheet, photographs and clips together. -->
       <section class="asheet-gallery" aria-labelledby="asheet-gallery-label">
         <div class="asheet-lane-head">
           <p class="eyebrow asheet-lane-label" id="asheet-gallery-label">Gallery</p>
