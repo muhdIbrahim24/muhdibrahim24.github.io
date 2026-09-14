@@ -120,8 +120,12 @@
   --tint:   rgba(75,34,199,.055);
   --tint-2: rgba(75,34,199,.11);
 
-  --r-card: 14px;
-  --r-card-lg: 18px;
+  /* One radius scale for the whole site. Before this there were four
+     competing languages at once: 18px cards, a lone 14px row, a 999px pill,
+     and square buttons, modals and figure controls sitting beside them. */
+  --r-control: 10px;   /* buttons, chips, small controls */
+  --r-card: 14px;      /* surfaces nested inside another surface */
+  --r-card-lg: 18px;   /* top level cards and modal panels */
   --shadow-1: 0 1px 2px rgba(12,12,16,.05), 0 8px 20px -12px rgba(12,12,16,.18);
   --shadow-2: 0 2px 6px rgba(12,12,16,.07), 0 22px 46px -22px rgba(12,12,16,.28);
   --shadow-ink-1: 0 1px 2px rgba(0,0,0,.4), 0 10px 26px -14px rgba(0,0,0,.7);
@@ -211,7 +215,7 @@ body::after {
 .on-paper .qty { color: var(--amber-ink); }
 
 .chip {
-  display: inline-block; border: 1px solid var(--line-2); border-radius: var(--r-2);
+  display: inline-block; border: 1px solid var(--line-2); border-radius: var(--r-control);
   padding: 4px 10px; font: 500 var(--fs-mono) var(--f-mono); color: var(--tx-2);
 }
 
@@ -220,7 +224,7 @@ body::after {
 .section-note { max-width: 62ch; color: var(--tx-2); font-size: var(--fs-sm); line-height: 1.6; }
 
 .btn {
-  position: relative; isolation: isolate; overflow: hidden;
+  position: relative; isolation: isolate; overflow: hidden; border-radius: var(--r-control);
   display: inline-flex; align-items: center; gap: var(--s2);
   min-height: 46px; padding: 12px 22px;
   border: 1px solid var(--violet); color: var(--violet); background: var(--tint);
@@ -246,7 +250,7 @@ body::after {
 
 .pill {
   display: inline-flex; align-items: center; gap: 8px;
-  border: 1px solid var(--line-2); border-radius: var(--r-pill);
+  border: 1px solid var(--line-2); border-radius: var(--r-control);
   padding: 8px 16px; font: 600 var(--fs-xs) var(--f-body); color: var(--violet);
 }
 .pill::after { content: "\2192"; transition: transform var(--t-3) var(--e-out); }
@@ -521,13 +525,24 @@ html.has-js:not(.is-booting) .hero-name .line-2 .line-in {
    anchor, so it survives with scripting off and behaves normally on
    right-click. The page already sets scroll-behavior, and the reduced
    motion block already turns that off. */
-.hero-contact {
-  display: inline-grid; gap: 8px; justify-items: start;
+/* The two hero actions sit side by side, collapsing to a stack once the
+   column is too narrow to carry them. Equal columns so neither card reads
+   as the lesser of the two. */
+.hero-actions {
   margin-top: clamp(20px, 2.4vw, 30px);
+  display: grid; gap: clamp(10px, 1.2vw, 16px);
+  /* min() lets the track collapse below its floor on narrow screens. A bare
+     minmax(190px,1fr) cannot shrink, so the pair forced a 390px min-content
+     width and pushed itself off the side of the phone viewport. */
+  grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr));
+  max-width: 44ch;
+}
+.hero-contact {
+  display: grid; gap: 8px; justify-items: start; align-content: start;
+  height: 100%;
   padding: clamp(16px, 1.8vw, 21px) clamp(20px, 2.4vw, 28px);
   border: 1px solid var(--line-2); background: var(--tint);
   border-radius: var(--r-card-lg); box-shadow: var(--shadow-1);
-  max-width: 44ch;
   transition: border-color var(--t-3) var(--e-out), transform var(--t-3) var(--e-out), box-shadow var(--t-3) var(--e-out);
 }
 .hero-contact:hover, .hero-contact:focus-visible { border-color: var(--violet); transform: translateY(-3px); box-shadow: var(--shadow-2); }
@@ -729,18 +744,17 @@ html.has-js:not(.is-booting) .hero-name .line-2 .line-in {
 .cat-link:hover .cat-num, .cat-link:focus-visible .cat-num { color: var(--amber); }
 .cat-title { font-size: var(--fs-lg); font-weight: 640; letter-spacing: -.014em; transition: transform 480ms var(--e-out); display: block; }
 .cat-link:hover .cat-title, .cat-link:focus-visible .cat-title { transform: translateX(10px); }
-.cat-field, .cat-year, .cat-count { font: 500 var(--fs-xs) var(--f-mono); color: var(--tx-3); }
+.cat-field, .cat-year { font: 500 var(--fs-xs) var(--f-mono); color: var(--tx-3); }
 .cat-thumb { display: none; }
 
 @media (min-width: 1024px) {
-  .cat-link { grid-template-columns: 70px minmax(0,1fr) 200px 96px 160px; align-items: center; gap: 28px; padding-inline: clamp(10px, 1.2vw, 18px); }
+  .cat-link { grid-template-columns: 70px minmax(0,1fr) 220px 110px; align-items: center; gap: 28px; padding-inline: clamp(10px, 1.2vw, 18px); }
   .cat-thumb { display: none; }
 }
 @media (max-width: 1023px) {
   .cat-list { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: clamp(20px, 3vw, 32px); border-top: 0; }
   .cat-row { border-bottom: 0; }
   .cat-link { display: grid; gap: 12px; }
-  .cat-count { display: none; }
   .cat-thumb { display: block; aspect-ratio: 4/3; }
 }
 @media (max-width: 559px) { .cat-list { grid-template-columns: minmax(0,1fr); } }
@@ -869,8 +883,8 @@ a.contact-value { color: var(--violet); border-bottom: 1px solid var(--line-2); 
 a.contact-value:hover, a.contact-value:focus-visible { border-bottom-color: currentColor; }
 
 .site-foot { background: var(--slab); border-top: 1px solid var(--line); }
-.foot-inner { padding-block: var(--s5); display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: var(--fs-xs); color: var(--tx-3); }
-.foot-clock { font-family: var(--f-mono); }
+.foot-inner { padding-block: var(--s5); display: flex; align-items: center; justify-content: center; font-size: var(--fs-xs); color: var(--tx-3); }
+.foot-updated { font-family: var(--f-mono); letter-spacing: .04em; }
 
 /* -------------------------------------------------- 17 modal shells */
 
@@ -886,7 +900,7 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
       on the site — the site is dark, the record is a document, and
       documents want light. */
 
-.sheet-panel {
+.sheet-panel { border-radius: var(--r-card-lg);
   position: relative; width: min(1600px, 100%); height: 100%; max-height: 100%;
   background: var(--slab); border: 1px solid var(--line-2); overflow-y: auto; overflow-x: hidden;
   display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto 1fr;
@@ -913,7 +927,7 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
 .figures-source { font: 500 var(--fs-xs) var(--f-mono); color: var(--tx-ink-3); }
 
 .figures-stage { position: relative; flex: 1; display: flex; align-items: center; justify-content: center; padding: clamp(16px, 2.2vw, 36px); min-height: 0; overflow: hidden; }
-.figures-frame { position: relative; width: 100%; height: 100%; min-height: 0; display: grid; place-items: center; overflow: hidden; }
+.figures-frame { border-radius: var(--r-card); position: relative; width: 100%; height: 100%; min-height: 0; display: grid; place-items: center; overflow: hidden; }
 .figures-zoom { position: relative; width: 100%; height: 100%; min-height: 0; display: grid; place-items: center; background: var(--mat); border: 1px solid var(--line-ink-2); overflow: hidden; }
 .figures-img { position: absolute; max-width: 100%; max-height: min(100%, 70vh, 900px); min-width: 0; min-height: 0; width: auto; height: auto; object-fit: contain; opacity: 0; transform: translateX(var(--from, 0)); transition: opacity 300ms var(--e-out), transform 520ms var(--e-out); }
 .figures-img.is-active { opacity: 1; transform: none; position: relative; max-height: min(100%, 70vh, 900px); min-width: 0; min-height: 0; }
@@ -925,6 +939,7 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
 .figures-arrow {
   position: absolute; top: 50%; transform: translateY(-50%); width: 52px; height: 52px;
   border: 1px solid var(--line-ink-2); display: grid; place-items: center; background: var(--paper);
+  border-radius: var(--r-control);
   transition: background 200ms, color 200ms;
 }
 .figures-arrow:hover, .figures-arrow:focus-visible { background: var(--tx-ink); color: var(--paper); }
@@ -936,6 +951,7 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
 .figures-strip { display: flex; gap: 8px; overflow-x: auto; padding: 0 var(--s6) var(--s4); scrollbar-width: thin; }
 .figures-strip button {
   flex: none; width: 64px; height: 48px; border: 1px solid var(--line-ink-2); overflow: hidden; opacity: .45;
+  border-radius: var(--r-2);
   transition: opacity 200ms;
 }
 .figures-strip button img { width: 100%; height: 100%; object-fit: cover; }
@@ -955,7 +971,7 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
   display: inline-flex; align-items: center; gap: 8px; font: 700 var(--fs-xs) var(--f-mono);
   letter-spacing: .08em; text-transform: uppercase;
   color: #FFFFFF; background: var(--violet); border: 1px solid var(--violet);
-  padding: 10px 18px; transition: background var(--t-2) var(--e-out), border-color var(--t-2) var(--e-out);
+  padding: 10px 18px; border-radius: var(--r-control); transition: background var(--t-2) var(--e-out), border-color var(--t-2) var(--e-out);
 }
 .sheet-close::before { content: "\2190"; transition: transform var(--t-3) var(--e-out); }
 .sheet-close:hover, .sheet-close:focus-visible { background: var(--tx-1); border-color: var(--tx-1); color: #FFFFFF; }
@@ -1015,7 +1031,7 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
 
 /* -- lightbox: enlarged figure, paper stage, dark chrome */
 
-.lightbox-panel { position: relative; width: min(1400px, 100%); height: 100%; max-height: 100%; background: var(--slab); border: 1px solid var(--line-2); display: flex; flex-direction: column; overflow: hidden; transform: scale(.975); opacity: 0; transition: transform 340ms var(--e-out), opacity 340ms var(--e-out); }
+.lightbox-panel { border-radius: var(--r-card-lg); position: relative; width: min(1400px, 100%); height: 100%; max-height: 100%; background: var(--slab); border: 1px solid var(--line-2); display: flex; flex-direction: column; overflow: hidden; transform: scale(.975); opacity: 0; transition: transform 340ms var(--e-out), opacity 340ms var(--e-out); }
 .lightbox:not([hidden]) .lightbox-panel { transform: none; opacity: 1; }
 .lightbox-bar, .mediabox-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: var(--s4) var(--s5); border-bottom: 1px solid var(--line); }
 .lightbox-controls { display: flex; align-items: center; gap: 10px; }
@@ -1028,7 +1044,7 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
 
 /* -- activity sheet: dark throughout, three-zone architecture kept */
 
-.asheet-panel { position: relative; width: min(1600px, 100%); height: 100%; background: var(--void); border: 1px solid var(--line-2); overflow: hidden; display: flex; flex-direction: column; clip-path: inset(0 0 100% 0); transition: clip-path 620ms var(--e-out); }
+.asheet-panel { border-radius: var(--r-card-lg); position: relative; width: min(1600px, 100%); height: 100%; background: var(--void); border: 1px solid var(--line-2); overflow: hidden; display: flex; flex-direction: column; clip-path: inset(0 0 100% 0); transition: clip-path 620ms var(--e-out); }
 .asheet:not([hidden]) .asheet-panel { clip-path: inset(0); }
 .asheet-head { border-bottom: 1px solid var(--line); background: var(--slab); }
 .asheet-head-bar { display: flex; align-items: center; justify-content: space-between; padding: var(--s4) var(--s5); }
@@ -1070,7 +1086,7 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
 
 /* -- mediabox: near-fullscreen viewer for activity photographs and clips */
 
-.mediabox-panel { position: relative; width: min(1700px, 92vw); max-height: 88vh; background: var(--void); border: 1px solid var(--line-2); display: flex; flex-direction: column; overflow: hidden; transform: scale(.975); opacity: 0; transition: transform 340ms var(--e-out), opacity 340ms var(--e-out); }
+.mediabox-panel { border-radius: var(--r-card-lg); position: relative; width: min(1700px, 92vw); max-height: 88vh; background: var(--void); border: 1px solid var(--line-2); display: flex; flex-direction: column; overflow: hidden; transform: scale(.975); opacity: 0; transition: transform 340ms var(--e-out), opacity 340ms var(--e-out); }
 .mediabox:not([hidden]) .mediabox-panel { transform: none; opacity: 1; }
 .mediabox-stage { position: relative; display: grid; place-items: center; min-height: 0; background: var(--void); padding: clamp(16px, 2.2vw, 36px); }
 .mediabox-image { width: auto; height: auto; max-width: 100%; max-height: min(78vh, 900px); min-width: 0; min-height: 0; object-fit: contain; }
