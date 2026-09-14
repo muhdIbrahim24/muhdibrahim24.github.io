@@ -4,31 +4,50 @@ window.PORTFOLIO = Object.freeze({
   records: {
   "project:01": {
     "kind": "Project 09",
-    "kicker": "Marine systems / simulation",
+    "kicker": "Marine systems",
     "title": "Advanced Anti-Roll Tank System (ART3S)",
     "org": "Mubadala Student Research Projects 2024–2025, NYU Abu Dhabi",
     "summary": "A hydraulically controlled anti-roll tank for large vessels: port and starboard reservoirs whose water shifts out of phase with the ship's roll, evaluated as a passive U-tube tank and then with an actively actuated loop.",
     "details": [
-      {
-        "label": "Brief",
-        "text": "Cut the roll motion of a large container ship (the cause of passenger discomfort and cargo shifting) with a water-tank system cheaper to maintain than bilge keels, fin stabilisers or ballast keels."
-      },
-      {
-        "label": "Contribution",
-        "text": "Credited as Design on an eight-person team with four supervisors: mechanical design and system integration of the tank structure, including SolidWorks models of tank volumes from 200 to 800 cubic metres, and presenting the design to the Mubadala committee with partner laboratories. Control-law and simulation work was shared across the team."
-      },
-      {
-        "label": "Approach",
-        "text": "Modelled a passive U-tube tank and an actively controlled variant against an unstabilised baseline of ±0.075 rad (±4.3°) roll, sizing a Side-Power SMSPS90 hydraulic pump-motor as the actuator and a Dewesoft DS-GYRO3 IMU at up to 1800 Hz for roll feedback. Physical testing used an Eacam WL917 29 cm hull at the Abu Dhabi Maritime Academy and the NYU Abu Dhabi wave tank."
-      },
-      {
-        "label": "Outcome",
-        "text": "The passive tank cut roll amplitude from ±0.075 rad to about ±0.01 rad (an 85% reduction), settling to steady state after roughly 2,000 seconds. Closing the loop with the hydraulic actuator took roll below 0.0016 rad, a greater than 98% reduction."
-      },
-      {
-        "label": "Constraints",
-        "text": "These are simulation results for a modelled sea state, not full-scale sea trials. Physical testing was done at RC-hull scale, and fuel use, cost and extreme-sea-state performance weren't part of the study."
-      }
+          {
+                "label": "Brief",
+                "text": [
+                      "Reduce the roll motion of a large container ship, the principal cause of passenger discomfort and cargo shifting.",
+                      "Deliver a water-tank system cheaper to maintain than bilge keels, fin stabilisers or ballast keels."
+                ]
+          },
+          {
+                "label": "Contribution",
+                "text": [
+                      "Credited as Design on a team of [[eight]] with [[four]] supervisors.",
+                      "Owned mechanical design and system integration of the tank structure, including SolidWorks models of tank volumes from [[200 to 800 m³]].",
+                      "Presented the design to the Mubadala committee with partner laboratories. Control-law and simulation work was shared across the team."
+                ]
+          },
+          {
+                "label": "Approach",
+                "text": [
+                      "Modelled a passive U-tube tank and an actively controlled variant against an unstabilised baseline of [[±0.075 rad]] ([[±4.3°]]).",
+                      "Specified a Side-Power SMSPS90 hydraulic pump-motor as the actuator and a Dewesoft DS-GYRO3 IMU at up to [[1800 Hz]] for roll feedback.",
+                      "Conducted physical testing on an Eacam WL917 [[29 cm]] hull at the Abu Dhabi Maritime Academy and the NYU Abu Dhabi wave tank."
+                ]
+          },
+          {
+                "label": "Outcome",
+                "text": [
+                      "The passive tank reduced roll amplitude from [[±0.075 rad]] to approximately [[±0.01 rad]], an [[85%]] reduction.",
+                      "Steady state was reached after approximately [[2,000 seconds]].",
+                      "Closing the loop with the hydraulic actuator reduced roll below [[0.0016 rad]], exceeding a [[98%]] reduction."
+                ]
+          },
+          {
+                "label": "Constraints",
+                "text": [
+                      "The reductions are simulation results for a modelled sea state, not full-scale sea trials.",
+                      "Physical testing was conducted at RC-hull scale.",
+                      "Fuel consumption, cost and extreme-sea-state performance fell outside the scope of the study."
+                ]
+          }
     ],
     "evidence": "mubadala",
     "videos": [
@@ -81,61 +100,93 @@ window.PORTFOLIO = Object.freeze({
   },
   "project:02": {
     "kind": "Project 11",
-    "kicker": "Energy systems / CFD / prototyping",
+    "kicker": "Energy systems",
     "title": "Savonius Turbine for Traffic Wind Energy Harvesting",
     "org": "",
     "summary": "A vertical-axis turbine designed to harvest the vortices thrown off traffic moving in opposite directions either side of a central reservation. Optimised in ANSYS Fluent, then built and measured at 1:3 scale.",
     "details": [
-      {
-        "label": "Brief",
-        "text": "Design a vertical-axis turbine for vortices generated by traffic moving in opposite directions on either side of a central reservation."
-      },
-      {
-        "label": "Contribution",
-        "text": "Optimised the turbine geometry and fabricated a 1:3 scale carbon-fibre-reinforced FDM prototype."
-      },
-      {
-        "label": "Approach",
-        "text": "Used ANSYS Fluent to study a 45-degree helical twist, a 124-degree blade arc and serrated leading edges inside an 8D domain, then bench- and road-tested the physical scale prototype separately."
-      },
-      {
-        "label": "Outcome",
-        "text": "In CFD the serrated rotor reached a 71.65% higher peak moment and a 56.33% power increase over the non-serrated baseline. On the bench the prototype self-started within 2 to 5 seconds and peaked at 5 to 7 V. Roadside it held about 2.67 V with spikes to 10 V as vehicles passed. Full-scale output is projected at 3 to 15 W at 5 to 6 m/s."
-      },
-      {
-        "label": "Constraints",
-        "text": "The CFD results and the measured voltages are separate results. The 3 to 15 W full-scale figure is a projection from the scale prototype, not a direct measurement, and power coefficient, torque coefficient, site wind resource and streetlight load weren't calculated."
-      }
+          {
+                "label": "Brief",
+                "text": [
+                      "Design a vertical-axis turbine suited to the vortices shed by passing traffic.",
+                      "Target the flow generated by vehicles travelling in opposite directions either side of a central reservation."
+                ]
+          },
+          {
+                "label": "Contribution",
+                "text": [
+                      "Optimised the turbine geometry.",
+                      "Fabricated a [[1:3]] scale carbon-fibre-reinforced FDM prototype."
+                ]
+          },
+          {
+                "label": "Approach",
+                "text": [
+                      "Studied a [[45-degree]] helical twist, a [[124-degree]] blade arc and serrated leading edges in ANSYS Fluent within an [[8D]] domain.",
+                      "Bench-tested and road-tested the physical scale prototype as a separate exercise."
+                ]
+          },
+          {
+                "label": "Outcome",
+                "text": [
+                      "In CFD the serrated rotor achieved a [[71.65%]] higher peak moment and a [[56.33%]] power increase over the non-serrated baseline.",
+                      "On the bench the prototype self-started within [[2 to 5 seconds]] and peaked at [[5 to 7 V]]. Roadside it held approximately [[2.67 V]] with spikes to [[10 V]] as vehicles passed.",
+                      "Full-scale output is projected at [[3 to 15 W]] at [[5 to 6 m/s]]."
+                ]
+          },
+          {
+                "label": "Constraints",
+                "text": [
+                      "The CFD percentages and the measured voltages are independent results.",
+                      "The [[3 to 15 W]] figure is a projection from scale-prototype data rather than a direct measurement.",
+                      "Power coefficient, torque coefficient, site wind resource and streetlight load were not determined."
+                ]
+          }
     ],
     "evidence": "savonius"
   },
   "project:03": {
     "kind": "Project 06",
-    "kicker": "Civil design / BIM coordination",
+    "kicker": "Civil design",
     "title": "5th Corner Residential Building",
     "org": "",
     "summary": "A graded-A, four-storey residential building model and coordinated drawing package for a hot-arid Abu Dhabi context: architecture, structure, façade and schedules held in one Revit model.",
     "details": [
-      {
-        "label": "Brief",
-        "text": "Produce an architectural and structural design package for an approximately 928 m² four-storey multifamily residential building."
-      },
-      {
-        "label": "Contribution",
-        "text": "Produced AutoCAD and Revit models, coordinated structural documentation, and automated the structural column schedule into Excel."
-      },
-      {
-        "label": "Approach",
-        "text": "Sized members with SAP2000 finite-element analysis to ACI 318, used Dynamo to extract Revit parameters, and ran Revit interference checks."
-      },
-      {
-        "label": "Outcome",
-        "text": "Automated the schedule and quantity take-off for all 84 columns, cutting the process from over 30 minutes by hand to under one minute, and resolved 15 slab-to-beam conflicts for a clash-free BIM model."
-      },
-      {
-        "label": "Constraints",
-        "text": "This was a graded university design project. The model and member sizing were not a constructed building or a site-verified design."
-      }
+          {
+                "label": "Brief",
+                "text": [
+                      "Produce a coordinated architectural and structural design package for a multifamily residential building.",
+                      "Building area of approximately [[928 m²]] across [[four storeys]]."
+                ]
+          },
+          {
+                "label": "Contribution",
+                "text": [
+                      "Produced the AutoCAD and Revit models and coordinated the structural documentation.",
+                      "Automated the structural column schedule into Excel."
+                ]
+          },
+          {
+                "label": "Approach",
+                "text": [
+                      "Sized members by SAP2000 finite-element analysis to ACI 318.",
+                      "Extracted Revit parameters through Dynamo and ran Revit interference checks."
+                ]
+          },
+          {
+                "label": "Outcome",
+                "text": [
+                      "Automated the schedule and quantity take-off for all [[84 columns]], reducing the process from over [[30 minutes]] by hand to under [[one minute]].",
+                      "Resolved [[15]] slab-to-beam conflicts to produce a clash-free BIM model."
+                ]
+          },
+          {
+                "label": "Constraints",
+                "text": [
+                      "The work was a graded university design project.",
+                      "The model and member sizing represent neither a constructed building nor a site-verified design."
+                ]
+          }
     ],
     "evidence": "civil",
     "pdfs": [
@@ -144,91 +195,138 @@ window.PORTFOLIO = Object.freeze({
   },
   "project:04": {
     "kind": "Project 01",
-    "kicker": "Personal project / UAV design",
+    "kicker": "UAV design",
     "title": "Fixed-Wing UAV for Search-and-Rescue Payload Deployment",
     "org": "",
     "summary": "An assembled fixed-wing prototype with a detachable nose, intended to carry and release a smaller multirotor payload. Airframe, structure and materials owned on a two-person project.",
     "details": [
-      {
-        "label": "Brief",
-        "text": "Develop a 3D-printed fixed-wing UAV with a detachable nose and release concept for a smaller multirotor payload."
-      },
-      {
-        "label": "Contribution",
-        "text": "Owned the airframe, structure and material choices on a two-person project. A collaborator handled the electronics."
-      },
-      {
-        "label": "Approach",
-        "text": "Reduced mass through lightweight PLA, tuned infill, revised internal geometry and carbon-fibre tubing in the chassis."
-      },
-      {
-        "label": "Outcome",
-        "text": "Reduced all-up airframe mass from 2,500 g to 1,500 g, a 40% reduction. The completed prototype has a 1,130 mm wingspan."
-      },
-      {
-        "label": "Constraints",
-        "text": "The UAV hasn't flown yet, and the release mechanism hasn't been tested."
-      }
+          {
+                "label": "Brief",
+                "text": [
+                      "Develop a 3D-printed fixed-wing UAV with a detachable nose.",
+                      "Incorporate a release concept for a smaller multirotor payload."
+                ]
+          },
+          {
+                "label": "Contribution",
+                "text": [
+                      "Owned the airframe, structure and material selection on a [[two-person]] project.",
+                      "Electronics were handled by the collaborator."
+                ]
+          },
+          {
+                "label": "Approach",
+                "text": [
+                      "Reduced mass through lightweight PLA and tuned infill.",
+                      "Revised the internal geometry and introduced carbon-fibre tubing in the chassis."
+                ]
+          },
+          {
+                "label": "Outcome",
+                "text": [
+                      "Reduced all-up airframe mass from [[2,500 g]] to [[1,500 g]], a [[40%]] reduction.",
+                      "The completed prototype has a [[1,130 mm]] wingspan."
+                ]
+          },
+          {
+                "label": "Constraints",
+                "text": [
+                      "The aircraft has not flown.",
+                      "The release mechanism has not been tested."
+                ]
+          }
     ],
     "evidence": "uav-drone"
   },
   "project:05": {
     "kind": "Project 07",
-    "kicker": "Thermal systems / instrumentation",
+    "kicker": "Thermal systems",
     "title": "Compressor-Less Multi-Stage TEC Refrigerator",
     "org": "",
     "summary": "A compact compressor-less refrigerator built around thermoelectric (Peltier) modules driven in parallel, with Arduino sensing and closed-loop PWM control.",
     "details": [
-      {
-        "label": "Brief",
-        "text": "Design and prototype a compact compressor-less refrigerator using thermoelectric cooling in place of a vapour-compression cycle."
-      },
-      {
-        "label": "Contribution",
-        "text": "Contributed to the mechanical and electrical cooling architecture, Arduino-based sensing and closed-loop control implementation."
-      },
-      {
-        "label": "Approach",
-        "text": "Ran dual TEC modules in parallel from a 12 V supply at approximately 9.7 A, with DS18B20 sensing, PWM-driven MOSFET switching, CPU-cooler heatsink and fan stacks on both faces, and an OLED and rotary-encoder interface for setpoint and duty-cycle adjustment."
-      },
-      {
-        "label": "Outcome",
-        "text": "Over a 180-minute test the cabin cooled from a 27°C ambient start to a stable 10°C, reaching thermal equilibrium after roughly 120 minutes, with frost forming on the cold-side heatsink throughout."
-      },
-      {
-        "label": "Constraints",
-        "text": "We didn't measure coefficient of performance or hot-side heat rejection, and didn't compare other module configurations."
-      }
+          {
+                "label": "Brief",
+                "text": [
+                      "Design and prototype a compact compressor-less refrigerator.",
+                      "Substitute thermoelectric cooling for a vapour-compression cycle."
+                ]
+          },
+          {
+                "label": "Contribution",
+                "text": [
+                      "Contributed to the mechanical and electrical cooling architecture.",
+                      "Implemented Arduino-based sensing and closed-loop control."
+                ]
+          },
+          {
+                "label": "Approach",
+                "text": [
+                      "Drove dual TEC modules in parallel from a [[12 V]] supply at approximately [[9.7 A]].",
+                      "Used DS18B20 sensing with PWM-driven MOSFET switching and CPU-cooler heatsink and fan stacks on both faces.",
+                      "Provided an OLED and rotary-encoder interface for setpoint and duty-cycle adjustment."
+                ]
+          },
+          {
+                "label": "Outcome",
+                "text": [
+                      "Over a [[180-minute]] test the cabin cooled from a [[27°C]] ambient start to a stable [[10°C]].",
+                      "Thermal equilibrium was reached after approximately [[120 minutes]].",
+                      "Frost formed on the cold-side heatsink throughout the test."
+                ]
+          },
+          {
+                "label": "Constraints",
+                "text": [
+                      "Coefficient of performance and hot-side heat rejection were not measured.",
+                      "Alternative module configurations were not compared."
+                ]
+          }
     ],
     "evidence": "tec"
   },
   "project:06": {
     "kind": "Project 04",
-    "kicker": "Numerical methods / MATLAB",
+    "kicker": "Numerical methods",
     "title": "Indoor Wireless Link Design with Helmholtz PDEs",
     "org": "",
     "summary": "A finite-element Helmholtz study of indoor transmitter placement, run at 2.4 GHz under reflective and partially absorbing wall conditions and scored on desk-area coverage.",
     "details": [
-      {
-        "label": "Brief",
-        "text": "Identify a transmitter position that improves simulated wireless coverage across a target desk area."
-      },
-      {
-        "label": "Contribution",
-        "text": "Developed FEM setup and mesh analysis, numerical and analytical solution work, MATLAB simulations for transmitter positions, and model documentation."
-      },
-      {
-        "label": "Approach",
-        "text": "Derived a scalar Helmholtz model from Maxwell's equations and compared 2D source locations under reflective and partially absorbing boundaries."
-      },
-      {
-        "label": "Outcome",
-        "text": "Across four simulated router locations, the best placement achieved approximately 40% simulated desk coverage, about 13 times the coverage of sub-optimal corner placements."
-      },
-      {
-        "label": "Constraints",
-        "text": "The coverage result is simulated only. We didn't test a physical router or measure real-world coverage."
-      }
+          {
+                "label": "Brief",
+                "text": [
+                      "Identify a transmitter position that maximises simulated wireless coverage across a target desk area.",
+                      "Evaluate placement under differing wall-reflectivity assumptions."
+                ]
+          },
+          {
+                "label": "Contribution",
+                "text": [
+                      "Developed the FEM setup and mesh analysis with the supporting numerical and analytical solution work.",
+                      "Ran the MATLAB simulations across transmitter positions and produced the model documentation."
+                ]
+          },
+          {
+                "label": "Approach",
+                "text": [
+                      "Derived a scalar Helmholtz model from Maxwell's equations.",
+                      "Compared 2D source locations under reflective and partially absorbing boundaries."
+                ]
+          },
+          {
+                "label": "Outcome",
+                "text": [
+                      "Across [[four]] simulated router locations the best placement achieved approximately [[40%]] desk coverage.",
+                      "That result is approximately [[13 times]] the coverage of sub-optimal corner placements."
+                ]
+          },
+          {
+                "label": "Constraints",
+                "text": [
+                      "The coverage result is simulated only.",
+                      "No physical router was tested and no real-world coverage was measured."
+                ]
+          }
     ],
     "evidence": "pde",
     "pdfs": [
@@ -237,61 +335,94 @@ window.PORTFOLIO = Object.freeze({
   },
   "project:07": {
     "kind": "Project 10",
-    "kicker": "Motorsport / SolidWorks FEA",
+    "kicker": "Motorsport",
     "title": "Formula Student SAE Drivetrain",
     "org": "",
     "summary": "A narrowly scoped Formula SAE contribution: rear half-shaft design and structural verification for a rear-engine, rear-wheel-drive car.",
     "details": [
-      {
-        "label": "Brief",
-        "text": "Design and verify the rear half shafts for a rear-engine, rear-wheel-drive Formula SAE vehicle in a 10-member team."
-      },
-      {
-        "label": "Contribution",
-        "text": "Owned the half-shaft scope rather than the full drivetrain or vehicle build."
-      },
-      {
-        "label": "Approach",
-        "text": "Used SolidWorks Simulation FEA against an assumed worst-case shock-load design envelope for clutch-dump and wheel-hop scenarios."
-      },
-      {
-        "label": "Outcome",
-        "text": "Sized the half shafts to a 1.2 to 1.5 safety factor on the assumed worst-case shock load."
-      },
-      {
-        "label": "Constraints",
-        "text": "The design envelope is assumed, not measured, and the project didn't include dyno torque testing, stress measurement or a reliability target."
-      }
+          {
+                "label": "Brief",
+                "text": [
+                      "Design and verify the rear half shafts for a rear-engine, rear-wheel-drive Formula SAE vehicle.",
+                      "Work conducted within a [[10-member]] team."
+                ]
+          },
+          {
+                "label": "Contribution",
+                "text": [
+                      "Owned the half-shaft scope rather than the full drivetrain or vehicle build.",
+                      "Structural verification of the shafts was the defined deliverable."
+                ]
+          },
+          {
+                "label": "Approach",
+                "text": [
+                      "Applied SolidWorks Simulation FEA against an assumed worst-case shock-load envelope.",
+                      "Cases covered clutch-dump and wheel-hop scenarios."
+                ]
+          },
+          {
+                "label": "Outcome",
+                "text": [
+                      "Sized the rear half shafts against the assumed worst-case shock load.",
+                      "Achieved a safety factor of [[1.2 to 1.5]]."
+                ]
+          },
+          {
+                "label": "Constraints",
+                "text": [
+                      "The design envelope is assumed rather than measured.",
+                      "Dyno torque testing, stress measurement and reliability targets fell outside the project scope."
+                ]
+          }
     ],
     "evidence": ""
   },
   "project:08": {
     "kind": "Project 12",
-    "kicker": "Mobility engineering / FEA",
+    "kicker": "Mobility engineering",
     "title": "Advanced Motorised Wheelchair",
     "org": "",
     "summary": "A customisable seating-platform concept that widens the accommodated range of user statures on a motorised wheelchair.",
     "details": [
-      {
-        "label": "Brief",
-        "text": "Improve the adjustability of a motorised-wheelchair seating platform for a wider range of user statures."
-      },
-      {
-        "label": "Contribution",
-        "text": "Conceived the adjustable seating concept and prepared finite-element analysis of the platform."
-      },
-      {
-        "label": "Approach",
-        "text": "Widened the seat 150 mm in each direction on a lockable sliding mechanism and analysed the platform by finite-element analysis under a 750 N (76.5 kg equivalent) applied load, with the seat and pins fixed for the backrest study and the backrest and pin bases fixed for the seat-buckling study."
-      },
-      {
-        "label": "Outcome",
-        "text": "Raised the accommodated user-stature cap from 5 ft 9 to 6 ft 5. Finite-element analysis of the backrest under the 750 N load produced a maximum stress of 0.729 MPa and a maximum displacement of 0.01787 mm. The seat-buckling study produced a maximum stress of 1.257 MPa and a maximum displacement of 0.0009305 mm, both well below the 620.4 MPa yield strength of the Alloy Steel SS used in the model."
-      },
-      {
-        "label": "Constraints",
-        "text": "The finite-element analysis was run at a 750 N (76.5 kg equivalent) test load, below the 110 kg design target. It also used fixed supports rather than the full wheelchair under real-world loading, so this is analysis, not a physical test or certification."
-      }
+          {
+                "label": "Brief",
+                "text": [
+                      "Improve the adjustability of a motorised-wheelchair seating platform.",
+                      "Accommodate a wider range of user statures."
+                ]
+          },
+          {
+                "label": "Contribution",
+                "text": [
+                      "Conceived the adjustable seating concept.",
+                      "Prepared the finite-element analysis of the platform."
+                ]
+          },
+          {
+                "label": "Approach",
+                "text": [
+                      "Widened the seat [[150 mm]] in each direction on a lockable sliding mechanism.",
+                      "Analysed the platform under a [[750 N]] ([[76.5 kg]] equivalent) applied load.",
+                      "Fixed the seat and pins for the backrest study, and the backrest and pin bases for the seat-buckling study."
+                ]
+          },
+          {
+                "label": "Outcome",
+                "text": [
+                      "Raised the accommodated user-stature cap from [[5 ft 9]] to [[6 ft 5]].",
+                      "Backrest study returned a maximum stress of [[0.729 MPa]] and a maximum displacement of [[0.01787 mm]].",
+                      "Seat-buckling study returned a maximum stress of [[1.257 MPa]] and a maximum displacement of [[0.0009305 mm]], both well below the [[620.4 MPa]] yield strength of the Alloy Steel SS modelled."
+                ]
+          },
+          {
+                "label": "Constraints",
+                "text": [
+                      "The analysis was run at [[750 N]] ([[76.5 kg]] equivalent), below the [[110 kg]] design target.",
+                      "Fixed supports were assumed rather than the full wheelchair under service loading.",
+                      "The results are analytical and constitute neither a physical test nor a certification."
+                ]
+          }
     ],
     "evidence": "wheelchair",
     "videos": [
@@ -339,31 +470,46 @@ window.PORTFOLIO = Object.freeze({
   },
   "project:09": {
     "kind": "Project 05",
-    "kicker": "Data analysis / statistics",
+    "kicker": "Data analysis",
     "title": "PCA Study of Bike Rentals and Temperature",
     "org": "",
     "summary": "A principal-component analysis of 731 days of Capital Bikeshare data against daily temperature, including a comparison of covariance estimators.",
     "details": [
-      {
-        "label": "Brief",
-        "text": "Examine the shared variation between temperature and daily bike-rental demand using a public 731-day Capital Bikeshare dataset."
-      },
-      {
-        "label": "Contribution",
-        "text": "Performed the PCA analysis and the supporting statistical treatment of covariance estimators and resampling evidence."
-      },
-      {
-        "label": "Approach",
-        "text": "Cleaned and standardised temperature and rental variables, compared covariance and correlation views, and evaluated PCA outputs and empirical CDF results."
-      },
-      {
-        "label": "Outcome",
-        "text": "PC1 captured 81% of the variance and the analysis found a strong positive correlation between temperature and rental demand."
-      },
-      {
-        "label": "Constraints",
-        "text": "This is an observational analysis of historical data, so it shows correlation, not a controlled causal effect."
-      }
+          {
+                "label": "Brief",
+                "text": [
+                      "Examine the shared variation between temperature and daily bike-rental demand.",
+                      "Use a public [[731-day]] Capital Bikeshare dataset."
+                ]
+          },
+          {
+                "label": "Contribution",
+                "text": [
+                      "Performed the principal-component analysis.",
+                      "Carried out the supporting treatment of covariance estimators and resampling evidence."
+                ]
+          },
+          {
+                "label": "Approach",
+                "text": [
+                      "Cleaned and standardised the temperature and rental variables.",
+                      "Compared covariance and correlation views and evaluated PCA outputs against empirical CDF results."
+                ]
+          },
+          {
+                "label": "Outcome",
+                "text": [
+                      "PC1 captured [[81%]] of the variance.",
+                      "The analysis identified a strong positive correlation between temperature and rental demand."
+                ]
+          },
+          {
+                "label": "Constraints",
+                "text": [
+                      "The study is an observational analysis of historical data.",
+                      "It establishes correlation within the dataset rather than a controlled causal effect."
+                ]
+          }
     ],
     "evidence": "pca",
     "pdfs": [
@@ -372,31 +518,46 @@ window.PORTFOLIO = Object.freeze({
   },
   "project:10": {
     "kind": "Project 13",
-    "kicker": "Advanced computation / feasibility",
+    "kicker": "Advanced computation",
     "title": "Hyundai NGV Quantum Computing Analysis",
     "org": "",
     "summary": "A feasibility and implementation assessment of quantum-computing applications for next-generation systems, delivered to the sponsor in South Korea.",
     "details": [
-      {
-        "label": "Brief",
-        "text": "Assess whether quantum computing could improve the efficiency of next-generation systems through multi-physics computation."
-      },
-      {
-        "label": "Contribution",
-        "text": "Investigated implementation strategies and feasibility, then presented the conclusions to an international Hyundai NGV panel in South Korea."
-      },
-      {
-        "label": "Approach",
-        "text": "Synthesised quantum-computing and advanced-computation applications into feasibility and implementation conclusions for the sponsor."
-      },
-      {
-        "label": "Outcome",
-        "text": "Delivered conclusions to a 25-member international industry panel."
-      },
-      {
-        "label": "Constraints",
-        "text": "No follow-on funding or continued engagement is attributed to this presentation."
-      }
+          {
+                "label": "Brief",
+                "text": [
+                      "Assess whether quantum computing could improve the efficiency of next-generation systems.",
+                      "Frame the assessment around multi-physics computation."
+                ]
+          },
+          {
+                "label": "Contribution",
+                "text": [
+                      "Investigated implementation strategies and technical feasibility.",
+                      "Presented the conclusions to an international Hyundai NGV panel in South Korea."
+                ]
+          },
+          {
+                "label": "Approach",
+                "text": [
+                      "Synthesised quantum-computing and advanced-computation applications into feasibility and implementation conclusions for the sponsor.",
+                      "Structured the deliverable around fundamentals, applicable algorithms and a technology roadmap."
+                ]
+          },
+          {
+                "label": "Outcome",
+                "text": [
+                      "Delivered the conclusions to a [[25-member]] international industry panel.",
+                      "The output was an assessment document rather than an experimental result."
+                ]
+          },
+          {
+                "label": "Constraints",
+                "text": [
+                      "No follow-on funding or continued engagement is attributed to the presentation.",
+                      "The work is a feasibility assessment and includes no experimental validation."
+                ]
+          }
     ],
     "evidence": "quantum",
     "pdfs": [
@@ -407,31 +568,51 @@ window.PORTFOLIO = Object.freeze({
   },
   "project:11": {
     "kind": "Project 03",
-    "kicker": "Water systems / techno-economic analysis",
+    "kicker": "Water systems",
     "title": "Seawater Reverse Osmosis Pretreatment Design in the Arabian Gulf",
     "org": "",
     "summary": "A conceptual pretreatment train for a 24,000 m³/day SWRO plant on the Sharjah coast, carried through a 30-year techno-economic lifecycle simulation with equipment-reliability and carbon-footprint modelling.",
     "details": [
-      {
-        "label": "Brief",
-        "text": "Design a complete pretreatment train for a 24,000 m³/day SWRO desalination plant drawing Arabian Gulf seawater at 44,000 mg/L TDS and up to 35°C, meeting RO membrane feed-water specifications against five categories of fouling agent."
-      },
-      {
-        "label": "Contribution",
-        "text": "Authored the complete 34-page design report: the pretreatment train configuration, mass-balance calculations, equipment specification and sizing, chemical-consumption and cost projections, and a full 30-year dynamic lifecycle simulation with reliability and environmental analysis."
-      },
-      {
-        "label": "Approach",
-        "text": "Modelled a multi-barrier pretreatment sequence (screening, shock chlorination, coagulation and flocculation, dissolved air flotation, dual-media filtration, ultrafiltration, dechlorination, cartridge filtration) in MATLAB at an hourly timestep over a 360-month (30-year) run. Equipment reliability was assessed by Weibull statistics across six asset classes, with energy cost and carbon intensity projected against UAE grid emission factors and all unit operations sized from first-principles hydraulics and published Gulf SWRO plant data."
-      },
-      {
-        "label": "Outcome",
-        "text": "Pretreatment capital cost of 50.6 to 77.0 million USD and annual operating cost of 4.55 to 6.85 million USD/year, a unit cost of 0.52 to 0.78 USD/m³ within the published 0.50 to 0.80 USD/m³ benchmark for Gulf SWRO plants. Feed water reaches SDI below 3 and zero free chlorine residual. Cumulative 30-year cost is approximately 1.1 billion USD nominal, about 450 million USD discounted at 6%. Carbon intensity rises from 8.3 to 9.4 kg CO₂/m³ as equipment ages faster than the grid decarbonises. Ultrafiltration membranes dominate replacement events."
-      },
-      {
-        "label": "Constraints",
-        "text": "The design is conceptual and hasn't been built or field-validated. Reliability figures come from published Weibull parameters rather than site-specific data, and seasonal water quality is modelled as a sine curve from limited monitoring data, so a full-year pilot is recommended before construction. Energy and chemical cost escalation are projected from historical trends, and the lifecycle analysis doesn't include embodied carbon or end-of-life disposal."
-      }
+          {
+                "label": "Brief",
+                "text": [
+                      "Design a complete pretreatment train for a [[24,000 m³/day]] SWRO desalination plant.",
+                      "Feed is Arabian Gulf seawater at [[44,000 mg/L]] TDS and up to [[35°C]].",
+                      "Meet RO membrane feed-water specifications against [[five]] categories of fouling agent."
+                ]
+          },
+          {
+                "label": "Contribution",
+                "text": [
+                      "Authored the complete [[34-page]] design report.",
+                      "Covered train configuration, mass-balance calculations, equipment specification and sizing, and chemical-consumption and cost projections.",
+                      "Produced a full [[30-year]] dynamic lifecycle simulation with reliability and environmental analysis."
+                ]
+          },
+          {
+                "label": "Approach",
+                "text": [
+                      "Modelled a multi-barrier sequence of screening, shock chlorination, coagulation and flocculation, dissolved air flotation, dual-media filtration, ultrafiltration, dechlorination and cartridge filtration.",
+                      "Ran the model in MATLAB at an hourly timestep over [[360 months]].",
+                      "Assessed equipment reliability by Weibull statistics across [[six]] asset classes, projecting energy cost and carbon intensity against UAE grid emission factors."
+                ]
+          },
+          {
+                "label": "Outcome",
+                "text": [
+                      "Capital cost of [[50.6 to 77.0 million USD]] and annual operating cost of [[4.55 to 6.85 million USD]], giving a unit cost of [[0.52 to 0.78 USD/m³]] against a published benchmark of [[0.50 to 0.80 USD/m³]].",
+                      "Feed water reaches SDI below [[3]] with zero free chlorine residual.",
+                      "Cumulative [[30-year]] cost is approximately [[1.1 billion USD]] nominal, or [[450 million USD]] discounted at [[6%]], with carbon intensity rising from [[8.3]] to [[9.4 kg CO₂/m³]]."
+                ]
+          },
+          {
+                "label": "Constraints",
+                "text": [
+                      "The design is conceptual and has not been built or field-validated.",
+                      "Reliability figures derive from published Weibull parameters rather than site-specific data, and seasonal water quality is modelled as a sine curve from limited monitoring. A full-year pilot is recommended before construction.",
+                      "The lifecycle analysis excludes embodied carbon and end-of-life disposal."
+                ]
+          }
     ],
     "evidence": "swro",
     "pdfs": [
@@ -441,31 +622,51 @@ window.PORTFOLIO = Object.freeze({
   },
   "project:12": {
     "kind": "Project 08",
-    "kicker": "Product design / mechanical engineering",
+    "kicker": "Product design",
     "title": "Modular Golf Putter with Magnetic Weight System",
     "org": "",
     "summary": "A golf putter with a modular, magnetically attached weight system and a refined centre-of-gravity placement, designed across three iterations to improve stroke control and allow customisation.",
     "details": [
-      {
-        "label": "Brief",
-        "text": "Design and prototype a golf putter incorporating modular weight distribution to optimise centre-of-gravity placement, face stability and stroke consistency, with geometry designed for rules-conforming dimensions."
-      },
-      {
-        "label": "Contribution",
-        "text": "Led the complete mechanical design across three iterative cycles: conception, midterm refinement and final integration. Carried out design-for-manufacture analysis, material selection, magnet-pocket geometry optimisation and tolerance stack-up analysis, prototyped the head, weights and shaft by FDM 3D printing, and produced fully dimensioned technical drawings for all five components."
-      },
-      {
-        "label": "Approach",
-        "text": "Modelled the assembly in SolidWorks with detailed tolerance callouts, TRUE radius specifications and magnet-pocket geometry. Designed a modular weight system around 22 neodymium magnets (10 mm diameter, 2 mm height), selected aluminium 6061-T6 for the weights in place of the initially specified titanium, and chose Apollo 36-inch steel for the shaft. Refinements included plumber-neck smoothing to remove stress concentrations and alignment grooves in place of full milling to reduce fracture risk."
-      },
-      {
-        "label": "Outcome",
-        "text": "Completed a functional prototype with a central weight of 702.14 g and a toe weight of 695.63 g, a 124.29 mm putter-head face length, and modular weight pockets accepting either weight assembly. A SolidWorks costing pass compared the two production routes it would actually be built under. In a 50-unit lot, the putter head, shaft, 22 magnets and both weight pieces total USD 312.86 in parts. A 20% assembly fee and the USD 51.50 grip bring the final cost to USD 426.93 per unit. Built as a single piece instead, the same parts cost USD 2,715.10, but a USD 2,000 mould charge, a 20% assembly fee, a 12% new-customer fee and a 10% miscellaneous allowance stack on top of it, taking the total to USD 6,970.80 — roughly 16 times the per-unit cost at 50-unit volume, almost entirely because the mould cost has no production run to amortise across."
-      },
-      {
-        "label": "Constraints",
-        "text": "The prototype was 3D-printed, not cast or machined, so the ABS/PETG shaft's stiffness differs from the specified steel. It wasn't tested on a golf course or checked for USGA conformance, so rules compliance isn't certified. Both cost estimates come from SolidWorks costing software, not vendor quotes, so treat them as a rough comparison rather than a quote."
-      }
+          {
+                "label": "Brief",
+                "text": [
+                      "Design and prototype a golf putter with modular weight distribution.",
+                      "Optimise centre-of-gravity placement, face stability and stroke consistency.",
+                      "Design the geometry to rules-conforming dimensions."
+                ]
+          },
+          {
+                "label": "Contribution",
+                "text": [
+                      "Led the complete mechanical design across [[three]] iterative cycles.",
+                      "Carried out design-for-manufacture analysis, material selection, magnet-pocket geometry optimisation and tolerance stack-up analysis.",
+                      "Prototyped the head, weights and shaft by FDM printing and produced dimensioned drawings for all [[five]] components."
+                ]
+          },
+          {
+                "label": "Approach",
+                "text": [
+                      "Modelled the assembly in SolidWorks with tolerance callouts, TRUE radius specifications and magnet-pocket geometry.",
+                      "Designed the modular weight system around [[22]] neodymium magnets ([[10 mm]] diameter, [[2 mm]] height).",
+                      "Selected aluminium 6061-T6 for the weights in place of the initially specified titanium, and Apollo [[36-inch]] steel for the shaft."
+                ]
+          },
+          {
+                "label": "Outcome",
+                "text": [
+                      "Produced a functional prototype with a [[702.14 g]] central weight, a [[695.63 g]] toe weight and a [[124.29 mm]] face length.",
+                      "At [[50-unit]] volume the parts total [[USD 312.86]], reaching [[USD 426.93]] per unit after a [[20%]] assembly fee and the [[USD 51.50]] grip.",
+                      "Built as a single piece the same assembly reaches [[USD 6,970.80]], approximately [[16 times]] the per-unit cost, largely because the [[USD 2,000]] mould charge has no production run to amortise across."
+                ]
+          },
+          {
+                "label": "Constraints",
+                "text": [
+                      "The prototype was 3D-printed rather than cast or machined, so the ABS/PETG shaft stiffness differs from the specified steel.",
+                      "It was not tested on a golf course and USGA conformance is not certified.",
+                      "Both cost figures derive from SolidWorks costing software rather than vendor quotes."
+                ]
+          }
     ],
     "evidence": "golf-putter",
     "pdfs": [
@@ -480,31 +681,50 @@ window.PORTFOLIO = Object.freeze({
   },
   "project:13": {
     "kind": "Project 02",
-    "kicker": "Mechanical design / FEA / thermal analysis",
+    "kicker": "Mechanical design",
     "title": "LinkConnect: A Modular Open-Source Cable Management System",
     "org": "",
     "summary": "A parametric cable-management system with discrete routing channels for each cable, validated by finite-element and thermal analysis and released open-source with both home-fabrication and industrial material variants.",
     "details": [
-      {
-        "label": "Brief",
-        "text": "Design a modular, structurally validated cable-management system that routes each cable through its own discrete channel, buildable at home on a consumer 3D printer and scalable to industrial deployments."
-      },
-      {
-        "label": "Contribution",
-        "text": "Solo project: developed the complete seven-part parametric CAD assembly in SolidWorks, performed the structural load analysis and thermal simulation in MATLAB, selected materials for two manufacturing routes, and managed the open-source release and community feedback on GrabCAD."
-      },
-      {
-        "label": "Approach",
-        "text": "Built a parametric CAD assembly with load-dependent geometry, then ran an 80-step finite-element load sweep in MATLAB modelling the clip-pin contact as a plane-strain problem, comparing ABS and Aluminium 6061. Thermal performance was assessed by a lumped-capacitance model of steady-state and transient temperature under a 100 W load, comparing perforated and solid plate configurations."
-      },
-      {
-        "label": "Outcome",
-        "text": "The ABS variant yields at a load factor of 0.70 (peak pin reaction 2,116.4 N). Aluminium stays safe across the full range. Perforating the plate with 493 holes (6 mm diameter, 15 mm depth) cuts steady-state temperature from 95.5°C to 59.5°C under a 100 W load by increasing effective cooling surface by 129%. Single-tile cost is AED 36 at home scale or AED 17 at mass-production scale. Released open-source on GrabCAD, drawing a community proposal for a multi-level stacking extension within a week."
-      },
-      {
-        "label": "Constraints",
-        "text": "The finite-element analysis assumes 100% infill density, so printing at lower infill means fewer cables should be routed through it. The thermal model is steady-state and hasn't been tested experimentally, and the structural sweep is a load study, not a certification (the pin is designed to be the sacrificial part). It hasn't caught on beyond early maker-platform users yet."
-      }
+          {
+                "label": "Brief",
+                "text": [
+                      "Design a modular cable-management system routing each cable through its own discrete channel.",
+                      "Make the system buildable at home on a consumer 3D printer and scalable to industrial deployment."
+                ]
+          },
+          {
+                "label": "Contribution",
+                "text": [
+                      "Solo project covering the complete [[seven-part]] parametric CAD assembly in SolidWorks.",
+                      "Performed the structural load analysis and thermal simulation in MATLAB and selected materials for two manufacturing routes.",
+                      "Managed the open-source release and community feedback on GrabCAD."
+                ]
+          },
+          {
+                "label": "Approach",
+                "text": [
+                      "Built a parametric CAD assembly with load-dependent geometry.",
+                      "Ran an [[80-step]] finite-element load sweep in MATLAB modelling the clip-pin contact as a plane-strain problem, comparing ABS and Aluminium 6061.",
+                      "Assessed thermal performance by a lumped-capacitance model under a [[100 W]] load, comparing perforated and solid plate configurations."
+                ]
+          },
+          {
+                "label": "Outcome",
+                "text": [
+                      "The ABS variant yields at a load factor of [[0.70]] with a peak pin reaction of [[2,116.4 N]]. Aluminium remains safe across the full range.",
+                      "Perforating the plate with [[493]] holes ([[6 mm]] diameter, [[15 mm]] depth) reduces steady-state temperature from [[95.5°C]] to [[59.5°C]] under a [[100 W]] load by increasing effective cooling surface [[129%]].",
+                      "Single-tile cost is [[AED 36]] at home scale or [[AED 17]] at mass-production scale."
+                ]
+          },
+          {
+                "label": "Constraints",
+                "text": [
+                      "The finite-element analysis assumes [[100%]] infill density, so printing at lower infill requires a reduced cable count.",
+                      "The thermal model is steady-state and has not been experimentally validated.",
+                      "The structural sweep is a load study rather than a certification. The pin is designed as the sacrificial element."
+                ]
+          }
     ],
     "evidence": "cable-management",
     "pdfs": [

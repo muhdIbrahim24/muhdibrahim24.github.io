@@ -21,9 +21,12 @@
   /* ---------------------------------------------------------------- boot
 
      Removes .is-booting once fonts are ready (or a 900ms timeout, whichever
-     comes first), which is what drives the hero name's 200->720 weight
-     transition already declared in the stylesheet. Runs unconditionally,
-     reduced motion included, so the page never gets stuck mid-boot. */
+     comes first), which is what releases the hero name's two lines into the
+     entrance animation declared in the stylesheet. Waiting on the font
+     matters: starting the lines while a fallback face is still measured
+     would reflow them mid-flight. Runs unconditionally, reduced motion
+     included, so the page never gets stuck mid-boot. A second failsafe in
+     the document head clears the class at 2s if this file never loads. */
 
   function boot() {
     function finish() {

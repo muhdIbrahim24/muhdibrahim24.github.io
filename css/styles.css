@@ -42,10 +42,13 @@
   --paper:     #FFFFFF;
   --mat:       #FFFFFF;
 
-  /* primary type, on the light ground */
+  /* primary type, on the light ground. Secondary and muted were measured at
+     7.29:1 and 6.31:1 against the ground and have been darkened to 9.23:1
+     and 8.23:1, so body copy and captions carry more weight without moving
+     to pure black. */
   --tx-1:      #14141A;
-  --tx-2:      #55525E;
-  --tx-3:      #5F5B68;
+  --tx-2:      #46434F;
+  --tx-3:      #4E4A57;
 
   /* type on paper (figure stage / lightbox) — kept as fixed dark
      constants some rules rely on regardless of ground */
@@ -58,16 +61,20 @@
   --violet:    #4B22C7;
   --violet-dp: #6B3BF5;
   --violet-ink:#4B22C7;
-  --amber:     #8A5200;
+  --amber:     #7A4800;
   --amber-pop: #FFB43D;
-  --amber-ink: #8A5200;
+  --amber-ink: #7A4800;
 
-  /* hairlines — dark, low-alpha, for the light ground */
-  --line:      rgba(12,12,16,.08);
-  --line-2:    rgba(12,12,16,.14);
-  --line-3:    rgba(12,12,16,.24);
-  --line-ink:  #DCD8D1;
-  --line-ink-2:#C2BDB4;
+  /* hairlines. The old values measured 1.18:1, 1.35:1 and 1.72:1 against the
+     ground, which is close to invisible: borders on cards, the sheet close
+     control and the section dividers all read as absent. Raised to 1.57:1,
+     2.25:1 and 3.62:1 so structure is legible, with --line-3 now clearing
+     the 3:1 that non-text UI boundaries are held to. */
+  --line:      rgba(12,12,16,.20);
+  --line-2:    rgba(12,12,16,.34);
+  --line-3:    rgba(12,12,16,.50);
+  --line-ink:  #C9C4BB;
+  --line-ink-2:#A9A296;
 
   /* focus */
   --focus:     #4B22C7;
@@ -98,11 +105,27 @@
   --gutter:      clamp(20px, 4.5vw, 64px);
   --shell:       1440px;
   --shell-prose: 74ch;
-  --pad-section: clamp(48px, 6vw, 112px);
+  --pad-section: clamp(34px, 3.9vw, 72px);
   --head-h:      68px;
   --grid-cell:   clamp(48px, 5vw, 88px);
 
   --r-0: 0; --r-2: 2px; --r-pill: 999px;
+  /* Cards were square outlines on a ground almost the same colour as their
+     own fill (1.05:1), which is why they read as flat. They now carry a
+     radius and real elevation. */
+  /* Interactive tint. An audit found eight clickable components rendering in
+     exactly the body text colour, so nothing marked them as actionable.
+     Anything you can click now carries the accent, weighted by importance:
+     a filled surface for primary actions, a tinted one for secondary. */
+  --tint:   rgba(75,34,199,.055);
+  --tint-2: rgba(75,34,199,.11);
+
+  --r-card: 14px;
+  --r-card-lg: 18px;
+  --shadow-1: 0 1px 2px rgba(12,12,16,.05), 0 8px 20px -12px rgba(12,12,16,.18);
+  --shadow-2: 0 2px 6px rgba(12,12,16,.07), 0 22px 46px -22px rgba(12,12,16,.28);
+  --shadow-ink-1: 0 1px 2px rgba(0,0,0,.4), 0 10px 26px -14px rgba(0,0,0,.7);
+  --shadow-ink-2: 0 3px 10px rgba(0,0,0,.45), 0 26px 54px -24px rgba(0,0,0,.8);
 
   --glow-violet: 0 0 0 1px rgba(182,155,255,.28), 0 24px 60px -32px rgba(107,59,245,.60);
   --glow-amber:  0 0 0 1px rgba(255,180,61,.30),  0 24px 60px -32px rgba(201,123,0,.45);
@@ -113,6 +136,12 @@
   --e-inout:  cubic-bezier(.65,0,.35,1);
   --e-spring: cubic-bezier(.34,1.56,.64,1);
   --t-1:160ms; --t-2:280ms; --t-3:480ms; --t-4:760ms; --t-5:1100ms;
+
+  /* Deep ground for the anchor sections. Every section previously used the
+     same near-white, so the page had no tonal rhythm at all. */
+  --ink:       #0F0F14;
+  --ink-2:     #16161D;
+  --ink-card:  #1A1A22;
 
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
 }
@@ -186,7 +215,7 @@ body::after {
   padding: 4px 10px; font: 500 var(--fs-mono) var(--f-mono); color: var(--tx-2);
 }
 
-.section-head { display: grid; gap: var(--s3); padding-bottom: clamp(28px, 4vw, 56px); }
+.section-head { display: grid; gap: var(--s2); padding-bottom: clamp(18px, 2.4vw, 34px); }
 .section-head h2 { font-size: var(--fs-3xl); font-weight: 660; letter-spacing: -.032em; line-height: .98; max-width: 16ch; }
 .section-note { max-width: 62ch; color: var(--tx-2); font-size: var(--fs-sm); line-height: 1.6; }
 
@@ -194,8 +223,9 @@ body::after {
   position: relative; isolation: isolate; overflow: hidden;
   display: inline-flex; align-items: center; gap: var(--s2);
   min-height: 46px; padding: 12px 22px;
-  border: 1px solid var(--line-3); color: var(--tx-1);
+  border: 1px solid var(--violet); color: var(--violet); background: var(--tint);
   font: 600 var(--fs-sm) var(--f-body);
+  transition: background var(--t-2) var(--e-out), color var(--t-2) var(--e-out);
 }
 .btn::before {
   content: ""; position: absolute; inset: 0; z-index: -1; background: var(--violet-dp);
@@ -208,8 +238,8 @@ body::after {
 
 .link-quiet {
   display: inline-flex; align-items: center; gap: 6px;
-  font: 500 var(--fs-sm) var(--f-mono); color: var(--tx-3);
-  border-bottom: 1px solid var(--line-2); padding-bottom: 2px;
+  font: 500 var(--fs-sm) var(--f-mono); color: var(--violet);
+  border-bottom: 1px solid currentColor; padding-bottom: 2px;
   transition: color var(--t-2), border-color var(--t-2);
 }
 .link-quiet:hover, .link-quiet:focus-visible { color: var(--violet); border-color: var(--violet); }
@@ -237,7 +267,7 @@ body::after {
 .plate {
   --ar: 3 / 2; --pos: 50% 50%; --plate-max: none;
   position: relative; aspect-ratio: var(--ar); max-height: var(--plate-max);
-  overflow: hidden; background: var(--slab-2);
+  overflow: hidden; background: var(--slab-2); border-radius: var(--r-card);
 }
 .plate img { width: 100%; height: 100%; object-fit: contain; object-position: 50% 50%; }
 .plate[data-fit="cover"] img { object-fit: cover; object-position: var(--pos); }
@@ -250,18 +280,65 @@ body::after {
   transition: clip-path 980ms var(--e-out), transform 1180ms var(--e-out), filter 900ms var(--e-inout);
 }
 .has-js .plate.is-in img { clip-path: inset(0); transform: scale(1); }
-.plate[data-duo] img { filter: grayscale(1) contrast(1.06) brightness(.94); }
-.plate[data-duo]::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(158deg, #6B3BF5, #FFB43D); mix-blend-mode: color;
-  opacity: .56; transition: opacity 1200ms var(--e-inout);
-}
-.plate[data-duo].is-in img { filter: none; }
-.plate[data-duo].is-in::after { opacity: 0; }
+/* This used to open every image from a grayscale, colour-blended state and
+   tween back to normal. Both halves are expensive per frame: a filter over a
+   full-size photograph, and a mix-blend-mode layer that forces a readback.
+   Measured across a full scroll it was the single largest source of dropped
+   frames (p95 47ms, worst 132ms, against 31ms and 50ms without it). The
+   settled appearance was already unfiltered, so only the entrance changes.
+   The clip-path wipe below still carries the reveal. */
+.plate[data-duo] img { filter: none; }
 .plate { border: 1px solid var(--line-2); transition: border-color var(--t-3) var(--e-out); }
 .plate[data-fit="contain"], .plate[data-fit="natural"] { border-color: var(--line-ink-2); }
 
 /* ------------------------------------------------------ 5 grid + mesh */
+
+/* ---------------------------------------------- 5b ink sections
+
+   Selected Work and Contact sit on the deep ground. Because every component
+   draws from the same tokens, redefining them here flips an entire section
+   in one place rather than needing a dark variant of each rule. Verified
+   against the ink ground: body 17.8:1, secondary 10.0:1, muted 7.5:1,
+   violet 7.1:1 and amber 10.8:1, so all five clear AAA. */
+
+.bench, .contact {
+  --void:      #0F0F14;
+  --slab:      #16161D;
+  --slab-2:    #1A1A22;
+  --slab-3:    #22222B;
+  --paper:     #1A1A22;
+
+  --tx-1:      #F7F7F5;
+  --tx-2:      #BDBAC6;
+  --tx-3:      #A3A0AD;
+
+  --violet:    #A78BFF;
+  --violet-ink:#A78BFF;
+  --amber:     #FFB43D;
+  --amber-ink: #FFB43D;
+
+  --line:      rgba(255,255,255,.14);
+  --line-2:    rgba(255,255,255,.24);
+  --line-3:    rgba(255,255,255,.40);
+
+  --tint:      rgba(167,139,255,.10);
+  --tint-2:    rgba(167,139,255,.18);
+
+  --shadow-1:  var(--shadow-ink-1);
+  --shadow-2:  var(--shadow-ink-2);
+
+  --focus:     #C3B0FF;
+  color: var(--tx-1);
+}
+/* The decorative grid is drawn in dark ink, so it disappears on the dark
+   ground unless it is inverted. */
+.bench .grid-field, .contact .grid-field {
+  background-image:
+    linear-gradient(to right,  rgba(255,255,255,.070) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.055) 1px, transparent 1px),
+    linear-gradient(to right,  rgba(255,255,255,.034) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.024) 1px, transparent 1px);
+}
 
 .grid-field {
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
@@ -276,18 +353,27 @@ body::after {
   mask-image: radial-gradient(130% 100% at var(--gx,50%) var(--gy,0%),
               #000 0%, rgba(0,0,0,.55) 46%, transparent 86%);
 }
+/* The hero ground was three very faint washes over flat white, which read
+   as no colour at all. Deepened, and given a floor that settles into the
+   warm slab of the section below so the two do not meet on a hard edge. */
 .mesh {
   position: absolute; inset: 0; z-index: -1;
   background:
-    radial-gradient(118% 78% at 6% -6%,  rgba(107,59,245,.13), transparent 58%),
-    radial-gradient( 76% 58% at 94% 14%, rgba(255,180,61,.07), transparent 62%),
-    radial-gradient(105% 72% at 52% 112%,rgba(107,59,245,.07), transparent 64%),
+    radial-gradient(116% 80% at 2% -12%, rgba(107,59,245,.22), transparent 56%),
+    radial-gradient( 84% 64% at 98% 6%,  rgba(255,180,61,.13), transparent 60%),
+    radial-gradient(124% 82% at 64% 118%,rgba(75,34,199,.13), transparent 64%),
+    linear-gradient(180deg, transparent 58%, rgba(241,238,231,.85) 100%),
     var(--void);
 }
 
 /* ------------------------------------------------------ 6 scroll reveal */
 
 @media (min-width: 1px) {
+  /* Scoped to frames that have not revealed yet. Left unscoped, this pins a
+     compositor layer for all 45 revealing elements for the life of the page,
+     which costs memory and slows scrolling long after the animation is done.
+     The reveal is one-shot (.is-in is added once, then unobserved), so this
+     releases each layer as soon as its frame has played. */
   .has-js [data-reveal] { will-change: opacity, transform, clip-path; }
   .has-js [data-reveal="rise"] {
     opacity: 0; transform: translate3d(0, 26px, 0);
@@ -396,34 +482,86 @@ body::after {
 .hero canvas#flowfield { position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity 1200ms linear; width: 100%; height: 100%; }
 .hero canvas#flowfield.is-in { opacity: 1; }
 
-.hero-inner { position: relative; z-index: 1; padding-top: clamp(28px, 4vw, 48px); }
+.hero-inner { position: relative; z-index: 1; padding-top: clamp(20px, 2.8vw, 34px); }
 .hero-eyebrow { margin-bottom: clamp(14px, 2vw, 22px); }
 
 .hero-name {
-  font-size: var(--fs-display); font-weight: 200; line-height: .86; letter-spacing: -.045em;
-  --w: 200; font-variation-settings: "wght" var(--w);
+  font-size: var(--fs-display); font-weight: 720; line-height: .86; letter-spacing: -.045em;
+  font-variation-settings: "wght" 720;
 }
-@property --w { syntax: "<number>"; inherits: false; initial-value: 200; }
-html:not(.is-booting) .hero-name { --w: 720; transition: --w 1400ms var(--e-out) 220ms; }
 .hero-name .line { display: block; overflow: hidden; }
 .hero-name .line-2 { padding-left: clamp(0px, 8vw, 160px); color: var(--violet); }
 
+/* Each line rides up from behind its own overflow edge, one after the other.
+   Transform and opacity only: the weight is fixed at 720 rather than
+   animated, because tweening font-variation-settings re-shapes and
+   re-rasterises glyphs this large on every single frame, which is what made
+   the old entrance stutter. This version is composited and never touches
+   layout. The lift is generous enough to clear the cap height of the
+   tallest glyph before the parent clips it. */
+.hero-name .line-in {
+  display: block;
+  will-change: transform, opacity;
+}
+html.has-js .hero-name .line-in {
+  transform: translate3d(0, 118%, 0);
+  opacity: 0;
+}
+html.has-js:not(.is-booting) .hero-name .line-in {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+  transition: transform 1180ms var(--e-out), opacity 760ms var(--e-out);
+}
+html.has-js:not(.is-booting) .hero-name .line-2 .line-in {
+  transition-delay: 140ms;
+}
+
+/* A shortcut into the contact section, sitting in the gap under the intro
+   where the text column runs shorter than the portrait beside it. A plain
+   anchor, so it survives with scripting off and behaves normally on
+   right-click. The page already sets scroll-behavior, and the reduced
+   motion block already turns that off. */
+.hero-contact {
+  display: inline-grid; gap: 8px; justify-items: start;
+  margin-top: clamp(20px, 2.4vw, 30px);
+  padding: clamp(16px, 1.8vw, 21px) clamp(20px, 2.4vw, 28px);
+  border: 1px solid var(--line-2); background: var(--tint);
+  border-radius: var(--r-card-lg); box-shadow: var(--shadow-1);
+  max-width: 44ch;
+  transition: border-color var(--t-3) var(--e-out), transform var(--t-3) var(--e-out), box-shadow var(--t-3) var(--e-out);
+}
+.hero-contact:hover, .hero-contact:focus-visible { border-color: var(--violet); transform: translateY(-3px); box-shadow: var(--shadow-2); }
+.hero-contact-kicker {
+  font: 700 var(--fs-mono) var(--f-mark); letter-spacing: .14em;
+  text-transform: uppercase; color: var(--violet);
+}
+.hero-contact-lead { font-size: var(--fs-sm); line-height: 1.55; color: var(--tx-1); }
+.hero-contact:hover .card-cue::after, .hero-contact:focus-visible .card-cue::after { transform: translateX(5px); }
+
 .hero-body {
-  margin-top: clamp(30px, 4.5vw, 56px);
-  display: grid; gap: clamp(30px, 5vw, 68px); align-items: start;
+  margin-top: clamp(18px, 2.4vw, 30px);
+  display: grid; gap: clamp(24px, 3.2vw, 46px); align-items: start;
 }
 .hero-lead {
   font-family: var(--f-display); font-size: var(--fs-xl); font-weight: 500;
   line-height: 1.3; letter-spacing: -.015em; max-width: 24ch; color: var(--tx-1);
 }
-.hero-sub { margin-top: 16px; max-width: 56ch; color: var(--tx-2); font-size: var(--fs-base); line-height: 1.62; }
+.hero-sub { margin-top: 13px; max-width: 56ch; color: var(--tx-2); font-size: var(--fs-base); line-height: 1.62; }
 
-.hero-aside { display: grid; gap: clamp(24px, 3.2vw, 38px); align-content: start; justify-items: start; }
+.hero-aside { display: grid; gap: clamp(22px, 2.8vw, 34px); align-content: start; justify-items: stretch; }
+/* Anchors the right column rather than sitting in it. Sized up, lifted off
+   the ground, and carrying the same radius as every other card. */
 .hero-portrait {
-  position: relative; width: clamp(200px, 30vw, 320px);
+  position: relative; width: clamp(200px, 27vw, 344px); justify-self: end;
   border: 1px solid var(--line-2); background: var(--slab-2); overflow: hidden;
+  border-radius: var(--r-card-lg); box-shadow: var(--shadow-2);
 }
-.hero-portrait::after { content: ""; position: absolute; left: 0; bottom: 0; z-index: 2; width: 34%; height: 2px; background: var(--amber-pop); }
+/* Held inside the frame so the curve does not clip it. */
+.hero-portrait::after {
+  content: ""; position: absolute; z-index: 2;
+  left: clamp(16px, 2vw, 22px); bottom: clamp(16px, 2vw, 22px);
+  width: clamp(40px, 5vw, 62px); height: 3px; background: var(--amber-pop);
+}
 
 .hero-facts { width: 100%; border-top: 1px solid var(--line); }
 .hero-facts > div { display: grid; grid-template-columns: minmax(84px, 27%) 1fr; gap: 16px; padding-block: 12px; border-bottom: 1px solid var(--line); }
@@ -435,41 +573,58 @@ html:not(.is-booting) .hero-name { --w: 720; transition: --w 1400ms var(--e-out)
 
 /* --------------------------------------------------- 9 spec / ribbon */
 
-.recognition { position: relative; background: var(--void); padding-block: var(--pad-section); }
-.spec-grid { display: grid; gap: 0; }
-.spec-cell { padding-block: 20px; border-top: 1px solid var(--line); display: grid; gap: 10px; }
-.spec-cell:first-child { border-top: 0; }
-.spec-cell dt { font: 700 var(--fs-mono) var(--f-mark); letter-spacing: .14em; text-transform: uppercase; color: var(--violet); }
-.spec-cell dd { font-size: var(--fs-sm); line-height: 1.6; color: var(--tx-2); max-width: 42ch; }
+.recognition { position: relative; background: var(--slab); padding-block: var(--pad-section); }
+/* Three awards, presented as proper cards rather than columns divided by a
+   hairline: each one gets its own bordered panel, more internal space and a
+   larger label, so the section reads at a glance from across the page. */
+.spec-grid { display: grid; gap: clamp(16px, 2vw, 24px); }
+.spec-cell {
+  display: grid; gap: 12px; align-content: start;
+  padding: clamp(26px, 2.8vw, 38px);
+  background: var(--paper);
+  border: 1px solid var(--line-2); border-radius: var(--r-card-lg);
+  box-shadow: var(--shadow-1);
+  transition: border-color var(--t-3) var(--e-out), transform var(--t-3) var(--e-out), box-shadow var(--t-3) var(--e-out);
+}
+.spec-cell:hover { border-color: var(--violet); transform: translateY(-3px); box-shadow: var(--shadow-2); }
+.spec-cell dt {
+  font: 700 var(--fs-sm) var(--f-mark); letter-spacing: .1em;
+  text-transform: uppercase; color: var(--violet); line-height: 1.35;
+}
+.spec-cell dd { font-size: var(--fs-base); line-height: 1.6; color: var(--tx-2); }
 .spec-cell dd strong { color: var(--tx-1); font-weight: 600; }
-.spec-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
 
 @media (min-width: 700px) {
-  .spec-grid { grid-template-columns: repeat(2, minmax(0,1fr)); column-gap: clamp(24px, 4vw, 56px); }
-  .spec-cell { border-top: 1px solid var(--line); }
-  .spec-cell:nth-child(-n+2) { border-top: 0; }
+  .spec-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
 }
 @media (min-width: 1080px) {
   .spec-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
-  .spec-cell { border-top: 0; border-left: 1px solid var(--line); padding-inline: clamp(20px, 2.4vw, 34px); }
-  .spec-cell:first-child { border-left: 0; padding-left: 0; }
 }
 
 
 /* ------------------------------------------------ 10 education band */
 
-.transcript { position: relative; background: var(--void); padding-block: var(--pad-section); }
+.transcript { position: relative; background: var(--slab); padding-block: var(--pad-section); }
 .transcript .section-head { padding-bottom: clamp(28px, 4vw, 48px); }
 
-.tr-grid { display: grid; gap: 1px; background: var(--line-2); }
+/* Previously a full-bleed row of cards butted together, separated only by a
+   1px gap showing the grid's own background. That technique cannot carry a
+   corner radius or a shadow, so the grid now sits inside the page measure
+   with real gaps and the cards read as separate objects. */
+.tr-grid {
+  display: grid; gap: clamp(14px, 1.6vw, 22px);
+  width: 100%; max-width: var(--shell); margin-inline: auto;
+  padding-inline: var(--gutter);
+}
 .tr-card {
   position: relative; isolation: isolate; width: 100%; height: 100%;
   min-height: clamp(200px, 19vw, 260px); display: grid; align-content: end; gap: 8px;
   padding: clamp(18px, 2vw, 30px); text-align: left; color: var(--tx-1);
   background: var(--slab); overflow: hidden;
-  transition: background var(--t-3) var(--e-out);
+  border-radius: var(--r-card-lg); box-shadow: var(--shadow-1);
+  transition: background var(--t-3) var(--e-out), box-shadow var(--t-3) var(--e-out), transform var(--t-3) var(--e-out);
 }
-.tr-card:hover, .tr-card:focus-visible { background: var(--slab-2); }
+.tr-card:hover, .tr-card:focus-visible { background: var(--slab-2); box-shadow: var(--shadow-2); transform: translateY(-3px); }
 .tr-card::before {
   content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--violet);
   transform: scaleX(0); transform-origin: left; transition: transform 520ms var(--e-out); z-index: 2;
@@ -503,14 +658,18 @@ html:not(.is-booting) .hero-name { --w: 720; transition: --w 1400ms var(--e-out)
 
 /* --------------------------------------------------------- 11 bench */
 
-.bench { position: relative; background: var(--void); padding-block: var(--pad-section); }
-.bench-grid { display: grid; gap: clamp(30px, 4vw, 60px); }
+.bench { position: relative; background: var(--ink); padding-block: var(--pad-section); }
+.bench-grid { display: grid; gap: clamp(24px, 3vw, 44px); }
 
 .bench-stage { position: relative; }
+/* The frame clips the plates, so it carries the radius and the plates sit
+   square inside it. Mismatched radii here left the frame's own background
+   showing through each corner. */
 .bench-frame {
   position: relative; height: min(60vh, 560px); border: 1px solid var(--line-2);
-  background: var(--slab); overflow: hidden;
+  background: var(--slab); overflow: hidden; border-radius: var(--r-card-lg);
 }
+.bench-plate { border-radius: 0; }
 .bench-plate {
   position: absolute; inset: 0; margin: 0; opacity: 0;
   aspect-ratio: auto; height: 100%;
@@ -522,13 +681,13 @@ html:not(.is-booting) .hero-name { --w: 720; transition: --w 1400ms var(--e-out)
 
 .bench-records { display: grid; gap: clamp(4px, .6vw, 10px); }
 .bench-record {
-  position: relative; display: grid; gap: 12px; align-content: start;
-  padding-block: clamp(28px, 3.4vw, 44px); border-top: 1px solid var(--line-2);
+  position: relative; display: grid; gap: 10px; align-content: start;
+  padding-block: clamp(22px, 2.6vw, 32px); border-top: 1px solid var(--line-2);
 }
 .bench-record:first-child { border-top: 0; }
 .bench-ghost {
   position: absolute; top: 0; right: 0; font: 700 var(--fs-ghost) var(--f-mono);
-  color: transparent; -webkit-text-stroke: 1px rgba(12,12,16,.08); line-height: 1;
+  color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.10); line-height: 1;
   pointer-events: none; z-index: 0; user-select: none;
 }
 .bench-record > :not(.bench-ghost) { position: relative; z-index: 1; }
@@ -546,7 +705,7 @@ html:not(.is-booting) .hero-name { --w: 720; transition: --w 1400ms var(--e-out)
   .bench-grid { grid-template-columns: minmax(0, 1.06fr) minmax(0, .94fr); }
   .bench-stage { position: sticky; top: calc(var(--head-h) + 5vh); align-self: start; }
   .bench-frame { height: min(66vh, 640px); }
-  .bench-record { min-height: 76vh; align-content: center; border-top: 0; border-left: 1px solid var(--line); padding-left: clamp(24px, 3vw, 48px); padding-block: 0; }
+  .bench-record { min-height: 54vh; align-content: center; border-top: 0; border-left: 1px solid var(--line); padding-left: clamp(24px, 3vw, 48px); padding-block: clamp(20px, 2.4vw, 34px); }
   .bench-record:first-child { border-left: 1px solid var(--line); }
 }
 @media (max-width: 1023px) {
@@ -598,7 +757,7 @@ html:not(.is-booting) .hero-name { --w: 720; transition: --w 1400ms var(--e-out)
 
 /* ------------------------------------------------------ 13 experience */
 
-.career { position: relative; background: var(--void); padding-block: var(--pad-section); }
+.career { position: relative; background: var(--slab); padding-block: var(--pad-section); }
 .tl { position: relative; }
 .tl-item {
   display: grid; grid-template-columns: 1fr; gap: 8px;
@@ -624,7 +783,10 @@ html:not(.is-booting) .hero-name { --w: 720; transition: --w 1400ms var(--e-out)
   }
   .tl-item.is-in .tl-node { background: var(--amber-pop); }
 }
-@media (max-width: 759px) { .tl-node { display: none; } }
+/* The amber diamond is gone, but its grid cell is not: .tl-item is a three
+   column track and the node holds the middle one, so display:none would
+   collapse the whole timeline into a 32px column. */
+.tl-node { visibility: hidden; }
 
 /* ------------------------------------------------------- 14 activities */
 
@@ -633,8 +795,11 @@ html:not(.is-booting) .hero-name { --w: 720; transition: --w 1400ms var(--e-out)
 .act-tile {
   position: relative; isolation: isolate; overflow: hidden; width: 100%;
   aspect-ratio: var(--ar, 4/3); border: 1px solid var(--line-2);
+  border-radius: var(--r-card-lg); box-shadow: var(--shadow-1);
+  transition: box-shadow var(--t-3) var(--e-out), transform var(--t-3) var(--e-out), border-color var(--t-3) var(--e-out);
 }
-.act-tile .plate { position: absolute; inset: 0; border: 0; aspect-ratio: auto; height: 100%; }
+.act-tile:hover, .act-tile:focus-visible { box-shadow: var(--shadow-2); transform: translateY(-3px); border-color: var(--violet); }
+.act-tile .plate { position: absolute; inset: 0; border: 0; aspect-ratio: auto; height: 100%; border-radius: 0; }
 .act-tile::after {
   content: ""; position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(180deg, transparent 0%, transparent 58%, rgba(8,8,11,.58) 76%, rgba(8,8,11,.95) 100%);
@@ -682,12 +847,13 @@ html:not(.is-booting) .hero-name { --w: 720; transition: --w 1400ms var(--e-out)
 
 /* ------------------------------------------------------- 15 contact */
 
-.contact { position: relative; background: var(--void); padding-block: var(--pad-section); overflow: hidden; }
+.contact { position: relative; background: var(--ink); padding-block: var(--pad-section); overflow: hidden; }
 .contact h2 { margin-top: 20px; font-size: var(--fs-3xl); line-height: .98; max-width: 16ch; }
 .mailto {
   position: relative; display: inline-block; margin-top: clamp(28px, 4vw, 48px);
   font-family: var(--f-display); font-size: var(--fs-2xl); font-weight: 300; letter-spacing: -.03em;
-  padding: 6px 4px; border-bottom: 1px solid var(--line-2); min-height: 56px;
+  padding: 6px 4px; border-bottom: 2px solid var(--violet); min-height: 56px;
+  color: var(--violet); transition: color var(--t-2) var(--e-out);
 }
 .mailto::before {
   content: ""; position: absolute; inset: 0; z-index: -1; background: var(--violet-dp);
@@ -699,7 +865,8 @@ html:not(.is-booting) .hero-name { --w: 720; transition: --w 1400ms var(--e-out)
 .contact-row { display: grid; grid-template-columns: minmax(110px, 180px) 1fr; gap: 16px; padding-block: 16px; border-bottom: 1px solid var(--line); }
 .contact-label { font: 700 var(--fs-mono) var(--f-mark); letter-spacing: .12em; text-transform: uppercase; color: var(--violet); }
 .contact-value { font-size: var(--fs-base); color: var(--tx-1); }
-a.contact-value:hover, a.contact-value:focus-visible { color: var(--violet); }
+a.contact-value { color: var(--violet); border-bottom: 1px solid var(--line-2); padding-bottom: 2px; transition: border-color var(--t-2) var(--e-out); }
+a.contact-value:hover, a.contact-value:focus-visible { border-bottom-color: currentColor; }
 
 .site-foot { background: var(--slab); border-top: 1px solid var(--line); }
 .foot-inner { padding-block: var(--s5); display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: var(--fs-xs); color: var(--tx-3); }
@@ -781,11 +948,18 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
 .figures-empty { padding: var(--s6); color: var(--tx-ink-3); font-size: var(--fs-sm); }
 
 .sheet-bar { grid-area: bar; display: flex; align-items: center; justify-content: space-between; padding: var(--s5) var(--s6); border-bottom: 1px solid var(--line); min-width: 0; }
+/* The way back out of a record. Previously a thin hairline box that read as
+   absent against the panel, so it is now a filled control: solid violet,
+   white label, with an arrow pointing back to the page behind it. */
 .sheet-close {
-  display: inline-flex; align-items: center; gap: 6px; font: 600 var(--fs-xs) var(--f-mono);
-  letter-spacing: .06em; text-transform: uppercase; color: var(--tx-2); border: 1px solid var(--line-2); padding: 8px 14px;
+  display: inline-flex; align-items: center; gap: 8px; font: 700 var(--fs-xs) var(--f-mono);
+  letter-spacing: .08em; text-transform: uppercase;
+  color: #FFFFFF; background: var(--violet); border: 1px solid var(--violet);
+  padding: 10px 18px; transition: background var(--t-2) var(--e-out), border-color var(--t-2) var(--e-out);
 }
-.sheet-close:hover, .sheet-close:focus-visible { color: var(--tx-1); border-color: var(--violet); }
+.sheet-close::before { content: "\2190"; transition: transform var(--t-3) var(--e-out); }
+.sheet-close:hover, .sheet-close:focus-visible { background: var(--tx-1); border-color: var(--tx-1); color: #FFFFFF; }
+.sheet-close:hover::before, .sheet-close:focus-visible::before { transform: translateX(-4px); }
 
 .sheet-body { grid-area: body; overflow-y: auto; padding: 0 var(--s6) var(--s7); min-height: 0; min-width: 0; }
 @media (max-width: 1023px) { .sheet-body { overflow-y: visible; } }
@@ -794,10 +968,20 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
 .sheet-org { margin-top: 8px; font: 500 var(--fs-xs) var(--f-mono); color: var(--tx-3); }
 .sheet-summary { margin-top: 16px; font-family: var(--f-display); font-size: var(--fs-lg); font-weight: 400; line-height: 1.5; color: var(--tx-1); max-width: 56ch; }
 
-.sheet-pdf-list { margin-top: 18px; display: grid; gap: 1px; background: var(--line); }
-.sheet-pdf-link { display: flex; align-items: center; gap: 10px; padding: 12px 4px; background: var(--slab); }
-.sheet-pdf-link::before { content: "PDF"; font: 700 var(--fs-mono) var(--f-mono); color: var(--amber); border: 1px solid var(--line-2); padding: 2px 6px; }
-.sheet-pdf-link::after { content: "\2197"; margin-left: auto; transition: transform var(--t-2) var(--e-out); }
+.sheet-pdf-list { margin-top: 18px; display: grid; gap: 6px; }
+.sheet-pdf-link {
+  display: flex; align-items: center; gap: 10px; padding: 12px 14px;
+  background: var(--tint); border: 1px solid var(--line-2); border-radius: var(--r-card);
+  color: var(--violet); font-weight: 600;
+  transition: background var(--t-2) var(--e-out), border-color var(--t-2) var(--e-out);
+}
+.sheet-pdf-link:hover, .sheet-pdf-link:focus-visible { background: var(--tint-2); border-color: var(--violet); }
+.sheet-pdf-link::before {
+  content: "PDF"; flex: none; font: 700 var(--fs-mono) var(--f-mono); color: var(--amber);
+  background: rgba(122,72,0,.08); border: 1px solid rgba(122,72,0,.30);
+  border-radius: var(--r-2); padding: 2px 6px;
+}
+.sheet-pdf-link::after { content: "\2197"; margin-left: auto; color: var(--violet); transition: transform var(--t-2) var(--e-out); }
 .sheet-pdf-link:hover::after, .sheet-pdf-link:focus-visible::after { transform: translate(3px,-3px); }
 .sheet-video-notice { margin-top: 14px; font-size: var(--fs-sm); color: var(--tx-3); }
 
@@ -806,6 +990,18 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
 .sheet-block:first-child { border-top: 0; padding-top: 0; }
 .sheet-block h3 { font: 700 var(--fs-mono) var(--f-mark); line-height: 1.3; letter-spacing: .12em; text-transform: uppercase; color: var(--violet); }
 .sheet-block p { font-size: var(--fs-sm); line-height: 1.66; color: var(--tx-2); }
+/* Project records carry short points rather than a paragraph. Same bullet
+   idiom as the experience timeline, so the two read as one system. */
+.sheet-points { display: grid; gap: 9px; }
+.sheet-points li {
+  position: relative; padding-left: 18px;
+  font-size: var(--fs-sm); line-height: 1.6; color: var(--tx-2);
+}
+.sheet-points li::before {
+  content: ""; position: absolute; left: 0; top: .52em;
+  width: 6px; height: 6px; background: var(--violet);
+}
+.sheet-block[data-label="Constraints"] .sheet-points li::before { background: var(--tx-3); }
 .sheet-block[data-label="Constraints"] h3 { color: var(--tx-3); }
 .sheet-block[data-label="Constraints"] { border-left: 2px solid var(--line-2); padding-left: 14px; }
 @media (min-width: 1280px) {
@@ -905,7 +1101,10 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
   #flowfield, #catPreview { display: none !important; }
   .bench-plate { transition: none; }
   body.is-locked #main { transform: none !important; filter: none !important; }
-  .hero-name { --w: 720 !important; }
+  html.has-js .hero-name .line-in {
+    transform: none !important; opacity: 1 !important;
+    transition: none !important; will-change: auto;
+  }
 }
 
 /* -------------------------------------------------------- 20 overflow */

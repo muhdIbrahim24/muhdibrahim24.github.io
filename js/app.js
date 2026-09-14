@@ -452,6 +452,26 @@
     videoNoticeHost.textContent = has ? 'Video further down the page.' : '';
   }
 
+  /* Writes a manifest string into an element, turning [[...]] spans into the
+     site's quantity mark. Built node by node rather than through innerHTML,
+     so the manifest can never inject markup. */
+  function writeMarked(host, str) {
+    var source = String(str == null ? '' : str);
+    var at = 0;
+    var open;
+    while ((open = source.indexOf('[[', at)) !== -1) {
+      var close = source.indexOf(']]', open + 2);
+      if (close === -1) break;
+      if (open > at) host.appendChild(document.createTextNode(source.slice(at, open)));
+      var mark = document.createElement('span');
+      mark.className = 'qty';
+      mark.textContent = source.slice(open + 2, close);
+      host.appendChild(mark);
+      at = close + 2;
+    }
+    if (at < source.length) host.appendChild(document.createTextNode(source.slice(at)));
+  }
+
   function renderRecord(key) {
     var record = DATA.records[key];
     if (!record) return false;
@@ -478,10 +498,26 @@
       wrap.setAttribute('data-label', block.label);
       var head = document.createElement('h3');
       head.textContent = block.label;
-      var text = document.createElement('p');
-      text.textContent = block.text;
       wrap.appendChild(head);
-      wrap.appendChild(text);
+
+      /* A block is either one paragraph (education, experience, activities)
+         or a short list of points (the project records). Figures inside a
+         point are marked [[like this]] in the manifest and come out in the
+         same amber mono as every other quantity on the site. */
+      if (Array.isArray(block.text)) {
+        var list = document.createElement('ul');
+        list.className = 'sheet-points';
+        block.text.forEach(function (point) {
+          var li = document.createElement('li');
+          writeMarked(li, point);
+          list.appendChild(li);
+        });
+        wrap.appendChild(list);
+      } else {
+        var text = document.createElement('p');
+        writeMarked(text, block.text);
+        wrap.appendChild(text);
+      }
       host.appendChild(wrap);
     });
 

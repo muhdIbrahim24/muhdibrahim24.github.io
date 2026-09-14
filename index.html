@@ -7,7 +7,11 @@
 <meta name="description" content="Engineering portfolio of Muhammad Ibrahim: mechanical, civil and simulation work spanning CFD, finite-element analysis, BIM coordination, numerical PDEs and prototype development. NYU Abu Dhabi, May 2026.">
 <meta name="theme-color" content="#FAFAF8">
 <meta name="color-scheme" content="light">
-<script>var d=document.documentElement;d.classList.add("has-js","is-booting");</script>
+<script>var d=document.documentElement;d.classList.add("has-js","is-booting");
+/* motion.js normally clears this within 900ms, once the webfont has settled.
+   This failsafe runs even if that file never loads, so the hero name can
+   never be left hidden behind its entrance animation. */
+setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FAFAF8'/%3E%3Ctext x='16' y='22' font-family='Helvetica,Arial' font-size='16' font-weight='700' fill='%234B22C7' text-anchor='middle'%3EMI%3C/text%3E%3C/svg%3E">
 <meta property="og:title" content="Muhammad Ibrahim: Engineering Portfolio">
 <meta property="og:description" content="Mechanical, civil and simulation engineering work, presented with its approach, its outcomes and its constraints.">
@@ -19,6 +23,10 @@
      document and queued every image ahead of them. -->
 <link rel="preload" href="js/content.js" as="script">
 <link rel="preload" href="js/app.js" as="script">
+<!-- The portrait is the largest thing painted on first screen, so it is the
+     element that decides perceived load time. Without this it is not fetched
+     until the parser reaches the hero. -->
+<link rel="preload" href="assets/images/portrait/muhammad-ibrahim.jpg" as="image" fetchpriority="high">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -60,8 +68,8 @@
   <div class="shell hero-inner">
     <p class="eyebrow hero-eyebrow" data-reveal="mask">Engineering portfolio <span class="dot"></span> 2026</p>
     <h1 class="hero-name">
-      <span class="line" data-reveal="mask">Muhammad</span>
-      <span class="line line-2" data-reveal="mask">Ibrahim</span>
+      <span class="line"><span class="line-in">Muhammad</span></span>
+      <span class="line line-2"><span class="line-in">Ibrahim</span></span>
     </h1>
     <div class="hero-body">
       <div class="hero-statement">
@@ -70,6 +78,10 @@
         <p class="hero-sub" data-reveal="rise">An NYU Abu Dhabi engineering graduate with a mechanical and civil focus, combining
           modelling, analysis, fabrication and technical communication. Every project below is shown with its
           approach, its outcome and the limits of what that outcome proves.</p>
+        <a class="hero-contact" href="#contact" data-reveal="rise" data-cursor="CONTACT">
+          <span class="hero-contact-kicker">Contact</span>
+          <span class="card-cue">Get in touch</span>
+        </a>
       </div>
       <aside class="hero-aside">
         <figure class="hero-portrait plate" data-fit="cover" data-duo style="--ar:4/5;--pos:50% 38%">
@@ -173,7 +185,7 @@
     <ol class="bench-records">
       <li class="bench-record" data-record="01" data-pos="01 / 06" data-count="10 figures · 5 clips" id="w01">
         <span class="bench-ghost" aria-hidden="true">01</span>
-        <p class="eyebrow">Marine systems / simulation <span class="dot"></span> 2024–25</p>
+        <p class="eyebrow">Marine systems <span class="dot"></span> 2024–25</p>
         <h3 class="bench-title">Advanced Anti-Roll Tank System</h3>
         <p class="bench-lead">A hydraulically controlled anti-roll tank for large vessels: port and starboard reservoirs whose water shifts out of phase with the ship&rsquo;s roll, evaluated as a passive U-tube tank and then with an actively actuated loop.</p>
         <p class="bench-headline">The passive tank cut roll amplitude by <span class="qty">85%</span>; closing the loop with a hydraulic actuator took the reduction past <span class="qty">98%</span>.</p>
@@ -185,7 +197,7 @@
       </li>
       <li class="bench-record" data-record="02" data-pos="02 / 06" data-count="10 figures" id="w02">
         <span class="bench-ghost" aria-hidden="true">02</span>
-        <p class="eyebrow">Energy systems / CFD / prototyping <span class="dot"></span> 2024–25</p>
+        <p class="eyebrow">Energy systems <span class="dot"></span> 2024–25</p>
         <h3 class="bench-title">Savonius Turbine</h3>
         <p class="bench-lead">A vertical-axis turbine designed to harvest the vortices thrown off traffic moving in opposite directions either side of a central reservation. Optimised in ANSYS Fluent, then built and measured at 1:3 scale.</p>
         <p class="bench-headline">Serrations raised peak CFD moment by <span class="qty">71.65%</span> and power by <span class="qty">56.33%</span>; the <span class="qty">1:3</span> prototype peaked at <span class="qty">5–7 V</span> on the bench.</p>
@@ -197,7 +209,7 @@
       </li>
       <li class="bench-record" data-record="03" data-pos="03 / 06" data-count="11 figures" id="w03">
         <span class="bench-ghost" aria-hidden="true">03</span>
-        <p class="eyebrow">Civil design / BIM coordination <span class="dot"></span> 2025</p>
+        <p class="eyebrow">Civil design <span class="dot"></span> 2025</p>
         <h3 class="bench-title">5th Corner Residential Building</h3>
         <p class="bench-lead">A graded-A, four-storey residential building model and coordinated drawing package for a hot-arid Abu Dhabi context: architecture, structure, façade and schedules held in one Revit model.</p>
         <p class="bench-headline">Column schedules and take-off automated from over <span class="qty">30 minutes</span> to under <span class="qty">one minute</span> across all <span class="qty">84 columns</span>.</p>
@@ -209,7 +221,7 @@
       </li>
       <li class="bench-record" data-record="04" data-pos="04 / 06" data-count="9 figures" id="w04">
         <span class="bench-ghost" aria-hidden="true">04</span>
-        <p class="eyebrow">Personal project / UAV design <span class="dot"></span> 2026–present</p>
+        <p class="eyebrow">UAV design <span class="dot"></span> 2026–present</p>
         <h3 class="bench-title">Search-and-Rescue UAV</h3>
         <p class="bench-lead">An assembled fixed-wing prototype with a detachable nose, intended to carry and release a smaller multirotor payload. Airframe, structure and materials owned on a two-person project.</p>
         <p class="bench-headline">Airframe mass reduced from <span class="qty">2,500 g</span> to <span class="qty">1,500 g</span> (a <span class="qty">40%</span> reduction) on a <span class="qty">1,130 mm</span> wingspan.</p>
@@ -221,7 +233,7 @@
       </li>
       <li class="bench-record" data-record="05" data-pos="05 / 06" data-count="9 figures" id="w05">
         <span class="bench-ghost" aria-hidden="true">05</span>
-        <p class="eyebrow">Thermal systems / instrumentation <span class="dot"></span> 2025</p>
+        <p class="eyebrow">Thermal systems <span class="dot"></span> 2025</p>
         <h3 class="bench-title">TEC Refrigerator</h3>
         <p class="bench-lead">A compact compressor-less refrigerator built around thermoelectric (Peltier) modules driven in parallel, with Arduino sensing and closed-loop PWM control.</p>
         <p class="bench-headline">Cabin cooled from a <span class="qty">27°C</span> start to a stable <span class="qty">10°C</span> across a <span class="qty">180-minute</span> test, reaching equilibrium in about <span class="qty">120 minutes</span>.</p>
@@ -233,7 +245,7 @@
       </li>
       <li class="bench-record" data-record="06" data-pos="06 / 06" data-count="13 figures" id="w06">
         <span class="bench-ghost" aria-hidden="true">06</span>
-        <p class="eyebrow">Water systems / techno-economic analysis <span class="dot"></span> 2026</p>
+        <p class="eyebrow">Water systems <span class="dot"></span> 2026</p>
         <h3 class="bench-title">SWRO Pretreatment Design, Arabian Gulf</h3>
         <p class="bench-lead">A conceptual pretreatment train for a 24,000 m³/day seawater reverse osmosis plant on the Sharjah coast, carried through a 30-year techno-economic lifecycle simulation with equipment-reliability and carbon-footprint modelling.</p>
         <p class="bench-headline">A <span class="qty">30-year</span> lifecycle simulation projects a cumulative pretreatment cost near <span class="qty">450 million USD</span>, discounted at <span class="qty">6%</span>, at a <span class="qty">0.52–0.78 USD/m³</span> unit cost.</p>
@@ -270,7 +282,7 @@
           data-preview="assets/images/projects/cable-management/linkconnect-assembled-system.png" data-preview-w="1020" data-preview-h="1009" data-preview-fit="contain">
           <span class="cat-num mono">P02</span>
           <span class="cat-title">LinkConnect Cable Management</span>
-          <span class="cat-field mono">Mechanical design / FEA</span>
+          <span class="cat-field mono">Mechanical design</span>
           <span class="cat-year mono">2026</span>
           <span class="cat-count mono">8 figures</span>
           <span class="cat-thumb plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/projects/cable-management/linkconnect-assembled-system.png" alt="Isometric view of the assembled LinkConnect cable-management system with multiple tiles, white mounting rails and three-hole clips." width="1020" height="1009" loading="lazy" decoding="async"></span>
@@ -314,7 +326,7 @@
           data-preview="assets/images/projects/civil/exterior-elevation-final.jpg" data-preview-w="1425" data-preview-h="1500" data-preview-fit="cover">
           <span class="cat-num mono">P06</span>
           <span class="cat-title">5th Corner Residential Building</span>
-          <span class="cat-field mono">Civil / BIM</span>
+          <span class="cat-field mono">Civil design</span>
           <span class="cat-year mono">2025</span>
           <span class="cat-count mono">11 figures</span>
           <span class="cat-thumb plate" data-fit="cover" style="--ar:4/3;--pos:50% 46%"><img src="assets/images/projects/civil/exterior-elevation-final.jpg" alt="Exterior render of the finished residential building: light masonry façade, regular windows, balconies with metal railings and a flat parapet roof." width="1425" height="1500" loading="lazy" decoding="async"></span>
@@ -325,7 +337,7 @@
           data-preview="assets/images/projects/tec/final-assembly.png" data-preview-w="405" data-preview-h="442" data-preview-fit="cover">
           <span class="cat-num mono">P07</span>
           <span class="cat-title">TEC Refrigerator</span>
-          <span class="cat-field mono">Thermal / controls</span>
+          <span class="cat-field mono">Thermal systems</span>
           <span class="cat-year mono">2025</span>
           <span class="cat-count mono">9 figures</span>
           <span class="cat-thumb plate" data-fit="cover" style="--ar:4/3;--pos:52% 42%"><img src="assets/images/projects/tec/final-assembly.png" alt="The finished compressor-less refrigerator standing on its legs, with twin fan and heatsink stacks on top." width="405" height="442" loading="lazy" decoding="async"></span>
@@ -369,7 +381,7 @@
           data-preview="assets/images/projects/savonius/prototype-third-iteration.jpg" data-preview-w="1350" data-preview-h="1800" data-preview-fit="cover">
           <span class="cat-num mono">P11</span>
           <span class="cat-title">Savonius Turbine</span>
-          <span class="cat-field mono">Energy / CFD</span>
+          <span class="cat-field mono">Energy systems</span>
           <span class="cat-year mono">2024–25</span>
           <span class="cat-count mono">10 figures</span>
           <span class="cat-thumb plate" data-fit="cover" style="--ar:4/3;--pos:50% 55%"><img src="assets/images/projects/savonius/prototype-third-iteration.jpg" alt="A dark blue 3D-printed Savonius rotor prototype mounted on a white support post on the workshop bench, with a second prototype visible behind it." width="1350" height="1800" loading="lazy" decoding="async"></span>
@@ -380,7 +392,7 @@
           data-preview="assets/images/projects/wheelchair/backrest-stress-and-displacement-results.png" data-preview-w="1053" data-preview-h="885" data-preview-fit="contain">
           <span class="cat-num mono">P12</span>
           <span class="cat-title">Advanced Motorised Wheelchair</span>
-          <span class="cat-field mono">Mobility / FEA</span>
+          <span class="cat-field mono">Mobility</span>
           <span class="cat-year mono">2023</span>
           <span class="cat-count mono">9 figures · 4 clips</span>
           <span class="cat-thumb plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/projects/wheelchair/backrest-stress-and-displacement-results.png" alt="Wireframe and colour-mapped finite-element model showing stress concentration at the base connection points, with a stress legend and supporting data tables." width="1053" height="885" loading="lazy" decoding="async"></span>
@@ -418,8 +430,8 @@
           </div>
           <p class="tl-org">Center for Stability, Instability and Turbulence (SITE), NYU Abu Dhabi</p>
           <ul class="tl-points">
-            <li>Ran a solo 2D free-surface study: <span class="qty">60 trials</span> across <span class="qty">four angles</span> of attack, building the dataset the model was trained on.</li>
-            <li>Grounded the model in dimensional analysis of surface height against velocity, depth and body radius, then trained it in Python and MATLAB to predict free-surface profiles beyond the tested range; the prediction is not independently validated.</li>
+            <li>Built the model training dataset from <span class="qty">60 trials</span> across <span class="qty">four angles</span> of attack.</li>
+            <li>Extended free-surface prediction beyond the tested range in Python and MATLAB.</li>
           </ul>
         </div>
       </li>
@@ -433,8 +445,8 @@
           </div>
           <p class="tl-org">Advanced Manufacturing Workshop, NYU Abu Dhabi</p>
           <ul class="tl-points">
-            <li>Manufactured polymer and composite parts reinforced with bidirectional carbon fibre, fibreglass and chopped strand for <span class="qty">3 capstone teams</span>, modelling each in SolidWorks; no measured-strength claim is made.</li>
-            <li>Cut print failure from <span class="qty">50%</span> to <span class="qty">10%</span> across <span class="qty">70+ print hours</span> by diagnosing root causes and refining parameters, then checked dimensions with calipers after printing.</li>
+            <li>Cut print failure <span class="qty">50%</span> to <span class="qty">10%</span> over <span class="qty">70+ print hours</span> by refining parameters.</li>
+            <li>Manufactured carbon-fibre and fibreglass parts for <span class="qty">3 capstone teams</span>.</li>
           </ul>
         </div>
       </li>
@@ -448,8 +460,8 @@
           </div>
           <p class="tl-org">Center for Stability, Instability and Turbulence (SITE), NYU Abu Dhabi</p>
           <ul class="tl-points">
-            <li>Tested <span class="qty">130+ cases</span> of Rayleigh–Taylor and Richtmyer–Meshkov instability in a two-person team, probing for linearity between laminar and turbulent regimes.</li>
-            <li>Developed water-tunnel models that reliably triggered boundary-layer separation, quantified through flow visualisation; collaborative work, so no sole-ownership or validated predictive result is claimed.</li>
+            <li>Tested <span class="qty">130+ cases</span> of Rayleigh–Taylor and Richtmyer–Meshkov instability.</li>
+            <li>Co-developed water-tunnel models that triggered boundary-layer separation.</li>
           </ul>
         </div>
       </li>
@@ -463,8 +475,8 @@
           </div>
           <p class="tl-org">Energy and Propulsion Lab, NYU Abu Dhabi</p>
           <ul class="tl-points">
-            <li>Meshed compressible-flow cases in Gmsh and solved them in OpenFOAM and Converge on HPC clusters, applying k-epsilon modelling to AeroFarms growing-tower ventilation scenarios.</li>
-            <li>The model returned a <span class="qty">28%</span> simulated ventilation gain at upper tower levels, then presented the resulting Urban Air Mobility propulsion conclusions to a <span class="qty">25-member</span> Hyundai NGV panel in South Korea; simulated only, with no crop-yield or crop-quality claim made.</li>
+            <li>Modelled AeroFarms tower ventilation in OpenFOAM for a <span class="qty">28%</span> simulated gain.</li>
+            <li>Presented the propulsion findings to a <span class="qty">25-member</span> Hyundai NGV panel.</li>
           </ul>
         </div>
       </li>
@@ -492,7 +504,6 @@
       </button>
       <button class="act-tile magnetic" type="button" data-reveal="rise" data-open-record="activity:cricket" data-cursor="VIEW">
         <div class="plate" data-fit="cover" data-duo style="--pos:50% 50%"><img src="assets/images/activities/cricket/cricket-18-IMG_8872.jpg" alt="The NYU Abu Dhabi cricket team photographed together on the outfield after an evening match under floodlights." width="1800" height="1200" loading="lazy" decoding="async"></div>
-        <span class="act-badge" data-clips="3">03 CLIPS</span>
         <span class="act-corner tl" aria-hidden="true"></span><span class="act-corner tr" aria-hidden="true"></span><span class="act-corner bl" aria-hidden="true"></span><span class="act-corner br" aria-hidden="true"></span>
         <span class="act-copy">
           <span class="act-title">Cricket Team Media</span>
