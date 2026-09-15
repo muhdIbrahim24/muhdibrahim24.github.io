@@ -18,6 +18,30 @@
     return Array.prototype.slice.call((scope || document).querySelectorAll(sel));
   };
 
+  /* ------------------------------------------------------- name entrance
+
+     The hero name lines carry will-change in the stylesheet so their
+     entrance is composited from the first frame. Left alone that pins a
+     layer for the life of the page, for an animation that runs once. This
+     hands the layer back the moment the transition finishes, which is the
+     same contract the reveal system keeps for everything else. */
+
+  function nameEntrance() {
+    var lines = $$('.hero-name .line-in');
+    if (!lines.length) return;
+    lines.forEach(function (el) {
+      el.addEventListener('transitionend', function (e) {
+        if (e.propertyName !== 'transform') return;
+        el.style.willChange = 'auto';
+      }, { once: true });
+    });
+    /* If the transition never fires (reduced motion, or the class removed
+       before the styles applied) the layer is still handed back. */
+    window.setTimeout(function () {
+      lines.forEach(function (el) { el.style.willChange = 'auto'; });
+    }, 4000);
+  }
+
   /* ---------------------------------------------------------------- boot
 
      Removes .is-booting once fonts are ready (or a 900ms timeout, whichever
@@ -512,24 +536,6 @@
     }, { passive: true });
   }
 
-  /* ------------------------------------------------------------------ spine
-
-     The stylesheet already lights each .tl-node amber on .tl-item.is-in
-     (set by reveal() above), which delivers the "lamps lighting down the
-     page" effect on its own. This adds only a harmless, forward-compatible
-     .is-drawn toggle on .tl for a future animated spine to hook into. */
-
-  function spine() {
-    var tl = $('.tl');
-    if (!tl || !('IntersectionObserver' in window)) return;
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) { tl.classList.add('is-drawn'); io.unobserve(tl); }
-      });
-    }, { threshold: 0.1 });
-    io.observe(tl);
-  }
-
   /* ------------------------------------------------------------------ clock
 
      States a computed time only, never a claim. Updates every 30s; no
@@ -643,6 +649,7 @@
   /* ---------------------------------------------------------------- init */
 
   boot();
+  nameEntrance();
   reveal();
 
   if (reduceMotion) return;
@@ -651,7 +658,6 @@
   shelf();
   magnetic();
   flowfield();
-  spine();
   clock();
   initScrollScheduler();
 }());

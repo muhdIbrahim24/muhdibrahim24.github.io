@@ -718,7 +718,12 @@ window.PORTFOLIO = Object.freeze({
     "title": "Graduate Intern",
     "org": "Center for Stability, Instability and Turbulence (SITE)",
     "summary": "Solo 2D free-surface study building a model-training dataset across 60 trials.",
-    "details": [],
+    "details": [
+          {
+                "label": "Context",
+                "text": "Extended free-surface prediction beyond the tested range in Python and MATLAB."
+          }
+    ],
     "evidence": ""
   },
   "experience:workshop-technician": {
@@ -727,7 +732,12 @@ window.PORTFOLIO = Object.freeze({
     "title": "Workshop Technician",
     "org": "Advanced Manufacturing Workshop",
     "summary": "Manufactured polymer and composite parts and supported capstone teams in the Advanced Manufacturing Workshop.",
-    "details": [],
+    "details": [
+          {
+                "label": "Context",
+                "text": "Manufactured carbon-fibre and fibreglass parts for three capstone teams."
+          }
+    ],
     "evidence": ""
   },
   "experience:research-assistant-site": {
@@ -736,7 +746,12 @@ window.PORTFOLIO = Object.freeze({
     "title": "Research Assistant",
     "org": "Center for Stability, Instability and Turbulence (SITE)",
     "summary": "Tested 130+ Rayleigh–Taylor and Richtmyer–Meshkov cases in a two-person water-tunnel study.",
-    "details": [],
+    "details": [
+          {
+                "label": "Context",
+                "text": "Co-developed water-tunnel models that triggered boundary-layer separation."
+          }
+    ],
     "evidence": ""
   },
   "experience:research-assistant-propulsion": {
@@ -745,7 +760,12 @@ window.PORTFOLIO = Object.freeze({
     "title": "Research Assistant",
     "org": "Energy and Propulsion Lab",
     "summary": "Modelled compressible flow on HPC clusters for AeroFarms growing-tower ventilation scenarios.",
-    "details": [],
+    "details": [
+          {
+                "label": "Context",
+                "text": "Presented the propulsion findings to a 25-member Hyundai NGV panel."
+          }
+    ],
     "evidence": ""
   },
   "education:nyuad": {
