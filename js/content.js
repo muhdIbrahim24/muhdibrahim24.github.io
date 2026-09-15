@@ -292,40 +292,46 @@ window.PORTFOLIO = Object.freeze({
   "project:07": {
     "kind": "Project 10",
     "kicker": "Motorsport",
-    "title": "Formula Student SAE Drivetrain",
+    "title": "Formula Student Rear Half-Shaft Analysis",
     "org": "",
-    "summary": "A narrowly scoped Formula SAE contribution: rear half-shaft design and structural verification for a rear-engine, rear-wheel-drive car.",
+    "summary": "A three-dimensional finite element study of a Formula Student rear half-shaft in MATLAB, assessing stress and twist under engine torque and assumed clutch-pulse and wheel-hop loading, as a simplified steel shaft with a connected rotor.",
     "details": [
           {
                 "label": "Brief",
                 "text": [
-                      "Design and verify the rear half shafts for a rear-engine, rear-wheel-drive Formula SAE vehicle.",
-                      "Work conducted within a [[10-member]] team."
+                      "Assess a rear half-shaft for a rear-wheel-drive Formula Student vehicle using a theoretical MATLAB model.",
+                      "Evaluate a [[27.5 mm]] diameter, [[450 mm]] long solid shaft against proposed limits of a yield safety factor of at least [[1.30]] and a maximum twist of [[10\u00b0]]."
                 ]
           },
           {
                 "label": "Contribution",
                 "text": [
-                      "Owned the half-shaft scope rather than the full drivetrain or vehicle build.",
-                      "Structural verification of the shafts was the defined deliverable."
+                      "Focused the analysis on the plain half-shaft body, including its material properties, idealised end restraints and applied torque cases.",
+                      "Established a MATLAB workflow for 3-D solid finite element analysis, transient shock response and numerical verification.",
+                      "Interpreted stress, displacement, reaction torque and convergence results to identify the limiting design criterion."
                 ]
           },
           {
                 "label": "Approach",
                 "text": [
-                      "Applied SolidWorks Simulation FEA against an assumed worst-case shock-load envelope.",
-                      "Cases covered clutch-dump and wheel-hop scenarios."
+                      "Took a [[2015]] Kawasaki ZX-6R [[599 cc]] engine as the reference, with assumed vehicle gearing, efficiency and an equal differential split, giving [[553.81 N\u00b7m]] per shaft.",
+                      "Modelled heat-treated E4340 steel with [[10-node]] quadratic tetrahedral elements, a fixed root and a rigidly coupled loaded end carrying an assumed rotor inertia.",
+                      "Applied a [[12 ms]] clutch-type torque pulse and a [[12 Hz]] wheel-hop-type torque burst, including torque reversal.",
+                      "Checked the static result against circular-shaft theory, then refined the mesh, the retained mode count and the integration time step before assessing the response."
                 ]
           },
           {
                 "label": "Outcome",
                 "text": [
-                      "Sized the rear half shafts against the assumed worst-case shock load.",
-                      "Achieved a safety factor of [[1.2 to 1.5]]."
+                      "The clutch-type pulse produced [[611.92 MPa]] peak von Mises stress, a [[2.445]] yield safety factor and [[8.34\u00b0]] maximum twist, meeting both proposed criteria in the linear model.",
+                      "The wheel-hop-type excitation produced [[1,091.18 MPa]] peak stress, a [[1.371]] yield safety factor and [[14.87\u00b0]] maximum twist. It met the yield criterion but exceeded the [[10\u00b0]] twist limit.",
+                      "The finest static mesh agreed with the analytical benchmark within [[1.29%]], and dynamic peak stress changed by at most [[1.22%]] under the tested spatial refinement.",
+                      "Torsional stiffness is the limiting criterion for the modelled wheel-hop case. The larger rotations also call for a geometric-nonlinearity check before the physical response is accepted.",
+                      "This is a theoretical plain-shaft model under stated torque, restraint, inertia and damping assumptions. It does not establish measured vehicle shock loads, spline or CV-joint strength, or fatigue life, and no physical testing was carried out."
                 ]
           }
     ],
-    "evidence": ""
+    "evidence": "formula-student"
   },
   "project:08": {
     "kind": "Project 12",
@@ -1827,6 +1833,79 @@ window.PORTFOLIO = Object.freeze({
       "cite": "Search-and-Rescue UAV · 2026",
       "group": "uav-drone"
     }
+,
+    {
+      "src": "assets/images/projects/formula-student/half-shaft-model-and-boundaries.png",
+      "w": 1800,
+      "h": 1315,
+      "alt": "Idealised three-dimensional diagram of a slender shaft on labelled axes, its left face marked as fixed and a torque applied at the right face, beside a panel listing geometry, material and boundary condition values.",
+      "caption": "The model idealisation rather than a stress result. A 27.5 mm diameter, 450 mm long solid E4340 steel shaft, its root face fixed, its opposite face rigidly coupled to a free reference point carrying the applied torque and an assumed rotor mass and inertia, and a traction-free cylindrical surface.",
+      "cite": "Formula Student half-shaft analysis \u00b7 MATLAB \u00b7 Setup",
+      "group": "formula-student"
+    },
+    {
+      "src": "assets/images/projects/formula-student/applied-torque-histories.png",
+      "w": 1800,
+      "h": 1026,
+      "alt": "Two torque against time plots, one a smooth single pulse, the other a windowed oscillation crossing zero into negative torque.",
+      "caption": "The assumed external torque histories. A reference torque of 553.81 N\u00b7m per shaft was calculated from the engine reference and assumed transmission parameters. The clutch-type case applies a smooth 12 ms pulse reaching 1,107.62 N\u00b7m. The wheel-hop-type case applies a windowed 12 Hz oscillation with interior extrema of +1,661.43 and -830.72 N\u00b7m. These are specified interface excitations rather than loads predicted from tyre or clutch dynamics.",
+      "cite": "Formula Student half-shaft analysis \u00b7 MATLAB \u00b7 Approach",
+      "group": "formula-student"
+    },
+    {
+      "src": "assets/images/projects/formula-student/static-verification-and-mesh-refinement.png",
+      "w": 1800,
+      "h": 1034,
+      "alt": "Chart comparing finite element twist against the analytical torsion line, with a bar chart of percentage error falling across three successively finer meshes.",
+      "caption": "Static verification against the circular-shaft torsion relation, \u03b8 = TL/(GJ). Three meshes reduced the twist and integrated stress-field errors from about 5.29% to 2.31% and then 1.29%, so the two finer meshes satisfy the proposed 5% analytical tolerance. The plotted torque against twist points use the finest static mesh.",
+      "cite": "Formula Student half-shaft analysis \u00b7 MATLAB \u00b7 Approach",
+      "group": "formula-student"
+    },
+    {
+      "src": "assets/images/projects/formula-student/clutch-pulse-transient-response.png",
+      "w": 1800,
+      "h": 1027,
+      "alt": "Three stacked time histories for the clutch pulse: applied torque against root reaction, von Mises stress with its peak marked, and twist against dashed 10 degree limit lines.",
+      "caption": "Transient response to the clutch-type pulse on the finest mesh. Peak von Mises stress reaches 611.92 MPa at 32.10 ms, the minimum yield safety factor is 2.445 and maximum absolute twist is 8.34\u00b0. The root reaction is plotted with reversed sign so its magnitude and phase can be compared with the input torque, and the oscillation continuing after the pulse shows the effect of structural and rotor inertia.",
+      "cite": "Formula Student half-shaft analysis \u00b7 MATLAB \u00b7 Outcome",
+      "group": "formula-student"
+    },
+    {
+      "src": "assets/images/projects/formula-student/wheel-hop-transient-response.png",
+      "w": 1800,
+      "h": 1027,
+      "alt": "Three stacked time histories for the wheel-hop case, the twist trace rising past the dashed 10 degree limit lines.",
+      "caption": "Transient response to the wheel-hop-type excitation. Peak von Mises stress reaches 1,091.18 MPa at 43.75 ms and the minimum yield safety factor is 1.371, but maximum absolute twist reaches 14.87\u00b0 and exceeds the proposed 10\u00b0 limit. The linear yield check passes while the torsional stiffness falls short under this assumed excitation.",
+      "cite": "Formula Student half-shaft analysis \u00b7 MATLAB \u00b7 Outcome",
+      "group": "formula-student"
+    },
+    {
+      "src": "assets/images/projects/formula-student/peak-stress-contours.png",
+      "w": 1800,
+      "h": 1041,
+      "alt": "Two three-dimensional shaft renderings on a shared colour scale, the upper one mostly mid-scale and the lower one near the top of the scale, each with a stress concentration at the fixed root.",
+      "caption": "Surface von Mises contours at the two stress-peak times, on a common colour scale and the undeformed geometry. Stress tensors are averaged at shared coordinates for display only. The quoted peak stresses and safety factors come from unaveraged element-corner tensors, so the visual smoothing does not affect the reported acceptance results.",
+      "cite": "Formula Student half-shaft analysis \u00b7 MATLAB \u00b7 Outcome",
+      "group": "formula-student"
+    },
+    {
+      "src": "assets/images/projects/formula-student/dynamic-convergence-and-modes.png",
+      "w": 1800,
+      "h": 1025,
+      "alt": "Convergence bars for mode count, time step and mesh refinement against a dashed tolerance line, beside a plot of torsional mode participation by frequency.",
+      "caption": "Numerical convergence and torsional mode participation. The global peak-stress response was rechecked with the retained mode count raised from 36 to 60, the integration step halved from 100 to 50 microseconds and the spatial mesh refined. The largest change observed was 1.22%, below the proposed 5% tolerance. A torque-coupled mode near 40.65 Hz carries almost all of the static torsional compliance for this idealised shaft and rotor.",
+      "cite": "Formula Student half-shaft analysis \u00b7 MATLAB \u00b7 Verification",
+      "group": "formula-student"
+    },
+    {
+      "src": "assets/images/projects/formula-student/design-criteria-assessment.png",
+      "w": 1800,
+      "h": 1034,
+      "alt": "Two bar charts, one of yield safety factor with both bars above the required line, one of maximum twist with the wheel-hop bar in red above the 10 degree limit.",
+      "caption": "Assessment against the proposed design criteria. Both shock cases clear the minimum yield safety factor of 1.30, but only the clutch-type case stays below the 10\u00b0 twist limit, so the 27.5 mm shaft does not meet both criteria under the wheel-hop case. The criteria are project assumptions, and the sizeable predicted rotations warrant a geometrically nonlinear comparison before physical performance is accepted.",
+      "cite": "Formula Student half-shaft analysis \u00b7 MATLAB \u00b7 Outcome",
+      "group": "formula-student"
+    }
   ],
   groups: {
     "civil": "5th Corner Residential Building",
@@ -1840,7 +1919,8 @@ window.PORTFOLIO = Object.freeze({
     "swro": "SWRO Pretreatment Design",
     "golf-putter": "Modular Golf Putter",
     "cable-management": "LinkConnect Cable Management",
-    "quantum": "Hyundai NGV Quantum Analysis"
+    "quantum": "Hyundai NGV Quantum Analysis",
+    "formula-student": "Formula Student Half-Shaft Analysis"
   },
   /* Photographs and clips for each activity, split into the two lanes the
      activity sheet renders: a mixed gallery in the middle and an images-only
@@ -2052,13 +2132,5 @@ window.PORTFOLIO = Object.freeze({
   /* Fallback plate for records that carry no figures from an original
      report. One image only, captioned honestly as stock, so the case
      sheet's figure pane always has something truthful to show. */
-  plates: {
-  "project:07": {
-    "src": "assets/images/placeholders/p07-racing-engine.jpg",
-    "w": 1920, "h": 1440,
-    "alt": "Stock photograph of a racing engine, standing in for this project.",
-    "caption": "Stock photograph of a racing engine, standing in for this project.",
-    "cite": "Stock image · no report figures published"
-  }
-}
+  plates: {}
 });
