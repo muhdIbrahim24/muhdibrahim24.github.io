@@ -351,19 +351,25 @@
     });
   }
 
-  /* ------------------------------------------------------------- contour
+  /* --------------------------------------------------------- streamlines
 
-     A slowly breathing contour field behind the hero name: isolines of a
-     scalar function, drawn with marching squares, the way a pressure or a
-     stress plot is drawn. It replaces a particle-advection field whose
-     trails smeared across the ground and needed a translucent repaint of
-     the whole canvas every frame to fade them.
+     A slow vector field behind the hero name, drawn the way a flow plot
+     draws streamlines: short traces released from a lattice and carried by
+     the field. It replaces the contour field, and before that a particle
+     system whose trails needed a translucent repaint of the whole canvas
+     every frame to fade them.
 
-     Cost per frame is one clearRect, about 1,400 field evaluations and one
-     stroke call per level, which is seven. Gated off entirely (canvas never
-     created) under reduced motion, on narrow viewports, on low-core-count
-     devices, or if a 2d context is unavailable; paused via
-     IntersectionObserver and visibilitychange. */
+     The field is evaluated only at lattice points, once per drawn frame,
+     and each trace reads it back by interpolating the vector rather than
+     the angle, so nothing tears where the angle wraps past a half turn.
+     That is about 1,200 trig calls and 9,000 short segments per frame,
+     redrawn thirty times a second: the field turns slowly enough that
+     sixty would look no different and cost twice as much.
+
+     Gated off entirely (nothing drawn, no canvas sized) under reduced
+     motion, on narrow viewports, on low-core-count devices, or if a 2d
+     context is unavailable; paused via IntersectionObserver and
+     visibilitychange. */
 
   function flowfield() {
     var canvas = document.getElementById('flowfield');
@@ -375,23 +381,16 @@
     if (!ctx) return;
 
     var DPR = Math.min(window.devicePixelRatio || 1, 1.5);
-    var CELL = 26;
-    var LEVELS = [-2.4, -1.6, -0.8, 0, 0.8, 1.6, 2.4];
-    var INK = [
-      'rgba(20,20,26,0.085)', 'rgba(20,20,26,0.115)', 'rgba(75,34,199,0.135)',
-      'rgba(75,34,199,0.20)',  'rgba(75,34,199,0.135)', 'rgba(20,20,26,0.115)',
-      'rgba(20,20,26,0.085)'
-    ];
+    var LAT = 32;      /* spacing of the lattice the field is sampled on */
+    var GAP = 64;      /* spacing of the points traces are released from */
+    var STEP = 9;      /* how far a trace advances per segment */
+    var LEN = 26;      /* segments in one trace */
+    var INK = 'rgba(20,20,26,0.075)';
+    var VIO = 'rgba(75,34,199,0.13)';
+    var FPS = 32;      /* milliseconds between redraws */
 
-    /* Which cell edges each of the sixteen corner patterns cuts.
-       Edge 0 is the top of the cell, then right, bottom, left. */
-    var CUTS = [
-      [], [3, 2], [2, 1], [3, 1], [0, 1], [0, 3, 2, 1], [0, 2], [0, 3],
-      [0, 3], [0, 2], [0, 1, 3, 2], [0, 1], [3, 1], [2, 1], [3, 2], []
-    ];
-
-    var w = 0, h = 0, cols = 0, rows = 0, vals = null;
-    var running = false, raf = null, t = 0;
+    var w = 0, h = 0, lcols = 0, lrows = 0, vx = null, vy = null;
+    var running = false, raf = null, t = 0, stamp = 0, drawn = -1e9;
 
     function seed() {
       w = canvas.clientWidth; h = canvas.clientHeight;
@@ -399,81 +398,104 @@
       canvas.height = Math.max(1, Math.round(h * DPR));
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
       ctx.lineWidth = 1;
+      ctx.lineCap = 'round';
       ctx.lineJoin = 'round';
-      cols = Math.ceil(w / CELL) + 1;
-      rows = Math.ceil(h / CELL) + 1;
-      vals = new Float32Array(cols * rows);
+      /* The lattice runs two release gaps beyond the canvas on every side,
+         so a trace that wanders off an edge still has values to read. */
+      lcols = Math.ceil((w + 4 * GAP) / LAT) + 2;
+      lrows = Math.ceil((h + 4 * GAP) / LAT) + 2;
+      vx = new Float32Array(lcols * lrows);
+      vy = new Float32Array(lcols * lrows);
+      drawn = -1e9;
     }
 
-    /* Three drifting plane waves and one ring, which is enough to keep the
-       lines from ever settling into a pattern the eye can predict. */
-    function sample(x, y, time) {
-      return Math.sin(x * 0.0042 + time * 0.00019)
-           + Math.sin(y * 0.0051 - time * 0.00014)
-           + Math.sin((x + y) * 0.0026 + time * 0.00011)
-           + 0.75 * Math.sin(Math.sqrt((x - w * 0.62) * (x - w * 0.62) +
-                                       (y - h * 0.30) * (y - h * 0.30)) * 0.0055 - time * 0.00021);
-    }
-
-    function frame() {
-      if (!running) return;
-      t += 16;
-
-      var r, c, i = 0;
-      for (r = 0; r < rows; r++) {
-        for (c = 0; c < cols; c++) vals[i++] = sample(c * CELL, r * CELL, t);
+    /* Three drifting waves turning the direction of flow. The time
+       coefficients are half what they were when this was first tuned,
+       which is the speed that was asked for. */
+    function field(time) {
+      var i = 0, r, c;
+      for (r = 0; r < lrows; r++) {
+        var y = r * LAT - 2 * GAP;
+        for (c = 0; c < lcols; c++) {
+          var x = c * LAT - 2 * GAP;
+          var a = (Math.sin(x * 0.0027 + time * 0.00008)
+                 + Math.cos(y * 0.0031 - time * 0.000065)
+                 + 0.6 * Math.sin((x - y) * 0.0019 + time * 0.000045)) * Math.PI;
+          vx[i] = Math.cos(a);
+          vy[i] = Math.sin(a);
+          i++;
+        }
       }
+    }
 
+    var V = [1, 0];
+
+    function look(x, y) {
+      var gx = (x + 2 * GAP) / LAT, gy = (y + 2 * GAP) / LAT;
+      if (gx < 0) gx = 0; else if (gx > lcols - 1.001) gx = lcols - 1.001;
+      if (gy < 0) gy = 0; else if (gy > lrows - 1.001) gy = lrows - 1.001;
+      var c0 = gx | 0, r0 = gy | 0, fx = gx - c0, fy = gy - r0;
+      var i00 = r0 * lcols + c0, i10 = i00 + 1, i01 = i00 + lcols, i11 = i01 + 1;
+      var a = 1 - fx, b = 1 - fy;
+      var ux = (vx[i00] * a + vx[i10] * fx) * b + (vx[i01] * a + vx[i11] * fx) * fy;
+      var uy = (vy[i00] * a + vy[i10] * fx) * b + (vy[i01] * a + vy[i11] * fx) * fy;
+      var m = Math.sqrt(ux * ux + uy * uy);
+      if (m < 1e-6) { V[0] = 1; V[1] = 0; return; }
+      V[0] = ux / m; V[1] = uy / m;
+    }
+
+    /* Two passes over a checkerboard of release points: the ink traces and
+       the violet ones, one stroke call each. */
+    function draw(time) {
+      field(time);
       ctx.clearRect(0, 0, w, h);
-
-      for (var L = 0; L < LEVELS.length; L++) {
-        var lv = LEVELS[L];
-        ctx.strokeStyle = INK[L];
+      for (var pass = 0; pass < 2; pass++) {
+        ctx.strokeStyle = pass ? VIO : INK;
         ctx.beginPath();
-        for (r = 0; r < rows - 1; r++) {
-          var row0 = r * cols, row1 = row0 + cols;
-          var y0 = r * CELL;
-          for (c = 0; c < cols - 1; c++) {
-            var va = vals[row0 + c], vb = vals[row0 + c + 1];
-            var vc = vals[row1 + c + 1], vd = vals[row1 + c];
-            var key = (va > lv ? 8 : 0) | (vb > lv ? 4 : 0) | (vc > lv ? 2 : 0) | (vd > lv ? 1 : 0);
-            var cut = CUTS[key];
-            if (!cut.length) continue;
-            var x0 = c * CELL;
-            for (var e = 0; e < cut.length; e += 2) {
-              edgePoint(cut[e], x0, y0, va, vb, vc, vd, lv, P);
-              ctx.moveTo(P[0], P[1]);
-              edgePoint(cut[e + 1], x0, y0, va, vb, vc, vd, lv, P);
-              ctx.lineTo(P[0], P[1]);
+        var row = 0;
+        for (var sy = -GAP; sy < h + GAP; sy += GAP) {
+          var col = 0;
+          for (var sx = -GAP + (row % 2) * GAP / 2; sx < w + GAP; sx += GAP) {
+            if ((col + row) % 2 === pass) {
+              var x = sx, y = sy;
+              ctx.moveTo(x, y);
+              for (var k = 0; k < LEN; k++) {
+                look(x, y);
+                x += V[0] * STEP;
+                y += V[1] * STEP;
+                ctx.lineTo(x, y);
+              }
             }
+            col++;
           }
+          row++;
         }
         ctx.stroke();
       }
-
-      raf = window.requestAnimationFrame(frame);
     }
 
-    var P = [0, 0];
-
-    /* Where the level crosses one edge, found by linear interpolation
-       between that edge's two corner values. */
-    function edgePoint(edge, x0, y0, va, vb, vc, vd, lv, out) {
-      var f;
-      if (edge === 0)      { f = (lv - va) / (vb - va); out[0] = x0 + f * CELL; out[1] = y0; }
-      else if (edge === 1) { f = (lv - vb) / (vc - vb); out[0] = x0 + CELL;     out[1] = y0 + f * CELL; }
-      else if (edge === 2) { f = (lv - vd) / (vc - vd); out[0] = x0 + f * CELL; out[1] = y0 + CELL; }
-      else                 { f = (lv - va) / (vd - va); out[0] = x0;            out[1] = y0 + f * CELL; }
+    function frame(now) {
+      if (!running) return;
+      raf = window.requestAnimationFrame(frame);
+      var dt = stamp ? now - stamp : 16;
+      stamp = now;
+      if (dt > 100) dt = 100;          /* coming back from a pause, no jump */
+      t += dt;
+      if (now - drawn < FPS) return;
+      drawn = now;
+      draw(t);
     }
 
     function start() {
       if (running) return;
       running = true;
+      stamp = 0;
       canvas.classList.add('is-in');
       raf = window.requestAnimationFrame(frame);
     }
     function stop() {
       running = false;
+      stamp = 0;
       if (raf) window.cancelAnimationFrame(raf);
       raf = null;
     }

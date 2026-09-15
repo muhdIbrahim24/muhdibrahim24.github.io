@@ -148,6 +148,11 @@ if (!src) {
   fail('That document link is not valid.');
 } else {
   elDl.href = src;
+  /* Saved copies carry the name of the document rather than whatever the
+     file happened to be called in the folder it came from. */
+  const saveAs = (name.replace(/[\\/:*?"<>|]+/g, ' ').replace(/\s+/g, ' ').trim() || 'Document')
+               + ' - Muhammad Ibrahim.pdf';
+  elDl.setAttribute('download', saveAs);
   start();
 }
 

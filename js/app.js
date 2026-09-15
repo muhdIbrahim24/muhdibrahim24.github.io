@@ -502,6 +502,7 @@
     var source = String(str == null ? '' : str);
     var at = 0;
     var open;
+    var marks = 0;
     while ((open = source.indexOf('[[', at)) !== -1) {
       var close = source.indexOf(']]', open + 2);
       if (close === -1) break;
@@ -510,9 +511,15 @@
       mark.className = 'qty';
       mark.textContent = source.slice(open + 2, close);
       host.appendChild(mark);
+      marks++;
       at = close + 2;
     }
     if (at < source.length) host.appendChild(document.createTextNode(source.slice(at)));
+    /* Highlighting works by being rare. A sentence carrying three or more
+       figures was reading as a wall of amber with the sentence lost inside
+       it, so past two the figures stand down: they keep their tabular
+       alignment and a little weight, and stop shouting over each other. */
+    if (marks >= 3) host.classList.add('is-dense');
   }
 
   function renderRecord(key) {
@@ -524,10 +531,6 @@
     kicker.textContent = record.kicker || '';
     kicker.hidden = !record.kicker;
     $('#record-title').textContent = record.title;
-
-    var org = $('#record-org');
-    org.textContent = record.org || '';
-    org.hidden = !record.org;
 
     var summary = $('#record-summary');
     summary.textContent = record.summary || '';
