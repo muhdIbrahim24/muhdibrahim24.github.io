@@ -227,10 +227,20 @@ a, button, summary, [role="button"] { -webkit-tap-highlight-color: transparent; 
   content: ""; position: absolute; inset: 0; z-index: -1; background: var(--violet-dp);
   transform: scaleY(0); transform-origin: bottom; transition: transform var(--t-3) var(--e-out);
 }
-.btn::after { content: "\2192"; transition: transform var(--t-3) var(--e-out); }
+/* One chevron for the whole site, drawn from two borders rather than set as
+   a glyph. A text arrow carries its own side bearings and sits on a
+   baseline, which is why it never centred inside a square button and looked
+   thin next to the type it followed. This takes its colour from the text,
+   scales with the type, and can be nudged to optical centre. */
+.btn::after {
+  content: ""; width: .40em; height: .40em; flex: none;
+  border: 0 solid currentColor; border-right-width: 1.7px; border-top-width: 1.7px;
+  transform: translate(-.10em, .01em) rotate(45deg);
+  transition: transform var(--t-3) var(--e-out);
+}
 .btn:hover, .btn:focus-visible { color: #FFFFFF; }
 .btn:hover::before, .btn:focus-visible::before { transform: scaleY(1); }
-.btn:hover::after, .btn:focus-visible::after { transform: translateX(6px); }
+.btn:hover::after, .btn:focus-visible::after { transform: translate(calc(-.10em + 6px), .01em) rotate(45deg); }
 
 
 .pill {
@@ -238,12 +248,22 @@ a, button, summary, [role="button"] { -webkit-tap-highlight-color: transparent; 
   border: 1px solid var(--line-2); border-radius: var(--r-control);
   padding: 8px 16px; font: 600 var(--fs-xs) var(--f-body); color: var(--violet);
 }
-.pill::after { content: "\2192"; transition: transform var(--t-3) var(--e-out); }
-.pill:hover::after, .pill:focus-visible::after { transform: translateX(4px); }
+.pill::after {
+  content: ""; width: .38em; height: .38em; flex: none;
+  border: 0 solid currentColor; border-right-width: 1.6px; border-top-width: 1.6px;
+  transform: translate(-.08em, .01em) rotate(45deg);
+  transition: transform var(--t-3) var(--e-out);
+}
+.pill:hover::after, .pill:focus-visible::after { transform: translate(calc(-.08em + 4px), .01em) rotate(45deg); }
 
 .card-cue { display: inline-flex; align-items: center; gap: 6px; font: 600 var(--fs-xs) var(--f-mono); color: var(--violet); }
-.card-cue::after { content: "\2192"; transition: transform var(--t-3) var(--e-out); }
-:hover > .card-cue::after, :focus-visible > .card-cue::after { transform: translateX(4px); }
+.card-cue::after {
+  content: ""; width: .38em; height: .38em; flex: none;
+  border: 0 solid currentColor; border-right-width: 1.6px; border-top-width: 1.6px;
+  transform: translate(-.08em, .01em) rotate(45deg);
+  transition: transform var(--t-3) var(--e-out);
+}
+:hover > .card-cue::after, :focus-visible > .card-cue::after { transform: translate(calc(-.08em + 4px), .01em) rotate(45deg); }
 
 /* -------------------------------------------------------- 4 the plate
 
@@ -797,15 +817,20 @@ html.has-js:not(.is-booting) .hero-name .line-2 .line-in {
 @media (max-width: 719px) { .shelf::after { right: 0; } }
 
 .shelf-bar { display: flex; align-items: center; gap: clamp(10px, 1.4vw, 18px); margin-top: clamp(16px, 2vw, 26px); }
+/* The step controls are the chevron and nothing else until you reach for
+   them, when a hairline ring appears under it. A permanent bordered box
+   either side of the rail was more furniture than the job needed. */
 .shelf-step {
   flex: none; display: grid; place-items: center;
-  width: 40px; height: 40px; border-radius: var(--r-control);
-  border: 1px solid var(--line-2); background: var(--paper); color: var(--violet);
-  font-size: 15px; line-height: 1;
-  transition: border-color var(--t-2) var(--e-out), background var(--t-2) var(--e-out), color var(--t-2) var(--e-out);
+  width: 38px; height: 38px; border-radius: 50%;
+  border: 1px solid transparent; background: none; color: var(--tx-2);
+  transition: color var(--t-2) var(--e-out), border-color var(--t-2) var(--e-out), background var(--t-2) var(--e-out);
 }
-.shelf-step:hover:not(:disabled), .shelf-step:focus-visible:not(:disabled) { border-color: var(--violet); background: var(--tint); }
-.shelf-step:disabled { color: var(--tx-3); opacity: .45; }
+.shelf-step svg { width: 16px; height: 16px; display: block; }
+.shelf-step:hover:not(:disabled), .shelf-step:focus-visible:not(:disabled) {
+  color: var(--violet); border-color: var(--line-2); background: var(--paper);
+}
+.shelf-step:disabled { color: var(--line-3); }
 
 .shelf-rail { position: relative; flex: 1 1 auto; height: 3px; background: var(--line-2); cursor: pointer; }
 .shelf-grip {
@@ -814,7 +839,6 @@ html.has-js:not(.is-booting) .hero-name .line-2 .line-in {
   transform: translate3d(0,0,0); will-change: transform;
 }
 .shelf-rail:hover .shelf-grip, .shelf.is-dragging .shelf-grip { background: var(--amber); }
-.shelf-count { flex: none; font-variant-numeric: tabular-nums; font: 600 var(--fs-mono) var(--f-mono); color: var(--tx-3); }
 
 @media (pointer: coarse), (max-width: 719px) {
   .cat-card { flex: 0 0 min(78vw, 330px); }
@@ -992,12 +1016,13 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
 }
 .figures-zoom:hover .figures-zoom-cue, .figures-zoom:focus-visible .figures-zoom-cue { opacity: 1; }
 .figures-arrow {
-  position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px;
+  position: absolute; top: 50%; transform: translateY(-50%); width: 38px; height: 38px;
   border: 1px solid var(--line-ink-2); display: grid; place-items: center;
   background: var(--paper); color: var(--tx-ink-2);
-  border-radius: var(--r-control);
+  border-radius: 50%;
   transition: background 200ms, color 200ms, border-color 200ms;
 }
+.figures-arrow svg { width: 16px; height: 16px; display: block; }
 .figures-arrow:hover, .figures-arrow:focus-visible { background: var(--tx-ink); border-color: var(--tx-ink); color: var(--paper); }
 .figures-arrow.is-prev { left: clamp(2px, .7vw, 10px); }
 .figures-arrow.is-next { right: clamp(2px, .7vw, 10px); }
@@ -1034,9 +1059,14 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
   color: #FFFFFF; background: var(--violet); border: 1px solid var(--violet);
   padding: 10px 18px; border-radius: var(--r-control); transition: background var(--t-2) var(--e-out), border-color var(--t-2) var(--e-out);
 }
-.sheet-close::before { content: "\2190"; transition: transform var(--t-3) var(--e-out); }
+.sheet-close::before {
+  content: ""; width: .38em; height: .38em; flex: none;
+  border: 0 solid currentColor; border-left-width: 1.6px; border-bottom-width: 1.6px;
+  transform: translate(.08em, .01em) rotate(45deg);
+  transition: transform var(--t-3) var(--e-out);
+}
 .sheet-close:hover, .sheet-close:focus-visible { background: var(--tx-1); border-color: var(--tx-1); color: #FFFFFF; }
-.sheet-close:hover::before, .sheet-close:focus-visible::before { transform: translateX(-4px); }
+.sheet-close:hover::before, .sheet-close:focus-visible::before { transform: translate(calc(.08em - 4px), .01em) rotate(45deg); }
 
 /* Top padding matches the bar's own padding above the rule, so the kicker
    sits the same distance below the dividing line as the "Project NN"

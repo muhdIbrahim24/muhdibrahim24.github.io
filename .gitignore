@@ -23,8 +23,8 @@ cleanup.bat
 # Unused originals set aside by cleanup.bat, kept on this computer only
 _unused/
 
-# Layout mockups for choosing a design, never part of the site
-_options.html
+# Mockups for choosing a design, never part of the site
+_*.html
 
 # Tooling
 node_modules/

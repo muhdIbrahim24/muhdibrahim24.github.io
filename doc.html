@@ -35,9 +35,14 @@
   padding: 10px 18px; border-radius: var(--r-control);
   transition: background var(--t-2) var(--e-out), border-color var(--t-2) var(--e-out);
 }
-.doc-back::before { content: "\2190"; transition: transform var(--t-3) var(--e-out); }
+.doc-back::before {
+  content: ""; width: .38em; height: .38em; flex: none;
+  border: 0 solid currentColor; border-left-width: 1.6px; border-bottom-width: 1.6px;
+  transform: translate(.08em, .01em) rotate(45deg);
+  transition: transform var(--t-3) var(--e-out);
+}
 .doc-back:hover, .doc-back:focus-visible { background: var(--tx-1); border-color: var(--tx-1); }
-.doc-back:hover::before, .doc-back:focus-visible::before { transform: translateX(-4px); }
+.doc-back:hover::before, .doc-back:focus-visible::before { transform: translate(calc(.08em - 4px), .01em) rotate(45deg); }
 
 .doc-title {
   font: 600 var(--fs-mono) var(--f-mark); letter-spacing: .13em;

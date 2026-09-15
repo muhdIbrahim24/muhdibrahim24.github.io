@@ -210,7 +210,6 @@
     var wrap  = track.closest('.shelf');
     var rail  = document.getElementById('catRail');
     var grip  = document.getElementById('catGrip');
-    var count = document.getElementById('catCount');
     var steps = $$('.shelf-step', wrap);
     var cards = $$('.cat-card', track);
     if (!wrap || !rail || !grip || !cards.length) return;
@@ -235,10 +234,6 @@
       var x = track.scrollLeft;
       var progress = maxScroll > 0 ? x / maxScroll : 0;
       grip.style.transform = 'translate3d(' + ((railW - gripW) * progress) + 'px,0,0)';
-      if (count) {
-        var n = step > 0 ? Math.round(x / step) + 1 : 1;
-        count.textContent = (n < 10 ? '0' : '') + Math.min(n, cards.length);
-      }
       wrap.classList.toggle('has-more', x < maxScroll - 2);
       steps.forEach(function (b) {
         var dir = +b.getAttribute('data-step');
@@ -353,19 +348,26 @@
     });
   }
 
-  /* ------------------------------------------------------------- contour
+  /* ---------------------------------------------------------- drift band
 
-     A slowly breathing contour field behind the hero name: isolines of a
-     scalar function, drawn with marching squares, the way a pressure or a
-     stress plot is drawn. It replaces a particle-advection field whose
-     trails smeared across the ground and needed a translucent repaint of
-     the whole canvas every frame to fade them.
+     The hero field. A lattice of small squares whose density follows a band
+     across the page: dense along a centreline that undulates, scattering to
+     nothing at the top and bottom, violet on the left running to gold on
+     the right. It replaces a contour field, and before that a streamline
+     field and a particle system.
 
-     Cost per frame is one clearRect, about 1,400 field evaluations and one
-     stroke call per level, which is seven. Gated off entirely (canvas never
-     created) under reduced motion, on narrow viewports, on low-core-count
-     devices, or if a 2d context is unavailable; paused via
-     IntersectionObserver and visibilitychange. */
+     Two things keep it inside budget at roughly eight thousand lattice
+     points. Cells more than about two and a bit spreads from the centreline
+     are skipped before their jitter is computed, which prunes most of the
+     lattice. And nothing builds a colour string per cell: colours are
+     quantised into a small palette worked out once, cells are bucketed by
+     palette entry, and each bucket is filled in one pass. That turns eight
+     thousand style changes a frame into at most ninety-six.
+
+     Gated off entirely (nothing drawn, no canvas sized) under reduced
+     motion, on narrow viewports, on low-core-count devices, or if a 2d
+     context is unavailable; paused via IntersectionObserver and
+     visibilitychange. */
 
   function flowfield() {
     var canvas = document.getElementById('flowfield');
@@ -376,106 +378,110 @@
     var ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    var DPR = Math.min(window.devicePixelRatio || 1, 1.5);
-    var CELL = 26;
-    var LEVELS = [-2.4, -1.6, -0.8, 0, 0.8, 1.6, 2.4];
-    var INK = [
-      'rgba(20,20,26,0.085)', 'rgba(20,20,26,0.115)', 'rgba(75,34,199,0.135)',
-      'rgba(75,34,199,0.20)',  'rgba(75,34,199,0.135)', 'rgba(20,20,26,0.115)',
-      'rgba(20,20,26,0.085)'
-    ];
+    var DPR  = Math.min(window.devicePixelRatio || 1, 1.5);
+    var G    = 13;     /* lattice pitch */
+    var HUES = 8;      /* violet to gold, quantised */
+    var LEVS = 12;     /* opacity steps */
+    var CUT  = 2.35;   /* spreads from the centreline past which a cell is dark */
 
-    /* Which cell edges each of the sixteen corner patterns cuts.
-       Edge 0 is the top of the cell, then right, bottom, left. */
-    var CUTS = [
-      [], [3, 2], [2, 1], [3, 1], [0, 1], [0, 3, 2, 1], [0, 2], [0, 3],
-      [0, 3], [0, 2], [0, 1, 3, 2], [0, 1], [3, 1], [2, 1], [3, 2], []
-    ];
+    /* violet 75,34,199 to gold 214,158,30 */
+    var PAL = new Array(HUES * LEVS);
+    for (var hh = 0; hh < HUES; hh++) {
+      var k = HUES > 1 ? hh / (HUES - 1) : 0;
+      var r = Math.round(75 + (214 - 75) * k);
+      var g = Math.round(34 + (158 - 34) * k);
+      var b = Math.round(199 + (30 - 199) * k);
+      for (var ll = 0; ll < LEVS; ll++) {
+        PAL[hh * LEVS + ll] = 'rgba(' + r + ',' + g + ',' + b + ',' +
+                              (0.10 + 0.55 * (ll + 0.5) / LEVS).toFixed(3) + ')';
+      }
+    }
 
-    var w = 0, h = 0, cols = 0, rows = 0, vals = null;
-    var running = false, raf = null, t = 0;
+    var w = 0, h = 0, cols = 0, rows = 0, t = 0, stamp = 0;
+    var bx = null, by = null, bs = null, bn = null, cap = 0;
+    var running = false, raf = null;
 
     function seed() {
       w = canvas.clientWidth; h = canvas.clientHeight;
-      canvas.width = Math.max(1, Math.round(w * DPR));
+      canvas.width  = Math.max(1, Math.round(w * DPR));
       canvas.height = Math.max(1, Math.round(h * DPR));
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-      ctx.lineWidth = 1;
-      ctx.lineJoin = 'round';
-      cols = Math.ceil(w / CELL) + 1;
-      rows = Math.ceil(h / CELL) + 1;
-      vals = new Float32Array(cols * rows);
+      cols = Math.ceil(w / G) + 1;
+      rows = Math.ceil(h / G) + 1;
+      /* one shared store per palette entry, sized once */
+      cap = Math.max(64, Math.ceil(cols * rows / 6));
+      var slots = HUES * LEVS;
+      bx = new Float32Array(slots * cap);
+      by = new Float32Array(slots * cap);
+      bs = new Float32Array(slots * cap);
+      bn = new Int32Array(slots);
     }
 
-    /* Three drifting plane waves and one ring, which is enough to keep the
-       lines from ever settling into a pattern the eye can predict. */
-    function sample(x, y, time) {
-      return Math.sin(x * 0.0042 + time * 0.00019)
-           + Math.sin(y * 0.0051 - time * 0.00014)
-           + Math.sin((x + y) * 0.0026 + time * 0.00011)
-           + 0.75 * Math.sin(Math.sqrt((x - w * 0.62) * (x - w * 0.62) +
-                                       (y - h * 0.30) * (y - h * 0.30)) * 0.0055 - time * 0.00021);
-    }
-
-    function frame() {
-      if (!running) return;
-      t += 16;
-
-      var r, c, i = 0;
-      for (r = 0; r < rows; r++) {
-        for (c = 0; c < cols; c++) vals[i++] = sample(c * CELL, r * CELL, t);
-      }
-
+    function draw(time) {
       ctx.clearRect(0, 0, w, h);
+      bn.fill(0);
 
-      for (var L = 0; L < LEVELS.length; L++) {
-        var lv = LEVELS[L];
-        ctx.strokeStyle = INK[L];
-        ctx.beginPath();
-        for (r = 0; r < rows - 1; r++) {
-          var row0 = r * cols, row1 = row0 + cols;
-          var y0 = r * CELL;
-          for (c = 0; c < cols - 1; c++) {
-            var va = vals[row0 + c], vb = vals[row0 + c + 1];
-            var vc = vals[row1 + c + 1], vd = vals[row1 + c];
-            var key = (va > lv ? 8 : 0) | (vb > lv ? 4 : 0) | (vc > lv ? 2 : 0) | (vd > lv ? 1 : 0);
-            var cut = CUTS[key];
-            if (!cut.length) continue;
-            var x0 = c * CELL;
-            for (var e = 0; e < cut.length; e += 2) {
-              edgePoint(cut[e], x0, y0, va, vb, vc, vd, lv, P);
-              ctx.moveTo(P[0], P[1]);
-              edgePoint(cut[e + 1], x0, y0, va, vb, vc, vd, lv, P);
-              ctx.lineTo(P[0], P[1]);
-            }
-          }
+      for (var c = 0; c < cols; c++) {
+        var x = c * G;
+        var mid = h * 0.5
+                + Math.sin(x * 0.0045 + time * 0.00024) * h * 0.16
+                + Math.sin(x * 0.011  - time * 0.00017) * h * 0.07;
+        var spread = h * (0.10 + 0.16 * (0.5 + 0.5 * Math.sin(x * 0.003 - time * 0.00013)));
+        var top = mid - CUT * spread, bot = mid + CUT * spread;
+        var r0 = Math.max(0, Math.floor(top / G));
+        var r1 = Math.min(rows - 1, Math.ceil(bot / G));
+        var hue = (x / w) * (HUES - 1);
+        var hi = hue < 0 ? 0 : (hue > HUES - 1 ? HUES - 1 : Math.round(hue));
+
+        for (var rr = r0; rr <= r1; rr++) {
+          var y = rr * G;
+          var dz = (y - mid) / spread;
+          var p = Math.exp(-dz * dz);
+          var v = p * (0.5 + 0.5 * Math.sin(x * 0.09 + y * 0.11 + time * 0.0006));
+          if (v < 0.16) continue;
+          var li = (v * LEVS) | 0; if (li > LEVS - 1) li = LEVS - 1;
+          var slot = hi * LEVS + li;
+          var n = bn[slot];
+          if (n >= cap) continue;
+          var i = slot * cap + n;
+          var s = Math.round(G * 0.72 * (v * 1.3 > 1 ? 1 : v * 1.3));
+          if (s < 2) s = 2;
+          bx[i] = x + ((G - s) >> 1);
+          by[i] = y + ((G - s) >> 1);
+          bs[i] = s;
+          bn[slot] = n + 1;
         }
-        ctx.stroke();
       }
 
-      raf = window.requestAnimationFrame(frame);
+      for (var sl = 0; sl < bn.length; sl++) {
+        var cnt = bn[sl];
+        if (!cnt) continue;
+        ctx.fillStyle = PAL[sl];
+        var base = sl * cap;
+        for (var j = 0; j < cnt; j++) {
+          ctx.fillRect(bx[base + j], by[base + j], bs[base + j], bs[base + j]);
+        }
+      }
     }
 
-    var P = [0, 0];
-
-    /* Where the level crosses one edge, found by linear interpolation
-       between that edge's two corner values. */
-    function edgePoint(edge, x0, y0, va, vb, vc, vd, lv, out) {
-      var f;
-      if (edge === 0)      { f = (lv - va) / (vb - va); out[0] = x0 + f * CELL; out[1] = y0; }
-      else if (edge === 1) { f = (lv - vb) / (vc - vb); out[0] = x0 + CELL;     out[1] = y0 + f * CELL; }
-      else if (edge === 2) { f = (lv - vd) / (vc - vd); out[0] = x0 + f * CELL; out[1] = y0 + CELL; }
-      else                 { f = (lv - va) / (vd - va); out[0] = x0;            out[1] = y0 + f * CELL; }
+    function frame(now) {
+      if (!running) return;
+      raf = window.requestAnimationFrame(frame);
+      var dt = stamp ? now - stamp : 16;
+      stamp = now;
+      if (dt > 100) dt = 100;          /* coming back from a pause, no jump */
+      t += dt;
+      draw(t);
     }
 
     function start() {
       if (running) return;
-      running = true;
+      running = true; stamp = 0;
       canvas.classList.add('is-in');
       raf = window.requestAnimationFrame(frame);
     }
     function stop() {
-      running = false;
+      running = false; stamp = 0;
       if (raf) window.cancelAnimationFrame(raf);
       raf = null;
     }
