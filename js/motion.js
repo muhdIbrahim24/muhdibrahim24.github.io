@@ -407,6 +407,8 @@
     var HUES = 8;      /* violet to gold, quantised */
     var LEVS = 12;     /* opacity steps */
     var CUT  = 2.35;   /* spreads from the centreline past which a cell is dark */
+    var FLOOR = 0.10;  /* density left inside the quiet zone, as a fraction */
+    var PAD   = 14;    /* breathing room around the copy, in pixels */
 
     /* violet 75,34,199 to gold 214,158,30 */
     var PAL = new Array(HUES * LEVS);
@@ -422,8 +424,64 @@
     }
 
     var w = 0, h = 0, cols = 0, rows = 0, t = 0, stamp = 0;
+    var quiet = null, fadeX = 1, fadeY = 1;
     var bx = null, by = null, bs = null, bn = null, cap = 0;
     var running = false, raf = null;
+
+    /* The band is a background, and the copy has first claim on the page, so
+       density falls away inside the rectangle the words actually occupy.
+       That rectangle is measured from the elements themselves rather than
+       guessed as a fraction of the hero, so it stays right at any width and
+       moves if the copy ever does. Measured on sizing only, never per frame. */
+    function measureQuiet() {
+      var eyebrow = document.querySelector('.hero-eyebrow');
+      var statement = document.querySelector('.hero-statement');
+      var name = document.querySelector('.hero-name');
+      if (!eyebrow || !statement || !name) { quiet = null; return; }
+      var cb = canvas.getBoundingClientRect();
+      var eb = eyebrow.getBoundingClientRect();
+      var sb = statement.getBoundingClientRect();
+
+      /* Top and bottom come from block boxes, which are honest. Width does
+         not: the h1 is a block and runs the full shell, while its glyphs
+         stop well short. So the right edge is the wider of the copy column
+         and the longest name line, and a line's width is safe to read even
+         while its entrance is still translating it vertically. */
+      var textW = 0;
+      $$('.hero-name .line-in').forEach(function (el) {
+        /* The lines are block elements and run the full shell, so their own
+           boxes say nothing about where the letters stop. A range over the
+           text reports the glyphs themselves. */
+        var rect;
+        try {
+          var range = document.createRange();
+          range.selectNodeContents(el);
+          rect = range.getBoundingClientRect();
+          range.detach && range.detach();
+        } catch (e) { rect = el.getBoundingClientRect(); }
+        if (rect && rect.width > textW) textW = rect.width;
+      });
+      var left = Math.min(eb.left, sb.left);
+      var width = Math.max(sb.width, textW);
+
+      quiet = { l: left - cb.left - PAD,
+                t: eb.top - cb.top - PAD,
+                r: left + width - cb.left + PAD,
+                b: sb.bottom - cb.top + PAD };
+      fadeX = Math.max(1, w * 0.07);
+      fadeY = Math.max(1, h * 0.08);
+    }
+
+    /* 1 well clear of the copy, FLOOR inside it, eased across the margin.
+       The squared distance answers the common case without a square root. */
+    function quietAt(x, y) {
+      if (!quiet) return 1;
+      var dx = (quiet.l - x > 0 ? quiet.l - x : (x - quiet.r > 0 ? x - quiet.r : 0)) / fadeX;
+      var dy = (quiet.t - y > 0 ? quiet.t - y : (y - quiet.b > 0 ? y - quiet.b : 0)) / fadeY;
+      var d2 = dx * dx + dy * dy;
+      if (d2 >= 1) return 1;
+      return FLOOR + (1 - FLOOR) * Math.sqrt(d2);
+    }
 
     function seed() {
       w = canvas.clientWidth; h = canvas.clientHeight;
@@ -439,6 +497,7 @@
       by = new Float32Array(slots * cap);
       bs = new Float32Array(slots * cap);
       bn = new Int32Array(slots);
+      measureQuiet();
     }
 
     function draw(time) {
@@ -461,7 +520,7 @@
           var y = rr * G;
           var dz = (y - mid) / spread;
           var p = Math.exp(-dz * dz);
-          var v = p * (0.5 + 0.5 * Math.sin(x * 0.09 + y * 0.11 + time * 0.0006));
+          var v = p * (0.5 + 0.5 * Math.sin(x * 0.09 + y * 0.11 + time * 0.0006)) * quietAt(x, y);
           if (v < 0.16) continue;
           var li = (v * LEVS) | 0; if (li > LEVS - 1) li = LEVS - 1;
           var slot = hi * LEVS + li;
@@ -511,6 +570,12 @@
     }
 
     seed();
+    /* The name is the tallest thing in the copy and its height depends on
+       the webfont, so the rectangle is taken again once that has landed. */
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureQuiet);
+    /* And once more after the name's entrance has settled, which is the last
+       thing in the hero that changes size. */
+    window.setTimeout(measureQuiet, 1600);
 
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (entries) {
