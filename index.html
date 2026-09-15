@@ -39,7 +39,6 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
-<div id="catPreview" aria-hidden="true"><img id="catPreviewImg" alt="" decoding="async"></div>
 
 <header class="masthead" id="masthead">
   <div class="masthead-inner">
@@ -95,7 +94,7 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
         </div>
       </div>
       <aside class="hero-aside">
-        <figure class="hero-portrait plate" data-fit="cover" data-duo style="--ar:4/5;--pos:50% 38%">
+        <figure class="hero-portrait plate" data-fit="cover" data-duo style="--ar:1/1;--pos:50% 0%">
           <img src="assets/images/thumbs/portrait/muhammad-ibrahim.jpg" alt="Muhammad Ibrahim, studio portrait." width="684" height="855" decoding="async" fetchpriority="high">
         </figure>
         <dl class="hero-facts">
@@ -256,138 +255,121 @@ setTimeout(function(){d.classList.remove("is-booting");},2000);</script>
       <p class="eyebrow"><span class="section-num">03</span>Complete catalogue</p>
       <h2 id="index-title" data-reveal="mask">Project index</h2>
     </header>
-    <ol class="cat-list" data-stagger>
-      <li class="cat-row" data-reveal="rise">
-        <button class="cat-link magnetic" type="button" data-open-record="project:04" data-cursor="OPEN"
-          data-preview="assets/images/projects/uav-drone/uav-airframe-complete-display.jpg" data-preview-w="960" data-preview-h="1280" data-preview-fit="cover">
+    <div class="shelf" data-reveal="rise">
+      <ul class="shelf-track" id="catShelf" tabindex="0" role="list"
+          aria-label="Project index, thirteen projects, scrolls sideways">
+      <li class="cat-card">
+        <button class="cat-card-link magnetic" type="button" data-open-record="project:04" data-cursor="OPEN">
+          <span class="cat-shot plate" data-fit="cover" style="--ar:4/3"><img src="assets/images/projects/uav-drone/uav-airframe-complete-display.jpg" alt="White 3D-printed fixed-wing UAV fuselage with dual black engine mounts, viewed horizontally on a test stand in a lab setting." width="960" height="1280" loading="eager" fetchpriority="low" decoding="async"></span>
           <span class="cat-num mono">P01</span>
           <span class="cat-title">Search-and-Rescue UAV</span>
-          <span class="cat-field mono">Personal UAV project</span>
-          <span class="cat-year mono">2026–present</span>
-          <span class="cat-thumb plate" data-fit="cover" style="--ar:4/3;--pos:50% 30%"><img src="assets/images/projects/uav-drone/uav-airframe-complete-display.jpg" alt="White 3D-printed fixed-wing UAV fuselage with dual black engine mounts, viewed horizontally on a test stand in a lab setting." width="960" height="1280" loading="lazy" decoding="async"></span>
+          <span class="cat-meta mono">Personal UAV project <span class="dot"></span> 2026–present</span>
         </button>
       </li>
-      <li class="cat-row" data-reveal="rise">
-        <button class="cat-link magnetic" type="button" data-open-record="project:13" data-cursor="OPEN"
-          data-preview="assets/images/thumbs/projects/cable-management/linkconnect-assembled-system.png" data-preview-w="636" data-preview-h="629" data-preview-fit="contain">
+      <li class="cat-card">
+        <button class="cat-card-link magnetic" type="button" data-open-record="project:13" data-cursor="OPEN">
+          <span class="cat-shot plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/thumbs/projects/cable-management/linkconnect-assembled-system.png" alt="Isometric view of the assembled LinkConnect cable-management system with multiple tiles, white mounting rails and three-hole clips." width="636" height="629" loading="eager" fetchpriority="low" decoding="async"></span>
           <span class="cat-num mono">P02</span>
           <span class="cat-title">LinkConnect Cable Management</span>
-          <span class="cat-field mono">Mechanical design</span>
-          <span class="cat-year mono">2026</span>
-          <span class="cat-thumb plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/thumbs/projects/cable-management/linkconnect-assembled-system.png" alt="Isometric view of the assembled LinkConnect cable-management system with multiple tiles, white mounting rails and three-hole clips." width="636" height="629" loading="lazy" decoding="async"></span>
+          <span class="cat-meta mono">Mechanical design <span class="dot"></span> 2026</span>
         </button>
       </li>
-      <li class="cat-row" data-reveal="rise">
-        <button class="cat-link magnetic" type="button" data-open-record="project:11" data-cursor="OPEN"
-          data-preview="assets/images/thumbs/projects/swro/pretreatment-flow-diagram.png" data-preview-w="874" data-preview-h="420" data-preview-fit="contain">
+      <li class="cat-card">
+        <button class="cat-card-link magnetic" type="button" data-open-record="project:11" data-cursor="OPEN">
+          <span class="cat-shot plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/thumbs/projects/swro/pretreatment-flow-diagram.png" alt="Process flow diagram with blocks and arrows showing the nine-stage seawater pretreatment train from Arabian Gulf intake to the RO membranes." width="874" height="420" loading="eager" fetchpriority="low" decoding="async"></span>
           <span class="cat-num mono">P03</span>
           <span class="cat-title">SWRO Pretreatment Design</span>
-          <span class="cat-field mono">Water systems</span>
-          <span class="cat-year mono">2026</span>
-          <span class="cat-thumb plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/thumbs/projects/swro/pretreatment-flow-diagram.png" alt="Process flow diagram with blocks and arrows showing the nine-stage seawater pretreatment train from Arabian Gulf intake to the RO membranes." width="874" height="420" loading="lazy" decoding="async"></span>
+          <span class="cat-meta mono">Water systems <span class="dot"></span> 2026</span>
         </button>
       </li>
-      <li class="cat-row" data-reveal="rise">
-        <button class="cat-link magnetic" type="button" data-open-record="project:06" data-cursor="OPEN"
-          data-preview="assets/images/thumbs/projects/pde/best-transmitter-position.jpg" data-preview-w="687" data-preview-h="509" data-preview-fit="contain">
+      <li class="cat-card">
+        <button class="cat-card-link magnetic" type="button" data-open-record="project:06" data-cursor="OPEN">
+          <span class="cat-shot plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/thumbs/projects/pde/best-transmitter-position.jpg" alt="Normalised field map for the selected central transmitter position under partially absorbing boundaries." width="687" height="509" loading="lazy" decoding="async"></span>
           <span class="cat-num mono">P04</span>
           <span class="cat-title">Indoor Wireless Link Design</span>
-          <span class="cat-field mono">Numerical PDEs</span>
-          <span class="cat-year mono">2025</span>
-          <span class="cat-thumb plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/thumbs/projects/pde/best-transmitter-position.jpg" alt="Normalised field map for the selected central transmitter position under partially absorbing boundaries." width="687" height="509" loading="lazy" decoding="async"></span>
+          <span class="cat-meta mono">Numerical PDEs <span class="dot"></span> 2025</span>
         </button>
       </li>
-      <li class="cat-row" data-reveal="rise">
-        <button class="cat-link magnetic" type="button" data-open-record="project:09" data-cursor="OPEN"
-          data-preview="assets/images/thumbs/projects/pca/pca-scores-plot.png" data-preview-w="636" data-preview-h="383" data-preview-fit="contain">
+      <li class="cat-card">
+        <button class="cat-card-link magnetic" type="button" data-open-record="project:09" data-cursor="OPEN">
+          <span class="cat-shot plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/thumbs/projects/pca/pca-scores-plot.png" alt="Scatter plot of principal-component scores for 731 days, stretched out along the first component axis." width="636" height="383" loading="lazy" decoding="async"></span>
           <span class="cat-num mono">P05</span>
           <span class="cat-title">PCA Study of Bike Rentals</span>
-          <span class="cat-field mono">Data analysis</span>
-          <span class="cat-year mono">2025</span>
-          <span class="cat-thumb plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/thumbs/projects/pca/pca-scores-plot.png" alt="Scatter plot of principal-component scores for 731 days, stretched out along the first component axis." width="636" height="383" loading="lazy" decoding="async"></span>
+          <span class="cat-meta mono">Data analysis <span class="dot"></span> 2025</span>
         </button>
       </li>
-      <li class="cat-row" data-reveal="rise">
-        <button class="cat-link magnetic" type="button" data-open-record="project:03" data-cursor="OPEN"
-          data-preview="assets/images/thumbs/projects/civil/exterior-elevation-final.jpg" data-preview-w="636" data-preview-h="669" data-preview-fit="cover">
+      <li class="cat-card">
+        <button class="cat-card-link magnetic" type="button" data-open-record="project:03" data-cursor="OPEN">
+          <span class="cat-shot plate" data-fit="cover" style="--ar:4/3"><img src="assets/images/thumbs/projects/civil/exterior-elevation-final.jpg" alt="Exterior render of the finished residential building: light masonry façade, regular windows, balconies with metal railings and a flat parapet roof." width="636" height="669" loading="lazy" decoding="async"></span>
           <span class="cat-num mono">P06</span>
           <span class="cat-title">5th Corner Residential Building</span>
-          <span class="cat-field mono">Civil design</span>
-          <span class="cat-year mono">2025</span>
-          <span class="cat-thumb plate" data-fit="cover" style="--ar:4/3;--pos:50% 46%"><img src="assets/images/thumbs/projects/civil/exterior-elevation-final.jpg" alt="Exterior render of the finished residential building: light masonry façade, regular windows, balconies with metal railings and a flat parapet roof." width="636" height="669" loading="lazy" decoding="async"></span>
+          <span class="cat-meta mono">Civil design <span class="dot"></span> 2025</span>
         </button>
       </li>
-      <li class="cat-row" data-reveal="rise">
-        <button class="cat-link magnetic" type="button" data-open-record="project:05" data-cursor="OPEN"
-          data-preview="assets/images/thumbs/projects/tec/final-assembly.jpg" data-preview-w="405" data-preview-h="442" data-preview-fit="cover">
+      <li class="cat-card">
+        <button class="cat-card-link magnetic" type="button" data-open-record="project:05" data-cursor="OPEN">
+          <span class="cat-shot plate" data-fit="cover" style="--ar:4/3"><img src="assets/images/thumbs/projects/tec/final-assembly.jpg" alt="The finished compressor-less refrigerator standing on its legs, with twin fan and heatsink stacks on top." width="405" height="442" loading="lazy" decoding="async"></span>
           <span class="cat-num mono">P07</span>
           <span class="cat-title">TEC Refrigerator</span>
-          <span class="cat-field mono">Thermal systems</span>
-          <span class="cat-year mono">2025</span>
-          <span class="cat-thumb plate" data-fit="cover" style="--ar:4/3;--pos:52% 42%"><img src="assets/images/thumbs/projects/tec/final-assembly.jpg" alt="The finished compressor-less refrigerator standing on its legs, with twin fan and heatsink stacks on top." width="405" height="442" loading="lazy" decoding="async"></span>
+          <span class="cat-meta mono">Thermal systems <span class="dot"></span> 2025</span>
         </button>
       </li>
-      <li class="cat-row" data-reveal="rise">
-        <button class="cat-link magnetic" type="button" data-open-record="project:12" data-cursor="OPEN"
-          data-preview="assets/images/thumbs/projects/golf-putter/cover-putter-head-render.jpg" data-preview-w="636" data-preview-h="559" data-preview-fit="cover">
+      <li class="cat-card">
+        <button class="cat-card-link magnetic" type="button" data-open-record="project:12" data-cursor="OPEN">
+          <span class="cat-shot plate" data-fit="cover" style="--ar:4/3"><img src="assets/images/thumbs/projects/golf-putter/cover-putter-head-render.jpg" alt="Shaded isometric CAD render of the putter head, shown in profile against a plain white background." width="636" height="559" loading="lazy" decoding="async"></span>
           <span class="cat-num mono">P08</span>
           <span class="cat-title">Modular Golf Putter</span>
-          <span class="cat-field mono">Product design</span>
-          <span class="cat-year mono">2025</span>
-          <span class="cat-thumb plate" data-fit="cover" style="--ar:4/3;--pos:50% 40%"><img src="assets/images/thumbs/projects/golf-putter/cover-putter-head-render.jpg" alt="Shaded isometric CAD render of the putter head, shown in profile against a plain white background." width="636" height="559" loading="lazy" decoding="async"></span>
+          <span class="cat-meta mono">Product design <span class="dot"></span> 2025</span>
         </button>
       </li>
-      <li class="cat-row" data-reveal="rise">
-        <button class="cat-link magnetic" type="button" data-open-record="project:01" data-cursor="OPEN"
-          data-preview="assets/images/thumbs/projects/mubadala/ship-section-roll-still.jpg" data-preview-w="670" data-preview-h="760" data-preview-fit="contain">
+      <li class="cat-card">
+        <button class="cat-card-link magnetic" type="button" data-open-record="project:01" data-cursor="OPEN">
+          <span class="cat-shot plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/thumbs/projects/mubadala/ship-section-roll-still.jpg" alt="Cross-section of a vessel heeling in a seaway, the U-tube anti-roll tank running across the hull below the waterline." width="670" height="760" loading="lazy" decoding="async"></span>
           <span class="cat-num mono">P09</span>
           <span class="cat-title">Advanced Anti-Roll Tank System</span>
-          <span class="cat-field mono">Marine simulation</span>
-          <span class="cat-year mono">2024–25</span>
-          <span class="cat-thumb plate" data-fit="contain" style="--ar:990/1123"><img src="assets/images/thumbs/projects/mubadala/ship-section-roll-still.jpg" alt="Cross-section of a vessel heeling in a seaway, the U-tube anti-roll tank running across the hull below the waterline." width="670" height="760" loading="lazy" decoding="async"></span>
+          <span class="cat-meta mono">Marine simulation <span class="dot"></span> 2024–25</span>
         </button>
       </li>
-      <li class="cat-row" data-reveal="rise">
-        <button class="cat-link magnetic" type="button" data-open-record="project:07" data-cursor="OPEN"
-          data-preview="assets/images/thumbs/projects/formula-student/design-criteria-assessment.png" data-preview-w="760" data-preview-h="405" data-preview-fit="contain">
+      <li class="cat-card">
+        <button class="cat-card-link magnetic" type="button" data-open-record="project:07" data-cursor="OPEN">
+          <span class="cat-shot plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/thumbs/projects/formula-student/design-criteria-assessment.png" alt="Two bar charts assessing the half-shaft: yield safety factor with both cases above the required line, and maximum twist with the wheel-hop case above the ten degree limit." width="760" height="405" loading="lazy" decoding="async"></span>
           <span class="cat-num mono">P10</span>
           <span class="cat-title">Formula Student Rear Half-Shaft Analysis</span>
-          <span class="cat-field mono">MATLAB FEA</span>
-          <span class="cat-year mono">2024–25</span>
-          <span class="cat-thumb plate" data-fit="contain" style="--ar:760/405"><img src="assets/images/thumbs/projects/formula-student/design-criteria-assessment.png" alt="Two bar charts assessing the half-shaft: yield safety factor with both cases above the required line, and maximum twist with the wheel-hop case above the ten degree limit." width="760" height="405" loading="lazy" decoding="async"></span>
+          <span class="cat-meta mono">MATLAB FEA <span class="dot"></span> 2024–25</span>
         </button>
       </li>
-      <li class="cat-row" data-reveal="rise">
-        <button class="cat-link magnetic" type="button" data-open-record="project:02" data-cursor="OPEN"
-          data-preview="assets/images/thumbs/projects/savonius/prototype-third-iteration.jpg" data-preview-w="636" data-preview-h="848" data-preview-fit="cover">
+      <li class="cat-card">
+        <button class="cat-card-link magnetic" type="button" data-open-record="project:02" data-cursor="OPEN">
+          <span class="cat-shot plate" data-fit="cover" style="--ar:4/3"><img src="assets/images/thumbs/projects/savonius/prototype-third-iteration.jpg" alt="A dark blue 3D-printed Savonius rotor prototype mounted on a white support post on the workshop bench, with a second prototype visible behind it." width="636" height="848" loading="lazy" decoding="async"></span>
           <span class="cat-num mono">P11</span>
           <span class="cat-title">Savonius Turbine</span>
-          <span class="cat-field mono">Energy systems</span>
-          <span class="cat-year mono">2024–25</span>
-          <span class="cat-thumb plate" data-fit="cover" style="--ar:4/3;--pos:50% 55%"><img src="assets/images/thumbs/projects/savonius/prototype-third-iteration.jpg" alt="A dark blue 3D-printed Savonius rotor prototype mounted on a white support post on the workshop bench, with a second prototype visible behind it." width="636" height="848" loading="lazy" decoding="async"></span>
+          <span class="cat-meta mono">Energy systems <span class="dot"></span> 2024–25</span>
         </button>
       </li>
-      <li class="cat-row" data-reveal="rise">
-        <button class="cat-link magnetic" type="button" data-open-record="project:08" data-cursor="OPEN"
-          data-preview="assets/images/thumbs/projects/wheelchair/backrest-stress-and-displacement-results.png" data-preview-w="636" data-preview-h="535" data-preview-fit="contain">
+      <li class="cat-card">
+        <button class="cat-card-link magnetic" type="button" data-open-record="project:08" data-cursor="OPEN">
+          <span class="cat-shot plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/thumbs/projects/wheelchair/backrest-stress-and-displacement-results.png" alt="Wireframe and colour-mapped finite-element model showing stress concentration at the base connection points, with a stress legend and supporting data tables." width="636" height="535" loading="lazy" decoding="async"></span>
           <span class="cat-num mono">P12</span>
           <span class="cat-title">Advanced Motorised Wheelchair</span>
-          <span class="cat-field mono">Mobility</span>
-          <span class="cat-year mono">2023</span>
-          <span class="cat-thumb plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/thumbs/projects/wheelchair/backrest-stress-and-displacement-results.png" alt="Wireframe and colour-mapped finite-element model showing stress concentration at the base connection points, with a stress legend and supporting data tables." width="636" height="535" loading="lazy" decoding="async"></span>
+          <span class="cat-meta mono">Mobility <span class="dot"></span> 2023</span>
         </button>
       </li>
-      <li class="cat-row" data-reveal="rise">
-        <button class="cat-link magnetic" type="button" data-open-record="project:10" data-cursor="OPEN"
-          data-preview="assets/images/thumbs/projects/quantum/ibm-quantum-composer-interface.png" data-preview-w="636" data-preview-h="358" data-preview-fit="contain">
+      <li class="cat-card">
+        <button class="cat-card-link magnetic" type="button" data-open-record="project:10" data-cursor="OPEN">
+          <span class="cat-shot plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/thumbs/projects/quantum/ibm-quantum-composer-interface.png" alt="Screenshot of the IBM Quantum Composer software with coloured operation blocks on the left, a circuit-drawing area in the centre, a code window on the right, and probability and Bloch-sphere visualisations at the bottom." width="636" height="358" loading="lazy" decoding="async"></span>
           <span class="cat-num mono">P13</span>
           <span class="cat-title">Hyundai NGV Quantum Analysis</span>
-          <span class="cat-field mono">Advanced computation</span>
-          <span class="cat-year mono">2022</span>
-          <span class="cat-thumb plate" data-fit="contain" style="--ar:4/3"><img src="assets/images/thumbs/projects/quantum/ibm-quantum-composer-interface.png" alt="Screenshot of the IBM Quantum Composer software with coloured operation blocks on the left, a circuit-drawing area in the centre, a code window on the right, and probability and Bloch-sphere visualisations at the bottom." width="636" height="358" loading="lazy" decoding="async"></span>
+          <span class="cat-meta mono">Advanced computation <span class="dot"></span> 2022</span>
         </button>
       </li>
-    </ol>
+      </ul>
+      <div class="shelf-bar">
+        <button class="shelf-step" type="button" data-step="-1" aria-label="Show earlier projects" aria-controls="catShelf">&#8592;</button>
+        <div class="shelf-rail" id="catRail" role="presentation"><span class="shelf-grip" id="catGrip"></span></div>
+        <button class="shelf-step" type="button" data-step="1" aria-label="Show later projects" aria-controls="catShelf">&#8594;</button>
+        <p class="shelf-count mono"><span id="catCount">01</span> / 13</p>
+      </div>
+    </div>
   </div>
 </section>
 

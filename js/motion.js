@@ -192,102 +192,104 @@
     records.forEach(function (r) { io.observe(r); });
   }
 
-  /* ------------------------------------------------------------ cat preview
+  /* ----------------------------------------------------------------- shelf
 
-     Cursor-tracked preview card for the project index. Gated to fine
-     pointers with hover support; touch and keyboard get the inline
-     .cat-thumb instead (the stylesheet handles that switch on its own).
-     Keyboard focus anchors the same preview to the row's own edge rather
-     than the pointer, and does not start the rAF loop. */
+     The project index is a horizontal shelf. Nothing about a page says
+     "this scrolls sideways" on its own, and the browser's own scrollbar is
+     hidden on most machines, so three things say it instead: a card always
+     cut off at the right edge, a rail that shows position and can be
+     dragged, and a counter naming the total.
 
-  function catPreview() {
-    var box = document.getElementById('catPreview');
-    var img = document.getElementById('catPreviewImg');
-    var rows = $$('.cat-link[data-preview]');
-    if (!box || !img || !rows.length) return;
-    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+     One passive scroll listener, rAF-throttled, reading scrollLeft once per
+     frame and writing one transform. Geometry is cached and only remeasured
+     on resize, so nothing forces layout inside the loop. */
 
-    var tx = 0, ty = 0, px = 0, py = 0, targetX = 0, targetY = 0;
-    var raf = null;
-    var active = false;
-    var lastSrc = '';
+  function shelf() {
+    var track = document.getElementById('catShelf');
+    if (!track) return;
+    var wrap  = track.closest('.shelf');
+    var rail  = document.getElementById('catRail');
+    var grip  = document.getElementById('catGrip');
+    var count = document.getElementById('catCount');
+    var steps = $$('.shelf-step', wrap);
+    var cards = $$('.cat-card', track);
+    if (!wrap || !rail || !grip || !cards.length) return;
 
-    /* Box size and viewport are cached instead of being read inside the rAF
-       loop. offsetWidth/offsetHeight read straight after the previous frame
-       wrote box.style.transform forced a synchronous layout on every single
-       frame the preview was live. They only actually change when a new row
-       sets a new aspect ratio, or when the window resizes. */
-    var vw = window.innerWidth, vh = window.innerHeight;
-    var bw = 320, bh = 220;
+    var railW = 0, gripW = 40, maxScroll = 0, step = 0, raf = null;
 
-    function remeasure() {
-      vw = window.innerWidth; vh = window.innerHeight;
-      bw = box.offsetWidth || 320;
-      bh = box.offsetHeight || 220;
+    function measure() {
+      railW = rail.clientWidth;
+      maxScroll = track.scrollWidth - track.clientWidth;
+      var ratio = track.scrollWidth ? track.clientWidth / track.scrollWidth : 1;
+      gripW = Math.max(36, Math.round(railW * Math.min(ratio, 1)));
+      grip.style.width = gripW + 'px';
+      /* one card plus the gap, taken from the first two cards rather than
+         from a hard-coded number, so the card size can change in CSS alone */
+      step = cards.length > 1
+        ? cards[1].offsetLeft - cards[0].offsetLeft
+        : cards[0].offsetWidth;
+      paint();
     }
 
-    window.addEventListener('resize', remeasure, { passive: true });
-
-    function place() {
-      var w = bw, h = bh;
-      tx += (targetX - tx) * 0.14;
-      ty += (targetY - ty) * 0.14;
-      var tilt = Math.max(-6, Math.min(6, (tx - px) * 0.5));
-      px = tx; py = ty;
-      var left = Math.min(Math.max(tx, 0), vw - w);
-      var top = Math.min(Math.max(ty, 0), vh - h);
-      box.style.transform = 'translate3d(' + left + 'px,' + top + 'px,0) scale(1) rotate(' + tilt.toFixed(2) + 'deg)';
-      if (active) raf = window.requestAnimationFrame(place);
-      else raf = null;
-    }
-
-    function show(row, anchorEvent) {
-      var src = row.getAttribute('data-preview');
-      if (src && src !== lastSrc) {
-        img.src = src;
-        lastSrc = src;
+    function paint() {
+      var x = track.scrollLeft;
+      var progress = maxScroll > 0 ? x / maxScroll : 0;
+      grip.style.transform = 'translate3d(' + ((railW - gripW) * progress) + 'px,0,0)';
+      if (count) {
+        var n = step > 0 ? Math.round(x / step) + 1 : 1;
+        count.textContent = (n < 10 ? '0' : '') + Math.min(n, cards.length);
       }
-      var w = row.getAttribute('data-preview-w');
-      var h = row.getAttribute('data-preview-h');
-      if (w && h) box.style.aspectRatio = w + ' / ' + h;
-      box.classList.add('is-live');
-      remeasure();
+      wrap.classList.toggle('has-more', x < maxScroll - 2);
+      steps.forEach(function (b) {
+        var dir = +b.getAttribute('data-step');
+        b.disabled = dir < 0 ? x <= 2 : x >= maxScroll - 2;
+      });
+      raf = null;
     }
 
-    function hide() {
-      box.classList.remove('is-live');
-      active = false;
-      if (raf) { window.cancelAnimationFrame(raf); raf = null; }
-    }
+    track.addEventListener('scroll', function () {
+      if (!raf) raf = window.requestAnimationFrame(paint);
+    }, { passive: true });
 
-    rows.forEach(function (row) {
-      row.addEventListener('pointerenter', function (event) {
-        if (event.pointerType && event.pointerType !== 'mouse') return;
-        show(row);
-        targetX = event.clientX + 28;
-        targetY = event.clientY + 28;
-        tx = targetX; ty = targetY; px = tx;
-        active = true;
-        if (!raf) raf = window.requestAnimationFrame(place);
+    steps.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var by = step * Math.max(1, Math.floor(track.clientWidth / step) - 1);
+        track.scrollBy({ left: by * +b.getAttribute('data-step'), behavior: reduceMotion ? 'auto' : 'smooth' });
       });
-      row.addEventListener('pointermove', function (event) {
-        if (event.pointerType && event.pointerType !== 'mouse') return;
-        targetX = event.clientX + 28;
-        targetY = event.clientY + 28;
-      });
-      row.addEventListener('pointerleave', hide);
-      row.addEventListener('focusin', function () {
-        show(row);
-        active = false;
-        if (raf) { window.cancelAnimationFrame(raf); raf = null; }
-        var rect = row.getBoundingClientRect();
-        var left = Math.min(rect.right + 16, vw - bw - 16);
-        var top = Math.min(Math.max(rect.top, 16), vh - bh - 16);
-        tx = left; ty = top; px = tx;
-        box.style.transform = 'translate3d(' + left + 'px,' + top + 'px,0) scale(1) rotate(0deg)';
-      });
-      row.addEventListener('focusout', hide);
     });
+
+    /* Dragging the rail scrolls the shelf, which is what a scrollbar would
+       have done if the platform still drew one. */
+    var dragging = false;
+    function seek(clientX) {
+      var box = rail.getBoundingClientRect();
+      var p = (clientX - box.left - gripW / 2) / Math.max(1, box.width - gripW);
+      track.scrollLeft = Math.max(0, Math.min(1, p)) * maxScroll;
+    }
+    rail.addEventListener('pointerdown', function (e) {
+      dragging = true; wrap.classList.add('is-dragging');
+      rail.setPointerCapture(e.pointerId); seek(e.clientX);
+    });
+    rail.addEventListener('pointermove', function (e) { if (dragging) seek(e.clientX); });
+    function endDrag() { dragging = false; wrap.classList.remove('is-dragging'); }
+    rail.addEventListener('pointerup', endDrag);
+    rail.addEventListener('pointercancel', endDrag);
+
+    /* Arrow keys once the shelf itself has focus. */
+    track.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault();
+      track.scrollBy({ left: step * (e.key === 'ArrowRight' ? 1 : -1), behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+
+    var timer;
+    window.addEventListener('resize', function () {
+      window.clearTimeout(timer); timer = window.setTimeout(measure, 160);
+    }, { passive: true });
+
+    measure();
+    /* Card widths depend on the font, so remeasure once it has loaded. */
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
   }
 
   /* ------------------------------------------------------------ magnetic
@@ -640,7 +642,7 @@
   if (reduceMotion) return;
 
   benchDriver();
-  catPreview();
+  shelf();
   magnetic();
   flowfield();
   spine();

@@ -741,44 +741,87 @@ html.has-js:not(.is-booting) .hero-name .line-2 .line-in {
 /* ------------------------------------------------------ 12 catalogue */
 
 .catalogue { position: relative; background: var(--void); padding-block: var(--pad-section); }
-.cat-list { border-top: 1px solid var(--line); }
-.cat-row { border-bottom: 1px solid var(--line); }
-.cat-link { position: relative; isolation: isolate; display: grid; gap: 10px; width: 100%; text-align: left; padding-block: clamp(12px, 1.2vw, 18px); }
-.cat-link::before {
-  content: ""; position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(90deg, rgba(107,59,245,.18), transparent 72%);
-  transform: scaleX(0); transform-origin: left; transition: transform 560ms var(--e-out);
+
+/* The project index used to be thirteen full-width rows: a screenful on a
+   laptop and six and a half screens on a phone. It is now one shelf that
+   scrolls sideways, so its height is fixed however many projects there are.
+   Everything in .shelf-bar exists to make that scrollability obvious
+   without a word of instruction: a card is always cut off at the right
+   edge, the rail shows how far along you are and can be dragged, and the
+   counter names the total. */
+
+.shelf { position: relative; }
+
+.shelf-track {
+  display: flex; gap: clamp(14px, 1.6vw, 22px);
+  overflow-x: auto; overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: 2px;
+  padding-block: 4px 2px;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;                 /* the rail below replaces it */
 }
-.cat-link:hover::before, .cat-link:focus-visible::before { transform: scaleX(1); }
+.shelf-track::-webkit-scrollbar { display: none; }
+.shelf-track:focus-visible { outline: 2px solid var(--violet); outline-offset: 6px; }
+
+.cat-card { flex: 0 0 clamp(228px, 21vw, 288px); scroll-snap-align: start; }
+.cat-card-link { display: grid; gap: 9px; width: 100%; text-align: left; }
+.cat-shot {
+  display: block; aspect-ratio: 4/3; overflow: hidden;
+  border: 1px solid var(--line-2); border-radius: var(--r-card);
+  background: var(--paper);
+  transition: border-color var(--t-3) var(--e-out), transform var(--t-3) var(--e-out);
+}
+.cat-card-link:hover .cat-shot, .cat-card-link:focus-visible .cat-shot {
+  border-color: var(--violet); transform: translateY(-3px);
+}
 .cat-num { font-variant-numeric: tabular-nums; font: 500 var(--fs-mono) var(--f-mono); color: var(--violet); transition: color 280ms; }
-.cat-link:hover .cat-num, .cat-link:focus-visible .cat-num { color: var(--amber); }
-.cat-title { font-size: var(--fs-lg); font-weight: 550; letter-spacing: -.014em; transition: transform 480ms var(--e-out); display: block; }
-.cat-link:hover .cat-title, .cat-link:focus-visible .cat-title { transform: translateX(10px); }
-.cat-field, .cat-year { font-variant-numeric: tabular-nums; font: 500 var(--fs-xs) var(--f-mono); color: var(--tx-3); }
-.cat-thumb { display: none; }
+.cat-card-link:hover .cat-num, .cat-card-link:focus-visible .cat-num { color: var(--amber); }
+.cat-title { font-size: var(--fs-base); font-weight: 550; letter-spacing: -.012em; line-height: 1.22; }
+.cat-meta { display: flex; align-items: center; gap: 8px; font-variant-numeric: tabular-nums; font: 500 var(--fs-xs) var(--f-mono); color: var(--tx-3); }
 
-@media (min-width: 1024px) {
-  .cat-link { grid-template-columns: 70px minmax(0,1fr) 220px 110px; align-items: center; gap: 28px; padding-inline: clamp(10px, 1.2vw, 18px); }
-  .cat-thumb { display: none; }
+/* A card half off the edge is the strongest signal that there is more, so
+   the shelf runs past the gutter to the edge of the viewport and is faded
+   there rather than stopping neatly inside it. The fade is painted with the
+   page's own colour: no mask, no blend mode, nothing composited per frame. */
+@media (min-width: 720px) {
+  .shelf-track { margin-right: calc(var(--gutter) * -1); padding-right: var(--gutter); }
 }
-@media (max-width: 1023px) {
-  .cat-list { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: clamp(20px, 3vw, 32px); border-top: 0; }
-  .cat-row { border-bottom: 0; }
-  .cat-link { display: grid; gap: 12px; }
-  .cat-thumb { display: block; aspect-ratio: 4/3; }
+.shelf::after {
+  content: ""; position: absolute; top: 0; bottom: 58px; right: calc(var(--gutter) * -1);
+  width: clamp(36px, 5vw, 72px); pointer-events: none; opacity: 0;
+  background: linear-gradient(90deg, rgba(250,250,248,0), var(--void) 72%);
+  transition: opacity 260ms var(--e-out);
 }
-@media (max-width: 559px) { .cat-list { grid-template-columns: minmax(0,1fr); } }
+.shelf.has-more::after { opacity: 1; }
+@media (max-width: 719px) { .shelf::after { right: 0; } }
 
-#catPreview {
-  position: fixed; z-index: 60; top: 0; left: 0; pointer-events: none;
-  width: clamp(260px, 22vw, 380px); background: var(--paper); border: 1px solid var(--line-ink-2);
-  overflow: hidden; opacity: 0; clip-path: inset(0 0 100% 0);
-  transform: translate3d(-9999px,-9999px,0) scale(.94) rotate(-2.4deg);
-  transition: clip-path 520ms var(--e-out), opacity 300ms var(--e-out), transform 520ms var(--e-out);
+.shelf-bar { display: flex; align-items: center; gap: clamp(10px, 1.4vw, 18px); margin-top: clamp(16px, 2vw, 26px); }
+.shelf-step {
+  flex: none; display: grid; place-items: center;
+  width: 40px; height: 40px; border-radius: var(--r-control);
+  border: 1px solid var(--line-2); background: var(--paper); color: var(--violet);
+  font-size: 15px; line-height: 1;
+  transition: border-color var(--t-2) var(--e-out), background var(--t-2) var(--e-out), color var(--t-2) var(--e-out);
 }
-#catPreview.is-live { opacity: 1; clip-path: inset(0); transform-origin: center; }
-@media (hover: none), (pointer: coarse) { #catPreview { display: none; } }
-#catPreview img { width: 100%; height: 100%; object-fit: contain; }
+.shelf-step:hover:not(:disabled), .shelf-step:focus-visible:not(:disabled) { border-color: var(--violet); background: var(--tint); }
+.shelf-step:disabled { color: var(--tx-3); opacity: .45; }
+
+.shelf-rail { position: relative; flex: 1 1 auto; height: 3px; background: var(--line-2); cursor: pointer; }
+.shelf-grip {
+  position: absolute; top: -4px; left: 0; height: 11px; width: 40px;
+  background: var(--violet); border-radius: 6px;
+  transform: translate3d(0,0,0); will-change: transform;
+}
+.shelf-rail:hover .shelf-grip, .shelf.is-dragging .shelf-grip { background: var(--amber); }
+.shelf-count { flex: none; font-variant-numeric: tabular-nums; font: 600 var(--fs-mono) var(--f-mono); color: var(--tx-3); }
+
+@media (pointer: coarse), (max-width: 719px) {
+  .cat-card { flex: 0 0 min(78vw, 330px); }
+  .shelf-step { display: none; }
+  .shelf-bar { margin-top: 18px; }
+  .shelf-rail { height: 4px; }
+}
 
 /* ------------------------------------------------------ 13 experience */
 
@@ -1136,7 +1179,7 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
   .has-js [data-reveal] { opacity: 1 !important; transform: none !important; clip-path: none !important; }
   .has-js .plate img { clip-path: none !important; transform: none !important; filter: none !important; }
   .plate[data-duo]::after { opacity: 0 !important; }
-  #flowfield, #catPreview { display: none !important; }
+  #flowfield { display: none !important; }
   .asheet-rail-items.is-looping { animation: none; }
   .bench-plate { transition: none; }
   body.is-locked #main { transform: none !important; filter: none !important; }
@@ -1153,12 +1196,12 @@ html, body { max-width: 100%; }
 /* ---------------------------------------------------------- 21 print */
 
 @media print {
-  .masthead, .nav-toggle, #catPreview, #flowfield, .sheet, .lightbox, .asheet, .mediabox { display: none !important; }
+  .masthead, .nav-toggle, #flowfield, .sheet, .lightbox, .asheet, .mediabox { display: none !important; }
   body { background: #fff; color: #000; }
   .hero, .recognition, .transcript, .bench, .catalogue, .career, .activities-section, .contact, .site-foot { background: #fff; color: #000; }
   .has-js [data-reveal] { opacity: 1; transform: none; clip-path: none; }
   .bench-stage { display: none; }
   .bench-media { display: block; }
   .bench-grid { display: block; }
-  .tr-card, .act-tile, .cat-row, .tl-item { break-inside: avoid; }
+  .tr-card, .act-tile, .cat-card, .tl-item { break-inside: avoid; }
 }
