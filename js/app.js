@@ -217,7 +217,6 @@
   var figStrip   = $('#figures-strip');
   var figPos     = $('#figures-pos');
   var figCaption = $('#figures-caption');
-  var figCite    = $('#figures-cite');
   var figMeta    = $('#figures-live');
   var figDesc    = $('#figures-desc');
   var figEmpty   = $('#figures-empty');
@@ -304,7 +303,6 @@
       figSource.textContent = pad2(figIndex + 1) + ' / ' + pad2(total);
     }
     if (figCaption) figCaption.textContent = fig.caption || '';
-    if (figCite) figCite.textContent = fig.cite || '';
     if (figDesc) figDesc.textContent = fig.alt || '';
     if (figZoom) {
       figZoom.setAttribute('data-lightbox', fig.src);
@@ -898,7 +896,6 @@
   var mboxVideo = $('#mediabox-video');
   var mboxCount = $('#mediabox-count');
   var mboxCap   = $('#mediabox-caption');
-  var mboxCite  = $('#mediabox-cite');
   var mboxReturn = null;
   var mboxAt = 0;
 

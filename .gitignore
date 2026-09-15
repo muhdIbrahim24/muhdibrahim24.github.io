@@ -16,8 +16,14 @@ MEDIA_GUIDE.md
 PRODUCT.md
 assets/docs/*.md
 
-# The deploy script itself, and anything a tool drops in the folder
+# The scripts themselves, and anything a tool drops in the folder
 deploy.bat
+cleanup.bat
+
+# Unused originals set aside by cleanup.bat, kept on this computer only
+_unused/
+
+# Tooling
 node_modules/
 .vscode/
 .idea/
