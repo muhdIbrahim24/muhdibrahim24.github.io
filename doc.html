@@ -10,18 +10,22 @@
 <meta name="robots" content="noindex, follow">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FAFAF8'/%3E%3Ctext x='16' y='22' font-family='Helvetica,Arial' font-size='16' font-weight='700' fill='%234B22C7' text-anchor='middle'%3EMI%3C/text%3E%3C/svg%3E">
 <link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="apple-touch-icon" href="assets/images/icons/icon-180.png">
 <link rel="stylesheet" href="css/styles.css">
+<link rel="canonical" href="https://muhdibrahim24.github.io/doc.html">
+<link rel="modulepreload" href="assets/vendor/pdfjs/pdf.min.mjs">
+<link rel="preload" href="assets/vendor/pdfjs/pdf.worker.min.mjs" as="fetch" crossorigin>
 <style>
 /* A report opened straight from a link was handed to whatever PDF viewer the
    browser happened to have. Some paint a dark ground and never draw the
    page, and most phones download the file instead of showing it. The pages
    are drawn here instead, on the site, in the site's own chrome. */
-.doc-page { min-height: 100vh; display: flex; flex-direction: column; background: var(--void); }
+.doc-page { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; background: var(--void); }
 
 .doc-bar {
   position: sticky; top: 0; z-index: 5;
   display: flex; align-items: center; gap: var(--s4); flex-wrap: wrap;
-  padding: var(--s4) var(--gutter);
+  padding: max(var(--s4), env(safe-area-inset-top)) max(var(--gutter), env(safe-area-inset-right)) var(--s4) max(var(--gutter), env(safe-area-inset-left));
   background: var(--void); border-bottom: 1px solid var(--line);
 }
 .doc-back {
@@ -55,7 +59,7 @@
 }
 .doc-action:hover, .doc-action:focus-visible { background: var(--tint-2); border-color: var(--violet); }
 
-.doc-stage { flex: 1; padding: clamp(18px, 3vw, 44px) var(--gutter) var(--s9); }
+.doc-stage { flex: 1; padding: clamp(18px, 3vw, 44px) max(var(--gutter), env(safe-area-inset-right)) calc(var(--s9) + env(safe-area-inset-bottom)) max(var(--gutter), env(safe-area-inset-left)); }
 .doc-pages { max-width: 1080px; margin-inline: auto; display: grid; gap: clamp(14px, 2vw, 26px); }
 .doc-sheet {
   position: relative; background: var(--paper);
@@ -75,10 +79,20 @@
 .doc-status a { color: var(--violet); border-bottom: 1px solid var(--line-2); }
 .doc-status a:hover, .doc-status a:focus-visible { border-bottom-color: var(--violet); }
 
+/* On a phone the bar wrapped into four stacked rows and ate half the
+   screen before a page of the document appeared. Two rows, and the
+   document starts higher up. */
 @media (max-width: 720px) {
-  .doc-bar { gap: var(--s3); }
-  .doc-actions { margin-left: 0; width: 100%; }
-  .doc-title { width: 100%; white-space: normal; }
+  .doc-bar {
+    display: grid; grid-template-columns: auto auto;
+    grid-template-areas: "back dl" "title count";
+    justify-content: space-between; align-items: center;
+    gap: 10px var(--s3);
+  }
+  .doc-back { grid-area: back; }
+  .doc-actions { grid-area: dl; margin-left: 0; width: auto; justify-self: end; }
+  .doc-title { grid-area: title; white-space: normal; }
+  .doc-count { grid-area: count; justify-self: end; }
 }
 @media print { .doc-bar, .doc-status, .doc-folio { display: none; } .doc-stage { padding: 0; } .doc-sheet { border: 0; } }
 </style>
@@ -173,12 +187,12 @@ async function start() {
   const pad = n => (n < 10 ? '0' : '') + n;
   elCount.textContent = total > 1 ? pad(1) + ' / ' + pad(total) : pad(1) + ' page';
 
-  /* A page is measured first and drawn later: the sheet claims its exact
-     height straight away, so the scrollbar is honest and nothing jumps as
-     pages arrive. */
+  /* Each sheet claims its page's exact proportions before anything is
+     drawn, so the scrollbar is honest and nothing jumps as pages arrive. */
   const sheets = [];
-  for (let n = 1; n <= total; n++) {
-    const page = await pdf.getPage(n);
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  function addSheet(n, page) {
     const v = page.getViewport({ scale: 1 });
     const sheet = document.createElement('div');
     sheet.className = 'doc-sheet';
@@ -190,10 +204,10 @@ async function start() {
       sheet.appendChild(folio);
     }
     elPages.appendChild(sheet);
-    sheets.push({ n, page, sheet, drawn: false });
+    const entry = { n, page, sheet, drawn: false };
+    sheets.push(entry);
+    return entry;
   }
-
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
   async function draw(entry) {
     if (entry.drawn) return;
@@ -213,6 +227,11 @@ async function start() {
     }
   }
 
+  /* Page one is on screen before the rest of the document has even been
+     asked for. A forty page report used to measure all forty pages first. */
+  const first = addSheet(1, await pdf.getPage(1));
+  await draw(first);
+
   /* Only the pages near the viewport are rasterised. A thirty-page report
      would otherwise hold thirty full-resolution bitmaps at once. */
   const near = new IntersectionObserver(entries => {
@@ -231,7 +250,15 @@ async function start() {
     });
   }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
 
-  sheets.forEach(s => { near.observe(s.sheet); current.observe(s.sheet); });
+  near.observe(first.sheet); current.observe(first.sheet);
+
+  /* The remaining pages are measured one at a time, behind the first, so a
+     long document fills in while it is already being read. */
+  for (let n = 2; n <= total; n++) {
+    const entry = addSheet(n, await pdf.getPage(n));
+    near.observe(entry.sheet);
+    current.observe(entry.sheet);
+  }
 
   let resizeTimer;
   window.addEventListener('resize', () => {

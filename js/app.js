@@ -27,15 +27,20 @@
   var lockCount = 0;
   var lockedScrollY = 0;
 
+  /* Fixing the body is the only lock iOS honours, and fixing it without
+     holding the offset would throw the reader back to the top of the page
+     every time they opened a record. */
   function lockScroll() {
     if (lockCount++) return;
     lockedScrollY = window.scrollY;
+    body.style.setProperty('--locked-top', (-lockedScrollY) + 'px');
     body.classList.add('is-locked');
   }
 
   function unlockScroll() {
     if (!lockCount || --lockCount) return;
     body.classList.remove('is-locked');
+    body.style.removeProperty('--locked-top');
     window.scrollTo({ top: lockedScrollY, behavior: 'auto' });
   }
 
@@ -217,6 +222,29 @@
   var figDesc    = $('#figures-desc');
   var figEmpty   = $('#figures-empty');
 
+  /* Browsing views (the filmstrip under a plate, the gallery tiles, the
+     rail) showed the full-resolution photograph scaled down in CSS, so
+     opening one activity could pull twenty megabytes to fill twenty
+     three-hundred-pixel squares. Every image now has a 760px companion
+     under assets/images/thumbs; the plate itself and the viewer still get
+     the original. A missing thumb falls back to the original rather than
+     leaving a hole. */
+  var THUMB_ROOT = 'assets/images/thumbs/';
+  var IMG_ROOT = 'assets/images/';
+
+  function thumbFor(src) {
+    if (!src || src.indexOf(IMG_ROOT) !== 0) return src;
+    if (src.indexOf(THUMB_ROOT) === 0) return src;
+    return THUMB_ROOT + src.slice(IMG_ROOT.length);
+  }
+
+  function useThumb(img, src) {
+    var small = thumbFor(src);
+    if (small === src) { img.src = src; return; }
+    img.onerror = function () { img.onerror = null; img.src = src; };
+    img.src = small;
+  }
+
   var sheetFigures = [];   /* the open record's own plate set */
   var figIndex = 0;
   var figCounted = false;  /* whether the head shows a running NN / NN */
@@ -334,10 +362,10 @@
           btn.type = 'button';
           btn.setAttribute('aria-label', 'Figure ' + (i + 1) + ': ' + (fig.caption || ''));
           var thumb = document.createElement('img');
-          thumb.src = fig.src;
           thumb.alt = '';
           thumb.loading = 'lazy';
           thumb.decoding = 'async';
+          useThumb(thumb, fig.src);
           btn.appendChild(thumb);
           btn.addEventListener('click', function () {
             if (i === figIndex) return;
@@ -707,10 +735,10 @@
     tile.setAttribute('data-cursor', item.kind === 'video' ? 'PLAY' : 'ENLARGE');
 
     var img = document.createElement('img');
-    img.src = item.poster || item.src;
     img.alt = '';
     img.loading = 'lazy';
     img.decoding = 'async';
+    useThumb(img, item.poster || item.src);
     tile.appendChild(img);
 
     if (item.kind === 'video') {

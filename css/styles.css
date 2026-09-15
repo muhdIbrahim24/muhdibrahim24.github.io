@@ -165,11 +165,14 @@ p { text-wrap: pretty; }
 h1, h2, h3 { text-wrap: balance; font-family: var(--f-display); }
 .mono, .qty { font-variant-numeric: tabular-nums; }
 :focus { outline: none; }
+a, button, summary, [role="button"] { -webkit-tap-highlight-color: transparent; }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 
-body::after {
-  content: ""; position: fixed; inset: 0; z-index: 9998; pointer-events: none;
-  background-image: var(--grain); background-size: 160px 160px; opacity: .038;
+@media (min-width: 900px) and (pointer: fine) {
+  body::after {
+    content: ""; position: fixed; inset: 0; z-index: 9998; pointer-events: none;
+    background-image: var(--grain); background-size: 160px 160px; opacity: .038;
+  }
 }
 
 .visually-hidden {
@@ -397,16 +400,35 @@ body::after {
   .has-js [data-reveal="scale"].is-in { clip-path: none; }
 }
 
+/* ------------------------------------------- touch target floor
+
+   Measured on an iPhone 13 and a Pixel 7: the wordmark was 34x34, the menu
+   button 78x18, the View-photos pills 33 tall and the contact links 29. A
+   finger needs about 44. Nothing here changes how anything looks; the hit
+   area grows around the mark with padding and a negative margin, so the
+   layout stays where it was. */
+@media (pointer: coarse), (max-width: 1000px) {
+  .wordmark { min-height: 44px; min-width: 44px; }
+  .nav-toggle { min-height: 44px; padding-inline: 4px; }
+  .pill { min-height: 44px; padding-block: 12px; }
+  a.contact-value { display: inline-block; padding-block: 8px; }
+  .primary-nav a { min-height: 44px; }
+  .foot-inner a { display: inline-block; min-height: 44px; padding-block: 11px; }
+  .figures-strip button { min-height: 44px; }
+  .lightbox-nav, .sheet-close, .cv-action, .doc-action { min-height: 44px; }
+  .sheet-pdf-link { min-height: 44px; }
+}
+
 /* ------------------------------------------------------ 7 masthead */
 
 .masthead {
-  position: fixed; inset: 0 0 auto 0; z-index: 90; height: var(--head-h);
+  position: fixed; inset: 0 0 auto 0; z-index: 90; height: calc(var(--head-h) + env(safe-area-inset-top));
+  padding-top: env(safe-area-inset-top);
   background: transparent; transition: background var(--t-3) var(--e-out), border-color var(--t-3);
   border-bottom: 1px solid transparent;
 }
 .masthead.is-stuck {
-  background: rgba(250,250,248,.78); -webkit-backdrop-filter: saturate(1.5) blur(14px);
-  backdrop-filter: saturate(1.5) blur(14px); border-bottom-color: var(--line);
+  background: rgba(250,250,248,.96); border-bottom-color: var(--line);
 }
 .masthead-progress {
   position: absolute; left: 0; right: 0; bottom: -1px; height: 1px;
@@ -755,6 +777,7 @@ html.has-js:not(.is-booting) .hero-name .line-2 .line-in {
   transition: clip-path 520ms var(--e-out), opacity 300ms var(--e-out), transform 520ms var(--e-out);
 }
 #catPreview.is-live { opacity: 1; clip-path: inset(0); transform-origin: center; }
+@media (hover: none), (pointer: coarse) { #catPreview { display: none; } }
 #catPreview img { width: 100%; height: 100%; object-fit: contain; }
 
 /* ------------------------------------------------------ 13 experience */
@@ -871,10 +894,17 @@ a.contact-value:hover, a.contact-value:focus-visible { border-bottom-color: curr
 /* -------------------------------------------------- 17 modal shells */
 
 .sheet-scrim { position: absolute; inset: 0; background: rgba(6,6,9,.78); }
+body.is-locked {
+  position: fixed; top: var(--locked-top, 0); left: 0; right: 0; width: 100%;
+  overflow: hidden; overscroll-behavior: none;
+}
 body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var(--t-3) var(--e-out); transform: scale(.985); filter: brightness(.62); }
 
 .sheet, .lightbox, .asheet, .mediabox {
-  position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: clamp(0px, 3vw, 40px);
+  position: fixed; inset: 0; z-index: 100; display: grid; place-items: center;
+  padding: clamp(0px, 3vw, 40px);
+  padding-top: max(clamp(0px, 3vw, 40px), env(safe-area-inset-top));
+  padding-bottom: max(clamp(0px, 3vw, 40px), env(safe-area-inset-bottom));
 }
 .sheet[hidden], .lightbox[hidden], .asheet[hidden], .mediabox[hidden] { display: none; }
 
@@ -884,7 +914,7 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
 
 .sheet-panel { border-radius: var(--r-card-lg);
   position: relative; width: min(1600px, 100%); height: 100%; max-height: 100%;
-  background: var(--slab); border: 1px solid var(--line-2); overflow-y: auto; overflow-x: hidden;
+  background: var(--slab); border: 1px solid var(--line-2); overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain;
   display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto 1fr;
   grid-template-areas: "bar" "figures" "body";
   clip-path: inset(0 0 100% 0); transition: clip-path 620ms var(--e-out);
@@ -935,7 +965,7 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
 }
 @media (max-width: 700px) { .figures-arrow { display: none; } }
 
-.figures-strip { display: flex; gap: 10px; overflow-x: auto; padding: 0 var(--s6) var(--s4); scrollbar-width: thin; }
+.figures-strip { display: flex; gap: 10px; overflow-x: auto; overscroll-behavior-x: contain; padding: 0 var(--s6) var(--s4); scrollbar-width: thin; }
 .figures-strip button {
   flex: none; width: 54px; height: 42px; padding: 3px; background: var(--paper);
   border: 1px solid transparent; overflow: hidden; opacity: .72;
@@ -969,7 +999,7 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
 /* Top padding matches the bar's own padding above the rule, so the kicker
    sits the same distance below the dividing line as the "Project NN"
    label sits above it. Zero here let the kicker crowd the rule. */
-.sheet-body { grid-area: body; overflow-y: auto; padding: var(--s5) var(--s6) var(--s7); min-height: 0; min-width: 0; }
+.sheet-body { grid-area: body; overflow-y: auto; overscroll-behavior: contain; padding: var(--s5) var(--s6) var(--s7); min-height: 0; min-width: 0; }
 @media (max-width: 1023px) { .sheet-body { overflow-y: visible; } }
 .sheet-kicker { margin-bottom: 8px; }
 .sheet-body h2 { font-size: clamp(1.4rem, 1.09rem + 0.86vw, 1.875rem); font-weight: 720; letter-spacing: -.026em; line-height: 1.12; max-width: 20ch; }
@@ -1063,7 +1093,7 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
 .asheet-rail-items img { width: 100%; height: 100%; object-fit: cover; }
 @media (max-width: 900px) { .asheet-rail { display: none; } }
 
-.asheet-gallery { flex: 1; overflow-y: auto; padding: var(--s5) var(--s5) var(--s7); min-width: 0; }
+.asheet-gallery { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: var(--s5) var(--s5) var(--s7); min-width: 0; }
 .asheet-lane-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; }
 .asheet-count { font: 500 var(--fs-xs) var(--f-mono); color: var(--tx-3); }
 .asheet-grid { display: grid; grid-template-columns: repeat(var(--acols, 4), minmax(0,1fr)); gap: 10px; }
