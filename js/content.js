@@ -686,16 +686,11 @@ window.PORTFOLIO = Object.freeze({
   },
   "activity:sport": {
     "kind": "Activity",
-    "kicker": "Ongoing",
+    "kicker": "",
     "title": "Recreational Sport",
     "org": "Padel, golf, tennis, cricket, kayaking, volleyball, badminton, football, cycling and wall climbing",
     "summary": "Regularly active across individual and team sports.",
-    "details": [
-      {
-        "label": "Context",
-        "text": "A weekly habit rather than a season, on court, on the water and outdoors, played for its own sake."
-      }
-    ],
+    "details": [],
     "evidence": ""
   },
   "activity:marshal": {
