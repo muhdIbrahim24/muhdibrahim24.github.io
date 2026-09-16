@@ -1949,205 +1949,205 @@ window.PORTFOLIO = Object.freeze({
        once photographs from that role are supplied. */
     "experience:graduate-intern": {
       gallery: [
-        { "kind": "video", "src": "assets/videos/experience/graduate-intern/graduate-intern-01.mp4", "poster": "assets/images/video-posters/experience/graduate-intern/graduate-intern-01.jpg", "w": 1280, "h": 720, "caption": "A trial run in the water channel: the body mounted on the angle-of-attack scale, wake forming across the free surface downstream.", "note": "11 s · has audio" },
-        { "kind": "video", "src": "assets/videos/experience/graduate-intern/graduate-intern-02.mp4", "poster": "assets/images/video-posters/experience/graduate-intern/graduate-intern-02.jpg", "w": 1280, "h": 720, "caption": "A second trial at the same flow speed, the free-surface wake reshaping as the angle setting changes.", "note": "11 s · has audio" },
-        { "kind": "image", "src": "assets/images/experience/graduate-intern/graduate-intern-01-foil-mount.jpg", "w": 1800, "h": 1350, "caption": "The test body mounted on the protractor scale inside the channel, instrumentation leads running to the data-acquisition rig." },
-        { "kind": "image", "src": "assets/images/experience/graduate-intern/graduate-intern-02-tunnel-wide.jpg", "w": 1800, "h": 1350, "caption": "The full water-channel rig: variable-frequency drive, test section and downstream tubing feeding the recirculation tank." },
-        { "kind": "video", "src": "assets/videos/experience/graduate-intern/graduate-intern-03.mp4", "poster": "assets/images/video-posters/experience/graduate-intern/graduate-intern-03.jpg", "w": 1280, "h": 854, "caption": "Dye streaklines released into a second channel for flow visualisation, tracing the developing flow structure.", "note": "3 s · has audio" }
+        { "kind": "video", "src": "assets/videos/experience/graduate-intern/graduate-intern-01.mp4", "poster": "assets/images/video-posters/experience/graduate-intern/graduate-intern-01.jpg", "w": 1280, "h": 720 },
+        { "kind": "video", "src": "assets/videos/experience/graduate-intern/graduate-intern-02.mp4", "poster": "assets/images/video-posters/experience/graduate-intern/graduate-intern-02.jpg", "w": 1280, "h": 720 },
+        { "kind": "image", "src": "assets/images/experience/graduate-intern/graduate-intern-01-foil-mount.jpg", "w": 1800, "h": 1350 },
+        { "kind": "image", "src": "assets/images/experience/graduate-intern/graduate-intern-02-tunnel-wide.jpg", "w": 1800, "h": 1350 },
+        { "kind": "video", "src": "assets/videos/experience/graduate-intern/graduate-intern-03.mp4", "poster": "assets/images/video-posters/experience/graduate-intern/graduate-intern-03.jpg", "w": 1280, "h": 854 }
       ],
       rail: []
     },
     "experience:workshop-technician": {
       gallery: [
-        { "kind": "image", "src": "assets/images/experience/workshop-technician/workshop-02-composite-part-demold.jpg", "w": 900, "h": 1600, "caption": "A large composite layup fresh off the mould, chopped-strand fibres still visible at the trimmed edge." },
-        { "kind": "image", "src": "assets/images/experience/workshop-technician/workshop-03-bambu-h2d-printing.jpg", "w": 900, "h": 1600, "caption": "A dual-part print running on the workshop's Bambu Lab H2D, one of the machines used to cut print failure rates across the year." },
-        { "kind": "image", "src": "assets/images/experience/workshop-technician/workshop-01-elegoo-printer-screen.jpg", "w": 1012, "h": 1800, "caption": "The control panel of the workshop's large-format printer, mid-job." },
-        { "kind": "image", "src": "assets/images/experience/workshop-technician/workshop-04-shop-interior.jpg", "w": 1012, "h": 1800, "caption": "The Advanced Manufacturing Workshop floor: drill press, benches and tool storage." },
-        { "kind": "image", "src": "assets/images/experience/workshop-technician/workshop-05-shop-interior-2.jpg", "w": 1012, "h": 1800, "caption": "A second view of the shop floor, material racks and cutting tools laid out beside the workbenches." }
+        { "kind": "image", "src": "assets/images/experience/workshop-technician/workshop-02-composite-part-demold.jpg", "w": 900, "h": 1600 },
+        { "kind": "image", "src": "assets/images/experience/workshop-technician/workshop-03-bambu-h2d-printing.jpg", "w": 900, "h": 1600 },
+        { "kind": "image", "src": "assets/images/experience/workshop-technician/workshop-01-elegoo-printer-screen.jpg", "w": 1012, "h": 1800 },
+        { "kind": "image", "src": "assets/images/experience/workshop-technician/workshop-04-shop-interior.jpg", "w": 1012, "h": 1800 },
+        { "kind": "image", "src": "assets/images/experience/workshop-technician/workshop-05-shop-interior-2.jpg", "w": 1012, "h": 1800 }
       ],
       rail: []
     },
     "experience:research-assistant-site": {
       gallery: [
-        { "kind": "image", "src": "assets/images/experience/site-research/site-02-water-tunnel-rig.jpg", "w": 1024, "h": 768, "caption": "A hydrofoil mounted on the angle-of-attack scale inside the water-tunnel test section, wired for the boundary-layer separation cases." },
-        { "kind": "image", "src": "assets/images/experience/site-research/site-01-research-team.jpg", "w": 1800, "h": 1013, "caption": "The SITE research team in the lab, the water-tunnel rig and 3D printers visible on the bench behind them." },
-        { "kind": "image", "src": "assets/images/experience/site-research/site-03-optics-bench.jpg", "w": 1600, "h": 1200, "caption": "Precision optics mounts and 3D-printed test discs laid out on the lab's optical bench." },
-        { "kind": "image", "src": "assets/images/experience/site-research/site-04-thermal-camera-readout.jpg", "w": 1350, "h": 1800, "caption": "A thermal-imaging readout used for flow visualisation, capturing the temperature gradient of a heated flask on screen." }
+        { "kind": "image", "src": "assets/images/experience/site-research/site-02-water-tunnel-rig.jpg", "w": 1024, "h": 768 },
+        { "kind": "image", "src": "assets/images/experience/site-research/site-01-research-team.jpg", "w": 1800, "h": 1013 },
+        { "kind": "image", "src": "assets/images/experience/site-research/site-03-optics-bench.jpg", "w": 1600, "h": 1200 },
+        { "kind": "image", "src": "assets/images/experience/site-research/site-04-thermal-camera-readout.jpg", "w": 1350, "h": 1800 }
       ],
       rail: []
     },
     "experience:research-assistant-propulsion": {
       gallery: [
-        { "kind": "image", "src": "assets/images/experience/propulsion/aerofarms-duct-model-zones.png", "w": 1510, "h": 1000, "fit": "contain", "caption": "The AeroFarms growing-tower model split into Zone A, B and C along the plant rack, the geometry meshed in Gmsh and carried into the OpenFOAM and Converge airflow cases." },
-        { "kind": "image", "src": "assets/images/experience/propulsion/aerofarms-annotated-perforated-duct.png", "w": 1910, "h": 1040, "fit": "contain", "caption": "Working through the outlet geometry: hand annotations marking which cases were still outstanding, alongside the perforated duct model those cases were run on." },
-        { "kind": "image", "src": "assets/images/experience/propulsion/uam-digital-twin-multiphysics.png", "w": 965, "h": 845, "fit": "contain", "caption": "The multiphysics stack behind the Urban Air Mobility propulsion assessment: electrical, structural, acoustic, fluid, heat and chemical solvers feeding one coupled model, credited to COMSOL." },
-        { "kind": "image", "src": "assets/images/experience/propulsion/hyundai-qc-project-infographics.png", "w": 1600, "h": 1132, "fit": "contain", "caption": "The completion report's final deliverable, presented to the Hyundai NGV panel: three infographic panels covering fundamentals, applicable algorithms and a short-to-long-term technology roadmap." }
+        { "kind": "image", "src": "assets/images/experience/propulsion/aerofarms-duct-model-zones.png", "w": 1510, "h": 1000, "fit": "contain" },
+        { "kind": "image", "src": "assets/images/experience/propulsion/aerofarms-annotated-perforated-duct.png", "w": 1910, "h": 1040, "fit": "contain" },
+        { "kind": "image", "src": "assets/images/experience/propulsion/uam-digital-twin-multiphysics.png", "w": 965, "h": 845, "fit": "contain" },
+        { "kind": "image", "src": "assets/images/experience/propulsion/hyundai-qc-project-infographics.png", "w": 1600, "h": 1132, "fit": "contain" }
       ],
       rail: []
     },
     "education:nyuad": {
       gallery: [
-        { "kind": "image", "src": "assets/images/education/nyuad/nyuad-01-commencement-2025.jpg", "w": 1012, "h": 1800, "caption": "NYU Abu Dhabi's 2025 Commencement, watched from the audience as the graduating class crossed the stage." },
-        { "kind": "image", "src": "assets/images/education/nyuad/nyuad-02-falcons-field-sunset.jpg", "w": 1350, "h": 1800, "caption": "The athletics field at sunset, home of the NYUAD Falcons, with the residential halls behind it." },
-        { "kind": "image", "src": "assets/images/education/nyuad/nyuad-03-courtyard-night-event.jpg", "w": 1800, "h": 1350, "caption": "The main campus courtyard lit for a university event, palm trees washed in blue and violet light." }
+        { "kind": "image", "src": "assets/images/education/nyuad/nyuad-01-commencement-2025.jpg", "w": 1012, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyuad/nyuad-02-falcons-field-sunset.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyuad/nyuad-03-courtyard-night-event.jpg", "w": 1800, "h": 1350 }
       ],
       rail: []
     },
     "education:nyu-paris": {
       gallery: [
-        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-02-IMG_7536.jpg", "w": 1350, "h": 1800, "caption": "The Eiffel Tower seen from street level on an overcast winter afternoon." },
-        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-05-IMG_7620.jpg", "w": 1350, "h": 1800, "caption": "The Louvre Pyramid illuminated at night." },
-        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-06-IMG_7649.jpg", "w": 1800, "h": 1350, "caption": "A display of theatrical puppets and masks, part of coursework on immigration themes in French theatre." },
-        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-07-IMG_7655.jpg", "w": 1800, "h": 1350, "caption": "An exhibit connecting the French national football team to immigration and integration, a course case study." },
-        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-09-IMG_7909.jpg", "w": 1350, "h": 1800, "caption": "An ornately painted gallery ceiling inside the Louvre." },
-        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-12-IMG_7915.jpg", "w": 1350, "h": 1800, "caption": "A gilded state room with red silk walls in one of the city's historic palaces." }
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-02-IMG_7536.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-05-IMG_7620.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-06-IMG_7649.jpg", "w": 1800, "h": 1350 },
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-07-IMG_7655.jpg", "w": 1800, "h": 1350 },
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-09-IMG_7909.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-12-IMG_7915.jpg", "w": 1350, "h": 1800 }
       ],
       rail: [
-        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-01-IMG_7494.jpg", "w": 1350, "h": 1800, "caption": "A gilded monument in a Parisian square, viewed across the rooftops on a grey winter day." },
-        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-03-IMG_7598.jpg", "w": 1350, "h": 1800, "caption": "A portrait study on display in a red-walled museum gallery." },
-        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-04-IMG_7599.jpg", "w": 1350, "h": 1800, "caption": "A seated portrait in a bonnet, displayed in the same gallery." },
-        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-08-IMG_7662.jpg", "w": 1350, "h": 1800, "caption": "A snow-dusted Parisian park with a church spire on the skyline." },
-        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-10-IMG_7910.jpg", "w": 1350, "h": 1800, "caption": "The formal gardens of the Palais-Royal courtyard, seen from an upper floor." },
-        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-11-IMG_7912.jpg", "w": 1350, "h": 1800, "caption": "A large history painting on display in a Paris museum gallery." }
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-01-IMG_7494.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-03-IMG_7598.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-04-IMG_7599.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-08-IMG_7662.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-10-IMG_7910.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyu-paris/paris-11-IMG_7912.jpg", "w": 1350, "h": 1800 }
       ]
     },
     "education:nyu-valletta": {
       gallery: [
-        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-05-IMG_3837.jpg", "w": 1350, "h": 1800, "caption": "The Oratory of St John's Co-Cathedral, with Caravaggio's The Beheading of Saint John the Baptist above the altar." },
-        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-06-IMG_3866.jpg", "w": 1350, "h": 1800, "caption": "Renzo Piano's Parliament House in Valletta, its perforated stone façade filtering daylight." },
-        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-07-IMG_3867.jpg", "w": 1350, "h": 1800, "caption": "A closer view of the Parliament House's cantilevered stone volumes." },
-        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-16-IMG_4064.jpg", "w": 1350, "h": 1800, "caption": "The megalithic temple complex at Ħaġar Qim, sheltered beneath its protective canopy." },
-        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-17-IMG_4076.jpg", "w": 1350, "h": 1800, "caption": "Interior passages of the Ħaġar Qim temples, among the oldest free-standing structures in the world." },
-        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-14-IMG_4057.jpg", "w": 1350, "h": 1800, "caption": "Limestone cliffs above the Mediterranean, near the Blue Grotto." },
-        { "kind": "video", "src": "assets/videos/education/nyu-valletta/valletta-01.mp4", "poster": "assets/images/video-posters/education/nyu-valletta/valletta-01.jpg", "w": 1080, "h": 1920, "caption": "A quick clip from a countryside excursion during the term.", "note": "3 s · has audio" }
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-05-IMG_3837.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-06-IMG_3866.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-07-IMG_3867.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-16-IMG_4064.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-17-IMG_4076.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-14-IMG_4057.jpg", "w": 1350, "h": 1800 },
+        { "kind": "video", "src": "assets/videos/education/nyu-valletta/valletta-01.mp4", "poster": "assets/images/video-posters/education/nyu-valletta/valletta-01.jpg", "w": 1080, "h": 1920 }
       ],
       rail: [
-        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-01-IMG_3807.jpg", "w": 1342, "h": 1800, "caption": "The Msida yacht marina framed through a stone archway." },
-        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-02-IMG_3814.jpg", "w": 1350, "h": 1800, "caption": "The baroque façade of Auberge de Castille in Valletta." },
-        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-03-IMG_3828.jpg", "w": 1350, "h": 1800, "caption": "A colonnaded civic building on a Valletta square." },
-        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-04-IMG_3834.jpg", "w": 1350, "h": 1800, "caption": "The gilded baroque interior of a Valletta church." },
-        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-08-IMG_3884.jpg", "w": 1350, "h": 1800, "caption": "A quiet harbour promenade in Sliema, fishing boats moored along the waterfront." },
-        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-09-IMG_3890.jpg", "w": 1800, "h": 628, "caption": "A panoramic view of the Sliema waterfront and harbour." },
-        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-10-IMG_3906.jpg", "w": 1350, "h": 1800, "caption": "A lone yacht on open water off the Maltese coast." },
-        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-11-IMG_3929.jpg", "w": 1350, "h": 1800, "caption": "A ferry docked at a Valletta harbour crossing point." },
-        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-12-IMG_4032.jpg", "w": 1350, "h": 1800, "caption": "A coastal view of Malta seen through a ferry window." },
-        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-13-IMG_4042.jpg", "w": 1350, "h": 1800, "caption": "A cliffside promenade overlooking the Mediterranean." },
-        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-15-IMG_4059.jpg", "w": 1012, "h": 1800, "caption": "Open water off the southern coast of Malta." }
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-01-IMG_3807.jpg", "w": 1342, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-02-IMG_3814.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-03-IMG_3828.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-04-IMG_3834.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-08-IMG_3884.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-09-IMG_3890.jpg", "w": 1800, "h": 628 },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-10-IMG_3906.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-11-IMG_3929.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-12-IMG_4032.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-13-IMG_4042.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/education/nyu-valletta/valletta-15-IMG_4059.jpg", "w": 1012, "h": 1800 }
       ]
     },
     "activity:sport": {
       gallery: [
-        { "kind": "image", "src": "assets/images/activities/sport/sport-03-IMG_1618.jpg", "w": 1013, "h": 1800, "caption": "Nighttime football match in action, several players on a floodlit pitch." },
-        { "kind": "image", "src": "assets/images/activities/sport/sport-06-IMG_2527.jpg", "w": 1013, "h": 1800, "caption": "First-person kayaking at golden hour on a calm river lined with mangroves." },
-        { "kind": "image", "src": "assets/images/activities/sport/sport-09-IMG_2910.jpg", "w": 1013, "h": 1800, "caption": "On the golf course fairway near a bunker, daytime." },
-        { "kind": "image", "src": "assets/images/activities/sport/sport-10-IMG_2911.jpg", "w": 1013, "h": 1800, "caption": "Golf fairway overlooking the Dubai skyline, reflected in still water." },
-        { "kind": "image", "src": "assets/images/activities/sport/sport-12-IMG_3048.jpg", "w": 1013, "h": 1800, "caption": "Padel court net detail with World Padel Tour signage." },
-        { "kind": "image", "src": "assets/images/activities/sport/sport-13-IMG_3051.jpg", "w": 1013, "h": 1800, "caption": "Four players on a padel court, casual group shot." },
-        { "kind": "image", "src": "assets/images/activities/sport/sport-16-IMG_9985.jpg", "w": 1350, "h": 1800, "caption": "Golf course landscape with a water hazard." },
-        { "kind": "image", "src": "assets/images/activities/sport/sport-17-3d99fe67-232c-4584-8278-697a01a7071b.jpg", "w": 1013, "h": 1800, "caption": "Two cyclists at night with the illuminated Burj Al Arab in the background." },
-        { "kind": "image", "src": "assets/images/activities/sport/sport-18-IMG_0384.jpg", "w": 1350, "h": 1800, "caption": "Large floodlit football stadium at night." },
-        { "kind": "image", "src": "assets/images/activities/sport/sport-20-driving-range-dusk.jpg", "w": 1350, "h": 1800, "caption": "Driving range at dusk, floodlights on and the bays empty." },
-        { "kind": "image", "src": "assets/images/activities/sport/sport-21-night-ride-trailhead.jpg", "w": 1013, "h": 1800, "caption": "The bike out of the car at a night trailhead, ready to ride." },
-        { "kind": "image", "src": "assets/images/activities/sport/sport-22-five-a-side-floodlit.jpg", "w": 1013, "h": 1800, "caption": "Five-a-side pitch under floodlights, seen from behind the goal." },
-        { "kind": "image", "src": "assets/images/activities/sport/sport-23-fairway-lake-skyline.jpg", "w": 1013, "h": 1800, "caption": "Fairway across the water, with the Dubai towers behind the trees." },
-        { "kind": "image", "src": "assets/images/activities/sport/sport-24-waste-bunker-approach.jpg", "w": 1350, "h": 1800, "caption": "Looking across a waste bunker to the green and its cluster of sand traps." },
-        { "kind": "video", "src": "assets/videos/activities/sport/sport-01.mp4", "poster": "assets/images/video-posters/activities/sport/sport-01.jpg", "w": 1280, "h": 2276, "caption": "First-person golf swing, ball rolling down a lit fairway.", "note": "4 s · has audio" },
-        { "kind": "video", "src": "assets/videos/activities/sport/sport-02.mp4", "poster": "assets/images/video-posters/activities/sport/sport-02.jpg", "w": 1280, "h": 2276, "caption": "Night golf swing mid-backswing, cart and caddy visible.", "note": "2 s · has audio" },
-        { "kind": "video", "src": "assets/videos/activities/sport/sport-03.mp4", "poster": "assets/images/video-posters/activities/sport/sport-03.jpg", "w": 1280, "h": 2276, "caption": "Daytime Dubai waterfront skyline reflected in calm water.", "note": "4 s · has audio" },
-        { "kind": "video", "src": "assets/videos/activities/sport/sport-04.mp4", "poster": "assets/images/video-posters/activities/sport/sport-04.jpg", "w": 1080, "h": 1920, "caption": "Close-up night golf swing with city lights in the background.", "note": "8 s · has audio" },
-        { "kind": "video", "src": "assets/videos/activities/sport/sport-05.mp4", "poster": "assets/images/video-posters/activities/sport/sport-05.jpg", "w": 720, "h": 1280, "caption": "Night putting stroke near a water hazard and palm tree.", "note": "19 s · has audio" },
-        { "kind": "video", "src": "assets/videos/activities/sport/sport-06.mp4", "poster": "assets/images/video-posters/activities/sport/sport-06.jpg", "w": 1080, "h": 1920, "caption": "First-person kayaking approaching a houseboat through mangroves.", "note": "7 s · has audio" }
+        { "kind": "image", "src": "assets/images/activities/sport/sport-03-IMG_1618.jpg", "w": 1013, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-06-IMG_2527.jpg", "w": 1013, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-09-IMG_2910.jpg", "w": 1013, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-10-IMG_2911.jpg", "w": 1013, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-12-IMG_3048.jpg", "w": 1013, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-13-IMG_3051.jpg", "w": 1013, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-16-IMG_9985.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-17-3d99fe67-232c-4584-8278-697a01a7071b.jpg", "w": 1013, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-18-IMG_0384.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-20-driving-range-dusk.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-21-night-ride-trailhead.jpg", "w": 1013, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-22-five-a-side-floodlit.jpg", "w": 1013, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-23-fairway-lake-skyline.jpg", "w": 1013, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-24-waste-bunker-approach.jpg", "w": 1350, "h": 1800 },
+        { "kind": "video", "src": "assets/videos/activities/sport/sport-01.mp4", "poster": "assets/images/video-posters/activities/sport/sport-01.jpg", "w": 1280, "h": 2276 },
+        { "kind": "video", "src": "assets/videos/activities/sport/sport-02.mp4", "poster": "assets/images/video-posters/activities/sport/sport-02.jpg", "w": 1280, "h": 2276 },
+        { "kind": "video", "src": "assets/videos/activities/sport/sport-03.mp4", "poster": "assets/images/video-posters/activities/sport/sport-03.jpg", "w": 1280, "h": 2276 },
+        { "kind": "video", "src": "assets/videos/activities/sport/sport-04.mp4", "poster": "assets/images/video-posters/activities/sport/sport-04.jpg", "w": 1080, "h": 1920 },
+        { "kind": "video", "src": "assets/videos/activities/sport/sport-05.mp4", "poster": "assets/images/video-posters/activities/sport/sport-05.jpg", "w": 720, "h": 1280 },
+        { "kind": "video", "src": "assets/videos/activities/sport/sport-06.mp4", "poster": "assets/images/video-posters/activities/sport/sport-06.jpg", "w": 1080, "h": 1920 }
       ],
       rail: [
-        { "kind": "image", "src": "assets/images/activities/sport/sport-02-IMG_0094.jpg", "w": 1172, "h": 1800, "caption": "Golf course at sunset, tents and palms silhouetted." },
-        { "kind": "image", "src": "assets/images/activities/sport/sport-04-IMG_2141.jpg", "w": 1013, "h": 1800, "caption": "Close-up of a padel court net and blue playing surface at night." },
-        { "kind": "image", "src": "assets/images/activities/sport/sport-07-IMG_2574.jpg", "w": 1013, "h": 1800, "caption": "Bicycle parked at the beach beside a palm tree." },
-        { "kind": "image", "src": "assets/images/activities/sport/sport-19-cycling-burj-khalifa.jpg", "w": 1350, "h": 1800, "caption": "Cycling along the Downtown Dubai waterfront, with the Burj Khalifa rising above the skyline." },
-        { "kind": "image", "src": "assets/images/activities/sport/sport-14-IMG_9798.jpg", "w": 1350, "h": 1800, "caption": "Golf clubs laid out on the fairway." }
+        { "kind": "image", "src": "assets/images/activities/sport/sport-02-IMG_0094.jpg", "w": 1172, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-04-IMG_2141.jpg", "w": 1013, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-07-IMG_2574.jpg", "w": 1013, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-19-cycling-burj-khalifa.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/sport/sport-14-IMG_9798.jpg", "w": 1350, "h": 1800 }
       ]
     },
     "activity:cricket": {
       layout: "video-forward",
       gallery: [
-        { "kind": "image", "src": "assets/images/activities/cricket/cricket-07-IMG_7980.jpg", "w": 1800, "h": 1200, "caption": "A player in team kit on the outfield, a teammate fielding beyond." },
-        { "kind": "image", "src": "assets/images/activities/cricket/cricket-01-IMG_0380.jpg", "w": 1800, "h": 1200, "caption": "A teammate holding the ball during a practice setup." },
-        { "kind": "image", "src": "assets/images/activities/cricket/cricket-06-IMG_7944.jpg", "w": 1800, "h": 1200, "caption": "Two players ready at the crease during a match." },
-        { "kind": "image", "src": "assets/images/activities/cricket/cricket-10-IMG_8336.jpg", "w": 1800, "h": 1200, "caption": "Teammates on the sideline watching play." },
-        { "kind": "image", "src": "assets/images/activities/cricket/cricket-14-IMG_8502.jpg", "w": 1800, "h": 1200, "caption": "Players celebrating together at the end of a match." },
-        { "kind": "image", "src": "assets/images/activities/cricket/cricket-18-IMG_8872.jpg", "w": 1800, "h": 1200, "caption": "Full team photo after an evening match under floodlights." },
-        { "kind": "image", "src": "assets/images/activities/cricket/cricket-19-IMG_9525.jpg", "w": 1800, "h": 1200, "caption": "Players during a night match." },
-        { "kind": "image", "src": "assets/images/activities/cricket/cricket-20-IMG_9772.jpg", "w": 1800, "h": 1200, "caption": "A batter under floodlights during a night match." },
-        { "kind": "image", "src": "assets/images/activities/cricket/cricket-05-IMG_0498.jpg", "w": 1800, "h": 1200, "caption": "Filming match footage with a camera from the sideline." },
-        { "kind": "image", "src": "assets/images/activities/cricket/cricket-17-IMG_8681.jpg", "w": 1800, "h": 1200, "caption": "On the field during an evening match." },
-        { "kind": "image", "src": "assets/images/activities/cricket/cricket-02-IMG_0385.jpg", "w": 1800, "h": 1200, "caption": "Silhouette portrait through the boundary fence netting." },
-        { "kind": "image", "src": "assets/images/activities/cricket/cricket-08-IMG_8236.jpg", "w": 1800, "h": 1200, "caption": "The team spread across the field during a practice session." },
-        { "kind": "image", "src": "assets/images/activities/cricket/cricket-11-IMG_8338.jpg", "w": 1800, "h": 1200, "caption": "Teammates on a sideline bench watching the match in progress." },
-        { "kind": "image", "src": "assets/images/activities/cricket/cricket-13-IMG_8357.jpg", "w": 1800, "h": 1200, "caption": "A wide view of the ground mid-match, players spread across the field." },
-        { "kind": "image", "src": "assets/images/activities/cricket/cricket-15-IMG_8613.jpg", "w": 1800, "h": 1200, "caption": "A player in silhouette against the evening sky." },
-        { "kind": "image", "src": "assets/images/activities/cricket/cricket-16-IMG_8645.jpg", "w": 1800, "h": 1200, "caption": "A portrait in silhouette at sunset." },
-        { "kind": "image", "src": "assets/images/activities/cricket/cricket-23-IMG_9839.jpg", "w": 1800, "h": 1200, "caption": "A floodlit ground at night, stumps set and the field empty before play." },
-        { "kind": "video", "src": "assets/videos/activities/cricket/cricket-01-practice.mp4", "poster": "assets/images/video-posters/activities/cricket/cricket-01-practice.jpg", "w": 1280, "h": 720, "caption": "Fast-paced practice drills and fielding work during a training session.", "note": "2 min 7 s · has audio" },
-        { "kind": "video", "src": "assets/videos/activities/cricket/cricket-02-match.mp4", "poster": "assets/images/video-posters/activities/cricket/cricket-02-match.jpg", "w": 1280, "h": 720, "caption": "Team discussion at a tournament venue.", "note": "3 min 32 s · has audio" },
-        { "kind": "video", "src": "assets/videos/activities/cricket/cricket-03-highlights.mp4", "poster": "assets/images/video-posters/activities/cricket/cricket-03-highlights.jpg", "w": 1280, "h": 720, "caption": "Compiled highlights from a night match with close-in shots.", "note": "1 min 45 s · has audio" }
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-07-IMG_7980.jpg", "w": 1800, "h": 1200 },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-01-IMG_0380.jpg", "w": 1800, "h": 1200 },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-06-IMG_7944.jpg", "w": 1800, "h": 1200 },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-10-IMG_8336.jpg", "w": 1800, "h": 1200 },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-14-IMG_8502.jpg", "w": 1800, "h": 1200 },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-18-IMG_8872.jpg", "w": 1800, "h": 1200 },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-19-IMG_9525.jpg", "w": 1800, "h": 1200 },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-20-IMG_9772.jpg", "w": 1800, "h": 1200 },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-05-IMG_0498.jpg", "w": 1800, "h": 1200 },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-17-IMG_8681.jpg", "w": 1800, "h": 1200 },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-02-IMG_0385.jpg", "w": 1800, "h": 1200 },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-08-IMG_8236.jpg", "w": 1800, "h": 1200 },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-11-IMG_8338.jpg", "w": 1800, "h": 1200 },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-13-IMG_8357.jpg", "w": 1800, "h": 1200 },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-15-IMG_8613.jpg", "w": 1800, "h": 1200 },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-16-IMG_8645.jpg", "w": 1800, "h": 1200 },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-23-IMG_9839.jpg", "w": 1800, "h": 1200 },
+        { "kind": "video", "src": "assets/videos/activities/cricket/cricket-01-practice.mp4", "poster": "assets/images/video-posters/activities/cricket/cricket-01-practice.jpg", "w": 1280, "h": 720 },
+        { "kind": "video", "src": "assets/videos/activities/cricket/cricket-02-match.mp4", "poster": "assets/images/video-posters/activities/cricket/cricket-02-match.jpg", "w": 1280, "h": 720 },
+        { "kind": "video", "src": "assets/videos/activities/cricket/cricket-03-highlights.mp4", "poster": "assets/images/video-posters/activities/cricket/cricket-03-highlights.jpg", "w": 1280, "h": 720 }
       ],
       rail: [
-        { "kind": "image", "src": "assets/images/activities/cricket/cricket-03-IMG_0390.jpg", "w": 1800, "h": 1200, "caption": "A player watching from the sideline." },
-        { "kind": "image", "src": "assets/images/activities/cricket/cricket-09-IMG_8312.jpg", "w": 1800, "h": 1200, "caption": "A quiet moment during an evening match." },
-        { "kind": "image", "src": "assets/images/activities/cricket/cricket-04-IMG_0396.jpg", "w": 1800, "h": 1200, "caption": "NYUAD Cricket coaching staff." },
-        { "kind": "image", "src": "assets/images/activities/cricket/cricket-12-IMG_8342.jpg", "w": 1800, "h": 1200, "caption": "Coach portrait on match day." },
-        { "kind": "image", "src": "assets/images/activities/cricket/cricket-21-IMG_9774.jpg", "w": 1800, "h": 1200, "caption": "Holding up the team badge inside the facility." },
-        { "kind": "image", "src": "assets/images/activities/cricket/cricket-22-IMG_9786.jpg", "w": 1800, "h": 1200, "caption": "Players laughing together, a behind-the-scenes moment." }
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-03-IMG_0390.jpg", "w": 1800, "h": 1200 },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-09-IMG_8312.jpg", "w": 1800, "h": 1200 },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-04-IMG_0396.jpg", "w": 1800, "h": 1200 },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-12-IMG_8342.jpg", "w": 1800, "h": 1200 },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-21-IMG_9774.jpg", "w": 1800, "h": 1200 },
+        { "kind": "image", "src": "assets/images/activities/cricket/cricket-22-IMG_9786.jpg", "w": 1800, "h": 1200 }
       ]
     },
     "activity:habitat": {
       gallery: [
-        { "kind": "image", "src": "assets/images/activities/nepal/nepal-04-IMG_0658.jpg", "w": 1013, "h": 1800, "caption": "Excavated strip foundations with reinforcement bars and plumb lines set out, before the walls went up." },
-        { "kind": "image", "src": "assets/images/activities/nepal/nepal-08-IMG_0657.jpg", "w": 1013, "h": 1800, "caption": "The Global Village Program plaque from the Panchkhal build, carrying the team photographs taken on site." },
-        { "kind": "image", "src": "assets/images/activities/nepal/nepal-02-IMG_0639.jpg", "w": 1013, "h": 1800, "caption": "Volunteers and community members gathered under a large tree." },
-        { "kind": "image", "src": "assets/images/activities/nepal/nepal-03-IMG_0654.jpg", "w": 1013, "h": 1800, "caption": "Construction materials and tools arranged on site." },
-        { "kind": "image", "src": "assets/images/activities/nepal/nepal-01-IMG_0546.jpg", "w": 1350, "h": 1800, "caption": "The rural site landscape." },
-        { "kind": "video", "src": "assets/videos/activities/nepal/nepal-01.mp4", "poster": "assets/images/video-posters/activities/nepal/nepal-01.jpg", "w": 1280, "h": 2276, "caption": "A short clip of the village landscape where the build took place.", "note": "5 s · has audio" }
+        { "kind": "image", "src": "assets/images/activities/nepal/nepal-04-IMG_0658.jpg", "w": 1013, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/nepal/nepal-08-IMG_0657.jpg", "w": 1013, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/nepal/nepal-02-IMG_0639.jpg", "w": 1013, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/nepal/nepal-03-IMG_0654.jpg", "w": 1013, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/nepal/nepal-01-IMG_0546.jpg", "w": 1350, "h": 1800 },
+        { "kind": "video", "src": "assets/videos/activities/nepal/nepal-01.mp4", "poster": "assets/images/video-posters/activities/nepal/nepal-01.jpg", "w": 1280, "h": 2276 }
       ],
       rail: [
-        { "kind": "image", "src": "assets/images/activities/nepal/nepal-07-IMG_0773.jpg", "w": 1350, "h": 1800, "caption": "Local pottery and clay vessels on site." }
+        { "kind": "image", "src": "assets/images/activities/nepal/nepal-07-IMG_0773.jpg", "w": 1350, "h": 1800 }
       ]
     },
     "activity:jiujitsu": {
       gallery: [
-        { "kind": "image", "src": "assets/images/activities/jiujitsu/jiujitsu-01-E0086526-05B7-4190-ABFE-BFB72100A482.jpg", "w": 828, "h": 620, "caption": "The full varsity team on the mat, fifteen or more athletes in gis." },
-        { "kind": "image", "src": "assets/images/activities/jiujitsu/jiujitsu-03-IMG_0743.jpg", "w": 1800, "h": 1350, "caption": "A seven-person team group shot, arms linked." },
-        { "kind": "image", "src": "assets/images/activities/jiujitsu/jiujitsu-02-IMG_0737.jpg", "w": 1350, "h": 1800, "caption": "Two athletes training together on the mat." }
+        { "kind": "image", "src": "assets/images/activities/jiujitsu/jiujitsu-01-E0086526-05B7-4190-ABFE-BFB72100A482.jpg", "w": 828, "h": 620 },
+        { "kind": "image", "src": "assets/images/activities/jiujitsu/jiujitsu-03-IMG_0743.jpg", "w": 1800, "h": 1350 },
+        { "kind": "image", "src": "assets/images/activities/jiujitsu/jiujitsu-02-IMG_0737.jpg", "w": 1350, "h": 1800 }
       ],
       rail: [
-        { "kind": "image", "src": "assets/images/activities/jiujitsu/jiujitsu-04-IMG_2595.jpg", "w": 1346, "h": 1800, "caption": "Training one-on-one with a black-belt partner." },
-        { "kind": "image", "src": "assets/images/activities/jiujitsu/jiujitsu-05-Screenshot 2026-09-05 040350.jpg", "w": 1204, "h": 1383, "caption": "A belt-promotion moment with two teammates." }
+        { "kind": "image", "src": "assets/images/activities/jiujitsu/jiujitsu-04-IMG_2595.jpg", "w": 1346, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/jiujitsu/jiujitsu-05-Screenshot 2026-09-05 040350.jpg", "w": 1204, "h": 1383 }
       ]
     },
     "activity:marshal": {
       gallery: [
-        { "kind": "image", "src": "assets/images/activities/marshal/marshal-02-IMG_3099.jpg", "w": 1350, "h": 1800, "caption": "Circuit overview with marshals visible on track and paddock tents behind." },
-        { "kind": "image", "src": "assets/images/activities/marshal/marshal-03-IMG_3105.jpg", "w": 1350, "h": 1800, "caption": "An elevated marshal post overlooking the track, safety barriers and equipment visible." },
-        { "kind": "image", "src": "assets/images/activities/marshal/marshal-04-IMG_3106.jpg", "w": 1800, "h": 1350, "caption": "Yas Marina Circuit’s distinctive white tented roof structure." },
-        { "kind": "image", "src": "assets/images/activities/marshal/marshal-06-IMG_3145.jpg", "w": 1350, "h": 1800, "caption": "A floodlit night circuit shot with dramatic lighting." },
-        { "kind": "image", "src": "assets/images/activities/marshal/marshal-07-IMG_3164.jpg", "w": 1350, "h": 1800, "caption": "Sunrise from an elevated marshal area overlooking the track." },
-        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-01.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-01.jpg", "w": 1280, "h": 720, "caption": "A racing car passing at speed during a night session, shot from trackside.", "note": "5 s · has audio" },
-        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-02.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-02.jpg", "w": 1280, "h": 1706, "caption": "A daytime circuit overview during a quiet moment between sessions.", "note": "2 s · has audio" },
-        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-03.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-03.jpg", "w": 1280, "h": 1708, "caption": "A daytime facility view during an event weekend.", "note": "2 s · has audio" },
-        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-04.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-04.jpg", "w": 1280, "h": 2276, "caption": "The circuit’s pavilion building overlooking the marshal operations area.", "note": "4 s · has audio" },
-        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-05.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-05.jpg", "w": 1280, "h": 2276, "caption": "A track curve in daylight with sponsor branding visible.", "note": "4 s · has audio" },
-        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-06.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-06.jpg", "w": 1280, "h": 2276, "caption": "A car cornering at speed during a night session, from a marshal post vantage point.", "note": "12 s · has audio" },
-        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-07.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-07.jpg", "w": 1280, "h": 720, "caption": "A night-time track overview from an elevated marshal station.", "note": "8 s · has audio" },
-        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-08.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-08.jpg", "w": 1280, "h": 2276, "caption": "An empty floodlit track segment during a quiet period.", "note": "13 s · has audio" },
-        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-09.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-09.jpg", "w": 1280, "h": 2276, "caption": "Multiple cars in motion during a night race, from a trackside marshal post.", "note": "3 s · has audio" },
-        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-10.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-10.jpg", "w": 1280, "h": 2276, "caption": "A night facility overview with the track fully floodlit.", "note": "4 s · has audio" },
-        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-11.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-11.jpg", "w": 1280, "h": 2276, "caption": "A night marshal post with equipment and safety barriers visible.", "note": "5 s · has audio" },
-        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-12.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-12.jpg", "w": 1280, "h": 2276, "caption": "An illuminated empty track during a practice session.", "note": "11 s · has audio" },
-        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-13.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-13.jpg", "w": 1280, "h": 2276, "caption": "A close trackside marshal post view at night.", "note": "5 s · has audio" }
+        { "kind": "image", "src": "assets/images/activities/marshal/marshal-02-IMG_3099.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/marshal/marshal-03-IMG_3105.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/marshal/marshal-04-IMG_3106.jpg", "w": 1800, "h": 1350 },
+        { "kind": "image", "src": "assets/images/activities/marshal/marshal-06-IMG_3145.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/marshal/marshal-07-IMG_3164.jpg", "w": 1350, "h": 1800 },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-01.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-01.jpg", "w": 1280, "h": 720 },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-02.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-02.jpg", "w": 1280, "h": 1706 },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-03.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-03.jpg", "w": 1280, "h": 1708 },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-04.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-04.jpg", "w": 1280, "h": 2276 },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-05.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-05.jpg", "w": 1280, "h": 2276 },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-06.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-06.jpg", "w": 1280, "h": 2276 },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-07.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-07.jpg", "w": 1280, "h": 720 },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-08.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-08.jpg", "w": 1280, "h": 2276 },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-09.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-09.jpg", "w": 1280, "h": 2276 },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-10.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-10.jpg", "w": 1280, "h": 2276 },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-11.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-11.jpg", "w": 1280, "h": 2276 },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-12.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-12.jpg", "w": 1280, "h": 2276 },
+        { "kind": "video", "src": "assets/videos/activities/marshal/marshal-13.mp4", "poster": "assets/images/video-posters/activities/marshal/marshal-13.jpg", "w": 1280, "h": 2276 }
       ],
       rail: [
-        { "kind": "image", "src": "assets/images/activities/marshal/marshal-01-IMG_3095.jpg", "w": 1350, "h": 1800, "caption": "A wide establishing shot of the circuit complex." },
-        { "kind": "image", "src": "assets/images/activities/marshal/marshal-05-IMG_3107.jpg", "w": 1800, "h": 743, "caption": "Track-level view of the safety barriers and facility infrastructure." },
-        { "kind": "image", "src": "assets/images/activities/marshal/marshal-09-IMG_3166.jpg", "w": 1350, "h": 1800, "caption": "Ground-level view of the track markings and circuit facilities." }
+        { "kind": "image", "src": "assets/images/activities/marshal/marshal-01-IMG_3095.jpg", "w": 1350, "h": 1800 },
+        { "kind": "image", "src": "assets/images/activities/marshal/marshal-05-IMG_3107.jpg", "w": 1800, "h": 743 },
+        { "kind": "image", "src": "assets/images/activities/marshal/marshal-09-IMG_3166.jpg", "w": 1350, "h": 1800 }
       ]
     }
   },

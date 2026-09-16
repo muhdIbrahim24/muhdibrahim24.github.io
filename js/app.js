@@ -732,7 +732,7 @@
     if (item.fit) tile.setAttribute('data-fit', item.fit);
     if (shape && shape.ratio) tile.style.setProperty('--tar', shape.ratio);
     tile.setAttribute('aria-label',
-      (item.kind === 'video' ? 'Play clip: ' : 'Enlarge photograph: ') + (item.caption || ''));
+      (item.kind === 'video' ? 'Play clip ' : 'Enlarge photograph ') + (index + 1));
     tile.setAttribute('data-cursor', item.kind === 'video' ? 'PLAY' : 'ENLARGE');
 
     var img = document.createElement('img');
@@ -895,7 +895,6 @@
   var mboxImage = $('#mediabox-image');
   var mboxVideo = $('#mediabox-video');
   var mboxCount = $('#mediabox-count');
-  var mboxCap   = $('#mediabox-caption');
   var mboxReturn = null;
   var mboxAt = 0;
 
@@ -940,13 +939,12 @@
       if (started && started.catch) started.catch(function () {});
     } else if (mboxImage) {
       mboxImage.src = item.src;
-      mboxImage.alt = item.caption || '';
+      mboxImage.alt = '';
       if (item.w) mboxImage.width = item.w;
       if (item.h) mboxImage.height = item.h;
       mboxImage.hidden = false;
     }
 
-    if (mboxCap) mboxCap.textContent = item.caption || '';
     if (mboxCount) mboxCount.textContent = (mboxAt + 1) + ' of ' + total;
 
     $('#mediabox-prev').hidden = !many;

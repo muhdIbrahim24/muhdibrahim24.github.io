@@ -1130,8 +1130,7 @@ body.is-locked #main { transition: transform var(--t-3) var(--e-out), filter var
 .lightbox-nav:hover, .lightbox-nav:focus-visible { color: var(--tx-1); border-color: var(--violet); }
 .lightbox-stage { position: relative; flex: 1; display: grid; place-items: center; background: var(--paper); padding: clamp(16px, 3vw, 40px); min-height: 0; }
 .lightbox-stage img { width: auto; height: auto; max-width: 100%; max-height: min(60vh, 800px); min-width: 0; min-height: 0; object-fit: contain; }
-.lightbox-meta, .mediabox-meta { padding: var(--s4) var(--s5); border-top: 1px solid var(--line); }
-.mediabox-meta { display: none; }
+.lightbox-meta { padding: var(--s4) var(--s5); border-top: 1px solid var(--line); }
 
 /* -- activity sheet: dark throughout, three-zone architecture kept */
 
