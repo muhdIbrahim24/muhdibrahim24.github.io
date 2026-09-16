@@ -607,16 +607,13 @@
      seconds are shown so a slower cadence is unobservable. */
 
   function clock() {
-    var targets = [document.getElementById('headClock'), document.getElementById('footClock')].filter(Boolean);
-    if (!targets.length) return;
+    var el = document.getElementById('headClock');
+    if (!el) return;
     var fmt;
     try {
       fmt = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', hour: '2-digit', minute: '2-digit' });
     } catch (e) { return; }
-    function tick() {
-      var text = fmt.format(new Date());
-      targets.forEach(function (el) { el.textContent = text; });
-    }
+    function tick() { el.textContent = fmt.format(new Date()); }
     tick();
     window.setInterval(tick, 30000);
   }

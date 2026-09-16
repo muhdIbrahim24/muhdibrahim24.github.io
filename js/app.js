@@ -1075,22 +1075,30 @@
       }, 30000);
     });
 
-    /* Only the frame that comes up next is warmed. Warming every frame in
-       every stack pulled roughly 1.2 MB of photographs that most visitors
-       never see: the rotation only advances every 30s, and each tick already
-       hydrates the frame after the one it is switching to, so from the first
-       tick onwards the stack stays one image ahead on its own. */
-    var warmFrames = function () {
-      bgStacks.forEach(function (stack) {
-        var imgs = $$('img', stack);
-        if (imgs.length > 1) hydrateFrame(imgs[1]);
-      });
+    /* Only the frame that comes up next is warmed, and only once its card
+       has actually been on screen. Warming every frame in every stack pulled
+       roughly 1.2 MB of photographs most visitors never see: the rotation
+       advances every 30s, and each tick already hydrates the frame after the
+       one it is switching to, so from the first tick the stack stays one
+       image ahead on its own. Waiting for the card to be seen means someone
+       who never scrolls past the hero fetches none of them at all. */
+    var warmStack = function (stack) {
+      var imgs = $$('img', stack);
+      if (imgs.length > 1) hydrateFrame(imgs[1]);
     };
-    var whenIdle = function () {
-      if (window.requestIdleCallback) window.requestIdleCallback(warmFrames, { timeout: 4000 });
-      else window.setTimeout(warmFrames, 1200);
-    };
-    if (document.readyState === 'complete') whenIdle();
-    else window.addEventListener('load', whenIdle, { once: true });
+    if ('IntersectionObserver' in window) {
+      var warmObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          warmObserver.unobserve(entry.target);
+          warmStack(entry.target);
+        });
+      }, { rootMargin: '200px' });
+      bgStacks.forEach(function (stack) { warmObserver.observe(stack); });
+    } else {
+      window.addEventListener('load', function () {
+        window.setTimeout(function () { bgStacks.forEach(warmStack); }, 1200);
+      }, { once: true });
+    }
   }
 }());

@@ -1,29 +1,44 @@
-# Muhammad Ibrahim — engineering portfolio
+# Muhammad Ibrahim, engineering portfolio
 
-Static site. No build step, no dependencies, no CDN. Open `index.html` directly
-or serve the folder with any static host.
+A static site. No build step, no framework, no package manager, and nothing
+loaded from a CDN. Open `index.html` directly, or serve the folder with any
+static host.
 
 ```
-index.html          all page markup — plain, hand-editable HTML
-css/styles.css      the whole design system, including the plate/cropping contract
-js/content.js       figure registry, case-notes copy, stock-plate fallbacks (plain data)
-js/app.js           nav, scroll reveal, case sheet + figure viewer, lightbox
-assets/fonts/       self-hosted Montserrat + Inter variable fonts (OFL)
-assets/images/      project figures and labelled stock placeholders
-.nojekyll           GitHub Pages: serve the tree as-is
+index.html              every bit of page markup, hand-edited
+cv.html                 the CV, shown as a rendered page image
+doc.html                the in-site PDF viewer, used by every source document
+css/styles.css          the whole design system, including the plate cropping contract
+js/content.js           records, figures and captions: plain data, no logic
+js/app.js               nav, record sheet, figure viewer, lightbox, activity sheet
+js/motion.js            scroll reveals, the hero field, the project shelf
+assets/fonts/           Inter variable, self-hosted, the only font file loaded
+assets/images/          full-size figures, with 760px companions under thumbs/
+assets/docs/            the source PDFs, opened through doc.html
+assets/vendor/pdfjs/    pdf.js, vendored so the viewer needs no network
+.nojekyll               GitHub Pages: serve the tree as it is
 ```
 
 ## Publishing
 
-Push to a GitHub Pages branch. Nothing else is required — all paths are
-relative.
+Push to the GitHub Pages branch. Every path in the site is relative, so
+nothing else is needed.
 
 ## Before publishing
 
-* Open at 320, 375, 768, 1024, 1280 and 1440px and confirm no horizontal scroll.
+* Open at 360, 430, 900, 1280 and 1440px and confirm the page never scrolls
+  sideways.
 * Open the console: it must be clean.
-* Exercise a case sheet, its figure viewer and the lightbox with the keyboard
-  alone (Tab, Enter, Escape, ← →). The arrow keys must only move figures while
-  a sheet or the lightbox is open.
-* See `DESIGN.md` for the design contract and `MEDIA_GUIDE.md` for how to add a
-  figure without breaking the cropping rules.
+* Work a project record, its figure viewer and the lightbox with the keyboard
+  alone (Tab, Enter, Escape, left and right arrows). The arrow keys must move
+  figures only while a record or the lightbox is open, and the project shelf
+  only while the shelf itself has focus.
+* Open one PDF through `doc.html` and confirm the first page draws.
+
+## Adding an image
+
+Put the full-size file under `assets/images/<section>/`, and a copy no more
+than 760px on its long edge at the same path under `assets/images/thumbs/`.
+`content.js` points at the full-size file; the thumbnail is found
+automatically. Set `w` and `h` to the file's real pixel size, or the page will
+shift as it loads.
