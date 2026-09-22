@@ -1335,7 +1335,7 @@ window.PORTFOLIO = Object.freeze({
       "w": 1280,
       "h": 1047,
       "alt": "Product photograph and specification of the Side-Power SMSPS90 hydraulic pump-motor unit.",
-      "caption": "The Side-Power SMSPS90 hydraulic pump-motor selected as the actuator: over 2,000 tons of force, chosen over pneumatic and electric alternatives for power density and marine reliability.",
+      "caption": "The Side-Power SMSPS90 hydraulic pump-motor selected as the actuator: over 2,000 tonnes of force, chosen over pneumatic and electric alternatives for power density and marine reliability.",
       "cite": "Mubadala Student Research Projects · 2024–25 · Approach",
       "group": "mubadala"
     },
