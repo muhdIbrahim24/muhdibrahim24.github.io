@@ -37,7 +37,8 @@ window.PORTFOLIO = Object.freeze({
                 "text": [
                       "The passive tank reduced roll amplitude from [[±0.075 rad]] to approximately [[±0.01 rad]], an [[85%]] reduction.",
                       "Steady state was reached after approximately [[2,000 seconds]].",
-                      "Closing the loop with the hydraulic actuator reduced roll below [[0.0016 rad]], exceeding a [[98%]] reduction."
+                      "Closing the loop with the hydraulic actuator reduced roll below [[0.0016 rad]], exceeding a [[98%]] reduction.",
+                      "Roll decay time fell [[33%]] with the passive tank and [[62%]] with active control."
                 ]
           }
     ],
@@ -153,7 +154,7 @@ window.PORTFOLIO = Object.freeze({
           {
                 "label": "Approach",
                 "text": [
-                      "Sized members by SAP2000 finite-element analysis to ACI 318.",
+                      "Sized members by SAP2000 finite-element analysis to [[ACI 318]], with the column grid set to a factored axial load of [[792.6 kN]] per column.",
                       "Extracted Revit parameters through Dynamo and ran Revit interference checks."
                 ]
           },
@@ -181,13 +182,14 @@ window.PORTFOLIO = Object.freeze({
                 "label": "Brief",
                 "text": [
                       "Develop a 3D-printed fixed-wing UAV with a detachable nose.",
-                      "Incorporate a release concept for a smaller multirotor payload."
+                      "Incorporate a release concept for a [[600 g]] multirotor daughter craft."
                 ]
           },
           {
                 "label": "Contribution",
                 "text": [
                       "Owned the airframe, structure and material selection on a [[two-person]] project.",
+                      "Built the powertrain as a [[six-part]] assembly.",
                       "Electronics were handled by the collaborator."
                 ]
           },
@@ -202,7 +204,8 @@ window.PORTFOLIO = Object.freeze({
                 "label": "Outcome",
                 "text": [
                       "Reduced all-up airframe mass from [[2,500 g]] to [[1,500 g]], a [[40%]] reduction.",
-                      "The completed prototype has a [[1,130 mm]] wingspan."
+                      "The completed prototype has a [[1,130 mm]] wingspan.",
+                      "The release mechanism is sized for a [[600 g]] daughter craft, to be confirmed in flight testing."
                 ]
           }
     ],
@@ -232,16 +235,16 @@ window.PORTFOLIO = Object.freeze({
           {
                 "label": "Approach",
                 "text": [
-                      "Drove dual TEC modules in parallel from a [[12 V]] supply at approximately [[9.7 A]].",
+                      "Drove dual TEC modules in parallel from a [[12 V]] supply at approximately [[9.7 A]], drawing [[96 to 108 W]] under test.",
                       "Used DS18B20 sensing with PWM-driven MOSFET switching and CPU-cooler heatsink and fan stacks on both faces.",
-                      "Provided an OLED and rotary-encoder interface for setpoint and duty-cycle adjustment."
+                      "Provided an OLED and rotary-encoder interface for setpoint and duty-cycle adjustment.",
+                      "Held the setpoint within the [[±0.5°C]] accuracy of the sensor with closed-loop PID on Arduino."
                 ]
           },
           {
                 "label": "Outcome",
                 "text": [
-                      "Over a [[180-minute]] test the cabin cooled from a [[27°C]] ambient start to a stable [[10°C]].",
-                      "Thermal equilibrium was reached after approximately [[120 minutes]].",
+                      "The cabin cooled from a [[27°C]] ambient start to a stable [[10°C]] in [[24 minutes]].",
                       "Frost formed on the cold-side heatsink throughout the test."
                 ]
           }
@@ -712,11 +715,11 @@ window.PORTFOLIO = Object.freeze({
     "kicker": "May 2026 – Jul 2026",
     "title": "Graduate Intern",
     "org": "Center for Stability, Instability and Turbulence (SITE)",
-    "summary": "Solo 2D free-surface study building a model-training dataset across 60 trials.",
+    "summary": "Solo 2D free-surface study building a model-training dataset across 60 trials at four angles of attack, in six weeks.",
     "details": [
           {
                 "label": "Context",
-                "text": "Extended free-surface prediction beyond the tested range in Python and MATLAB."
+                "text": "Tripled the model's valid range to [[45°]] from a [[15°]] dataset in Python and MATLAB, saving [[50+]] further tunnel runs."
           }
     ],
     "evidence": ""
@@ -730,7 +733,7 @@ window.PORTFOLIO = Object.freeze({
     "details": [
           {
                 "label": "Context",
-                "text": "Manufactured carbon-fibre and fibreglass parts for three capstone teams."
+                "text": "Raised part strength [[50%]] over plain printed filament, delivering [[8 parts]] to [[three]] capstone teams and rejecting [[15]] before assembly."
           }
     ],
     "evidence": ""
@@ -744,7 +747,7 @@ window.PORTFOLIO = Object.freeze({
     "details": [
           {
                 "label": "Context",
-                "text": "Co-developed water-tunnel models that triggered boundary-layer separation."
+                "text": "Co-developed [[5]] water-tunnel model variants that triggered boundary-layer separation in [[every run]]."
           }
     ],
     "evidence": ""
@@ -758,7 +761,7 @@ window.PORTFOLIO = Object.freeze({
     "details": [
           {
                 "label": "Context",
-                "text": "Presented the propulsion findings to a 25-member Hyundai NGV panel."
+                "text": "Won Hyundai NGV recognition and a grant, presenting propulsion findings to a [[25-member]] panel."
           }
     ],
     "evidence": ""
@@ -829,7 +832,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 794,
       "alt": "Site view of the four-storey 5th Corner residential building set in landscaped grounds, with planting and paving around its footprint.",
       "caption": "5th Corner’s 928 m² footprint in its landscape setting: a four-storey residential building designed for the UAE’s hot arid climate, with green space, landscape integration and careful site placement.",
-      "cite": "Civil Engineering Design Project · Fall 2025 · Setup",
+      "cite": "Civil Engineering Design Project · Autumn 2025 · Setup",
       "group": "civil"
     },
     {
@@ -838,7 +841,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 1281,
       "alt": "Coloured architectural floor plan on a lettered and numbered grid, with bedrooms, reception, dining, kitchen, bathrooms, lobby and maid’s quarters labelled.",
       "caption": "Architectural floor plan showing the functional layout across the grid (A–D, rows 1–5): master and guest bedrooms, reception, dining, kitchen, bathrooms, entrance lobby and maid’s quarters, reflecting coordinated programme planning and circulation.",
-      "cite": "Civil Engineering Design Project · Fall 2025 · Approach",
+      "cite": "Civil Engineering Design Project · Autumn 2025 · Approach",
       "group": "civil"
     },
     {
@@ -847,7 +850,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 1282,
       "alt": "Structural plan drawing of columns at grid intersections with beams drawn between them, no architectural walls shown.",
       "caption": "Structural plan showing the column–beam grid: columns at the grid intersections, beams spanning between them, coordinated with the architectural layout as the basis for load distribution across all four storeys.",
-      "cite": "Civil Engineering Design Project · Fall 2025 · Approach",
+      "cite": "Civil Engineering Design Project · Autumn 2025 · Approach",
       "group": "civil"
     },
     {
@@ -856,7 +859,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 840,
       "alt": "SAP2000 finite-element shell mesh of a floor slab, with column and beam supports marked at the grid points.",
       "caption": "SAP2000 shell-element mesh of the floor slab with its column and beam supports, used to calculate the design actions: 180 kN maximum column reaction, 63.3 kN·m beam moment and 31.5 kN·m/m slab moment on the main span.",
-      "cite": "Civil Engineering Design Project · Fall 2025",
+      "cite": "Civil Engineering Design Project · Autumn 2025",
       "group": "civil"
     },
     {
@@ -865,7 +868,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 820,
       "alt": "Dynamo visual-programming graph of connected nodes reading Revit column parameters and exporting them to an Excel file.",
       "caption": "Dynamo graph extracting structural column parameters straight from the Revit model and writing them to Excel, automating the schedule and removing manual copy-paste error from the take-off.",
-      "cite": "Civil Engineering Design Project · Fall 2025",
+      "cite": "Civil Engineering Design Project · Autumn 2025",
       "group": "civil"
     },
     {
@@ -874,7 +877,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 609,
       "alt": "Chart breaking embodied carbon down by construction type, with exterior masonry walls the largest share at 46 per cent.",
       "caption": "Embodied carbon by construction type: 300 mm masonry exterior walls dominate at 46% (about 117 tCO₂e), concrete floors and slabs 24%, interior partitions 11%, for a total intensity of 273 kgCO₂e/m², at the low end of the 300–600 kgCO₂e/m² target range.",
-      "cite": "Civil Engineering Design Project · Fall 2025",
+      "cite": "Civil Engineering Design Project · Autumn 2025",
       "group": "civil"
     },
     {
@@ -883,7 +886,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 1500,
       "alt": "Exterior render of the finished residential building: light masonry façade, regular windows, balconies with metal railings and a flat parapet roof.",
       "caption": "The completed exterior elevation: clean façade planes in light masonry, regular window openings, a flat roof with parapet, metal balcony railings and integrated landscaping, a design responsive to desert climate and regional context.",
-      "cite": "Civil Engineering Design Project · Fall 2025 · Outcome",
+      "cite": "Civil Engineering Design Project · Autumn 2025 · Outcome",
       "group": "civil"
     },
     {
@@ -892,7 +895,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 1315,
       "alt": "Render of a balcony with metal railings and a sliding glass door, looking out over planting on the site.",
       "caption": "A balcony showing the transition from interior to landscape: concrete structure, metal railings, a sliding glass door and a view out to the planted site beyond.",
-      "cite": "Civil Engineering Design Project · Fall 2025 · Outcome",
+      "cite": "Civil Engineering Design Project · Autumn 2025 · Outcome",
       "group": "civil"
     },
     {
@@ -901,7 +904,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 823,
       "alt": "Isometric render of the whole building on its landscaped site, seen from above at an angle.",
       "caption": "Isometric view of the building on its landscape context, confirming the coherence of the architectural, structural and environmental design intent.",
-      "cite": "Civil Engineering Design Project · Fall 2025 · Outcome",
+      "cite": "Civil Engineering Design Project · Autumn 2025 · Outcome",
       "group": "civil"
     },
     {
@@ -910,7 +913,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 1208,
       "alt": "Dusk exterior render of the building's street-facing corner, with a sweeping timber-slat canopy wrapping the upper balconies above a perforated brick-lattice podium, EV charging bays and cycle parking on the street below.",
       "caption": "The street-facing corner at dusk: a sweeping timber-slat canopy wraps the upper balconies above a perforated brick-lattice podium, with EV charging bays, cycle parking and ground-floor seating integrated at street level.",
-      "cite": "Civil Engineering Design Project · Fall 2025 · Outcome",
+      "cite": "Civil Engineering Design Project · Autumn 2025 · Outcome",
       "group": "civil"
     },
     {
@@ -919,7 +922,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 878,
       "alt": "Aerial daytime render of the building on its waterfront site, showing the full perforated brick-lattice facade, rooftop terrace and landscaped grounds running down to the water's edge.",
       "caption": "An aerial view of the building on its waterfront site, showing the perforated brick-lattice facade, rooftop terrace and the landscaped grounds running down to the water's edge.",
-      "cite": "Civil Engineering Design Project · Fall 2025 · Outcome",
+      "cite": "Civil Engineering Design Project · Autumn 2025 · Outcome",
       "group": "civil"
     },
     {
@@ -1018,7 +1021,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 637,
       "alt": "Plan of the five by four metre room showing a metal cabinet, the desk target region and four numbered candidate transmitter positions.",
       "caption": "The 5 m × 4 m room domain, with a metal cabinet, the desk target region and four candidate transmitter positions marked.",
-      "cite": "Partial Differential Equations Project · Fall 2025 · Setup",
+      "cite": "Partial Differential Equations Project · Autumn 2025 · Setup",
       "group": "pde"
     },
     {
@@ -1027,7 +1030,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 509,
       "alt": "Normalised field map for the idealised free-space case, with a smooth radial field and no interference pattern.",
       "caption": "Idealised free-space reference: with no reflections and no obstacles a router reaches 67.5% desk coverage, the theoretical upper bound.",
-      "cite": "Partial Differential Equations Project · Fall 2025 · Approach",
+      "cite": "Partial Differential Equations Project · Autumn 2025 · Approach",
       "group": "pde"
     },
     {
@@ -1036,7 +1039,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 807,
       "alt": "Grid of four normalised field maps, one per transmitter position, each showing pronounced standing-wave interference from fully reflective walls.",
       "caption": "Field coverage at all four positions with fully reflective walls: strong standing-wave interference patterns, with every position clustering around 72–76% coverage.",
-      "cite": "Partial Differential Equations Project · Fall 2025",
+      "cite": "Partial Differential Equations Project · Autumn 2025",
       "group": "pde"
     },
     {
@@ -1045,7 +1048,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 487,
       "alt": "Bar chart of desk coverage for the four transmitter positions under reflective walls, with all four bars at a similar height.",
       "caption": "Desk coverage under fully reflective walls: all four positions perform almost identically at roughly 72–76%, since reflections redistribute energy regardless of placement.",
-      "cite": "Partial Differential Equations Project · Fall 2025",
+      "cite": "Partial Differential Equations Project · Autumn 2025",
       "group": "pde"
     },
     {
@@ -1054,7 +1057,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 660,
       "alt": "Grid of four normalised field maps under partially absorbing walls, smoother than the reflective case and visibly weaker away from the source.",
       "caption": "Field coverage under partially absorbing, realistic walls: coverage now ranges from 3.1% to 39.8% depending on transmitter position.",
-      "cite": "Partial Differential Equations Project · Fall 2025",
+      "cite": "Partial Differential Equations Project · Autumn 2025",
       "group": "pde"
     },
     {
@@ -1063,7 +1066,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 532,
       "alt": "Bar chart of desk coverage for the four transmitter positions under absorbing walls, one bar far taller than the rest.",
       "caption": "Desk coverage under absorbing walls: the central position (Pos 2) is the clear winner at 39.8%, against as little as 3.1% in a corner.",
-      "cite": "Partial Differential Equations Project · Fall 2025 · Outcome",
+      "cite": "Partial Differential Equations Project · Autumn 2025 · Outcome",
       "group": "pde"
     },
     {
@@ -1072,7 +1075,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 410,
       "alt": "Grouped bar chart comparing absorbing and reflective wall coverage at each transmitter position, using a five per cent field threshold.",
       "caption": "Coverage compared at a relaxed 5% field threshold: absorbing-wall coverage rises at every position, but reflective walls still dominate.",
-      "cite": "Partial Differential Equations Project · Fall 2025",
+      "cite": "Partial Differential Equations Project · Autumn 2025",
       "group": "pde"
     },
     {
@@ -1081,7 +1084,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 452,
       "alt": "Grouped bar chart comparing absorbing and reflective wall coverage at each transmitter position, using a ten per cent field threshold.",
       "caption": "Coverage compared at the stricter 10% threshold: absorbing walls substantially underperform reflective walls except at the optimal central position.",
-      "cite": "Partial Differential Equations Project · Fall 2025",
+      "cite": "Partial Differential Equations Project · Autumn 2025",
       "group": "pde"
     },
     {
@@ -1090,7 +1093,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 509,
       "alt": "Normalised field map for the selected central transmitter position under partially absorbing boundaries, with the strongest field across the desk region.",
       "caption": "The recommended placement, Position 2 at (2.5 m, 2.0 m), with its full field map: the best realistic coverage under absorbing-wall conditions.",
-      "cite": "Partial Differential Equations Project · Fall 2025 · Outcome",
+      "cite": "Partial Differential Equations Project · Autumn 2025 · Outcome",
       "group": "pde"
     },
     {
@@ -1099,7 +1102,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 594,
       "alt": "Two histograms side by side, one of daily temperature and one of total daily bike rentals, in their original units.",
       "caption": "Raw distributions of daily temperature, spanning 2.4 to 35.3 degrees Celsius across 731 days, and of total bike rentals (22–8,714 trips), before any transformation.",
-      "cite": "Data Analysis Project · Fall 2025 · Setup",
+      "cite": "Data Analysis Project · Autumn 2025 · Setup",
       "group": "pca"
     },
     {
@@ -1108,7 +1111,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 594,
       "alt": "Two histograms of the same variables after standardisation, both centred on zero with similar spread.",
       "caption": "Standardised z-score distributions after centring and scaling: both variables now symmetric around zero with comparable spread.",
-      "cite": "Data Analysis Project · Fall 2025 · Approach",
+      "cite": "Data Analysis Project · Autumn 2025 · Approach",
       "group": "pca"
     },
     {
@@ -1117,7 +1120,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 1011,
       "alt": "Scatter plot of daily temperature against total bike rentals, sloping upward with wide scatter.",
       "caption": "Raw temperature against total rentals across 731 days: a clear positive trend with substantial day-to-day scatter.",
-      "cite": "Data Analysis Project · Fall 2025",
+      "cite": "Data Analysis Project · Autumn 2025",
       "group": "pca"
     },
     {
@@ -1126,7 +1129,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 1011,
       "alt": "Scatter plot of the standardised variables, centred on the origin with an elongated diagonal cloud.",
       "caption": "Standardised temperature against standardised rentals: the same positive trend, now centred at the origin with a dominant diagonal direction (PC1).",
-      "cite": "Data Analysis Project · Fall 2025",
+      "cite": "Data Analysis Project · Autumn 2025",
       "group": "pca"
     },
     {
@@ -1135,7 +1138,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 657,
       "alt": "Plot of the two eigenvalues under both covariance estimators, the first far larger than the second.",
       "caption": "Eigenvalues under the unbiased and biased covariance estimators: λ₁ = 1.6275 (81.37% of variance) and λ₂ = 0.3725 (18.63%), confirming Bessel’s correction scales eigenvalues uniformly without changing their directions.",
-      "cite": "Data Analysis Project · Fall 2025 · Approach",
+      "cite": "Data Analysis Project · Autumn 2025 · Approach",
       "group": "pca"
     },
     {
@@ -1144,7 +1147,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 657,
       "alt": "Plot of the principal-component loading vectors for temperature and rentals on the first two components.",
       "caption": "PC1 and PC2 loadings for temperature and rentals: equal loadings of 0.7071 on PC1 show both variables contribute equally to the dominant mode.",
-      "cite": "Data Analysis Project · Fall 2025 · Approach",
+      "cite": "Data Analysis Project · Autumn 2025 · Approach",
       "group": "pca"
     },
     {
@@ -1153,7 +1156,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 1011,
       "alt": "Scatter plot of principal-component scores for 731 days, stretched out along the first component axis.",
       "caption": "PCA scores for all 731 days: an elongated scatter along PC1 that cleanly separates warm, high-rental days from cold, low-rental days.",
-      "cite": "Data Analysis Project · Fall 2025 · Outcome",
+      "cite": "Data Analysis Project · Autumn 2025 · Outcome",
       "group": "pca"
     },
     {
@@ -1162,7 +1165,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 1215,
       "alt": "Scree plot of explained variance by component, with a threshold line at eighty per cent crossed by the first component alone.",
       "caption": "Scree plot showing PC1 explains 81.37% of the variance, comfortably past the 80% threshold and justifying a single principal component (k = 1).",
-      "cite": "Data Analysis Project · Fall 2025 · Outcome",
+      "cite": "Data Analysis Project · Autumn 2025 · Outcome",
       "group": "pca"
     },
     {
@@ -1171,7 +1174,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 1261,
       "alt": "Line plot of the variance explained by the first principal component against sample size, flattening out after roughly two hundred days.",
       "caption": "Stability of PC1’s explained variance as the sample grows from 30 to 731 days: the roughly 81% split settles after about 200 days.",
-      "cite": "Data Analysis Project · Fall 2025 · Validation",
+      "cite": "Data Analysis Project · Autumn 2025 · Validation",
       "group": "pca"
     },
     {
@@ -1179,8 +1182,8 @@ window.PORTFOLIO = Object.freeze({
       "w": 1063,
       "h": 1171,
       "alt": "Panel of convergence plots for the sample mean, the covariance entries and the leading eigenvalue against increasing sample size.",
-      "caption": "Convergence of the sample mean, covariance and leading eigenvalue toward their population values as the sample grows: the eigenvalue settles at 1.6275 after about 600 days.",
-      "cite": "Data Analysis Project · Fall 2025 · Validation",
+      "caption": "Convergence of the sample mean, covariance and leading eigenvalue towards their population values as the sample grows: the eigenvalue settles at 1.6275 after about 600 days.",
+      "cite": "Data Analysis Project · Autumn 2025 · Validation",
       "group": "pca"
     },
     {
@@ -1313,7 +1316,7 @@ window.PORTFOLIO = Object.freeze({
       "src": "assets/images/projects/mubadala/passive-long-term-settling.png",
       "w": 847,
       "h": 688,
-      "alt": "Long-duration plot of ship roll decaying toward steady state over several thousand seconds.",
+      "alt": "Long-duration plot of ship roll decaying towards steady state over several thousand seconds.",
       "caption": "Long-term passive performance: roll decays and settles to steady state after roughly 2,000 seconds, with settling time tunable through tank damping.",
       "cite": "Mubadala Student Research Projects · 2024–25",
       "group": "mubadala"
@@ -1378,7 +1381,7 @@ window.PORTFOLIO = Object.freeze({
       "w": 1800,
       "h": 910,
       "alt": "Time-series plot with transmembrane pressure hovering around 60 to 70 bar in a saw-tooth pattern from routine backwashing, and permeate SDI fluctuating between 1.0 and 2.8 against a 3.0 limit line, with four vertical dashed lines at years 7, 14, 21 and 28 marking module replacements.",
-      "caption": "Predicted ultrafiltration transmembrane pressure and permeate SDI over 30 years. Scheduled UF module replacements at years 7, 14, 21 and 28 reset both traces; permeate SDI stays below the manufacturer's limit of 3.0 throughout.",
+      "caption": "Predicted ultrafiltration transmembrane pressure and permeate SDI over 30 years. Scheduled UF module replacements at years 7, 14, 21 and 28 reset both traces. Permeate SDI stays below the manufacturer's limit of 3.0 throughout.",
       "cite": "SWRO Pretreatment Design · Spring 2026",
       "group": "swro"
     },
@@ -1396,7 +1399,7 @@ window.PORTFOLIO = Object.freeze({
       "w": 1800,
       "h": 1371,
       "alt": "Four stacked area charts over ten years: energy cost dominating at 1,200 to 2,000 USD per month with seasonal swings, chemical cost flat at 34 to 42 USD per month, fixed cost stepping up from 150 USD per month, and failure and repair cost as thin erratic spikes.",
-      "caption": "Monthly operating expenditure by category over the first ten years. Energy dominates the operating budget, driven by higher pump duty in summer; chemical, fixed and failure costs are comparatively small and stable.",
+      "caption": "Monthly operating expenditure by category over the first ten years. Energy dominates the operating budget, driven by higher pump duty in summer. Chemical, fixed and failure costs are comparatively small and stable.",
       "cite": "SWRO Pretreatment Design · Spring 2026",
       "group": "swro"
     },
@@ -1404,8 +1407,8 @@ window.PORTFOLIO = Object.freeze({
       "src": "assets/images/projects/swro/cumulative-pretreatment-cost.png",
       "w": 1800,
       "h": 1100,
-      "alt": "Two curves on one plot: a solid nominal-cost curve reaching about 1.1 billion USD by year 30, and a dashed curve discounted at 6 percent per year reaching about 450 million USD, both accelerating at years 7, 14, 21 and 28.",
-      "caption": "Cumulative pretreatment system cost over the 30-year plant life. The nominal curve reaches roughly 1.1 billion USD by year 30; discounted at a 6% real rate, the same cost stream is worth about 450 million USD in present terms.",
+      "alt": "Two curves on one plot: a solid nominal-cost curve reaching about 1.1 billion USD by year 30, and a dashed curve discounted at 6 per cent per year reaching about 450 million USD, both accelerating at years 7, 14, 21 and 28.",
+      "caption": "Cumulative pretreatment system cost over the 30-year plant life. The nominal curve reaches roughly 1.1 billion USD by year 30. Discounted at a 6% real rate, the same cost stream is worth about 450 million USD in present terms.",
       "cite": "SWRO Pretreatment Design · Spring 2026 · Outcome",
       "group": "swro"
     },
@@ -1413,8 +1416,8 @@ window.PORTFOLIO = Object.freeze({
       "src": "assets/images/projects/swro/equipment-reliability-weibull.png",
       "w": 1800,
       "h": 856,
-      "alt": "Left panel: logarithmic plot of cumulative failure counts over 30 years for six equipment classes, ultrafiltration modules climbing highest. Right panel: Weibull survival curves showing percent of equipment still operating over time, DAF saturators declining slowest and UF modules declining sharpest after year 7.",
-      "caption": "Equipment reliability modelled by Weibull statistics for six asset classes. Ultrafiltration modules accumulate the most failure events (a large installed population of 640 elements, not 640 failed units) and show the sharpest reliability decline; DAF saturators last longest, with a median life near 15 years.",
+      "alt": "Left panel: logarithmic plot of cumulative failure counts over 30 years for six equipment classes, ultrafiltration modules climbing highest. Right panel: Weibull survival curves showing the percentage of equipment still operating over time, DAF saturators declining slowest and UF modules declining sharpest after year 7.",
+      "caption": "Equipment reliability modelled by Weibull statistics for six asset classes. Ultrafiltration modules accumulate the most failure events (a large installed population of 640 elements, not 640 failed units) and show the sharpest reliability decline. DAF saturators last longest, with a median life near 15 years.",
       "cite": "SWRO Pretreatment Design · Spring 2026 · Outcome",
       "group": "swro"
     },
@@ -1422,8 +1425,8 @@ window.PORTFOLIO = Object.freeze({
       "src": "assets/images/projects/swro/energy-demand-and-price-trend.png",
       "w": 1800,
       "h": 894,
-      "alt": "Dual-axis time series over 30 years: energy consumption rising from about 1.5 to 2.3 MWh per month with strong seasonal swings, and electricity price rising from about 8 to 19 cents per kWh with 3 percent annual escalation assumed.",
-      "caption": "Monthly energy consumption and electricity price over 30 years. Consumption rises with progressive pump wear and fouling; combined with a modelled 3% annual price escalation, annual energy cost grows roughly threefold over the plant's life.",
+      "alt": "Dual-axis time series over 30 years: energy consumption rising from about 1.5 to 2.3 MWh per month with strong seasonal swings, and electricity price rising from about 8 to 19 cents per kWh with 3 per cent annual escalation assumed.",
+      "caption": "Monthly energy consumption and electricity price over 30 years. Consumption rises with progressive pump wear and fouling. Combined with a modelled 3% annual price escalation, annual energy cost grows roughly threefold over the plant's life.",
       "cite": "SWRO Pretreatment Design · Spring 2026 · Outcome",
       "group": "swro"
     },
@@ -1441,7 +1444,7 @@ window.PORTFOLIO = Object.freeze({
       "w": 1800,
       "h": 936,
       "alt": "Stacked bar chart of 30 annual bars: energy as the largest component, with purple spikes at years 7, 14, 21 and 28 from major ultrafiltration membrane replacements and at years 10 and 20 from dual-media filter media replacement.",
-      "caption": "Annual operating and capital-replacement cost over 30 years. Baseline years run roughly 20,000 to 23,000 USD per year; replacement years spike to 40,000 to 62,000 USD per year for UF membrane and DMF media replacement.",
+      "caption": "Annual operating and capital-replacement cost over 30 years. Baseline years run roughly 20,000 to 23,000 USD per year. Replacement years spike to 40,000 to 62,000 USD per year for UF membrane and DMF media replacement.",
       "cite": "SWRO Pretreatment Design · Spring 2026 · Outcome",
       "group": "swro"
     },
@@ -1530,7 +1533,7 @@ window.PORTFOLIO = Object.freeze({
       "src": "assets/images/projects/golf-putter/design-3-prototype.jpg",
       "w": 1650,
       "h": 1250,
-      "alt": "Photograph of a black putter head on a cardboard surface with two silver magnets visible on its underside, one toward the heel and one toward the toe.",
+      "alt": "Photograph of a black putter head on a cardboard surface with two silver magnets visible on its underside, one towards the heel and one towards the toe.",
       "caption": "Final putter head with the dual-magnet retention system: pockets on both the heel and toe sides hold the modular weight assemblies in reliable alignment during the stroke.",
       "cite": "Golf Putter Design Project · Spring 2025 · Approach",
       "group": "golf-putter"
@@ -1621,7 +1624,7 @@ window.PORTFOLIO = Object.freeze({
       "w": 1336,
       "h": 825,
       "alt": "Line graph with two curves showing von Mises stress increasing with load factor. The ABS curve crosses a 44 MPa dashed threshold at a load factor of 0.70, while the aluminium curve remains below the safety threshold across the full range.",
-      "caption": "An 80-step finite-element load sweep comparing ABS and Aluminium 1060: the ABS pin yields first, at a load factor of 0.70, confirming it as an intentional sacrificial component; the aluminium rail stays within safe limits across the full range.",
+      "caption": "An 80-step finite-element load sweep comparing ABS and Aluminium 1060: the ABS pin yields first, at a load factor of 0.70, confirming it as an intentional sacrificial component. The aluminium rail stays within safe limits across the full range.",
       "cite": "LinkConnect Cable Management System · Spring 2026 · Outcome",
       "group": "cable-management"
     },
@@ -1630,7 +1633,7 @@ window.PORTFOLIO = Object.freeze({
       "w": 1168,
       "h": 612,
       "alt": "Two colour-mapped thermal results side by side: the ABS plate on the left shows a sharp central hotspot from 30 to 120 degrees C, while the aluminium plate on the right shows a flatter distribution from 25 to 70 degrees C.",
-      "caption": "Spatial temperature distribution under a 100 W steady-state load. Perforations reduce the ABS plate's peak temperature from 95.5°C to 59.5°C by increasing effective cooling surface by 129%; aluminium's higher conductivity gives an even flatter profile.",
+      "caption": "Spatial temperature distribution under a 100 W steady-state load. Perforations reduce the ABS plate's peak temperature from 95.5°C to 59.5°C by increasing effective cooling surface by 129%. Aluminium's higher conductivity gives an even flatter profile.",
       "cite": "LinkConnect Cable Management System · Spring 2026 · Outcome",
       "group": "cable-management"
     },
@@ -1649,7 +1652,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 885,
       "alt": "Wireframe and colour-mapped finite-element model showing stress concentration at the base connection points, with a stress legend from 9.156e-05 to 7.291e+05 N per square metre and supporting data tables.",
       "caption": "Von Mises stress across the backrest and support assembly under a 750 N applied load: a maximum stress of 0.729 MPa and a resulting maximum displacement of 0.01787 mm, both far below the material's yield point.",
-      "cite": "Advanced Motorised Wheelchair FEA · Fall 2023",
+      "cite": "Advanced Motorised Wheelchair FEA · Autumn 2023",
       "group": "wheelchair"
     },
     {
@@ -1658,7 +1661,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 811,
       "alt": "Colour-mapped 3D model of the backrest structure showing displacement magnitude from blue at no deformation to red at maximum deformation near the top.",
       "caption": "Backrest displacement under the 750 N test load: maximum displacement of 0.01787 mm, concentrated at the top of the backrest structure.",
-      "cite": "Advanced Motorised Wheelchair FEA · Fall 2023",
+      "cite": "Advanced Motorised Wheelchair FEA · Autumn 2023",
       "group": "wheelchair"
     },
     {
@@ -1667,7 +1670,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 690,
       "alt": "Colour-mapped backrest model showing equivalent strain magnitude from blue at minimum strain to red at maximum strain, with a legend ranging from 1.539e-10 to 2.019e-06.",
       "caption": "Equivalent strain distribution on the backrest under the 750 N load, concentrated in the support regions and well within the elastic range of Alloy Steel SS.",
-      "cite": "Advanced Motorised Wheelchair FEA · Fall 2023",
+      "cite": "Advanced Motorised Wheelchair FEA · Autumn 2023",
       "group": "wheelchair"
     },
     {
@@ -1676,7 +1679,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 693,
       "alt": "Table showing mesh information for the backrest finite-element study, including mesh type, element sizes, quality metrics and aspect-ratio statistics.",
       "caption": "The backrest finite-element mesh: a blended curvature-based solid mesh with 32,155 nodes and 17,660 elements, high quality throughout with 0% distorted elements.",
-      "cite": "Advanced Motorised Wheelchair FEA · Fall 2023 · Approach",
+      "cite": "Advanced Motorised Wheelchair FEA · Autumn 2023 · Approach",
       "group": "wheelchair"
     },
     {
@@ -1685,7 +1688,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 415,
       "alt": "Table and 3D model images showing load-application points highlighted in blue and fixed-geometry constraint points on the backrest and linking structure.",
       "caption": "Boundary conditions for the backrest study: gravity plus a 750 N normal force applied across 148 faces, reacted through a fixed constraint at the pin locations.",
-      "cite": "Advanced Motorised Wheelchair FEA · Fall 2023 · Approach",
+      "cite": "Advanced Motorised Wheelchair FEA · Autumn 2023 · Approach",
       "group": "wheelchair"
     },
     {
@@ -1694,7 +1697,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 466,
       "alt": "3D model showing load-application areas highlighted in magenta for gravity and cyan for the normal force on the backrest faces.",
       "caption": "Applied loads for the backrest analysis: gravity and a 750 N normal force distributed across the backrest's contact surface.",
-      "cite": "Advanced Motorised Wheelchair FEA · Fall 2023 · Approach",
+      "cite": "Advanced Motorised Wheelchair FEA · Autumn 2023 · Approach",
       "group": "wheelchair"
     },
     {
@@ -1703,7 +1706,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 633,
       "alt": "Colour-mapped 3D model of the seat structure showing displacement magnitude from blue at fixed regions to red at maximum deformation near the seat edges.",
       "caption": "Seat-buckling displacement under the 750 N load: a maximum displacement of 0.0009305 mm, concentrated at the seat-platform edges.",
-      "cite": "Advanced Motorised Wheelchair FEA · Fall 2023",
+      "cite": "Advanced Motorised Wheelchair FEA · Autumn 2023",
       "group": "wheelchair"
     },
     {
@@ -1712,7 +1715,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 265,
       "alt": "3D model with the load-application area highlighted in cyan on the seat's top surface, showing a 750 N normal-force vector.",
       "caption": "Applied load for the seat-buckling analysis: a 750 N normal force distributed across the seat platform's top surface.",
-      "cite": "Advanced Motorised Wheelchair FEA · Fall 2023 · Approach",
+      "cite": "Advanced Motorised Wheelchair FEA · Autumn 2023 · Approach",
       "group": "wheelchair"
     },
     {
@@ -1721,7 +1724,7 @@ window.PORTFOLIO = Object.freeze({
       "h": 1027,
       "alt": "Table showing multiple fixture constraints on the seat-assembly model and the resulting reaction-force magnitudes at each constraint point.",
       "caption": "Boundary conditions and reaction forces for the seat-buckling study: three fixed constraints distribute the 750 N load, with the largest reaction (594.8 N) at the backrest attachment.",
-      "cite": "Advanced Motorised Wheelchair FEA · Fall 2023 · Approach",
+      "cite": "Advanced Motorised Wheelchair FEA · Autumn 2023 · Approach",
       "group": "wheelchair"
     },
     {
@@ -1941,11 +1944,11 @@ window.PORTFOLIO = Object.freeze({
   },
   /* Photographs and clips for each activity, split into the two lanes the
      activity sheet renders: a mixed gallery in the middle and an images-only
-     rail down the left. Every path is a real file on disk; every clip keeps
+     rail down the left. Every path is a real file on disk. Every clip keeps
      its audio track. */
   activityMedia: {
     /* Experience photo galleries: infrastructure only for now. Each key
-       exists so its "View photos" card opens correctly; the arrays fill in
+       exists so its "View photos" card opens correctly. The arrays fill in
        once photographs from that role are supplied. */
     "experience:graduate-intern": {
       gallery: [
