@@ -235,7 +235,7 @@ window.PORTFOLIO = Object.freeze({
           {
                 "label": "Approach",
                 "text": [
-                      "Drove dual TEC modules in parallel from a [[12 V]] supply at approximately [[9.7 A]], drawing [[96 to 108 W]] under test.",
+                      "Drove dual TEC modules in parallel from a [[12 V]] supply at approximately [[9.7 A]], drawing about [[116 W]].",
                       "Used DS18B20 sensing with PWM-driven MOSFET switching and CPU-cooler heatsink and fan stacks on both faces.",
                       "Provided an OLED and rotary-encoder interface for setpoint and duty-cycle adjustment.",
                       "Held the setpoint within the [[±0.5°C]] accuracy of the sensor with closed-loop PID on Arduino."
@@ -700,7 +700,7 @@ window.PORTFOLIO = Object.freeze({
     "kind": "Activity",
     "kicker": "Feb 2019 – Dec 2025",
     "title": "Chief Track Marshal",
-    "org": "Emirates Motorsports Organisation, Yas Marina Circuit and Dubai Autodrome",
+    "org": "Emirates Motorsports Organization, Yas Marina Circuit and Dubai Autodrome",
     "summary": "Trackside safety operations at motorsport events.",
     "details": [
       {
@@ -761,7 +761,7 @@ window.PORTFOLIO = Object.freeze({
     "details": [
           {
                 "label": "Context",
-                "text": "Won Hyundai NGV recognition and a grant, presenting propulsion findings to a [[25-member]] panel."
+                "text": "Presented propulsion findings to a [[25-member]] Hyundai NGV panel in South Korea."
           }
     ],
     "evidence": ""
@@ -1624,7 +1624,7 @@ window.PORTFOLIO = Object.freeze({
       "w": 1336,
       "h": 825,
       "alt": "Line graph with two curves showing von Mises stress increasing with load factor. The ABS curve crosses a 44 MPa dashed threshold at a load factor of 0.70, while the aluminium curve remains below the safety threshold across the full range.",
-      "caption": "An 80-step finite-element load sweep comparing ABS and Aluminium 1060: the ABS pin yields first, at a load factor of 0.70, confirming it as an intentional sacrificial component. The aluminium rail stays within safe limits across the full range.",
+      "caption": "An 80-step finite-element load sweep comparing ABS and Aluminium 6061: the ABS pin yields first, at a load factor of 0.70, confirming it as an intentional sacrificial component. The aluminium rail stays within safe limits across the full range.",
       "cite": "LinkConnect Cable Management System · Spring 2026 · Outcome",
       "group": "cable-management"
     },
