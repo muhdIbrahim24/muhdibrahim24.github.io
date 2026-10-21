@@ -19,7 +19,7 @@ window.PORTFOLIO = Object.freeze({
           {
                 "label": "Contribution",
                 "text": [
-                      "Credited as Design on a team of [[eight]] with [[four]] supervisors.",
+                      "Design lead on a team of [[eight]] with [[four]] supervisors.",
                       "Owned mechanical design and system integration of the tank structure, including SolidWorks models of tank volumes from [[200 to 800 m³]].",
                       "Presented the design to the Mubadala committee with partner laboratories. Control-law and simulation work was shared across the team."
                 ]
@@ -94,7 +94,7 @@ window.PORTFOLIO = Object.freeze({
   "project:02": {
     "kind": "Project 11",
     "kicker": "Energy systems",
-    "title": "Savonius Turbine for Traffic Wind Energy Harvesting",
+    "title": "Traffic-Powered Savonius Wind Turbine",
     "org": "",
     "summary": "A vertical-axis turbine designed to harvest the vortices thrown off traffic moving in opposite directions either side of a central reservation. Optimised in ANSYS Fluent, then built and measured at 1:3 scale.",
     "details": [
@@ -123,7 +123,7 @@ window.PORTFOLIO = Object.freeze({
                 "label": "Outcome",
                 "text": [
                       "In CFD the serrated rotor achieved a [[71.65%]] higher peak moment and a [[56.33%]] power increase over the non-serrated baseline.",
-                      "On the bench the prototype self-started within [[2 to 5 seconds]] and peaked at [[5 to 7 V]]. Roadside it held approximately [[2.67 V]] with spikes to [[10 V]] as vehicles passed.",
+                      "In roadside testing the prototype self-started within [[2 to 5 seconds]], holding approximately [[2.67 V]] with spikes to [[10 V]] as vehicles passed. On the bench it peaked at [[5 to 7 V]].",
                       "Full-scale output is projected at [[3 to 15 W]] at [[5 to 6 m/s]]."
                 ]
           }
@@ -154,7 +154,7 @@ window.PORTFOLIO = Object.freeze({
           {
                 "label": "Approach",
                 "text": [
-                      "Sized members by SAP2000 finite-element analysis to [[ACI 318]], with the column grid set to a factored axial load of [[792.6 kN]] per column.",
+                      "Sized members by SAP2000 finite-element analysis to [[ACI 318]], with the column grid set to a factored axial load of [[793 kN]] per column.",
                       "Extracted Revit parameters through Dynamo and ran Revit interference checks."
                 ]
           },
@@ -493,6 +493,7 @@ window.PORTFOLIO = Object.freeze({
                 "label": "Outcome",
                 "text": [
                       "Delivered the conclusions to a [[25-member]] international industry panel.",
+                      "The assessment earned Hyundai NGV industry recognition and a grant, which funded Urban Air Mobility propulsion work at the Energy and Propulsion Lab.",
                       "The output was an assessment document rather than an experimental result."
                 ]
           }
@@ -676,7 +677,7 @@ window.PORTFOLIO = Object.freeze({
   "activity:cricket": {
     "kind": "Activity",
     "kicker": "Nov 2023 – Sep 2024",
-    "title": "Cricket Team Media",
+    "title": "Team Videographer",
     "org": "NYU Abu Dhabi Cricket Team",
     "summary": "Match photography and video across a full season.",
     "details": [
@@ -719,7 +720,7 @@ window.PORTFOLIO = Object.freeze({
     "details": [
           {
                 "label": "Context",
-                "text": "Tripled the model's valid range to [[45°]] from a [[15°]] dataset in Python and MATLAB, saving [[50+]] further tunnel runs."
+                "text": "Tripled the model's valid range to [[45°]] from a [[15°]] dataset in Python and MATLAB, saving an estimated [[50+]] further tunnel runs."
           }
     ],
     "evidence": ""
@@ -741,7 +742,7 @@ window.PORTFOLIO = Object.freeze({
   "experience:research-assistant-site": {
     "kind": "Experience",
     "kicker": "Apr 2023 – May 2026",
-    "title": "Research Assistant",
+    "title": "Undergraduate Research Assistant",
     "org": "Center for Stability, Instability and Turbulence (SITE)",
     "summary": "Tested 130+ Rayleigh–Taylor and Richtmyer–Meshkov cases in a two-person water-tunnel study.",
     "details": [
@@ -755,13 +756,13 @@ window.PORTFOLIO = Object.freeze({
   "experience:research-assistant-propulsion": {
     "kind": "Experience",
     "kicker": "Nov 2022 – Nov 2023",
-    "title": "Research Assistant",
+    "title": "Undergraduate Research Assistant",
     "org": "Energy and Propulsion Lab",
     "summary": "Modelled compressible flow on HPC clusters for AeroFarms growing-tower ventilation scenarios.",
     "details": [
           {
                 "label": "Context",
-                "text": "Presented propulsion findings to a [[25-member]] Hyundai NGV panel in South Korea."
+                "text": "Carried out Urban Air Mobility propulsion work funded by the Hyundai NGV grant won with the quantum computing assessment."
           }
     ],
     "evidence": ""
