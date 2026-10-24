@@ -843,7 +843,7 @@
       var head = document.createElement('h3');
       head.textContent = block.label;
       var text = document.createElement('p');
-      text.textContent = block.text;
+      writeMarked(text, block.text);
       wrap.appendChild(head);
       wrap.appendChild(text);
       notes.appendChild(wrap);
