@@ -479,7 +479,7 @@ window.PORTFOLIO = Object.freeze({
                 "label": "Contribution",
                 "text": [
                       "Investigated implementation strategies and technical feasibility.",
-                      "Presented the conclusions to an international Hyundai NGV panel in South Korea."
+                      "Produced the assessment document and poster for the sponsor."
                 ]
           },
           {
@@ -492,7 +492,7 @@ window.PORTFOLIO = Object.freeze({
           {
                 "label": "Outcome",
                 "text": [
-                      "Delivered the conclusions to a [[25-member]] international industry panel.",
+                      "The conclusions were presented to a [[25-member]] international Hyundai NGV panel in South Korea.",
                       "The assessment earned Hyundai NGV industry recognition and a grant, which funded Urban Air Mobility propulsion work at the Energy and Propulsion Lab.",
                       "The output was an assessment document rather than an experimental result."
                 ]
@@ -713,51 +713,51 @@ window.PORTFOLIO = Object.freeze({
   },
   "experience:graduate-intern": {
     "kind": "Experience",
-    "kicker": "May 2026 – Jul 2026",
-    "title": "Graduate Intern",
-    "org": "Center for Stability, Instability and Turbulence (SITE)",
-    "summary": "Solo 2D free-surface study building a model-training dataset across 60 trials at four angles of attack, in six weeks.",
+    "kicker": "May 2026 – Jul 2026 · New York, USA",
+    "title": "Data Analytics Intern",
+    "org": "Center for Stability, Instability and Turbulence, NYU",
+    "summary": "Characterised free-surface deformation over a submerged aerofoil through 60 independently planned 2D water-channel trials across four angles of attack, in six weeks.",
     "details": [
           {
                 "label": "Context",
-                "text": "Tripled the model's valid range to [[45°]] from a [[15°]] dataset in Python and MATLAB, saving an estimated [[50+]] further tunnel runs."
+                "text": "Extended the predictive range from [[15°]] to [[45°]] using dimensional analysis, Python, MATLAB and machine learning, cutting estimated project time by [[40%]], avoiding [[50+]] tunnel runs and saving [[40+ hours]] of testing per week."
           }
     ],
     "evidence": ""
   },
   "experience:workshop-technician": {
     "kind": "Experience",
-    "kicker": "Sep 2025 – May 2026",
-    "title": "Workshop Technician",
-    "org": "Advanced Manufacturing Workshop",
-    "summary": "Manufactured polymer and composite parts and supported capstone teams in the Advanced Manufacturing Workshop.",
+    "kicker": "Sep 2025 – May 2026 · Abu Dhabi, UAE",
+    "title": "Manufacturing and Prototyping Technician",
+    "org": "Advanced Manufacturing Workshop, NYU",
+    "summary": "Cut FDM print failures from 50% to 10% over 70+ print hours using fabric enclosures and filament-specific settings.",
     "details": [
           {
                 "label": "Context",
-                "text": "Raised part strength [[50%]] over plain printed filament, delivering [[8 parts]] to [[three]] capstone teams and rejecting [[15]] before assembly."
+                "text": "Delivered [[eight]] load-bearing components on schedule for [[three]] capstone teams, including a bio-inspired robotic arm, using FEA and calliper inspections to reject [[15]] defective prints before assembly. Composite reinforcement increased printed-part strength by [[50%]]."
           }
     ],
     "evidence": ""
   },
   "experience:research-assistant-site": {
     "kind": "Experience",
-    "kicker": "Apr 2023 – May 2026",
-    "title": "Undergraduate Research Assistant",
-    "org": "Center for Stability, Instability and Turbulence (SITE)",
-    "summary": "Tested 130+ Rayleigh–Taylor and Richtmyer–Meshkov cases in a two-person water-tunnel study.",
+    "kicker": "Apr 2023 – May 2026 · Abu Dhabi, UAE",
+    "title": "Research Assistant",
+    "org": "Center for Stability, Instability and Turbulence, NYU",
+    "summary": "Recreated the Rayleigh–Taylor and Richtmyer–Meshkov instabilities across 130+ experimental cases with a research partner, contributing data to a co-authored paper now under peer review at the Journal of Fluid Mechanics.",
     "details": [
           {
                 "label": "Context",
-                "text": "Co-developed [[5]] water-tunnel model variants that triggered boundary-layer separation in [[every run]]."
+                "text": "Achieved boundary-layer separation in [[100%]] of water-tunnel runs, validating [[five]] SolidWorks-designed aerofoil and cylinder models and establishing repeatable conditions for experimental testing. Identified flow rate and cylinder diameter as key drivers of downstream wake instability through dye-injection flow visualisation."
           }
     ],
     "evidence": ""
   },
   "experience:research-assistant-propulsion": {
     "kind": "Experience",
-    "kicker": "Nov 2022 – Nov 2023",
-    "title": "Undergraduate Research Assistant",
-    "org": "Energy and Propulsion Lab",
+    "kicker": "Nov 2022 – Nov 2023 · Abu Dhabi, UAE",
+    "title": "Research Assistant",
+    "org": "Energy and Propulsion Lab, NYU",
     "summary": "Modelled compressible flow on HPC clusters for AeroFarms growing-tower ventilation scenarios.",
     "details": [
           {
