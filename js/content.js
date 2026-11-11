@@ -784,7 +784,7 @@ window.PORTFOLIO = Object.freeze({
       },
       {
         "label": "Result",
-        "text": "Major GPA 3.60 out of 4.00, equivalent to a UK 2:1."
+        "text": "Major GPA 3.60 out of 4.00 (2:1)."
       }
     ],
     "evidence": ""
@@ -802,7 +802,7 @@ window.PORTFOLIO = Object.freeze({
       },
       {
         "label": "Result",
-        "text": "Term GPA 3.70 out of 4.00."
+        "text": "Term GPA 3.70 out of 4.00 (1st Class Honours)."
       }
     ],
     "evidence": ""
@@ -820,7 +820,7 @@ window.PORTFOLIO = Object.freeze({
       },
       {
         "label": "Result",
-        "text": "Term GPA 4.00 out of 4.00."
+        "text": "Term GPA 4.00 out of 4.00 (1st Class Honours)."
       }
     ],
     "evidence": ""
